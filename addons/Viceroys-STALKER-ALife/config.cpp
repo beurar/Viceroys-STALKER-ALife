@@ -19,7 +19,7 @@ class CfgFunctions
         class Core
         {
             file = "functions/core";
-            class masterInit{};
+            class masterInit { preInit = 1; };
             class registerEmissionHooks{};
         };
 
