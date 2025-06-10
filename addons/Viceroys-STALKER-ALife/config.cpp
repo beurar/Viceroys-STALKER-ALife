@@ -4,7 +4,7 @@ class CfgPatches
     {
         units[] = {};
         weapons[] = {};
-        requiredAddons[] = {"A3_Functions_F"};
+        requiredAddons[] = {"A3_Functions_F", "CBA_Extended_EventHandlers", "cba_main"};
     };
 };
 
