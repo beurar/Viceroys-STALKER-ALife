@@ -1,1 +1,20 @@
-// functions/anomalies/fields/fn_createField_clicker.sqf stub
+/*
+    Creates a clicker anomaly field.
+    Params:
+        0: POSITION or OBJECT - search center
+        1: NUMBER - search radius
+        2: NUMBER (optional) - anomaly count (default 5)
+    Returns: ARRAY - spawned anomalies
+*/
+params ["_center","_radius", ["_count",5]];
+
+private _site = [_center,_radius] call VSTKR_fnc_findSite_clicker;
+if (_site isEqualTo []) exitWith { [] };
+
+private _spawned = [];
+for "_i" from 1 to _count do {
+    private _pos = _site getPos [random 10, random 360];
+    private _anom = [_pos, "clicker"] call diwako_anomalies_fnc_spawnAnomaly;
+    _spawned pushBack _anom;
+};
+_spawned
