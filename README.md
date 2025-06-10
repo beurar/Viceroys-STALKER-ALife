@@ -1,6 +1,6 @@
 # Viceroy's STALKER ALife
 
-This project implements a dynamic **ALife** system inspired by the S.T.A.L.K.E.R. series. It is designed for our top‑down 2.5D steampunk world and provides a living Zone filled with dangers and events. The scripts are structured to run inside Arma 3 using common mod dependencies.
+This project implements a dynamic **ALife** system inspired by the S.T.A.L.K.E.R. series. It is designed to provide a living Zone filled with dangers and events. The scripts are structured to run inside Arma 3 using common mod dependencies.
 
 ## Purpose
 
@@ -48,6 +48,9 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
    * [CBA A3](https://github.com/CBATeam/CBA_A3)
    * [Diwako’s Anomalies](https://github.com/diwako/Anomaly)
    * [WebKnight’s Zombies & Demons](https://steamcommunity.com/sharedfiles/filedetails/?id=2378964543)
+   * [Drongo’s Spooks and Anomalies](https://steamcommunity.com/sharedfiles/filedetails/?id=2262255106)
+   * [Healthy Stalker Mutants](https://steamcommunity.com/sharedfiles/filedetails/?id=3105717594)
+   * [Healthy Stalker Items](https://steamcommunity.com/sharedfiles/filedetails/?id=3105592413)
 3. Place `initServer.sqf` in your mission or call `VCAL_fnc_masterInit` from your own init script.
 4. Review `cba_settings.sqf` for adjustable options.
 
