@@ -18,7 +18,8 @@ private _markerName = format ["anom_springboard_%1", diag_tickTime];
 private _marker = createMarker [_markerName, _site];
 _marker setMarkerShape "ELLIPSE";
 _marker setMarkerSize [10,10];
-_marker setMarkerColor "ColorOrange";
+// Springboard markers use khaki for visibility
+_marker setMarkerColor "ColorKhaki";
 _marker setMarkerText "Springboard 10m";
 STALKER_anomalyMarkers pushBack _marker;
 

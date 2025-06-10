@@ -18,7 +18,8 @@ private _markerName = format ["anom_whirligig_%1", diag_tickTime];
 private _marker = createMarker [_markerName, _site];
 _marker setMarkerShape "ELLIPSE";
 _marker setMarkerSize [10,10];
-_marker setMarkerColor "ColorOrange";
+// Whirligig fields are marked with white
+_marker setMarkerColor "ColorWhite";
 _marker setMarkerText "Whirligig 10m";
 STALKER_anomalyMarkers pushBack _marker;
 
