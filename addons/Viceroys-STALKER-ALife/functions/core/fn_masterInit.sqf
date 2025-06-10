@@ -6,7 +6,7 @@
 
 // --- CBA Settings -----------------------------------------------------------
 private _root = "\Viceroys-STALKER-ALife";
-private _settings = _root + "\\cba_settings.sqf";
+private _settings = _root + "\cba_settings.sqf";
 if (fileExists _settings) then {
     call compile preprocessFileLineNumbers _settings;
 };
