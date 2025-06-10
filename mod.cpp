@@ -1,0 +1,12 @@
+name = "Viceroy's STALKER ALife";
+picture = "logo.paa";
+logo = "logo.paa";
+logoOver = "logo.paa";
+logoSmall = "Icon.paa";
+tooltip = "VIC STALKER ALife";
+actionName = "Website";
+action = "https://github.com/Viceroyman";
+description = "Dynamic ALife system for S.T.A.L.K.E.R.-style missions.";
+dir = "Viceroys-STALKER-ALife";
+hideName = 0;
+hidePicture = 0;

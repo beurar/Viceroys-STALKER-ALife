@@ -82,7 +82,7 @@ These mods must be loaded for the scripts in this repository to function correct
 ## Branding
 
 The repository ships with `logo.paa` as the main logo and `Icon.paa` for smaller
-launcher displays. These images are referenced in `config.cpp` so that Arma 3
+launcher displays. These images are referenced in `mod.cpp` so that Arma 3
 shows the mod's branding in the launcher and in-game menus.
 
 ## License
