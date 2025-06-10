@@ -19,7 +19,9 @@ if (["VSA_aiNightOnly", false] call CBA_fnc_getSetting && {daytime > 5 && daytim
 
 {
     private _unit = _x;
-    if (!alive _unit) exitWith {};
+    if (!alive _unit) then {
+        continue;
+    };
 
     // Restore saved behaviour and combat mode
     if (!isNil { _unit getVariable "vsa_savedBehaviour" }) then {
