@@ -4,16 +4,16 @@
     handler and kicks off emission related hooks.
 */
 
-if (!isServer) exitWith {};
-
-["masterInit"] call VIC_fnc_debugLog;
-
 // --- CBA Settings -----------------------------------------------------------
 ["preInit", {
     if (fileExists "cba_settings.sqf") then {
         call compile preprocessFileLineNumbers "cba_settings.sqf";
     };
 }] call CBA_fnc_addEventHandler;
+
+if (!isServer) exitWith {};
+
+["masterInit"] call VIC_fnc_debugLog;
 
 // --- Function Registration -------------------------------------------------
 ["preInit", {
