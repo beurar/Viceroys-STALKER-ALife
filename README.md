@@ -79,6 +79,12 @@ Mission makers can tweak or remove individual systems as needed. Most features a
 
 These mods must be loaded for the scripts in this repository to function correctly.
 
+## Branding
+
+The repository ships with `logo.paa` as the main logo and `Icon.paa` for smaller
+launcher displays. These images are referenced in `mod.cpp` so that Arma 3
+shows the mod's branding in the launcher and in-game menus.
+
 ## License
 
 This project is licensed under the **Arma Public License Share Alike (APL-SA)**.
