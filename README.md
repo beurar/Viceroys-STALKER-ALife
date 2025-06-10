@@ -1,2 +1,1 @@
-# Viceroys-STALKER-ALife
-
+// README.md placeholder

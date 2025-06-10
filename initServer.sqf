@@ -1,0 +1,1 @@
+// initServer.sqf placeholder
