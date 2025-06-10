@@ -1,6 +1,6 @@
 // initServer.sqf
 // Launch master initialization on the dedicated server
-[] execVM "\\Viceroys-STALKER-ALife\\addons\\Viceroys-STALKER-ALife\\functions\\core\\fn_masterInit.sqf";
+[] execVM "\Viceroys-STALKER-ALife\addons\Viceroys-STALKER-ALife\functions\core\fn_masterInit.sqf";
 // Server initialization for STALKER ALife
 
 // Spook zone configuration
@@ -12,5 +12,5 @@ STALKER_AnomalyFieldDuration = 30; // minutes anomaly fields persist
 drg_activeSpookZones = [];
 
 // Prepare spook zone locations
-[] call compile preprocessFileLineNumbers "\\Viceroys-STALKER-ALife\\addons\\Viceroys-STALKER-ALife\\functions\\spooks\\fn_setupSpookZones.sqf";
+[] call compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\addons\Viceroys-STALKER-ALife\functions\spooks\fn_setupSpookZones.sqf";
 

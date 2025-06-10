@@ -131,6 +131,6 @@ class Extended_PreInit_EventHandlers
 {
     class VIC_StalkerALife_PreInit
     {
-        init = "call compile preprocessFileLineNumbers '\\Viceroys-STALKER-ALife\\addons\\Viceroys-STALKER-ALife\\functions\\core\\fn_masterInit.sqf'";
+        init = "call compile preprocessFileLineNumbers '\Viceroys-STALKER-ALife\addons\Viceroys-STALKER-ALife\functions\core\fn_masterInit.sqf'";
     };
 };
