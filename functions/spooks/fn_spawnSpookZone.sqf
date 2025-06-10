@@ -33,11 +33,25 @@ for "_i" from 1 to _count do {
         private _zone = createTrigger ["EmptyDetector", _pos];
         _zone setTriggerArea [25,25,0,false];
         _zone setVariable ["isSpookZone", true];
+
+        // Create a map marker so the zone is visible for debugging or admin use
+        private _markerName = format ["spook_%1", diag_tickTime];
+        private _marker = createMarker [_markerName, _pos];
+        _marker setMarkerShape "ELLIPSE";
+        _marker setMarkerSize [25,25];
+        _marker setMarkerColor "ColorBlack";
+        _marker setMarkerText "Spook 25m";
+
+        // Store the marker reference on the zone for later cleanup
+        _zone setVariable ["zoneMarker", _marker];
+
         drg_activeSpookZones pushBack _zone;
         [_zone, _duration] spawn {
             params ["_zone","_dur"];
             sleep (_dur * 60);
             if (!isNull _zone) then {
+                private _m = _zone getVariable ["zoneMarker", ""];
+                if (_m isNotEqualTo "") then { deleteMarker _m; };
                 deleteVehicle _zone;
             };
         };
