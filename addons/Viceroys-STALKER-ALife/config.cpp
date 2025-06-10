@@ -26,7 +26,7 @@ class CfgFunctions
 
         class Core
         {
-            file = "functions/core";
+            file = "Viceroys-STALKER-ALife\functions\core";
             class masterInit{};
             class registerEmissionHooks{};
             class hasPlayersNearby{};
@@ -34,14 +34,14 @@ class CfgFunctions
 
         class AI
         {
-            file = "functions/ai";
+            file = "Viceroys-STALKER-ALife\functions\ai";
             class resetAIBehavior{};
             class triggerAIPanic{};
         };
 
         class Panic
         {
-            file = "functions/panic";
+            file = "Viceroys-STALKER-ALife\functions\panic";
             class onEmissionBuildUp{};
             class onEmissionStart{};
             class onEmissionEnd{};
@@ -49,7 +49,7 @@ class CfgFunctions
 
         class Mutants
         {
-            file = "functions/mutants";
+            file = "Viceroys-STALKER-ALife\functions\mutants";
             class spawnAmbientHerds{};
             class spawnMutantGroup{};
             class setupMutantHabitats{};
@@ -59,7 +59,7 @@ class CfgFunctions
 
         class Radiation
         {
-            file = "functions/radiation";
+            file = "Viceroys-STALKER-ALife\functions\radiation";
             class cleanupRadiationZones{};
             class spawnRadiationZone{};
             class spawnRandomRadiationZones{};
@@ -69,21 +69,21 @@ class CfgFunctions
 
         class Spooks
         {
-            file = "functions/spooks";
+            file = "Viceroys-STALKER-ALife\functions\spooks";
             class setupSpookZones{};
             class spawnSpookZone{};
         };
 
         class Storms
         {
-            file = "functions/storms";
+            file = "Viceroys-STALKER-ALife\functions\storms";
             class schedulePsyStorms{};
             class triggerPsyStorm{};
         };
 
         class Zombification
         {
-            file = "functions/zombification";
+            file = "Viceroys-STALKER-ALife\functions\zombification";
             class spawnZombiesFromQueue{};
             class trackDeadForZombify{};
             class onEmissionEnd{};
@@ -91,7 +91,7 @@ class CfgFunctions
 
         class Anomalies
         {
-            file = "functions/anomalies";
+            file = "Viceroys-STALKER-ALife\functions\anomalies";
             class spawnAllAnomalyFields{};
             class cleanupAnomalyMarkers{};
             class onEmissionBuildUp{};
@@ -101,7 +101,7 @@ class CfgFunctions
 
         class AnomalyFields
         {
-            file = "functions/anomalies/fields";
+            file = "Viceroys-STALKER-ALife\functions\anomalies\fields";
             class createField_burner{};
             class createField_clicker{};
             class createField_electra{};
@@ -114,7 +114,7 @@ class CfgFunctions
 
         class AnomalyFindSites
         {
-            file = "functions/anomalies/find_sites";
+            file = "Viceroys-STALKER-ALife\functions\anomalies\find_sites";
             class findSite_burner{};
             class findSite_clicker{};
             class findSite_electra{};
@@ -131,6 +131,6 @@ class Extended_PreInit_EventHandlers
 {
     class VIC_StalkerALife_PreInit
     {
-        init = "call compile preprocessFileLineNumbers '\Viceroys-STALKER-ALife\addons\Viceroys-STALKER-ALife\functions\core\fn_masterInit.sqf'";
+        init = "call compile preprocessFileLineNumbers '\Viceroys-STALKER-ALife\functions\core\fn_masterInit.sqf'";
     };
 };
