@@ -53,6 +53,15 @@ missionNamespace setVariable ["emission_active", false];
         [] call mutants_fnc_onEmissionEnd;
         [] call radiation_fnc_onEmissionEnd;
         [] call zombification_fnc_onEmissionEnd;
+
+        // remove old radiation zones and spawn new ones
+        [true] call VIC_fnc_cleanupRadiationZones;
+
+        private _radius = ["VSA_emissionRadiationRadius", 300] call CBA_fnc_getSetting;
+        private _count  = ["VSA_emissionRadiationCount", 2] call CBA_fnc_getSetting;
+        {
+            [_x, _radius, _count, -1] call VIC_fnc_spawnRandomRadiationZones;
+        } forEach allPlayers;
     }
 ] call CBA_fnc_addEventHandler;
 

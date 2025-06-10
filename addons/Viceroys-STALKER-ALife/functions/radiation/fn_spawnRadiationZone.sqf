@@ -13,7 +13,8 @@
 
 params [
     ["_position", [0,0,0]],
-    ["_radius", 50]
+    ["_radius", 50],
+    ["_duration", -1]
 ];
 
 ["spawnRadiationZone"] call VIC_fnc_debugLog;
@@ -23,11 +24,13 @@ if (isNil "STALKER_radiationZones") then {
     STALKER_radiationZones = [];
 };
 
-// Fallback to fifteen minutes if the mission maker has not set a value
-private _duration = missionNamespace getVariable [
-    "STALKER_radiationZoneDuration",
-    900
-];
+if (_duration < 0) then {
+    // Fallback to fifteen minutes if the mission maker has not set a value
+    _duration = missionNamespace getVariable [
+        "STALKER_radiationZoneDuration",
+        900
+    ];
+};
 
 // Spawn the zone using Chemical Warfare Plus. The mod is expected to
 // provide `CWP_fnc_createZone` which returns a zone handle that can be
@@ -49,7 +52,7 @@ _marker setMarkerText format ["Radiation %1m", _radius];
 STALKER_radiationZones pushBack [
     _zoneHandle,
     _marker,
-    diag_tickTime + _duration
+    (_duration >= 0) ? (diag_tickTime + _duration) : -1
 ];
 
 _zoneHandle

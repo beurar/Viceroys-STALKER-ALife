@@ -7,6 +7,9 @@
     that runs after emissions.
 */
 
+
+params [["_force", false]];
+
 ["cleanupRadiationZones"] call VIC_fnc_debugLog;
 
 if (isNil "STALKER_radiationZones") exitWith {};
@@ -19,7 +22,7 @@ for [{_i = (count STALKER_radiationZones) - 1}, {_i >= 0}, {_i = _i - 1}] do {
     private _marker = _entry select 1;
     private _expires = _entry select 2;
 
-    if (_now > _expires) then {
+    if (_force || { _expires >= 0 && _now > _expires }) then {
         // Delete the zone using the Chemical Warfare Plus function
         [_zoneHandle] call CWP_fnc_removeZone;
 

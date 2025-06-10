@@ -11,6 +11,10 @@
     true
 ] call CBA_fnc_addSetting;
 
+
+
+
+
 /*
     cba_settings.sqf
     Registers addon options for Viceroys STALKER ALife.
@@ -94,6 +98,22 @@
     ["Night Time Only", "Radiation zones only appear at night"],
     "Viceroy's STALKER ALife - Radiation",
     false
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_emissionRadiationCount",
+    "SLIDER",
+    ["Zones After Emission", "Radiation zones spawned after an emission"],
+    "VSA - Radiation",
+    [2, 0, 10, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_emissionRadiationRadius",
+    "SLIDER",
+    ["Emission Radiation Radius", "Search radius around players for emission zones"],
+    "VSA - Radiation",
+    [300, 50, 2000, 0]
 ] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
