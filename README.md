@@ -51,6 +51,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
    * [Drongo’s Spooks and Anomalies](https://steamcommunity.com/sharedfiles/filedetails/?id=2262255106)
    * [Healthy Stalker Mutants](https://steamcommunity.com/sharedfiles/filedetails/?id=3105717594)
    * [Healthy Stalker Items](https://steamcommunity.com/sharedfiles/filedetails/?id=3105592413)
+   * [Chemical Warfare Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3295358796)
 3. Place `initServer.sqf` in your mission or call `VCAL_fnc_masterInit` from your own init script.
 4. Review `cba_settings.sqf` for adjustable options.
 
