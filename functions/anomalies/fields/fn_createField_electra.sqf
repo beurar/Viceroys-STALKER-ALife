@@ -8,7 +8,7 @@
 */
 params ["_center","_radius", ["_count",5]];
 
-private _site = [_center,_radius] call VSTKR_fnc_findSite_electra;
+private _site = [_center,_radius] call VIC_fnc_findSite_electra;
 if (_site isEqualTo []) exitWith { [] };
 
 private _spawned = [];

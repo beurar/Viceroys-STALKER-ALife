@@ -53,16 +53,16 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
    * [Healthy Stalker Items](https://steamcommunity.com/sharedfiles/filedetails/?id=3105592413)
    * [Chemical Warfare Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3295358796)
    * [KJW's Radiate](https://steamcommunity.com/sharedfiles/filedetails/?id=2917867026)
-3. Place `initServer.sqf` in your mission or call `VCAL_fnc_masterInit` from your own init script.
+3. Place `initServer.sqf` in your mission or call `VIC_fnc_masterInit` from your own init script.
 4. Review `cba_settings.sqf` for adjustable options.
 
 ## Usage
 
 All functions are contained under the `functions` directory and follow the `TAG_fnc_functionName` convention. Key entry points include:
 
-* **VCAL_fnc_masterInit** – Initializes all subsystems.
-* **VCAL_fnc_registerEmissionHooks** – Adds mission-specific callbacks for storm events.
-* **VCAL_fnc_spawnAllAnomalyFields** – Places anomaly fields across the map.
+* **VIC_fnc_masterInit** – Initializes all subsystems.
+* **VIC_fnc_registerEmissionHooks** – Adds mission-specific callbacks for storm events.
+* **VIC_fnc_spawnAllAnomalyFields** – Places anomaly fields across the map.
 
 Mission makers can tweak or remove individual systems as needed. Most features are script-only and do not require placing special modules in the editor, though some settings may be exposed through CBA.
 

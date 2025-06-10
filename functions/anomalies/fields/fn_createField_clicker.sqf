@@ -8,7 +8,7 @@
 */
 params ["_center","_radius", ["_count",5]];
 
-private _site = [_center,_radius] call VSTKR_fnc_findSite_clicker;
+private _site = [_center,_radius] call VIC_fnc_findSite_clicker;
 if (_site isEqualTo []) exitWith { [] };
 
 private _spawned = [];

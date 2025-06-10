@@ -37,14 +37,14 @@ if (_maxDelay < _minDelay) then { _maxDelay = _minDelay; };
         if (_var != "" && { missionNamespace getVariable [_var, false] }) then {
             missionNamespace setVariable [_var, false, true];
             if (random 100 < _weight && { !(_night && daytime > 5 && daytime < 20) }) then {
-                [] call AL_fnc_triggerPsyStorm;
+                [] call VIC_fnc_triggerPsyStorm;
             };
             _nextStorm = time + (_min + random (_max - _min));
         };
 
         if (time >= _nextStorm) then {
             if (random 100 < _weight && { !(_night && daytime > 5 && daytime < 20) }) then {
-                [] call AL_fnc_triggerPsyStorm;
+                [] call VIC_fnc_triggerPsyStorm;
             };
             _nextStorm = time + (_min + random (_max - _min));
         };

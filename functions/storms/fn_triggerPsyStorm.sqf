@@ -52,9 +52,9 @@ _effect ppEffectEnable false;
 ppEffectDestroy _effect;
 
 if (_spawnSpooks) then {
-    [] call AL_fnc_spawnSpookZone;
+    [] call VIC_fnc_spawnSpookZone;
 };
 
 if (_spawnZombies) then {
-    [] call AL_fnc_spawnZombiesFromQueue;
+    [] call VIC_fnc_spawnZombiesFromQueue;
 };
