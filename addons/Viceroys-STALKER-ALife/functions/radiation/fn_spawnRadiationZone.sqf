@@ -49,10 +49,12 @@ _marker setMarkerColor "ColorYellow";
 _marker setMarkerText format ["Radiation %1m", _radius];
 
 // Record the zone and when it should be removed
+private _expires = (_duration >= 0) ? (diag_tickTime + _duration) : -1;
+
 STALKER_radiationZones pushBack [
     _zoneHandle,
     _marker,
-    (_duration >= 0) ? (diag_tickTime + _duration) : -1
+    _expires
 ];
 
 _zoneHandle
