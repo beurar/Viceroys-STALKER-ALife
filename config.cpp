@@ -100,22 +100,3 @@ class CfgFunctions
     };
 };
 
-class CfgMods
-{
-    class VIC_StalkerALife
-    {
-        dir = "Viceroys-STALKER-ALife";
-        picture = "logo.paa";
-        logo = "logo.paa";
-        logoOver = "logo.paa";
-        logoSmall = "Icon.paa";
-        tooltip = "VIC STALKER ALife";
-        name = "Viceroy's STALKER ALife";
-        actionName = "Website";
-        action = "https://github.com/Viceroyman";
-        description = "Dynamic ALife system for S.T.A.L.K.E.R.-style missions.";
-        hideName = 0;
-        hidePicture = 0;
-    };
-};
-
