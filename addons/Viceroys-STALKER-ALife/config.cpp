@@ -1,5 +1,3 @@
-#include "BIS_AddonInfo.hpp"
-
 class CfgPatches
 {
     class VIC_StalkerALife
