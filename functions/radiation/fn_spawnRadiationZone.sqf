@@ -35,9 +35,18 @@ private _zoneHandle = [
     _radius
 ] call CWP_fnc_createZone;
 
+// Create and configure a map marker for this radiation zone
+private _markerName = format ["rad_%1", diag_tickTime];
+private _marker = createMarker [_markerName, _position];
+_marker setMarkerShape "ELLIPSE";
+_marker setMarkerSize [_radius, _radius];
+_marker setMarkerColor "ColorYellow";
+_marker setMarkerText format ["Radiation %1m", _radius];
+
 // Record the zone and when it should be removed
 STALKER_radiationZones pushBack [
     _zoneHandle,
+    _marker,
     diag_tickTime + _duration
 ];
 
