@@ -8,6 +8,8 @@
         ARRAY - list of positions suitable for spook zones.
 */
 
+["setupSpookZones"] call VIC_fnc_debugLog;
+
 private _candidates = [];
 
 {

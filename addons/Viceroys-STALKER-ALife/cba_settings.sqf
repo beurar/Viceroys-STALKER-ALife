@@ -265,3 +265,14 @@
 ["VSA_ambientHerdCount", "SLIDER", [0, 5, 1], 2, "Number of roaming herds"] call CBA_fnc_addSetting;
 ["VSA_ambientHerdSize", "SLIDER", [1, 8, 1], 4, "Units per roaming herd"] call CBA_fnc_addSetting;
 ["VSA_ambientNightOnly", "CHECKBOX", false, "Spawn herds only at night"] call CBA_fnc_addSetting;
+
+// -----------------------------------------------------------------------------
+// Debug
+// -----------------------------------------------------------------------------
+[
+    "VSA_debugMode",
+    "CHECKBOX",
+    ["Enable Debug Mode", "Show on-screen logs and enable testing actions"],
+    "VSA - Debug",
+    false
+] call cba_settings_fnc_init;

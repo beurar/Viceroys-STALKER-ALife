@@ -6,6 +6,8 @@
 */
 params ["_center","_radius"];
 
+["spawnAllAnomalyFields"] call VIC_fnc_debugLog;
+
 if (["VSA_enableAnomalies", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};
 
 private _fieldCount = ["VSA_anomalyFieldCount", 3] call CBA_fnc_getSetting;

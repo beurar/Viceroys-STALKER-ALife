@@ -6,6 +6,7 @@
     Returns: ARRAY - position of the chosen site
 */
 params ["_center", "_radius"];
+["fn_findSite_burner"] call VIC_fnc_debugLog;
 
 private _posCenter = if (_center isEqualType objNull) then { getPos _center } else { _center };
 

@@ -7,6 +7,8 @@
     that runs after emissions.
 */
 
+["cleanupRadiationZones"] call VIC_fnc_debugLog;
+
 if (isNil "STALKER_radiationZones") exitWith {};
 
 private _now = diag_tickTime;

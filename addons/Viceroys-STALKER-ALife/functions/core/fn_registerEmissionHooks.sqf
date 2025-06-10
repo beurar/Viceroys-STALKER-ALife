@@ -13,6 +13,8 @@
 // ensure the flag exists
 missionNamespace setVariable ["emission_active", false];
 
+["registerEmissionHooks"] call VIC_fnc_debugLog;
+
 // --- build up phase -------------------------------------------------------
 [
     "TTS_emission_buildUp",

@@ -6,6 +6,8 @@
 
 if (!isServer) exitWith {};
 
+["masterInit"] call VIC_fnc_debugLog;
+
 // --- CBA Settings -----------------------------------------------------------
 ["preInit", {
     if (fileExists "cba_settings.sqf") then {
@@ -46,10 +48,15 @@ if (!isServer) exitWith {};
     VIC_fnc_spawnMutantGroup        = compile preprocessFileLineNumbers "functions/mutants/fn_spawnMutantGroup.sqf";
     VIC_fnc_spawnAmbientHerds       = compile preprocessFileLineNumbers "functions/mutants/fn_spawnAmbientHerds.sqf";
     VIC_fnc_registerEmissionHooks   = compile preprocessFileLineNumbers "functions/core/fn_registerEmissionHooks.sqf";
+    VIC_fnc_debugLog                = compile preprocessFileLineNumbers "functions/core/fn_debugLog.sqf";
+    VIC_fnc_setupDebugActions       = compile preprocessFileLineNumbers "functions/core/fn_setupDebugActions.sqf";
 }] call CBA_fnc_addEventHandler;
 
 // --- PostInit ---------------------------------------------------------------
 ["postInit", {
     [] call VIC_fnc_registerEmissionHooks;
+    if (["VSA_debugMode", false] call CBA_fnc_getSetting) then {
+        [] call VIC_fnc_setupDebugActions;
+    };
 }] call CBA_fnc_addEventHandler;
 

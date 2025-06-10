@@ -11,6 +11,8 @@
           - STALKER_SpookDuration controls lifetime
 */
 
+["spawnSpookZone"] call VIC_fnc_debugLog;
+
 if (isNil "drg_spook_zone_positions") then {
     [] call compile preprocessFileLineNumbers "functions/spooks/fn_setupSpookZones.sqf";
 };

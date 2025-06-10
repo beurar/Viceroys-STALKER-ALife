@@ -7,6 +7,7 @@
     Returns: ARRAY - spawned anomalies
 */
 params ["_center","_radius", ["_count",5]];
+["fn_createField_whirligig"] call VIC_fnc_debugLog;
 
 private _site = [_center,_radius] call VIC_fnc_findSite_whirligig;
 if (_site isEqualTo []) exitWith { [] };

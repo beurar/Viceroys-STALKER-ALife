@@ -18,6 +18,8 @@ params [
     ["_manualVar", ""]
 ];
 
+["schedulePsyStorms"] call VIC_fnc_debugLog;
+
 if (["VSA_enableStorms", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};
 
 private _interval = ["VSA_stormInterval", 30] call CBA_fnc_getSetting;

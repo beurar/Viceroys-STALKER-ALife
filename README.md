@@ -55,6 +55,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
    * [KJW's Radiate](https://steamcommunity.com/sharedfiles/filedetails/?id=2917867026)
 3. Place `initServer.sqf` in your mission or call `VIC_fnc_masterInit` from your own init script.
 4. Review `cba_settings.sqf` for adjustable options.
+5. Enable **VSA_debugMode** to show on-screen debug messages and access testing actions.
 
 ## Usage
 

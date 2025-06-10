@@ -16,6 +16,8 @@ params [
     ["_radius", 50]
 ];
 
+["spawnRadiationZone"] call VIC_fnc_debugLog;
+
 // Array to keep track of active zones and their expiration times
 if (isNil "STALKER_radiationZones") then {
     STALKER_radiationZones = [];

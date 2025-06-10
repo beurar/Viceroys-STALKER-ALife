@@ -10,6 +10,8 @@
 
 params [ ["_units", allUnits select { alive _x && !isPlayer _x }] ];
 
+[format ["fn_resetAIBehavior units: %1", count _units]] call VIC_fnc_debugLog;
+
 // Exit if panic or AI behaviour tweaks are disabled
 if !(missionNamespace getVariable ["VSA_AIPanicEnabled", true]) exitWith {};
 if (["VSA_enableAIBehaviour", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};
