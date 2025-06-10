@@ -5,11 +5,9 @@
 */
 
 // --- CBA Settings -----------------------------------------------------------
-["preInit", {
-    if (fileExists "cba_settings.sqf") then {
-        call compile preprocessFileLineNumbers "cba_settings.sqf";
-    };
-}] call CBA_fnc_addEventHandler;
+if (fileExists "cba_settings.sqf") then {
+    call compile preprocessFileLineNumbers "cba_settings.sqf";
+};
 
 if (!isServer) exitWith {};
 
