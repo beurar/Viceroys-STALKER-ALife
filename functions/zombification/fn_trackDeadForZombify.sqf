@@ -7,7 +7,7 @@ if (["VSA_enableZombification", true] call CBA_fnc_getSetting isEqualTo false) e
 if (["VSA_zombiesNightOnly", false] call CBA_fnc_getSetting && {daytime > 5 && daytime < 20}) exitWith {};
 
 // only track during an active emission
-if !(missionNamespace getVariable ["ALF_emissionActive", false]) exitWith {};
+if !(missionNamespace getVariable ["emission_active", false]) exitWith {};
 
 // ensure queue exists
 private _queue = missionNamespace getVariable ["ALF_zombieQueue", []];
