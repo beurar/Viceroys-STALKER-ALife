@@ -7,7 +7,7 @@
     "VSA_AIPanicEnabled",
     "CHECKBOX",
     ["Enable AI Emission Panic", "AI units will attempt to find cover indoors or in trenches when an emission is building up."],
-    "VSA - Emission",
+    "Viceroy's STALKER ALife - Emission",
     true
 ] call CBA_fnc_addSetting;
 
@@ -25,7 +25,7 @@
     "VSA_enableAnomalies",
     "CHECKBOX",
     ["Enable Anomaly Fields", "Toggle anomaly field spawning"],
-    "VSA - Anomalies",
+    "Viceroy's STALKER ALife - Anomalies",
     true
 ] call CBA_fnc_addSetting;
 
@@ -33,7 +33,7 @@
     "VSA_anomalyFieldCount",
     "SLIDER",
     ["Anomaly Fields per Area", "Number of fields spawned per area"],
-    "VSA - Anomalies",
+    "Viceroy's STALKER ALife - Anomalies",
     [3, 0, 10, 0]
 ] call CBA_fnc_addSetting;
 
@@ -41,7 +41,7 @@
     "VSA_maxAnomalyFields",
     "SLIDER",
     ["Max Active Fields", "Maximum number of anomaly fields present at once"],
-    "VSA - Anomalies",
+    "Viceroy's STALKER ALife - Anomalies",
     [20, 0, 100, 0]
 ] call CBA_fnc_addSetting;
 
@@ -49,7 +49,7 @@
     "VSA_anomalySpawnWeight",
     "SLIDER",
     ["Anomaly Spawn Weight", "Relative spawn chance of anomaly types"],
-    "VSA - Anomalies",
+    "Viceroy's STALKER ALife - Anomalies",
     [50, 0, 100, 0]
 ] call CBA_fnc_addSetting;
 
@@ -57,7 +57,7 @@
     "VSA_anomalyNightOnly",
     "CHECKBOX",
     ["Night Time Only", "Anomalies only spawn at night"],
-    "VSA - Anomalies",
+    "Viceroy's STALKER ALife - Anomalies",
     false
 ] call CBA_fnc_addSetting;
 
@@ -68,7 +68,7 @@
     "VSA_enableRadiation",
     "CHECKBOX",
     ["Enable Radiation Zones", "Toggle radiation zone spawning"],
-    "VSA - Radiation",
+    "Viceroy's STALKER ALife - Radiation",
     true
 ] call CBA_fnc_addSetting;
 
@@ -76,7 +76,7 @@
     "VSA_radiationZoneCount",
     "SLIDER",
     ["Radiation Zones per Area", "Number of radiation zones created"],
-    "VSA - Radiation",
+    "Viceroy's STALKER ALife - Radiation",
     [2, 0, 10, 0]
 ] call CBA_fnc_addSetting;
 
@@ -84,7 +84,7 @@
     "VSA_radiationSpawnWeight",
     "SLIDER",
     ["Radiation Spawn Weight", "Relative chance for radiation zone creation"],
-    "VSA - Radiation",
+    "Viceroy's STALKER ALife - Radiation",
     [50, 0, 100, 0]
 ] call CBA_fnc_addSetting;
 
@@ -92,7 +92,7 @@
     "VSA_radiationNightOnly",
     "CHECKBOX",
     ["Night Time Only", "Radiation zones only appear at night"],
-    "VSA - Radiation",
+    "Viceroy's STALKER ALife - Radiation",
     false
 ] call CBA_fnc_addSetting;
 
@@ -103,7 +103,7 @@
     "VSA_enableMutants",
     "CHECKBOX",
     ["Enable Mutants", "Toggle mutant spawning"],
-    "VSA - Mutants",
+    "Viceroy's STALKER ALife - Mutants",
     true
 ] call CBA_fnc_addSetting;
 
@@ -111,7 +111,7 @@
     "VSA_mutantGroupCount",
     "SLIDER",
     ["Mutant Groups per Area", "Number of mutant groups"],
-    "VSA - Mutants",
+    "Viceroy's STALKER ALife - Mutants",
     [3, 0, 20, 0]
 ] call CBA_fnc_addSetting;
 
@@ -119,7 +119,7 @@
     "VSA_mutantSpawnWeight",
     "SLIDER",
     ["Mutant Spawn Weight", "Relative chance for mutant spawns"],
-    "VSA - Mutants",
+    "Viceroy's STALKER ALife - Mutants",
     [50, 0, 100, 0]
 ] call CBA_fnc_addSetting;
 
@@ -127,7 +127,7 @@
     "VSA_mutantsNightOnly",
     "CHECKBOX",
     ["Night Time Only", "Mutants only spawn at night"],
-    "VSA - Mutants",
+    "Viceroy's STALKER ALife - Mutants",
     false
 ] call CBA_fnc_addSetting;
 
@@ -138,7 +138,7 @@
     "VSA_enableSpooks",
     "CHECKBOX",
     ["Enable Spook Zones", "Toggle paranormal event spawning"],
-    "VSA - Spooks",
+    "Viceroy's STALKER ALife - Spooks",
     true
 ] call CBA_fnc_addSetting;
 
@@ -146,7 +146,7 @@
     "VSA_spookZoneCount",
     "SLIDER",
     ["Spook Zones per Area", "Number of paranormal zones"],
-    "VSA - Spooks",
+    "Viceroy's STALKER ALife - Spooks",
     [1, 0, 10, 0]
 ] call CBA_fnc_addSetting;
 
@@ -154,7 +154,7 @@
     "VSA_spookSpawnWeight",
     "SLIDER",
     ["Spook Spawn Weight", "Relative chance for spook events"],
-    "VSA - Spooks",
+    "Viceroy's STALKER ALife - Spooks",
     [50, 0, 100, 0]
 ] call CBA_fnc_addSetting;
 
@@ -162,7 +162,7 @@
     "VSA_spooksNightOnly",
     "CHECKBOX",
     ["Night Time Only", "Spooks are active only at night"],
-    "VSA - Spooks",
+    "Viceroy's STALKER ALife - Spooks",
     true
 ] call CBA_fnc_addSetting;
 
@@ -173,7 +173,7 @@
     "VSA_enableStorms",
     "CHECKBOX",
     ["Enable Psy-Storms", "Toggle psy-storm events"],
-    "VSA - Storms",
+    "Viceroy's STALKER ALife - Storms",
     true
 ] call CBA_fnc_addSetting;
 
@@ -181,7 +181,7 @@
     "VSA_stormInterval",
     "SLIDER",
     ["Storm Interval (min)", "Minutes between possible storms"],
-    "VSA - Storms",
+    "Viceroy's STALKER ALife - Storms",
     [30, 5, 120, 0]
 ] call CBA_fnc_addSetting;
 
@@ -189,7 +189,7 @@
     "VSA_stormSpawnWeight",
     "SLIDER",
     ["Storm Spawn Weight", "Relative chance for a storm to occur"],
-    "VSA - Storms",
+    "Viceroy's STALKER ALife - Storms",
     [50, 0, 100, 0]
 ] call CBA_fnc_addSetting;
 
@@ -197,7 +197,7 @@
     "VSA_stormsNightOnly",
     "CHECKBOX",
     ["Night Time Only", "Storms only trigger at night"],
-    "VSA - Storms",
+    "Viceroy's STALKER ALife - Storms",
     false
 ] call CBA_fnc_addSetting;
 
@@ -208,7 +208,7 @@
     "VSA_enableZombification",
     "CHECKBOX",
     ["Enable Zombification", "Toggle NPC zombification mechanics"],
-    "VSA - Zombification",
+    "Viceroy's STALKER ALife - Zombification",
     true
 ] call CBA_fnc_addSetting;
 
@@ -216,7 +216,7 @@
     "VSA_zombieCount",
     "SLIDER",
     ["Max Zombies", "Maximum zombies spawned from bodies"],
-    "VSA - Zombification",
+    "Viceroy's STALKER ALife - Zombification",
     [15, 0, 100, 0]
 ] call CBA_fnc_addSetting;
 
@@ -224,7 +224,7 @@
     "VSA_zombieSpawnWeight",
     "SLIDER",
     ["Zombie Spawn Weight", "Relative chance that dead bodies zombify"],
-    "VSA - Zombification",
+    "Viceroy's STALKER ALife - Zombification",
     [50, 0, 100, 0]
 ] call CBA_fnc_addSetting;
 
@@ -232,7 +232,7 @@
     "VSA_zombiesNightOnly",
     "CHECKBOX",
     ["Night Time Only", "Bodies zombify only at night"],
-    "VSA - Zombification",
+    "Viceroy's STALKER ALife - Zombification",
     false
 ] call CBA_fnc_addSetting;
 
@@ -243,7 +243,7 @@
     "VSA_enableAIBehaviour",
     "CHECKBOX",
     ["Enable AI Behaviour Tweaks", "Toggle custom AI behaviour"],
-    "VSA - AI",
+    "Viceroy's STALKER ALife - AI",
     true
 ] call CBA_fnc_addSetting;
 
@@ -251,7 +251,7 @@
     "VSA_panicThreshold",
     "SLIDER",
     ["AI Panic Threshold", "Chance for AI to panic when threatened"],
-    "VSA - AI",
+    "Viceroy's STALKER ALife - AI",
     [50, 0, 100, 0]
 ] call CBA_fnc_addSetting;
 
@@ -259,7 +259,7 @@
     "VSA_aiNightOnly",
     "CHECKBOX",
     ["Night Time Only", "AI tweaks only active at night"],
-    "VSA - AI",
+    "Viceroy's STALKER ALife - AI",
     false
 ] call CBA_fnc_addSetting;
 
@@ -281,6 +281,6 @@
     "VSA_debugMode",
     "CHECKBOX",
     ["Enable Debug Mode", "Show on-screen logs and enable testing actions"],
-    "VSA - Debug",
+    "Viceroy's STALKER ALife - Debug",
     false
 ] call CBA_fnc_addSetting;
