@@ -26,8 +26,8 @@ private _interval = ["VSA_stormInterval", 30] call CBA_fnc_getSetting;
 private _spawnWeight = ["VSA_stormSpawnWeight", 50] call CBA_fnc_getSetting;
 private _nightOnly = ["VSA_stormsNightOnly", false] call CBA_fnc_getSetting;
 
-_minDelay = _interval * 60;
-_maxDelay = _interval * 60;
+_minDelay = ["VSA_stormMinDelay", _minDelay] call CBA_fnc_getSetting;
+_maxDelay = ["VSA_stormMaxDelay", _maxDelay] call CBA_fnc_getSetting;
 
 if (_minDelay < 0) then { _minDelay = 0; };
 if (_maxDelay < _minDelay) then { _maxDelay = _minDelay; };
