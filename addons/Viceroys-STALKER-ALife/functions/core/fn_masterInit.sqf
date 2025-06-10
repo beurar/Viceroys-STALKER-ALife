@@ -46,6 +46,17 @@ VIC_fnc_spawnSpookZone           = compile preprocessFileLineNumbers "\Viceroys-
 VIC_fnc_spawnMutantGroup         = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\mutants\fn_spawnMutantGroup.sqf";
 VIC_fnc_spawnAmbientHerds        = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\mutants\fn_spawnAmbientHerds.sqf";
 VIC_fnc_setupMutantHabitats      = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\mutants\fn_setupMutantHabitats.sqf";
+panic_fnc_onEmissionBuildUp  = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\panic\fn_onEmissionBuildUp.sqf";
+panic_fnc_onEmissionStart    = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\panic\fn_onEmissionStart.sqf";
+panic_fnc_onEmissionEnd      = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\panic\fn_onEmissionEnd.sqf";
+anomalies_fnc_onEmissionBuildUp = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\anomalies\fn_onEmissionBuildUp.sqf";
+anomalies_fnc_onEmissionStart   = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\anomalies\fn_onEmissionStart.sqf";
+anomalies_fnc_onEmissionEnd     = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\anomalies\fn_onEmissionEnd.sqf";
+mutants_fnc_onEmissionStart  = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\mutants\fn_onEmissionStart.sqf";
+mutants_fnc_onEmissionEnd    = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\mutants\fn_onEmissionEnd.sqf";
+radiation_fnc_onEmissionStart = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\radiation\fn_onEmissionStart.sqf";
+radiation_fnc_onEmissionEnd   = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\radiation\fn_onEmissionEnd.sqf";
+zombification_fnc_onEmissionEnd = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\zombification\fn_onEmissionEnd.sqf";
 VIC_fnc_hasPlayersNearby         = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\core\fn_hasPlayersNearby.sqf";
 VIC_fnc_registerEmissionHooks    = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\core\fn_registerEmissionHooks.sqf";
 VIC_fnc_debugLog                 = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\core\fn_debugLog.sqf";
@@ -54,9 +65,16 @@ VIC_fnc_setupDebugActions        = compile preprocessFileLineNumbers "\Viceroys-
 // --- PostInit ---------------------------------------------------------------
 ["postInit", {
     [] call VIC_fnc_registerEmissionHooks;
+    [] call VIC_fnc_schedulePsyStorms;
     [] call VIC_fnc_setupMutantHabitats;
     if (["VSA_debugMode", false] call CBA_fnc_getSetting) then {
         [] call VIC_fnc_setupDebugActions;
     };
+}] call CBA_fnc_addEventHandler;
+
+// Track units killed during emissions for later zombification
+["EntityKilled", {
+    params ["_unit"];
+    [_unit] call VIC_fnc_trackDeadForZombify;
 }] call CBA_fnc_addEventHandler;
 

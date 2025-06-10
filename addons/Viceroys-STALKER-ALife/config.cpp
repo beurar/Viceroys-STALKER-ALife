@@ -4,7 +4,17 @@ class CfgPatches
     {
         units[] = {};
         weapons[] = {};
-        requiredAddons[] = {"A3_Functions_F", "CBA_Extended_EventHandlers", "cba_main"};
+        requiredAddons[] = {
+            "A3_Functions_F",
+            "CBA_Extended_EventHandlers",
+            "cba_main",
+            "diwako_anomalies",
+            "WBK_Zombies",
+            "CWP_main",
+            "drg_anomalies",
+            "HS_Mutants",
+            "HS_Items"
+        };
     };
 };
 
@@ -29,12 +39,22 @@ class CfgFunctions
             class triggerAIPanic{};
         };
 
+        class Panic
+        {
+            file = "functions/panic";
+            class onEmissionBuildUp{};
+            class onEmissionStart{};
+            class onEmissionEnd{};
+        };
+
         class Mutants
         {
             file = "functions/mutants";
             class spawnAmbientHerds{};
             class spawnMutantGroup{};
             class setupMutantHabitats{};
+            class onEmissionStart{};
+            class onEmissionEnd{};
         };
 
         class Radiation
@@ -43,6 +63,8 @@ class CfgFunctions
             class cleanupRadiationZones{};
             class spawnRadiationZone{};
             class spawnRandomRadiationZones{};
+            class onEmissionStart{};
+            class onEmissionEnd{};
         };
 
         class Spooks
@@ -64,6 +86,7 @@ class CfgFunctions
             file = "functions/zombification";
             class spawnZombiesFromQueue{};
             class trackDeadForZombify{};
+            class onEmissionEnd{};
         };
 
         class Anomalies
@@ -71,6 +94,9 @@ class CfgFunctions
             file = "functions/anomalies";
             class spawnAllAnomalyFields{};
             class cleanupAnomalyMarkers{};
+            class onEmissionBuildUp{};
+            class onEmissionStart{};
+            class onEmissionEnd{};
         };
 
         class AnomalyFields

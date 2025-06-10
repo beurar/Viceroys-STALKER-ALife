@@ -20,9 +20,13 @@ if (["VSA_aiNightOnly", false] call CBA_fnc_getSetting && {daytime > 5 && daytim
 private _threshold = ["VSA_panicThreshold", 50] call CBA_fnc_getSetting;
 
 {
-    if (random 100 >= _threshold) exitWith {};
+    if (random 100 >= _threshold) then {
+        continue;
+    };
     private _unit = _x;
-    if (!alive _unit) exitWith {};
+    if (!alive _unit) then {
+        continue;
+    };
 
     // Remember original behaviour so it can be restored later
     _unit setVariable ["vsa_savedBehaviour", behaviour _unit];

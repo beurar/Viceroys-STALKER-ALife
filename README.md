@@ -58,7 +58,6 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
    * [Healthy Stalker Mutants](https://steamcommunity.com/sharedfiles/filedetails/?id=3105717594)
    * [Healthy Stalker Items](https://steamcommunity.com/sharedfiles/filedetails/?id=3105592413)
    * [Chemical Warfare Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3295358796)
-   * [KJW's Radiate](https://steamcommunity.com/sharedfiles/filedetails/?id=2917867026)
 3. Review `cba_settings.sqf` for adjustable options.
 4. Enable **VSA_debugMode** to show on-screen debug messages and access testing actions.
 
@@ -81,7 +80,6 @@ Mission makers can tweak or remove individual systems as needed. Most features a
    * [Healthy Stalker Mutants](https://steamcommunity.com/sharedfiles/filedetails/?id=3105717594)
    * [Healthy Stalker Items](https://steamcommunity.com/sharedfiles/filedetails/?id=3105592413)
    * [Chemical Warfare Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3295358796)
-   * [KJW's Radiate](https://steamcommunity.com/sharedfiles/filedetails/?id=2917867026)
 
 These mods must be loaded for the scripts in this repository to function correctly.
 
