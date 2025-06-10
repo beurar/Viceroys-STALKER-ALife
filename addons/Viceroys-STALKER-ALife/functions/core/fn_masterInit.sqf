@@ -53,6 +53,7 @@ VIC_fnc_setupDebugActions        = compile preprocessFileLineNumbers "\Viceroys-
 // --- PostInit ---------------------------------------------------------------
 ["postInit", {
     [] call VIC_fnc_registerEmissionHooks;
+    [] call VIC_fnc_schedulePsyStorms;
     [] call VIC_fnc_setupMutantHabitats;
     if (["VSA_debugMode", false] call CBA_fnc_getSetting) then {
         [] call VIC_fnc_setupDebugActions;
