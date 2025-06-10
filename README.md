@@ -52,6 +52,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
    * [Healthy Stalker Mutants](https://steamcommunity.com/sharedfiles/filedetails/?id=3105717594)
    * [Healthy Stalker Items](https://steamcommunity.com/sharedfiles/filedetails/?id=3105592413)
    * [Chemical Warfare Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3295358796)
+   * [KJW's Radiate](https://steamcommunity.com/sharedfiles/filedetails/?id=2917867026)
 3. Place `initServer.sqf` in your mission or call `VCAL_fnc_masterInit` from your own init script.
 4. Review `cba_settings.sqf` for adjustable options.
 
