@@ -25,6 +25,11 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Spawns roaming mutant packs and ambient herds.
 * Example mutants include pseudodogs, snorks and other Zone creatures.
 
+### Mutant Habitats
+* Defines simple territory markers via **fn_setupMutantHabitats.sqf**.
+* Systems rely on **fn_hasPlayersNearby.sqf** so activity sleeps when players are far away.
+* CBA settings allow mission makers to customize these behaviors.
+
 ### Radiation
 * Randomly creates radiation zones that damage unprotected units.
 * Cleanup functions remove old zones to keep performance reasonable.
