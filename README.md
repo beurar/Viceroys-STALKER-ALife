@@ -76,4 +76,5 @@ These mods must be loaded for the scripts in this repository to function correct
 
 ## License
 
-See [LICENSE.md](LICENSE.md) for license information.
+This project is licensed under the **Arma Public License Share Alike (APL-SA)**.
+See [LICENSE.md](LICENSE.md) for details.
