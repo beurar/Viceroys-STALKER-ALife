@@ -93,6 +93,7 @@ class CfgFunctions
         {
             file = "functions/anomalies";
             class spawnAllAnomalyFields{};
+            class cleanupAnomalyMarkers{};
             class onEmissionBuildUp{};
             class onEmissionStart{};
             class onEmissionEnd{};
