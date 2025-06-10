@@ -68,9 +68,14 @@ Mission makers can tweak or remove individual systems as needed. Most features a
 
 ## Dependencies
 
-* CBA A3
-* Diwako’s Anomalies
-* WebKnight’s Zombies & Demons
+   * [CBA A3](https://github.com/CBATeam/CBA_A3)
+   * [Diwako’s Anomalies](https://github.com/diwako/Anomaly)
+   * [WebKnight’s Zombies & Demons](https://steamcommunity.com/sharedfiles/filedetails/?id=2378964543)
+   * [Drongo’s Spooks and Anomalies](https://steamcommunity.com/sharedfiles/filedetails/?id=2262255106)
+   * [Healthy Stalker Mutants](https://steamcommunity.com/sharedfiles/filedetails/?id=3105717594)
+   * [Healthy Stalker Items](https://steamcommunity.com/sharedfiles/filedetails/?id=3105592413)
+   * [Chemical Warfare Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3295358796)
+   * [KJW's Radiate](https://steamcommunity.com/sharedfiles/filedetails/?id=2917867026)
 
 These mods must be loaded for the scripts in this repository to function correctly.
 
