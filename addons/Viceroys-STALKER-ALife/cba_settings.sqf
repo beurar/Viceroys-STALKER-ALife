@@ -27,7 +27,7 @@
     ["Enable Anomaly Fields", "Toggle anomaly field spawning"],
     "VSA - Anomalies",
     true
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_anomalyFieldCount",
@@ -35,7 +35,7 @@
     ["Anomaly Fields per Area", "Number of fields spawned per area"],
     "VSA - Anomalies",
     [3, 0, 10, 0]
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_anomalySpawnWeight",
@@ -43,7 +43,7 @@
     ["Anomaly Spawn Weight", "Relative spawn chance of anomaly types"],
     "VSA - Anomalies",
     [50, 0, 100, 0]
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_anomalyNightOnly",
@@ -51,7 +51,7 @@
     ["Night Time Only", "Anomalies only spawn at night"],
     "VSA - Anomalies",
     false
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
 // Radiation
@@ -62,7 +62,7 @@
     ["Enable Radiation Zones", "Toggle radiation zone spawning"],
     "VSA - Radiation",
     true
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_radiationZoneCount",
@@ -70,7 +70,7 @@
     ["Radiation Zones per Area", "Number of radiation zones created"],
     "VSA - Radiation",
     [2, 0, 10, 0]
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_radiationSpawnWeight",
@@ -78,7 +78,7 @@
     ["Radiation Spawn Weight", "Relative chance for radiation zone creation"],
     "VSA - Radiation",
     [50, 0, 100, 0]
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_radiationNightOnly",
@@ -86,7 +86,7 @@
     ["Night Time Only", "Radiation zones only appear at night"],
     "VSA - Radiation",
     false
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
 // Mutants
@@ -97,7 +97,7 @@
     ["Enable Mutants", "Toggle mutant spawning"],
     "VSA - Mutants",
     true
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_mutantGroupCount",
@@ -105,7 +105,7 @@
     ["Mutant Groups per Area", "Number of mutant groups"],
     "VSA - Mutants",
     [3, 0, 20, 0]
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_mutantSpawnWeight",
@@ -113,7 +113,7 @@
     ["Mutant Spawn Weight", "Relative chance for mutant spawns"],
     "VSA - Mutants",
     [50, 0, 100, 0]
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_mutantsNightOnly",
@@ -121,7 +121,7 @@
     ["Night Time Only", "Mutants only spawn at night"],
     "VSA - Mutants",
     false
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
 // Spooks
@@ -132,7 +132,7 @@
     ["Enable Spook Zones", "Toggle paranormal event spawning"],
     "VSA - Spooks",
     true
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_spookZoneCount",
@@ -140,7 +140,7 @@
     ["Spook Zones per Area", "Number of paranormal zones"],
     "VSA - Spooks",
     [1, 0, 10, 0]
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_spookSpawnWeight",
@@ -148,7 +148,7 @@
     ["Spook Spawn Weight", "Relative chance for spook events"],
     "VSA - Spooks",
     [50, 0, 100, 0]
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_spooksNightOnly",
@@ -156,7 +156,7 @@
     ["Night Time Only", "Spooks are active only at night"],
     "VSA - Spooks",
     true
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
 // Storms
@@ -167,7 +167,7 @@
     ["Enable Psy-Storms", "Toggle psy-storm events"],
     "VSA - Storms",
     true
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_stormInterval",
@@ -175,7 +175,7 @@
     ["Storm Interval (min)", "Minutes between possible storms"],
     "VSA - Storms",
     [30, 5, 120, 0]
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_stormSpawnWeight",
@@ -183,7 +183,7 @@
     ["Storm Spawn Weight", "Relative chance for a storm to occur"],
     "VSA - Storms",
     [50, 0, 100, 0]
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_stormsNightOnly",
@@ -191,7 +191,7 @@
     ["Night Time Only", "Storms only trigger at night"],
     "VSA - Storms",
     false
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
 // Zombification
@@ -202,7 +202,7 @@
     ["Enable Zombification", "Toggle NPC zombification mechanics"],
     "VSA - Zombification",
     true
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_zombieCount",
@@ -210,7 +210,7 @@
     ["Max Zombies", "Maximum zombies spawned from bodies"],
     "VSA - Zombification",
     [15, 0, 100, 0]
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_zombieSpawnWeight",
@@ -218,7 +218,7 @@
     ["Zombie Spawn Weight", "Relative chance that dead bodies zombify"],
     "VSA - Zombification",
     [50, 0, 100, 0]
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_zombiesNightOnly",
@@ -226,7 +226,7 @@
     ["Night Time Only", "Bodies zombify only at night"],
     "VSA - Zombification",
     false
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
 // AI Behaviour
@@ -237,7 +237,7 @@
     ["Enable AI Behaviour Tweaks", "Toggle custom AI behaviour"],
     "VSA - AI",
     true
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_panicThreshold",
@@ -245,7 +245,7 @@
     ["AI Panic Threshold", "Chance for AI to panic when threatened"],
     "VSA - AI",
     [50, 0, 100, 0]
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
     "VSA_aiNightOnly",
@@ -253,7 +253,7 @@
     ["Night Time Only", "AI tweaks only active at night"],
     "VSA - AI",
     false
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 
 // Hostile mutant spawns
@@ -275,4 +275,4 @@
     ["Enable Debug Mode", "Show on-screen logs and enable testing actions"],
     "VSA - Debug",
     false
-] call cba_settings_fnc_init;
+] call CBA_fnc_addSetting;
