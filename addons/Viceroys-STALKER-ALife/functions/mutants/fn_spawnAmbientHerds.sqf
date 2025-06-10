@@ -21,6 +21,7 @@ if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 
 for "_i" from 1 to _herdCount do {
     private _pos = [random worldSize, random worldSize, 0];
+    if (![_pos, 1500] call VIC_fnc_hasPlayersNearby) then { continue };
     private _grp = createGroup civilian;
     for "_j" from 1 to _herdSize do {
         private _unit = _grp createUnit ["C_ALF_Mutant", _pos, [], 0, "FORM"];

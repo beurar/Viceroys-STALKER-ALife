@@ -24,6 +24,8 @@ private _spawnWeight = ["VSA_mutantSpawnWeight", 50] call CBA_fnc_getSetting;
 
 if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 
+if (![_centerPos, 1500] call VIC_fnc_hasPlayersNearby) exitWith {};
+
 for "_i" from 1 to _groupCount do {
     if (random 100 >= _spawnWeight) then { continue }; 
     private _spawnPos = _centerPos getPos [100 + random 100, random 360];
