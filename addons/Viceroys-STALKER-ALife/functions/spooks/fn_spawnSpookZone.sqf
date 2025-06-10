@@ -14,7 +14,7 @@
 ["spawnSpookZone"] call VIC_fnc_debugLog;
 
 if (isNil "drg_spook_zone_positions") then {
-    [] call compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\spooks\fn_setupSpookZones.sqf";
+    [] call compile preprocessFileLineNumbers "\\Viceroys-STALKER-ALife\\addons\\Viceroys-STALKER-ALife\\functions\\spooks\\fn_setupSpookZones.sqf";
 };
 
 if (["VSA_enableSpooks", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};
