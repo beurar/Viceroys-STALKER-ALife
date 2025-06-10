@@ -42,6 +42,7 @@ class CfgFunctions
             file = "functions/radiation";
             class cleanupRadiationZones{};
             class spawnRadiationZone{};
+            class spawnRandomRadiationZones{};
         };
 
         class Spooks

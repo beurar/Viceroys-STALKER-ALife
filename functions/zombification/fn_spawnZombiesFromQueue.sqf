@@ -1,5 +1,7 @@
 // Spawn zombies from the tracked corpse queue once the emission ends
 
+if (["VSA_enableZombification", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};
+
 // read and clear the queue
 private _queue = missionNamespace getVariable ["ALF_zombieQueue", []];
 missionNamespace setVariable ["ALF_zombieQueue", []];

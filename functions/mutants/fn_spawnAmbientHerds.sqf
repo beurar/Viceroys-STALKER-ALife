@@ -1,16 +1,19 @@
 /*
     Spawns passive mutant herds roaming the world.
     Settings via CBA:
-      - ALF_ambientHerdCount: number of herds to spawn (default 2)
-      - ALF_ambientHerdSize:  units per herd (default 4)
-      - ALF_ambientNightOnly: spawn only at night if true (default false)
+      - VSA_ambientHerdCount:   number of herds to spawn (default 2)
+      - VSA_ambientHerdSize:    units per herd (default 4)
+      - VSA_ambientNightOnly:   spawn only at night if true (default false)
+      - VSA_enableMutants:      master toggle for mutant systems
 */
 
 if (!isServer) exitWith {};
 
-private _herdCount = ["ALF_ambientHerdCount", 2] call CBA_fnc_getSetting;
-private _herdSize  = ["ALF_ambientHerdSize", 4]  call CBA_fnc_getSetting;
-private _nightOnly = ["ALF_ambientNightOnly", false] call CBA_fnc_getSetting;
+if (["VSA_enableMutants", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};
+
+private _herdCount = ["VSA_ambientHerdCount", 2] call CBA_fnc_getSetting;
+private _herdSize  = ["VSA_ambientHerdSize", 4]  call CBA_fnc_getSetting;
+private _nightOnly = ["VSA_ambientNightOnly", false] call CBA_fnc_getSetting;
 
 if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 

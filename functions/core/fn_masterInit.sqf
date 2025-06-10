@@ -19,6 +19,7 @@ if (!isServer) exitWith {};
     VIC_fnc_triggerAIPanic          = compile preprocessFileLineNumbers "functions/ai/fn_triggerAIPanic.sqf";
     VIC_fnc_cleanupRadiationZones   = compile preprocessFileLineNumbers "functions/radiation/fn_cleanupRadiationZones.sqf";
     VIC_fnc_spawnRadiationZone      = compile preprocessFileLineNumbers "functions/radiation/fn_spawnRadiationZone.sqf";
+    VIC_fnc_spawnRandomRadiationZones = compile preprocessFileLineNumbers "functions/radiation/fn_spawnRandomRadiationZones.sqf";
     VIC_fnc_spawnZombiesFromQueue   = compile preprocessFileLineNumbers "functions/zombification/fn_spawnZombiesFromQueue.sqf";
     VIC_fnc_trackDeadForZombify     = compile preprocessFileLineNumbers "functions/zombification/fn_trackDeadForZombify.sqf";
     VIC_fnc_spawnAllAnomalyFields   = compile preprocessFileLineNumbers "functions/anomalies/fn_spawnAllAnomalyFields.sqf";
