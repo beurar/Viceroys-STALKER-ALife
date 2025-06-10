@@ -29,12 +29,22 @@ class CfgFunctions
             class triggerAIPanic{};
         };
 
+        class Panic
+        {
+            file = "functions/panic";
+            class onEmissionBuildUp{};
+            class onEmissionStart{};
+            class onEmissionEnd{};
+        };
+
         class Mutants
         {
             file = "functions/mutants";
             class spawnAmbientHerds{};
             class spawnMutantGroup{};
             class setupMutantHabitats{};
+            class onEmissionStart{};
+            class onEmissionEnd{};
         };
 
         class Radiation
@@ -43,6 +53,8 @@ class CfgFunctions
             class cleanupRadiationZones{};
             class spawnRadiationZone{};
             class spawnRandomRadiationZones{};
+            class onEmissionStart{};
+            class onEmissionEnd{};
         };
 
         class Spooks
@@ -64,12 +76,16 @@ class CfgFunctions
             file = "functions/zombification";
             class spawnZombiesFromQueue{};
             class trackDeadForZombify{};
+            class onEmissionEnd{};
         };
 
         class Anomalies
         {
             file = "functions/anomalies";
             class spawnAllAnomalyFields{};
+            class onEmissionBuildUp{};
+            class onEmissionStart{};
+            class onEmissionEnd{};
         };
 
         class AnomalyFields
