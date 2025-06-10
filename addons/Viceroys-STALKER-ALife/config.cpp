@@ -4,7 +4,17 @@ class CfgPatches
     {
         units[] = {};
         weapons[] = {};
-        requiredAddons[] = {"A3_Functions_F", "CBA_Extended_EventHandlers", "cba_main"};
+        requiredAddons[] = {
+            "A3_Functions_F",
+            "CBA_Extended_EventHandlers",
+            "cba_main",
+            "diwako_anomalies",
+            "WBK_Zombies",
+            "CWP_main",
+            "drg_anomalies",
+            "HS_Mutants",
+            "HS_Items"
+        };
     };
 };
 
