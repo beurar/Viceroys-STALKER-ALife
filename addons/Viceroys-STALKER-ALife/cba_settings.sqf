@@ -38,6 +38,14 @@
 ] call CBA_fnc_addSetting;
 
 [
+    "VSA_maxAnomalyFields",
+    "SLIDER",
+    ["Max Active Fields", "Maximum number of anomaly fields present at once"],
+    "VSA - Anomalies",
+    [20, 0, 100, 0]
+] call CBA_fnc_addSetting;
+
+[
     "VSA_anomalySpawnWeight",
     "SLIDER",
     ["Anomaly Spawn Weight", "Relative spawn chance of anomaly types"],

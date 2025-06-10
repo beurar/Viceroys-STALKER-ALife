@@ -10,6 +10,10 @@ params ["_center","_radius"];
 
 if (["VSA_enableAnomalies", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};
 
+// Prepare anomaly marker tracking
+if (isNil "STALKER_anomalyMarkers") then { STALKER_anomalyMarkers = [] };
+private _maxFields = ["VSA_maxAnomalyFields", 20] call CBA_fnc_getSetting;
+
 private _fieldCount = ["VSA_anomalyFieldCount", 3] call CBA_fnc_getSetting;
 private _spawnWeight = ["VSA_anomalySpawnWeight", 50] call CBA_fnc_getSetting;
 private _nightOnly   = ["VSA_anomalyNightOnly", false] call CBA_fnc_getSetting;
@@ -30,6 +34,7 @@ private _types = [
 ];
 
 for "_i" from 1 to _fieldCount do {
+    if ((count STALKER_anomalyMarkers) >= _maxFields) exitWith {};
     if (random 100 >= _spawnWeight) then { continue };
     private _fn = selectRandom _types;
     [_center, _radius] call _fn;
