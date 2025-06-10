@@ -2,25 +2,32 @@
     Author: STALKER ALife Script
     Description:
         Spawns a set of Drongo's spook zones using locations gathered by
-        fn_setupSpookZones.sqf. The number of zones spawned is controlled by
-        STALKER_MinSpookFields and STALKER_MaxSpookFields. Each zone persists
-        for STALKER_SpookDuration minutes.
+        fn_setupSpookZones.sqf. Zone counts and behaviour are configured via
+        CBA settings:
+          - VSA_enableSpooks
+          - VSA_spookZoneCount
+          - VSA_spookSpawnWeight
+          - VSA_spooksNightOnly
+          - STALKER_SpookDuration controls lifetime
 */
 
 if (isNil "drg_spook_zone_positions") then {
     [] call compile preprocessFileLineNumbers "functions/spooks/fn_setupSpookZones.sqf";
 };
 
-private _min = missionNamespace getVariable ["STALKER_MinSpookFields",1];
-private _max = missionNamespace getVariable ["STALKER_MaxSpookFields",3];
+if (["VSA_enableSpooks", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};
+
+private _count = ["VSA_spookZoneCount", 1] call CBA_fnc_getSetting;
+private _weight = ["VSA_spookSpawnWeight", 50] call CBA_fnc_getSetting;
+private _nightOnly = ["VSA_spooksNightOnly", true] call CBA_fnc_getSetting;
 private _duration = missionNamespace getVariable ["STALKER_SpookDuration",15];
 
-private _count = round random [_min, _max, _max];
-if (_count < _min) then { _count = _min; };
+if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 
 if (isNil "drg_activeSpookZones") then { drg_activeSpookZones = []; };
 
 for "_i" from 1 to _count do {
+    if (random 100 >= _weight) then { continue };
     private _pos = selectRandom drg_spook_zone_positions;
     if (!isNil "_pos") then {
         private _zone = createTrigger ["EmptyDetector", _pos];

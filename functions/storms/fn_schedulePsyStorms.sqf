@@ -18,21 +18,34 @@ params [
     ["_manualVar", ""]
 ];
 
+if (["VSA_enableStorms", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};
+
+private _interval = ["VSA_stormInterval", 30] call CBA_fnc_getSetting;
+private _spawnWeight = ["VSA_stormSpawnWeight", 50] call CBA_fnc_getSetting;
+private _nightOnly = ["VSA_stormsNightOnly", false] call CBA_fnc_getSetting;
+
+_minDelay = _interval * 60;
+_maxDelay = _interval * 60;
+
 if (_minDelay < 0) then { _minDelay = 0; };
 if (_maxDelay < _minDelay) then { _maxDelay = _minDelay; };
 
-[_minDelay, _maxDelay, _manualVar] spawn {
-    params ["_min", "_max", "_var"];
+[_minDelay, _maxDelay, _manualVar, _spawnWeight, _nightOnly] spawn {
+    params ["_min", "_max", "_var", "_weight", "_night"];
     private _nextStorm = time + (_min + random (_max - _min));
     while {true} do {
         if (_var != "" && { missionNamespace getVariable [_var, false] }) then {
             missionNamespace setVariable [_var, false, true];
-            [] call AL_fnc_triggerPsyStorm;
+            if (random 100 < _weight && { !(_night && daytime > 5 && daytime < 20) }) then {
+                [] call AL_fnc_triggerPsyStorm;
+            };
             _nextStorm = time + (_min + random (_max - _min));
         };
 
         if (time >= _nextStorm) then {
-            [] call AL_fnc_triggerPsyStorm;
+            if (random 100 < _weight && { !(_night && daytime > 5 && daytime < 20) }) then {
+                [] call AL_fnc_triggerPsyStorm;
+            };
             _nextStorm = time + (_min + random (_max - _min));
         };
         sleep 5;
