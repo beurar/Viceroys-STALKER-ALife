@@ -18,7 +18,8 @@ private _markerName = format ["anom_electra_%1", diag_tickTime];
 private _marker = createMarker [_markerName, _site];
 _marker setMarkerShape "ELLIPSE";
 _marker setMarkerSize [10,10];
-_marker setMarkerColor "ColorOrange";
+// Use blue for electra fields
+_marker setMarkerColor "ColorBlue";
 _marker setMarkerText "Electra 10m";
 STALKER_anomalyMarkers pushBack _marker;
 

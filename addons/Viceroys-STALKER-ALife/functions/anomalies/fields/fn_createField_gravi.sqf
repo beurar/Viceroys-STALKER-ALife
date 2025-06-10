@@ -18,7 +18,8 @@ private _markerName = format ["anom_gravi_%1", diag_tickTime];
 private _marker = createMarker [_markerName, _site];
 _marker setMarkerShape "ELLIPSE";
 _marker setMarkerSize [10,10];
-_marker setMarkerColor "ColorOrange";
+// Brown marker helps identify gravi fields
+_marker setMarkerColor "ColorBrown";
 _marker setMarkerText "Gravi 10m";
 STALKER_anomalyMarkers pushBack _marker;
 

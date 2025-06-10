@@ -18,7 +18,8 @@ private _markerName = format ["anom_fruitpunch_%1", diag_tickTime];
 private _marker = createMarker [_markerName, _site];
 _marker setMarkerShape "ELLIPSE";
 _marker setMarkerSize [10,10];
-_marker setMarkerColor "ColorOrange";
+// Use green to distinguish fruit punch fields
+_marker setMarkerColor "ColorGreen";
 _marker setMarkerText "Fruitpunch 10m";
 STALKER_anomalyMarkers pushBack _marker;
 
