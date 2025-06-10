@@ -19,8 +19,9 @@ class CfgFunctions
         class Core
         {
             file = "functions/core";
-            class masterInit { preInit = 1; };
+            class masterInit{};
             class registerEmissionHooks{};
+            class hasPlayersNearby{};
         };
 
         class AI
@@ -35,6 +36,7 @@ class CfgFunctions
             file = "functions/mutants";
             class spawnAmbientHerds{};
             class spawnMutantGroup{};
+            class setupMutantHabitats{};
         };
 
         class Radiation
@@ -97,5 +99,13 @@ class CfgFunctions
             class findSite_springboard{};
             class findSite_whirligig{};
         };
+    };
+};
+
+class Extended_PreInit_EventHandlers
+{
+    class VIC_StalkerALife_PreInit
+    {
+        init = "call compile preprocessFileLineNumbers 'functions/core/fn_masterInit.sqf'";
     };
 };
