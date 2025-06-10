@@ -6,6 +6,7 @@
     Returns: ARRAY - position
 */
 params ["_center","_radius"];
+["fn_findSite_meatgrinder"] call VIC_fnc_debugLog;
 
 private _posCenter = if (_center isEqualType objNull) then { getPos _center } else { _center };
 private _sites = selectBestPlaces [_posCenter, _radius, "forest", 1, 25];

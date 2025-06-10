@@ -8,6 +8,8 @@
 */
 params ["_center","_radius", ["_count",5]];
 
+["createField_burner"] call VIC_fnc_debugLog;
+
 private _site = [_center,_radius] call VIC_fnc_findSite_burner;
 if (_site isEqualTo []) exitWith { [] };
 

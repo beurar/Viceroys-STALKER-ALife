@@ -20,6 +20,8 @@ params [
     ["_spawnZombies", false]
 ];
 
+["triggerPsyStorm"] call VIC_fnc_debugLog;
+
 private _effect = ppEffectCreate ["ColorCorrections", 1500];
 _effect ppEffectEnable true;
 _effect ppEffectAdjust [0.2, 1, 0, [1,0.2,1,0.2], [0,0,0,1], [1,1,1,0]];

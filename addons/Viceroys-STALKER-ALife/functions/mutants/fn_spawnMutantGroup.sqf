@@ -11,6 +11,8 @@
 */
 params ["_centerPos"];
 
+["spawnMutantGroup"] call VIC_fnc_debugLog;
+
 if (!isServer) exitWith {};
 
 if (["VSA_enableMutants", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};

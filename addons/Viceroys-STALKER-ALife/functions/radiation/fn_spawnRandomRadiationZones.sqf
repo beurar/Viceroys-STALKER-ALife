@@ -6,6 +6,8 @@
 */
 params ["_center","_radius"];
 
+["spawnRandomRadiationZones"] call VIC_fnc_debugLog;
+
 if (["VSA_enableRadiation", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};
 
 private _count  = ["VSA_radiationZoneCount", 2] call CBA_fnc_getSetting;

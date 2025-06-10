@@ -1,5 +1,7 @@
 // Collect units that die during an emission so they can be turned into zombies
 
+["trackDeadForZombify"] call VIC_fnc_debugLog;
+
 params ["_unit"];
 
 // respect CBA settings
