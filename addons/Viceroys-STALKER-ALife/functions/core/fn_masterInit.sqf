@@ -5,8 +5,8 @@
 */
 
 // --- CBA Settings -----------------------------------------------------------
-if (fileExists "cba_settings.sqf") then {
-    call compile preprocessFileLineNumbers "cba_settings.sqf";
+if (fileExists "\Viceroys-STALKER-ALife\cba_settings.sqf") then {
+    call compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\cba_settings.sqf";
 };
 
 if (!isServer) exitWith {};
