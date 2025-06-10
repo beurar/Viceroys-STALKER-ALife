@@ -71,3 +71,9 @@ VIC_fnc_setupDebugActions        = compile preprocessFileLineNumbers "\Viceroys-
     };
 }] call CBA_fnc_addEventHandler;
 
+// Track units killed during emissions for later zombification
+["EntityKilled", {
+    params ["_unit"];
+    [_unit] call VIC_fnc_trackDeadForZombify;
+}] call CBA_fnc_addEventHandler;
+
