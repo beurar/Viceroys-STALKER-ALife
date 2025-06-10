@@ -8,7 +8,7 @@
 */
 params ["_center","_radius", ["_count",5]];
 
-private _site = [_center,_radius] call VSTKR_fnc_findSite_springboard;
+private _site = [_center,_radius] call VIC_fnc_findSite_springboard;
 if (_site isEqualTo []) exitWith { [] };
 
 private _spawned = [];

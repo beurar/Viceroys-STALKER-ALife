@@ -15,14 +15,14 @@ private _nightOnly   = ["VSA_anomalyNightOnly", false] call CBA_fnc_getSetting;
 if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 
 private _types = [
-    VSTKR_fnc_createField_burner,
-    VSTKR_fnc_createField_clicker,
-    VSTKR_fnc_createField_electra,
-    VSTKR_fnc_createField_fruitpunch,
-    VSTKR_fnc_createField_gravi,
-    VSTKR_fnc_createField_meatgrinder,
-    VSTKR_fnc_createField_springboard,
-    VSTKR_fnc_createField_whirligig
+    VIC_fnc_createField_burner,
+    VIC_fnc_createField_clicker,
+    VIC_fnc_createField_electra,
+    VIC_fnc_createField_fruitpunch,
+    VIC_fnc_createField_gravi,
+    VIC_fnc_createField_meatgrinder,
+    VIC_fnc_createField_springboard,
+    VIC_fnc_createField_whirligig
 ];
 
 for "_i" from 1 to _fieldCount do {
