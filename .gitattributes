@@ -1,2 +1,8 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Enforce LF line endings for specific file types
+*.sqf text eol=lf
+*.cpp text eol=lf
+*.txt text eol=lf
+*.md text eol=lf
