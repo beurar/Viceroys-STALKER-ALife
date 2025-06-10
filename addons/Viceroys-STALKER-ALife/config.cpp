@@ -70,6 +70,7 @@ class CfgFunctions
         {
             file = "functions/anomalies";
             class spawnAllAnomalyFields{};
+            class cleanupAnomalyMarkers{};
         };
 
         class AnomalyFields

@@ -20,6 +20,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Procedurally spawns anomaly fields using scripts in `functions/anomalies`.
 * Supports common anomaly types like burners, electras, fruit punches and springboards.
 * Relies on **Diwako’s Anomalies** for the core anomaly logic.
+* Map markers are removed when their anomaly field despawns after `STALKER_AnomalyFieldDuration` minutes.
 
 ### Mutants
 * Spawns roaming mutant packs and ambient herds.

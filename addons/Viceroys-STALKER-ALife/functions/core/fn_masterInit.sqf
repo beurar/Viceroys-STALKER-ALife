@@ -22,6 +22,7 @@ VIC_fnc_spawnRandomRadiationZones = compile preprocessFileLineNumbers "\Viceroys
 VIC_fnc_spawnZombiesFromQueue    = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\zombification\fn_spawnZombiesFromQueue.sqf";
 VIC_fnc_trackDeadForZombify      = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\zombification\fn_trackDeadForZombify.sqf";
 VIC_fnc_spawnAllAnomalyFields    = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\anomalies\fn_spawnAllAnomalyFields.sqf";
+VIC_fnc_cleanupAnomalyMarkers    = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\anomalies\fn_cleanupAnomalyMarkers.sqf";
 VIC_fnc_findSite_electra         = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\anomalies\find_sites\fn_findSite_electra.sqf";
 VIC_fnc_findSite_springboard     = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\anomalies\find_sites\fn_findSite_springboard.sqf";
 VIC_fnc_findSite_meatgrinder     = compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\anomalies\find_sites\fn_findSite_meatgrinder.sqf";
