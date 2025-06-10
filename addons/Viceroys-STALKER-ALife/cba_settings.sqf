@@ -285,14 +285,54 @@
 
 
 // Hostile mutant spawns
-["VSA_mutantGroupCountHostile", "SLIDER", [1, 5, 1], 1, "Number of mutant groups after an emission"] call CBA_fnc_addSetting;
-["VSA_mutantThreat", "SLIDER", [1, 10, 1], 3, "Units per hostile group"] call CBA_fnc_addSetting;
-["VSA_mutantNightOnlyHostile", "CHECKBOX", false, "Spawn hostile groups only at night"] call CBA_fnc_addSetting;
+[
+    "VSA_mutantGroupCountHostile",
+    "SLIDER",
+    ["Post-Emission Groups", "Number of mutant groups after an emission"],
+    "Viceroy's STALKER ALife - Mutants",
+    [1, 1, 5, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_mutantThreat",
+    "SLIDER",
+    ["Units per Hostile Group", "Units spawned in each hostile group"],
+    "Viceroy's STALKER ALife - Mutants",
+    [3, 1, 10, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_mutantNightOnlyHostile",
+    "CHECKBOX",
+    ["Night Time Only", "Spawn hostile groups only at night"],
+    "Viceroy's STALKER ALife - Mutants",
+    false
+] call CBA_fnc_addSetting;
 
 // Ambient herds
-["VSA_ambientHerdCount", "SLIDER", [0, 5, 1], 2, "Number of roaming herds"] call CBA_fnc_addSetting;
-["VSA_ambientHerdSize", "SLIDER", [1, 8, 1], 4, "Units per roaming herd"] call CBA_fnc_addSetting;
-["VSA_ambientNightOnly", "CHECKBOX", false, "Spawn herds only at night"] call CBA_fnc_addSetting;
+[
+    "VSA_ambientHerdCount",
+    "SLIDER",
+    ["Roaming Herds", "Number of roaming herds"],
+    "Viceroy's STALKER ALife - Mutants",
+    [2, 0, 5, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_ambientHerdSize",
+    "SLIDER",
+    ["Herd Size", "Units per roaming herd"],
+    "Viceroy's STALKER ALife - Mutants",
+    [4, 1, 8, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_ambientNightOnly",
+    "CHECKBOX",
+    ["Night Time Only", "Spawn herds only at night"],
+    "Viceroy's STALKER ALife - Mutants",
+    false
+] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
 // Debug
