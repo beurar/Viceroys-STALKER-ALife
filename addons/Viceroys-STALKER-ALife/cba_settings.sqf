@@ -7,9 +7,13 @@
     "VSA_AIPanicEnabled",
     "CHECKBOX",
     ["Enable AI Emission Panic", "AI units will attempt to find cover indoors or in trenches when an emission is building up."],
-    "VSA - Emission",
+"VSA - Emission",
     true
 ] call CBA_fnc_addSetting;
+
+
+
+
 
 /*
     cba_settings.sqf
@@ -92,8 +96,24 @@
     "VSA_radiationNightOnly",
     "CHECKBOX",
     ["Night Time Only", "Radiation zones only appear at night"],
-    "VSA - Radiation",
+"VSA - Radiation",
     false
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_emissionRadiationCount",
+    "SLIDER",
+    ["Zones After Emission", "Radiation zones spawned after an emission"],
+    "VSA - Radiation",
+    [2, 0, 10, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_emissionRadiationRadius",
+    "SLIDER",
+    ["Emission Radiation Radius", "Search radius around players for emission zones"],
+    "VSA - Radiation",
+    [300, 50, 2000, 0]
 ] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
