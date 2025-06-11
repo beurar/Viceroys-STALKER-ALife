@@ -27,6 +27,7 @@ private _duration = missionNamespace getVariable ["STALKER_SpookDuration",15];
 if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 
 if (isNil "drg_activeSpookZones") then { drg_activeSpookZones = []; };
+if (isNil "STALKER_activeSpooks") then { STALKER_activeSpooks = []; };
 
 for "_i" from 1 to _count do {
     if (random 100 >= _weight) then { continue };
@@ -35,6 +36,25 @@ for "_i" from 1 to _count do {
         private _zone = createTrigger ["EmptyDetector", _pos];
         _zone setTriggerArea [25,25,0,false];
         _zone setVariable ["isSpookZone", true];
+
+        // Spawn a random spook from Drongo's mod
+        private _spookTypes = [
+            "DSA_Wendigo",
+            "DSA_Vampire",
+            "DSA_Shadowman",
+            "DSA_Hatman",
+            "DSA_Mindflayer",
+            "DSA_411",
+            "DSA_Rake",
+            "DSA_Abomination",
+            "DSA_Snatcher",
+            "DSA_Crazy",
+            "DSA_ActiveIdol"
+        ];
+
+        private _spook = createVehicle [selectRandom _spookTypes, _pos, [], 0, "NONE"];
+        _zone setVariable ["spawnedSpook", _spook];
+        STALKER_activeSpooks pushBack _spook;
 
         // Create a map marker so the zone is visible for debugging or admin use
         private _markerName = format ["spook_%1", diag_tickTime];
@@ -48,9 +68,15 @@ for "_i" from 1 to _count do {
         _zone setVariable ["zoneMarker", _marker];
 
         drg_activeSpookZones pushBack _zone;
-        [_zone, _duration] spawn {
-            params ["_zone","_dur"];
+        [_zone, _spook, _duration] spawn {
+            params ["_zone","_spook","_dur"];
             sleep (_dur * 60);
+            if (!isNull _spook) then {
+                deleteVehicle _spook;
+                if (!isNil "STALKER_activeSpooks") then {
+                    STALKER_activeSpooks = STALKER_activeSpooks - [_spook];
+                };
+            };
             if (!isNull _zone) then {
                 private _m = _zone getVariable ["zoneMarker", ""];
                 if (_m isNotEqualTo "") then { deleteMarker _m; };
