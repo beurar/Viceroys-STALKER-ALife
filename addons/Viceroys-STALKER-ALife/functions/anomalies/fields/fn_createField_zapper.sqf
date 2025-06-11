@@ -25,7 +25,7 @@ STALKER_anomalyMarkers pushBack _marker;
 private _spawned = [];
 for "_i" from 1 to _count do {
     private _pos = _site getPos [random 10, random 360];
-    private _anom = [_pos] call diwako_anomalies_main_fnc_createZapper;
+    private _anom = createVehicle ["DSA_Zapper", _pos, [], 0, "NONE"];
     _anom setVariable ["zoneMarker", _marker];
     _spawned pushBack _anom;
 };
