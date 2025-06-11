@@ -130,7 +130,7 @@ VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\f
 ["EntityKilled", {
     params ["_unit"];
     [_unit] call VIC_fnc_trackDeadForZombify;
-}] call CBA_fnc_addEventHandler;
+  }] call CBA_fnc_addEventHandler;
 } else {
     ["postInit", {
         if (hasInterface && ["VSA_debugMode", false] call CBA_fnc_getSetting) then {
@@ -139,3 +139,12 @@ VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\f
         };
     }] call CBA_fnc_addEventHandler;
 };
+
+// Allow toggling debug mode mid-mission
+["CBA_SettingChanged", {
+    params ["_setting", "_value"];
+    if (hasInterface && {_setting isEqualTo "VSA_debugMode" && {_value}}) then {
+        [] call VIC_fnc_setupDebugActions;
+        [] call VIC_fnc_markAllBuildings;
+    };
+}] call CBA_fnc_addEventHandler;

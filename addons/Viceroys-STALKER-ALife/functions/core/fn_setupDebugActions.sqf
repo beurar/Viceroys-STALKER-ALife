@@ -14,6 +14,8 @@ player addAction ["Spawn Anomaly Fields", { [getPos player, 200] call VIC_fnc_sp
 player addAction ["Spawn Mutant Group", { [getPos player] call VIC_fnc_spawnMutantGroup }];
 player addAction ["Spawn Spook Zone", { [] call VIC_fnc_spawnSpookZone }];
 player addAction ["Spawn Zombies From Queue", { [] call VIC_fnc_spawnZombiesFromQueue }];
+player addAction ["Spawn Ambient Herds", { [] call VIC_fnc_spawnAmbientHerds }];
+player addAction ["Generate Mutant Habitats", { [] call VIC_fnc_setupMutantHabitats }];
 
 ["Debug actions added"] call VIC_fnc_debugLog;
 

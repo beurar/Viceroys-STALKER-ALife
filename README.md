@@ -107,6 +107,9 @@ Common spook types include:
    * [Chemical Warfare Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3295358796)
 3. Review `cba_settings.sqf` for adjustable options.
 4. Enable **VSA_debugMode** to show on-screen debug messages and access testing actions.
+   This option can now be toggled while a mission is running and the debug
+   actions will appear automatically.
+5. When debug mode is active, your scroll menu includes options to trigger storms, spawn anomaly fields or spook zones, generate habitats, spawn ambient herds and other test helpers.
 
 ## Usage
 
