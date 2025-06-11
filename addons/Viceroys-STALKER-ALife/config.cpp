@@ -24,6 +24,7 @@ class CfgFunctions
             class masterInit{};
             class registerEmissionHooks{};
             class getSetting{};
+            class getSurfacePosition{};
             class hasPlayersNearby{};
         };
 
@@ -64,6 +65,7 @@ class CfgFunctions
             class manageHerds{};
             class manageHostiles{};
             class manageNests{};
+            class manageHabitats{};
             class setupMutantHabitats{};
             class onEmissionStart{};
             class onEmissionEnd{};
@@ -106,6 +108,7 @@ class CfgFunctions
             file = "Viceroys-STALKER-ALife\functions\anomalies";
             class spawnAllAnomalyFields{};
             class cleanupAnomalyMarkers{};
+            class manageAnomalyFields{};
             class onEmissionBuildUp{};
             class onEmissionStart{};
             class onEmissionEnd{};

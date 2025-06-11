@@ -6,10 +6,12 @@
         2: NUMBER (optional) - anomaly count (default 5)
     Returns: ARRAY - spawned anomalies
 */
-params ["_center","_radius", ["_count",5]];
+params ["_center","_radius", ["_count",5], ["_site", []]];
 ["fn_createField_launchpad"] call VIC_fnc_debugLog;
 
-private _site = [_center,_radius] call VIC_fnc_findSite_launchpad;
+if (_site isEqualTo []) then {
+    _site = [_center,_radius] call VIC_fnc_findSite_launchpad;
+};
 if (_site isEqualTo []) exitWith { [] };
 
 // Create a marker for this anomaly field
@@ -24,8 +26,9 @@ STALKER_anomalyMarkers pushBack _marker;
 
 private _spawned = [];
 for "_i" from 1 to _count do {
-    private _pos = _site getPos [random 10, random 360];
-    private _anom = createVehicle ["DSA_Launchpad", _pos, [], 0, "NONE"];
+    private _off = [_site, random 10, random 360] call BIS_fnc_relPos;
+    private _surf = [_off] call VIC_fnc_getSurfacePosition;
+    private _anom = createVehicle ["DSA_Launchpad", ASLToATL _surf, [], 0, "NONE"];
     _anom setVariable ["zoneMarker", _marker];
     _spawned pushBack _anom;
 };
