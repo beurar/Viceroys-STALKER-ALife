@@ -52,6 +52,10 @@ class CfgFunctions
             file = "Viceroys-STALKER-ALife\functions\mutants";
             class spawnAmbientHerds{};
             class spawnMutantGroup{};
+            class spawnBloodsuckerNest{};
+            class manageHerds{};
+            class manageHostiles{};
+            class manageNests{};
             class setupMutantHabitats{};
             class onEmissionStart{};
             class onEmissionEnd{};

@@ -10,6 +10,11 @@ STALKER_AnomalyFieldDuration = 30; // minutes anomaly fields persist
 
 drg_activeSpookZones = [];
 
+// Global tracking arrays for spawned groups
+STALKER_activeHerds = [];
+STALKER_activeHostiles = [];
+STALKER_mutantNests = [];
+
 // Prepare spook zone locations
 [] call compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\spooks\fn_setupSpookZones.sqf";
 

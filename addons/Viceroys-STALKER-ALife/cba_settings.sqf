@@ -334,6 +334,38 @@
     false
 ] call CBA_fnc_addSetting;
 
+[
+    "VSA_maxAmbientHerds",
+    "SLIDER",
+    ["Max Active Herds", "Maximum number of roaming herds"],
+    "Viceroy's STALKER ALife - Mutants",
+    [5, 0, 20, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_maxHostileGroups",
+    "SLIDER",
+    ["Max Hostile Groups", "Maximum active hostile mutant groups"],
+    "Viceroy's STALKER ALife - Mutants",
+    [5, 0, 20, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_maxMutantNests",
+    "SLIDER",
+    ["Max Mutant Nests", "Maximum active bloodsucker nests"],
+    "Viceroy's STALKER ALife - Mutants",
+    [3, 0, 10, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_nestsNightOnly",
+    "CHECKBOX",
+    ["Night Time Nests", "Generate nests only during night"],
+    "Viceroy's STALKER ALife - Mutants",
+    true
+] call CBA_fnc_addSetting;
+
 // -----------------------------------------------------------------------------
 // Debug
 // -----------------------------------------------------------------------------
