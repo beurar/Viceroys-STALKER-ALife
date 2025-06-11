@@ -179,11 +179,36 @@
 ] call CBA_fnc_addSetting;
 
 [
-    "VSA_spooksNightOnly",
-    "CHECKBOX",
-    ["Night Time Only", "Spooks are active only at night"],
+"VSA_spooksNightOnly",
+"CHECKBOX",
+["Night Time Only", "Spooks are active only at night"],
+"Viceroy's STALKER ALife - Spooks",
+true
+] call CBA_fnc_addSetting;
+
+// Individual spook configuration
+[
+    "VSA_abominationCount",
+    "SLIDER",
+    ["Abomination Count", "Units spawned when an Abomination zone appears"],
     "Viceroy's STALKER ALife - Spooks",
-    true
+    [1, 0, 10, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_abominationSpawnWeight",
+    "SLIDER",
+    ["Abomination Spawn Weight", "Relative chance to choose an Abomination"],
+    "Viceroy's STALKER ALife - Spooks",
+    [100, 0, 100, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_abominationTime",
+    "LIST",
+    ["Abomination Active Time", "When Abominations may spawn"],
+    "Viceroy's STALKER ALife - Spooks",
+    [[0,1,2],["Both","Night Only","Day Only"],1]
 ] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------

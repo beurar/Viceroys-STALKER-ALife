@@ -82,18 +82,16 @@ Every mutant type can establish a nest which spawns defenders when players are n
 * **Acid Smasher** – Corrosive variant that spews acid while smashing through targets.
 
 ## Spooks and Other Anomalies
-Drongo’s system adds creepy events such as ghostly whispers or sudden darkening of the sky. These spook zones appear mostly at night and vanish after a short time, keeping players uneasy as they travel. When a zone spawns the mod now creates one of the DSA creature classes (for example `DSA_Wendigo` or `DSA_Shadowman`) at the location and cleans it up once the zone expires.
+Drongo’s system adds creepy events such as ghostly whispers or sudden darkening of the sky. These spook zones appear mostly at night and vanish after a short time, keeping players uneasy as they travel. When a zone spawns the mod now creates one of the DSA creature classes (currently only `DSA_Abomination`) at the location and cleans it up once the zone expires.
 
-Common spook types include:
-* **Wendigo** – Deer-like humanoid that leaps at nearby prey.
-* **Shadowman** – Jet-black figure able to teleport and strike with psychic blasts.
-* **Vampires** – Fast, tough monsters that dive into melee with powerful leaps.
-* **Mindflayer** – Slow but dangerous psy-creature capable of mind control.
-* **411** – Near-invisible hunter that kills those who turn their backs.
-* **Rake** – Pale crouched mutant attacking with vicious claws.
+This mod now focuses on a single particularly nasty spook type:
 * **Abomination** – Shrouded in darkness, stabbing victims from range.
-* **Snatcher** – Semi-visible shapeshifter that teleports targets far away.
-* **Cursed Idol** – Animated idol requiring heavy weapons to destroy.
+
+It appears only at night and its behaviour can be adjusted via CBA settings.
+
+The creature can be configured individually through CBA settings. Mission
+makers may adjust the spawn chance, number of Abominations and whether it
+spawns at night, during the day or both.
 
 ## Setup
 
