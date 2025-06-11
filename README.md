@@ -110,6 +110,8 @@ spawns at night, during the day or both.
    actions will appear automatically.
 5. When debug mode is active, your scroll menu includes options to trigger storms, spawn anomaly fields or spook zones, generate habitats, spawn ambient herds and other test helpers.
 
+If your mission reports undefined CBA settings, ensure that **CBA A3** is loaded and initialized before this mod. Settings now fall back to defaults via `VIC_fnc_getSetting` when CBA has not yet finished loading.
+
 ## Usage
 
 All functions are contained under the `functions` directory and follow the `TAG_fnc_functionName` convention. Key entry points include:
