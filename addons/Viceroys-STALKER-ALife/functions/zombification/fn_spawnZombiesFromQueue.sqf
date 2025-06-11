@@ -2,7 +2,7 @@
 
 ["spawnZombiesFromQueue"] call VIC_fnc_debugLog;
 
-if (["VSA_enableZombification", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};
+if (["VSA_enableZombification", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
 
 // read and clear the queue
 private _queue = missionNamespace getVariable ["ALF_zombieQueue", []];

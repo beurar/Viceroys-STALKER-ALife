@@ -17,11 +17,11 @@ if (isNil "drg_spook_zone_positions") then {
     [] call compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\spooks\fn_setupSpookZones.sqf";
 };
 
-if (["VSA_enableSpooks", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};
+if (["VSA_enableSpooks", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
 
-private _count = ["VSA_spookZoneCount", 1] call CBA_fnc_getSetting;
-private _weight = ["VSA_spookSpawnWeight", 50] call CBA_fnc_getSetting;
-private _nightOnly = ["VSA_spooksNightOnly", true] call CBA_fnc_getSetting;
+private _count = ["VSA_spookZoneCount", 1] call VIC_fnc_getSetting;
+private _weight = ["VSA_spookSpawnWeight", 50] call VIC_fnc_getSetting;
+private _nightOnly = ["VSA_spooksNightOnly", true] call VIC_fnc_getSetting;
 private _duration = missionNamespace getVariable ["STALKER_SpookDuration",15];
 
 private _spookConfigs = [
@@ -42,9 +42,9 @@ for "_i" from 1 to _count do {
     private _isDay = (daytime > 5 && daytime < 20);
     {
         _x params ["_class","_wSetting","_cSetting","_tSetting"];
-        private _w = [_wSetting,0] call CBA_fnc_getSetting;
-        private _c = [_cSetting,1] call CBA_fnc_getSetting;
-        private _t = [_tSetting,0] call CBA_fnc_getSetting;
+        private _w = [_wSetting,0] call VIC_fnc_getSetting;
+        private _c = [_cSetting,1] call VIC_fnc_getSetting;
+        private _t = [_tSetting,0] call VIC_fnc_getSetting;
         if (_t == 1 && _isDay) exitWith {};
         if (_t == 2 && !_isDay) exitWith {};
         if (_w > 0 && _c > 0) then { _pool pushBack [_class,_w,_c]; };

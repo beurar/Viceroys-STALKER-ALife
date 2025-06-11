@@ -57,8 +57,8 @@ missionNamespace setVariable ["emission_active", false];
         // remove old chemical zones and spawn new ones
         [true] call VIC_fnc_cleanupChemicalZones;
 
-        private _radius = ["VSA_emissionChemicalRadius", 300] call CBA_fnc_getSetting;
-        private _count  = ["VSA_emissionChemicalCount", 2] call CBA_fnc_getSetting;
+        private _radius = ["VSA_emissionChemicalRadius", 300] call VIC_fnc_getSetting;
+        private _count  = ["VSA_emissionChemicalCount", 2] call VIC_fnc_getSetting;
         {
             [_x, _radius, _count, -1] call VIC_fnc_spawnRandomChemicalZones;
         } forEach allPlayers;

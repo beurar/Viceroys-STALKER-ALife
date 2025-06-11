@@ -15,14 +15,14 @@ params ["_centerPos"];
 
 if (!isServer) exitWith {};
 
-if (["VSA_enableMutants", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};
+if (["VSA_enableMutants", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
 
 if (isNil "STALKER_activeHostiles") then { STALKER_activeHostiles = []; };
 
-private _groupCount = ["VSA_mutantGroupCountHostile", 1] call CBA_fnc_getSetting;
-private _threat     = ["VSA_mutantThreat", 3] call CBA_fnc_getSetting;
-private _nightOnly  = ["VSA_mutantNightOnlyHostile", false] call CBA_fnc_getSetting;
-private _spawnWeight = ["VSA_mutantSpawnWeight", 50] call CBA_fnc_getSetting;
+private _groupCount = ["VSA_mutantGroupCountHostile", 1] call VIC_fnc_getSetting;
+private _threat     = ["VSA_mutantThreat", 3] call VIC_fnc_getSetting;
+private _nightOnly  = ["VSA_mutantNightOnlyHostile", false] call VIC_fnc_getSetting;
+private _spawnWeight = ["VSA_mutantSpawnWeight", 50] call VIC_fnc_getSetting;
 
 if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 

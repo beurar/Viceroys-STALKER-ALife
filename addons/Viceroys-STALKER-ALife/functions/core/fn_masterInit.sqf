@@ -87,6 +87,7 @@ chemical_fnc_onEmissionEnd   = compile preprocessFileLineNumbers (_root + "\func
 zombification_fnc_onEmissionEnd = compile preprocessFileLineNumbers (_root + "\functions\zombification\fn_onEmissionEnd.sqf");
 VIC_fnc_hasPlayersNearby         = compile preprocessFileLineNumbers (_root + "\functions\core\fn_hasPlayersNearby.sqf");
 VIC_fnc_registerEmissionHooks    = compile preprocessFileLineNumbers (_root + "\functions\core\fn_registerEmissionHooks.sqf");
+VIC_fnc_getSetting               = compile preprocessFileLineNumbers (_root + "\functions\core\fn_getSetting.sqf");
 VIC_fnc_debugLog                 = compile preprocessFileLineNumbers (_root + "\functions\core\fn_debugLog.sqf");
 VIC_fnc_setupDebugActions        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_setupDebugActions.sqf");
 VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markAllBuildings.sqf");
@@ -122,7 +123,7 @@ VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\f
             };
         }, [], 20
     ] call CBA_fnc_waitAndExecute;
-    if (["VSA_debugMode", false] call CBA_fnc_getSetting) then {
+    if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         [] call VIC_fnc_setupDebugActions;
         [] call VIC_fnc_markAllBuildings;
     };
@@ -135,7 +136,7 @@ VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\f
   }] call CBA_fnc_addEventHandler;
 } else {
     ["postInit", {
-        if (hasInterface && ["VSA_debugMode", false] call CBA_fnc_getSetting) then {
+        if (hasInterface && ["VSA_debugMode", false] call VIC_fnc_getSetting) then {
             [] call VIC_fnc_setupDebugActions;
             [] call VIC_fnc_markAllBuildings;
         };
