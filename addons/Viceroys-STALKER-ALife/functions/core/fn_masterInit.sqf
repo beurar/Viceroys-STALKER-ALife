@@ -63,6 +63,7 @@ VIC_fnc_hasPlayersNearby         = compile preprocessFileLineNumbers (_root + "\
 VIC_fnc_registerEmissionHooks    = compile preprocessFileLineNumbers (_root + "\functions\core\fn_registerEmissionHooks.sqf");
 VIC_fnc_debugLog                 = compile preprocessFileLineNumbers (_root + "\functions\core\fn_debugLog.sqf");
 VIC_fnc_setupDebugActions        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_setupDebugActions.sqf");
+VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markAllBuildings.sqf");
 
 // --- PostInit ---------------------------------------------------------------
 ["postInit", {
@@ -71,6 +72,7 @@ VIC_fnc_setupDebugActions        = compile preprocessFileLineNumbers (_root + "\
     [] call VIC_fnc_setupMutantHabitats;
     if (["VSA_debugMode", false] call CBA_fnc_getSetting) then {
         [] call VIC_fnc_setupDebugActions;
+        [] call VIC_fnc_markAllBuildings;
     };
 }] call CBA_fnc_addEventHandler;
 
