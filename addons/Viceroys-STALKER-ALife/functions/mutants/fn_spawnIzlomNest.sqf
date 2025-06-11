@@ -7,4 +7,4 @@ params ["_pos"];
 
 ["spawnIzlomNest"] call VIC_fnc_debugLog;
 
-[_pos, "O_ALF_Izlom"] call VIC_fnc_spawnMutantNest;
+[_pos, "armst_izlom"] call VIC_fnc_spawnMutantNest;

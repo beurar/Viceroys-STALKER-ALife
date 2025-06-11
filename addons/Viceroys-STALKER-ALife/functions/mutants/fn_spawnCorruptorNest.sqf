@@ -7,4 +7,4 @@ params ["_pos"];
 
 ["spawnCorruptorNest"] call VIC_fnc_debugLog;
 
-[_pos, "WBK_Corruptor"] call VIC_fnc_spawnMutantNest;
+[_pos, "WBK_SpecialZombie_Corrupted_3"] call VIC_fnc_spawnMutantNest;

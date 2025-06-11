@@ -64,6 +64,7 @@ class CfgFunctions
             class spawnIzlomNest{};
             class spawnCorruptorNest{};
             class spawnSmasherNest{};
+            class spawnAcidSmasherNest{};
             class spawnBehemothNest{};
             class manageHerds{};
             class manageHostiles{};

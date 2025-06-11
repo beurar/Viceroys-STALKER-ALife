@@ -7,4 +7,5 @@ params ["_pos"];
 
 ["spawnPseudodogNest"] call VIC_fnc_debugLog;
 
-[_pos, "O_ALF_Pseudodog"] call VIC_fnc_spawnMutantNest;
+private _classes = ["armst_pseudodog", "armst_pseudodog2"];
+[_pos, selectRandom _classes] call VIC_fnc_spawnMutantNest;

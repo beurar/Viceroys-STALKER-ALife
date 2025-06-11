@@ -7,4 +7,5 @@ params ["_pos"];
 
 ["spawnBoarNest"] call VIC_fnc_debugLog;
 
-[_pos, "O_ALF_Boar"] call VIC_fnc_spawnMutantNest;
+private _classes = ["armst_boar", "armst_boar2"];
+[_pos, selectRandom _classes] call VIC_fnc_spawnMutantNest;

@@ -7,4 +7,4 @@ params ["_pos"];
 
 ["spawnSmasherNest"] call VIC_fnc_debugLog;
 
-[_pos, "WBK_Smasher"] call VIC_fnc_spawnMutantNest;
+[_pos, "WBK_SpecialZombie_Smasher_3"] call VIC_fnc_spawnMutantNest;

@@ -7,4 +7,5 @@ params ["_pos"];
 
 ["spawnBloodsuckerNest"] call VIC_fnc_debugLog;
 
-[_pos, "O_ALF_Bloodsucker"] call VIC_fnc_spawnMutantNest;
+private _classes = ["armst_krovosos", "armst_krovosos2"];
+[_pos, selectRandom _classes] call VIC_fnc_spawnMutantNest;
