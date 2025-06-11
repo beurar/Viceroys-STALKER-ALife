@@ -82,7 +82,7 @@ Every mutant type can establish a nest which spawns defenders when players are n
 * **Acid Smasher** – Corrosive variant that spews acid while smashing through targets.
 
 ## Spooks and Other Anomalies
-Drongo’s system adds creepy events such as ghostly whispers or sudden darkening of the sky. These spook zones appear mostly at night and vanish after a short time, keeping players uneasy as they travel.
+Drongo’s system adds creepy events such as ghostly whispers or sudden darkening of the sky. These spook zones appear mostly at night and vanish after a short time, keeping players uneasy as they travel. When a zone spawns the mod now creates one of the DSA creature classes (for example `DSA_Wendigo` or `DSA_Shadowman`) at the location and cleans it up once the zone expires.
 
 Common spook types include:
 * **Wendigo** – Deer-like humanoid that leaps at nearby prey.
