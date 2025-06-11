@@ -14,7 +14,8 @@ private _createMarker = {
     private _name = format ["hab_%1_%2", toLower _type, diag_tickTime + random 1000];
     private _marker = createMarker [_name, _pos];
     _marker setMarkerShape "ELLIPSE";
-    _marker setMarkerColor "ColorDarkGreen";
+    // Dark green markers caused confusion with players, use standard green instead
+    _marker setMarkerColor "ColorGreen";
     _marker setMarkerSize [150,150];
     _marker setMarkerText format ["Habitat: %1", toUpper _type];
     STALKER_mutantHabitats pushBack [_marker, _type];
