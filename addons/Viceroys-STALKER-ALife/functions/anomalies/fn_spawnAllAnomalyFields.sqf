@@ -20,8 +20,7 @@ private _nightOnly   = ["VSA_anomalyNightOnly", false] call VIC_fnc_getSetting;
 
 if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 
-if (!([_center, 1500] call VIC_fnc_hasPlayersNearby)) exitWith {};
-
+if (isNil "STALKER_anomalyFields") then { STALKER_anomalyFields = [] };
 private _types = [
     VIC_fnc_createField_burner,
     VIC_fnc_createField_clicker,
@@ -37,8 +36,6 @@ private _types = [
     VIC_fnc_createField_zapper
 ];
 
-private _duration = missionNamespace getVariable ["STALKER_AnomalyFieldDuration", 30];
-
 for "_i" from 1 to _fieldCount do {
     if ((count STALKER_anomalyMarkers) >= _maxFields) exitWith {};
     if (random 100 >= _spawnWeight) then { continue };
@@ -47,19 +44,6 @@ for "_i" from 1 to _fieldCount do {
 
     if (_spawned isEqualTo []) then { continue };
     private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
-
-    [_spawned, _marker, _duration] spawn {
-        params ["_objects", "_marker", "_dur"];
-        sleep (_dur * 60);
-        {
-            if (!isNull _x) then { deleteVehicle _x; };
-        } forEach _objects;
-        if (_marker isNotEqualTo "") then {
-            deleteMarker _marker;
-            if (!isNil "STALKER_anomalyMarkers") then {
-                private _idx = STALKER_anomalyMarkers find _marker;
-                if (_idx >= 0) then { STALKER_anomalyMarkers deleteAt _idx; };
-            };
-        };
-    };
+    private _site   = if (_marker isEqualTo "") then { getPosATL (_spawned select 0) } else { getMarkerPos _marker };
+    STALKER_anomalyFields pushBack [_center,_radius,_fn,count _spawned,_spawned,_marker,_site];
 };

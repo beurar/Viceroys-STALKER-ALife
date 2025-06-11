@@ -15,6 +15,7 @@
 
 
 
+
 /*
     cba_settings.sqf
     Registers addon options for Viceroys STALKER ALife.
@@ -63,6 +64,14 @@
     ["Night Time Only", "Anomalies only spawn at night"],
     "Viceroy's STALKER ALife - Anomalies",
     false
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_anomalyEmissionMode",
+    "LIST",
+    ["Field Change On Emission", "How anomaly fields react to emissions"],
+    "Viceroy's STALKER ALife - Anomalies",
+    [[0,1,2],["None","Shuffle","Replace"],1]
 ] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
@@ -398,6 +407,16 @@ true
     "Viceroy's STALKER ALife - Mutants",
     true
 ] call CBA_fnc_addSetting;
+
+["VSA_habitatSize_Bloodsucker","SLIDER",["Bloodsucker Habitat Size","Max bloodsuckers per habitat"],"Viceroy's STALKER ALife - Mutants",[12,1,50,0]] call CBA_fnc_addSetting;
+["VSA_habitatSize_Dog","SLIDER",["Dog Habitat Size","Max dogs per habitat"],"Viceroy's STALKER ALife - Mutants",[50,1,100,0]] call CBA_fnc_addSetting;
+["VSA_habitatSize_Boar","SLIDER",["Boar Habitat Size","Max boars per habitat"],"Viceroy's STALKER ALife - Mutants",[10,1,50,0]] call CBA_fnc_addSetting;
+["VSA_habitatSize_Cat","SLIDER",["Cat Habitat Size","Max cats per habitat"],"Viceroy's STALKER ALife - Mutants",[10,1,50,0]] call CBA_fnc_addSetting;
+["VSA_habitatSize_Flesh","SLIDER",["Flesh Habitat Size","Max flesh per habitat"],"Viceroy's STALKER ALife - Mutants",[10,1,50,0]] call CBA_fnc_addSetting;
+["VSA_habitatSize_Pseudodog","SLIDER",["Pseudodog Habitat Size","Max pseudodogs per habitat"],"Viceroy's STALKER ALife - Mutants",[20,1,50,0]] call CBA_fnc_addSetting;
+["VSA_habitatSize_Controller","SLIDER",["Controller Habitat Size","Max controllers per habitat"],"Viceroy's STALKER ALife - Mutants",[8,1,20,0]] call CBA_fnc_addSetting;
+["VSA_habitatSize_Pseudogiant","SLIDER",["Pseudogiant Habitat Size","Max pseudogiants per habitat"],"Viceroy's STALKER ALife - Mutants",[6,1,20,0]] call CBA_fnc_addSetting;
+["VSA_habitatSize_Izlom","SLIDER",["Izlom Habitat Size","Max izlom per habitat"],"Viceroy's STALKER ALife - Mutants",[10,1,50,0]] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
 // Debug

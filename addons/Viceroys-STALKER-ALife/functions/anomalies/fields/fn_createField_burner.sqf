@@ -6,11 +6,13 @@
         2: NUMBER (optional) - anomaly count (default 5)
     Returns: ARRAY - spawned anomaly objects
 */
-params ["_center","_radius", ["_count",5]];
+params ["_center","_radius", ["_count",5], ["_site", []]];
 
 ["createField_burner"] call VIC_fnc_debugLog;
 
-private _site = [_center,_radius] call VIC_fnc_findSite_burner;
+if (_site isEqualTo []) then {
+    _site = [_center,_radius] call VIC_fnc_findSite_burner;
+};
 if (_site isEqualTo []) exitWith { [] };
 
 // Create a marker for this anomaly field
@@ -25,8 +27,9 @@ STALKER_anomalyMarkers pushBack _marker;
 
 private _spawned = [];
 for "_i" from 1 to _count do {
-    private _pos = _site getPos [random 10, random 360];
-    private _anom = [_pos] call diwako_anomalies_main_fnc_createBurner;
+    private _off = [_site, random 10, random 360] call BIS_fnc_relPos;
+    private _surf = [_off] call VIC_fnc_getSurfacePosition;
+    private _anom = [_surf] call diwako_anomalies_main_fnc_createBurner;
     _anom setVariable ["zoneMarker", _marker];
     _spawned pushBack _anom;
 };

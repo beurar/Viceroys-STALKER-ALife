@@ -14,11 +14,22 @@ private _createMarker = {
     private _name = format ["hab_%1_%2", toLower _type, diag_tickTime + random 1000];
     private _marker = createMarker [_name, _pos];
     _marker setMarkerShape "ELLIPSE";
-    // Dark green markers caused confusion with players, use standard green instead
     _marker setMarkerColor "ColorGreen";
     _marker setMarkerSize [150,150];
-    _marker setMarkerText format ["Habitat: %1", toUpper _type];
-    STALKER_mutantHabitats pushBack [_marker, _type];
+    private _max = switch (_type) do {
+        case "Bloodsucker": { ["VSA_habitatSize_Bloodsucker",12] call VIC_fnc_getSetting };
+        case "Blind Dog": { ["VSA_habitatSize_Dog",50] call VIC_fnc_getSetting };
+        case "Pseudodog": { ["VSA_habitatSize_Dog",50] call VIC_fnc_getSetting };
+        case "Boar": { ["VSA_habitatSize_Boar",10] call VIC_fnc_getSetting };
+        case "Cat": { ["VSA_habitatSize_Cat",10] call VIC_fnc_getSetting };
+        case "Flesh": { ["VSA_habitatSize_Flesh",10] call VIC_fnc_getSetting };
+        case "Controller": { ["VSA_habitatSize_Controller",8] call VIC_fnc_getSetting };
+        case "Pseudogiant": { ["VSA_habitatSize_Pseudogiant",6] call VIC_fnc_getSetting };
+        case "Izlom": { ["VSA_habitatSize_Izlom",10] call VIC_fnc_getSetting };
+        default {10};
+    };
+    _marker setMarkerText format ["%1 Habitat: 0/%2", _type, _max];
+    STALKER_mutantHabitats pushBack [_marker, grpNull, _pos, _type, _max];
 };
 
 private _center = [worldSize/2, worldSize/2, 0];

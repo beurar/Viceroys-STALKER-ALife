@@ -26,6 +26,7 @@ VIC_fnc_spawnZombiesFromQueue    = compile preprocessFileLineNumbers (_root + "\
 VIC_fnc_trackDeadForZombify      = compile preprocessFileLineNumbers (_root + "\functions\zombification\fn_trackDeadForZombify.sqf");
 VIC_fnc_spawnAllAnomalyFields    = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_spawnAllAnomalyFields.sqf");
 VIC_fnc_cleanupAnomalyMarkers    = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_cleanupAnomalyMarkers.sqf");
+VIC_fnc_manageAnomalyFields     = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_manageAnomalyFields.sqf");
 VIC_fnc_findSite_electra         = compile preprocessFileLineNumbers (_root + "\functions\anomalies\find_sites\fn_findSite_electra.sqf");
 VIC_fnc_findSite_springboard     = compile preprocessFileLineNumbers (_root + "\functions\anomalies\find_sites\fn_findSite_springboard.sqf");
 VIC_fnc_findSite_meatgrinder     = compile preprocessFileLineNumbers (_root + "\functions\anomalies\find_sites\fn_findSite_meatgrinder.sqf");
@@ -74,6 +75,7 @@ VIC_fnc_spawnBehemothNest       = compile preprocessFileLineNumbers (_root + "\f
 VIC_fnc_manageHerds              = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageHerds.sqf");
 VIC_fnc_manageHostiles           = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageHostiles.sqf");
 VIC_fnc_manageNests              = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageNests.sqf");
+VIC_fnc_manageHabitats           = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageHabitats.sqf");
 panic_fnc_onEmissionBuildUp  = compile preprocessFileLineNumbers (_root + "\functions\panic\fn_onEmissionBuildUp.sqf");
 panic_fnc_onEmissionStart    = compile preprocessFileLineNumbers (_root + "\functions\panic\fn_onEmissionStart.sqf");
 panic_fnc_onEmissionEnd      = compile preprocessFileLineNumbers (_root + "\functions\panic\fn_onEmissionEnd.sqf");
@@ -88,6 +90,7 @@ zombification_fnc_onEmissionEnd = compile preprocessFileLineNumbers (_root + "\f
 VIC_fnc_hasPlayersNearby         = compile preprocessFileLineNumbers (_root + "\functions\core\fn_hasPlayersNearby.sqf");
 VIC_fnc_registerEmissionHooks    = compile preprocessFileLineNumbers (_root + "\functions\core\fn_registerEmissionHooks.sqf");
 VIC_fnc_getSetting               = compile preprocessFileLineNumbers (_root + "\functions\core\fn_getSetting.sqf");
+VIC_fnc_getSurfacePosition       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_getSurfacePosition.sqf");
 VIC_fnc_debugLog                 = compile preprocessFileLineNumbers (_root + "\functions\core\fn_debugLog.sqf");
 VIC_fnc_setupDebugActions        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_setupDebugActions.sqf");
 VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markAllBuildings.sqf");
@@ -118,10 +121,28 @@ VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\f
     [
         {
             while {true} do {
+                [] call VIC_fnc_manageAnomalyFields;
+                sleep 60;
+            };
+        }, [], 18
+    ] call CBA_fnc_waitAndExecute;
+
+    [
+        {
+            while {true} do {
                 [] call VIC_fnc_manageNests;
                 sleep 300;
             };
         }, [], 20
+    ] call CBA_fnc_waitAndExecute;
+
+    [
+        {
+            while {true} do {
+                [] call VIC_fnc_manageHabitats;
+                sleep 300;
+            };
+        }, [], 25
     ] call CBA_fnc_waitAndExecute;
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         [] call VIC_fnc_setupDebugActions;
