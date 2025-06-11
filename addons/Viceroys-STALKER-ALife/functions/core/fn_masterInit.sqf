@@ -9,6 +9,10 @@ private _root = "\Viceroys-STALKER-ALife";
 private _settings = _root + "\cba_settings.sqf";
 if (fileExists _settings) then {
     call compile preprocessFileLineNumbers _settings;
+} else {
+    private _msg = format ["[VIC] WARNING: cba_settings.sqf not found at %1", _settings];
+    diag_log _msg;
+    [_msg] call VIC_fnc_debugLog;
 };
 
 
