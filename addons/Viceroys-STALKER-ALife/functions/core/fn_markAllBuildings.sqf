@@ -7,7 +7,7 @@
 
 ["markAllBuildings"] call VIC_fnc_debugLog;
 
-if (!isServer) exitWith { false };
+if (!hasInterface) exitWith { false };
 
 if (isNil "STALKER_buildingMarkers") then { STALKER_buildingMarkers = [] };
 

@@ -11,9 +11,9 @@ if (fileExists _settings) then {
     call compile preprocessFileLineNumbers _settings;
 };
 
-if (!isServer) exitWith {};
 
 ["masterInit"] call VIC_fnc_debugLog;
+if (isServer) then {
 
 // --- Function Registration -------------------------------------------------
 VIC_fnc_resetAIBehavior          = compile preprocessFileLineNumbers (_root + "\functions\ai\fn_resetAIBehavior.sqf");
@@ -131,4 +131,13 @@ VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\f
     params ["_unit"];
     [_unit] call VIC_fnc_trackDeadForZombify;
 }] call CBA_fnc_addEventHandler;
+};
 
+else {
+    ["postInit", {
+        if (hasInterface && ["VSA_debugMode", false] call CBA_fnc_getSetting) then {
+            [] call VIC_fnc_setupDebugActions;
+            [] call VIC_fnc_markAllBuildings;
+        };
+    }] call CBA_fnc_addEventHandler;
+};
