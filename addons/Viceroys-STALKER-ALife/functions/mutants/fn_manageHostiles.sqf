@@ -7,7 +7,7 @@
 if (!isServer) exitWith {};
 if (isNil "STALKER_activeHostiles") exitWith {};
 
-private _size = ["VSA_mutantThreat", 3] call CBA_fnc_getSetting;
+private _size = ["VSA_mutantThreat", 3] call VIC_fnc_getSetting;
 
 {
     _x params ["_grp", "_type", "_pos"];

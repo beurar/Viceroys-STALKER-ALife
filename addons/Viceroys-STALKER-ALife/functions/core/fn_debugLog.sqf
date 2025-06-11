@@ -7,7 +7,7 @@
 */
 params ["_msg"];
 
-if (["VSA_debugMode", false] call CBA_fnc_getSetting) then {
+if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
     diag_log _msg;
     if (hasInterface) then {
         systemChat _msg;

@@ -8,15 +8,15 @@ params ["_center","_radius"];
 
 ["spawnAllAnomalyFields"] call VIC_fnc_debugLog;
 
-if (["VSA_enableAnomalies", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};
+if (["VSA_enableAnomalies", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
 
 // Prepare anomaly marker tracking
 if (isNil "STALKER_anomalyMarkers") then { STALKER_anomalyMarkers = [] };
-private _maxFields = ["VSA_maxAnomalyFields", 20] call CBA_fnc_getSetting;
+private _maxFields = ["VSA_maxAnomalyFields", 20] call VIC_fnc_getSetting;
 
-private _fieldCount = ["VSA_anomalyFieldCount", 3] call CBA_fnc_getSetting;
-private _spawnWeight = ["VSA_anomalySpawnWeight", 50] call CBA_fnc_getSetting;
-private _nightOnly   = ["VSA_anomalyNightOnly", false] call CBA_fnc_getSetting;
+private _fieldCount = ["VSA_anomalyFieldCount", 3] call VIC_fnc_getSetting;
+private _spawnWeight = ["VSA_anomalySpawnWeight", 50] call VIC_fnc_getSetting;
+private _nightOnly   = ["VSA_anomalyNightOnly", false] call VIC_fnc_getSetting;
 
 if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 

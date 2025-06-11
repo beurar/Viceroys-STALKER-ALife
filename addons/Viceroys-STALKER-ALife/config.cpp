@@ -23,6 +23,7 @@ class CfgFunctions
             file = "Viceroys-STALKER-ALife\functions\core";
             class masterInit{};
             class registerEmissionHooks{};
+            class getSetting{};
             class hasPlayersNearby{};
         };
 

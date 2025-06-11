@@ -10,14 +10,14 @@ params ["_pos", "_class"];
 
 if (!isServer) exitWith {};
 
-if (["VSA_enableMutants", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};
+if (["VSA_enableMutants", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
 
 if (isNil "STALKER_mutantNests") then { STALKER_mutantNests = []; };
 
-private _max = ["VSA_maxMutantNests", 3] call CBA_fnc_getSetting;
+private _max = ["VSA_maxMutantNests", 3] call VIC_fnc_getSetting;
 if ((count STALKER_mutantNests) >= _max) exitWith {};
 
-private _nightOnly = ["VSA_nestsNightOnly", true] call CBA_fnc_getSetting;
+private _nightOnly = ["VSA_nestsNightOnly", true] call VIC_fnc_getSetting;
 if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 
 private _grp = createGroup east;

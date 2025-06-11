@@ -12,7 +12,7 @@ if (isNil "STALKER_activeHerds") exitWith {};
     private _near = [_pos, 1500] call VIC_fnc_hasPlayersNearby;
     if (_near) then {
         if (isNull _grp || { count units _grp == 0 }) then {
-            private _size = ["VSA_ambientHerdSize", 4] call CBA_fnc_getSetting;
+            private _size = ["VSA_ambientHerdSize", 4] call VIC_fnc_getSetting;
             private _new = createGroup civilian;
             for "_i" from 1 to _size do {
                 private _u = _new createUnit ["C_ALF_Mutant", _pos, [], 0, "FORM"];
