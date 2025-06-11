@@ -24,6 +24,10 @@ private _weight = ["VSA_spookSpawnWeight", 50] call CBA_fnc_getSetting;
 private _nightOnly = ["VSA_spooksNightOnly", true] call CBA_fnc_getSetting;
 private _duration = missionNamespace getVariable ["STALKER_SpookDuration",15];
 
+private _spookConfigs = [
+    ["DSA_Abomination","VSA_abominationSpawnWeight","VSA_abominationCount","VSA_abominationTime"]
+];
+
 if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 
 if (isNil "drg_activeSpookZones") then { drg_activeSpookZones = []; };
@@ -32,56 +36,68 @@ if (isNil "STALKER_activeSpooks") then { STALKER_activeSpooks = []; };
 for "_i" from 1 to _count do {
     if (random 100 >= _weight) then { continue };
     private _pos = selectRandom drg_spook_zone_positions;
-    if (!isNil "_pos") then {
-        private _zone = createTrigger ["EmptyDetector", _pos];
-        _zone setTriggerArea [25,25,0,false];
-        _zone setVariable ["isSpookZone", true];
+    if (isNil "_pos") then { continue };
 
-        // Spawn a random spook from Drongo's mod
-        private _spookTypes = [
-            "DSA_Wendigo",
-            "DSA_Vampire",
-            "DSA_Shadowman",
-            "DSA_Hatman",
-            "DSA_Mindflayer",
-            "DSA_411",
-            "DSA_Rake",
-            "DSA_Abomination",
-            "DSA_Snatcher",
-            "DSA_Crazy",
-            "DSA_ActiveIdol"
-        ];
+    private _pool = [];
+    private _isDay = (daytime > 5 && daytime < 20);
+    {
+        _x params ["_class","_wSetting","_cSetting","_tSetting"];
+        private _w = [_wSetting,0] call CBA_fnc_getSetting;
+        private _c = [_cSetting,1] call CBA_fnc_getSetting;
+        private _t = [_tSetting,0] call CBA_fnc_getSetting;
+        if (_t == 1 && _isDay) exitWith {};
+        if (_t == 2 && !_isDay) exitWith {};
+        if (_w > 0 && _c > 0) then { _pool pushBack [_class,_w,_c]; };
+    } forEach _spookConfigs;
 
-        private _spook = createVehicle [selectRandom _spookTypes, _pos, [], 0, "NONE"];
-        _zone setVariable ["spawnedSpook", _spook];
-        STALKER_activeSpooks pushBack _spook;
+    if (_pool isEqualTo []) then { continue };
+    private _total = 0;
+    { _total = _total + (_x select 1); } forEach _pool;
+    private _pick = random _total;
+    private _choice = _pool select 0;
+    {
+        _pick = _pick - (_x select 1);
+        if (_pick <= 0) exitWith { _choice = _x; };
+    } forEach _pool;
+    _choice params ["_class","_w","_num"];
 
-        // Create a map marker so the zone is visible for debugging or admin use
-        private _markerName = format ["spook_%1", diag_tickTime];
-        private _marker = createMarker [_markerName, _pos];
-        _marker setMarkerShape "ELLIPSE";
-        _marker setMarkerSize [25,25];
-        _marker setMarkerColor "ColorBlack";
-        _marker setMarkerText "Spook 25m";
+    private _zone = createTrigger ["EmptyDetector", _pos];
+    _zone setTriggerArea [25,25,0,false];
+    _zone setVariable ["isSpookZone", true];
 
-        // Store the marker reference on the zone for later cleanup
-        _zone setVariable ["zoneMarker", _marker];
+    private _spawned = [];
+    for "_j" from 1 to _num do {
+        private _s = createVehicle [_class, _pos, [], 0, "NONE"];
+        _spawned pushBack _s;
+        STALKER_activeSpooks pushBack _s;
+    };
+    _zone setVariable ["spawnedSpooks", _spawned];
 
-        drg_activeSpookZones pushBack _zone;
-        [_zone, _spook, _duration] spawn {
-            params ["_zone","_spook","_dur"];
-            sleep (_dur * 60);
-            if (!isNull _spook) then {
-                deleteVehicle _spook;
+    private _markerName = format ["spook_%1", diag_tickTime];
+    private _marker = createMarker [_markerName, _pos];
+    _marker setMarkerShape "ELLIPSE";
+    _marker setMarkerSize [25,25];
+    _marker setMarkerColor "ColorBlack";
+    private _disp = _class select [4];
+    _marker setMarkerText format ["%1 x%2", _disp, _num];
+    _zone setVariable ["zoneMarker", _marker];
+
+    drg_activeSpookZones pushBack _zone;
+    [_zone, _spawned, _duration] spawn {
+        params ["_zone","_spooks","_dur"];
+        sleep (_dur * 60);
+        {
+            if (!isNull _x) then {
+                deleteVehicle _x;
                 if (!isNil "STALKER_activeSpooks") then {
-                    STALKER_activeSpooks = STALKER_activeSpooks - [_spook];
+                    STALKER_activeSpooks = STALKER_activeSpooks - [_x];
                 };
             };
-            if (!isNull _zone) then {
-                private _m = _zone getVariable ["zoneMarker", ""];
-                if (_m isNotEqualTo "") then { deleteMarker _m; };
-                deleteVehicle _zone;
-            };
+        } forEach _spooks;
+        if (!isNull _zone) then {
+            private _m = _zone getVariable ["zoneMarker", ""];
+            if (_m isNotEqualTo "") then { deleteMarker _m; };
+            deleteVehicle _zone;
         };
     };
 };
