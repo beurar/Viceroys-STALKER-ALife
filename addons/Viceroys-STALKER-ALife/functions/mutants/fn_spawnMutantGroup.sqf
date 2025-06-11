@@ -17,6 +17,8 @@ if (!isServer) exitWith {};
 
 if (["VSA_enableMutants", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};
 
+if (isNil "STALKER_activeHostiles") then { STALKER_activeHostiles = []; };
+
 private _groupCount = ["VSA_mutantGroupCountHostile", 1] call CBA_fnc_getSetting;
 private _threat     = ["VSA_mutantThreat", 3] call CBA_fnc_getSetting;
 private _nightOnly  = ["VSA_mutantNightOnlyHostile", false] call CBA_fnc_getSetting;
@@ -34,5 +36,6 @@ for "_i" from 1 to _groupCount do {
         _grp createUnit ["O_ALF_Mutant", _spawnPos, [], 0, "FORM"];
     };
     [_grp, _spawnPos] call BIS_fnc_taskPatrol;
+    STALKER_activeHostiles pushBack [_grp, "hostile", _spawnPos];
 };
 

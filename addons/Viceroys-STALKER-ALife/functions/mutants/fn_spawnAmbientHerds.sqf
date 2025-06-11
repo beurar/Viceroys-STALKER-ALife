@@ -13,6 +13,8 @@ if (!isServer) exitWith {};
 
 if (["VSA_enableMutants", true] call CBA_fnc_getSetting isEqualTo false) exitWith {};
 
+if (isNil "STALKER_activeHerds") then { STALKER_activeHerds = []; };
+
 private _herdCount = ["VSA_ambientHerdCount", 2] call CBA_fnc_getSetting;
 private _herdSize  = ["VSA_ambientHerdSize", 4]  call CBA_fnc_getSetting;
 private _nightOnly = ["VSA_ambientNightOnly", false] call CBA_fnc_getSetting;
@@ -29,4 +31,5 @@ for "_i" from 1 to _herdCount do {
         _unit disableAI "AUTOTARGET";
     };
     [_grp, _pos] call BIS_fnc_taskPatrol;
+    STALKER_activeHerds pushBack [_grp, "herd", _pos];
 };

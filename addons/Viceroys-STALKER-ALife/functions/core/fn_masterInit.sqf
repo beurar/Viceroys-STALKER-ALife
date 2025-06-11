@@ -48,6 +48,10 @@ VIC_fnc_spawnSpookZone           = compile preprocessFileLineNumbers (_root + "\
 VIC_fnc_spawnMutantGroup         = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnMutantGroup.sqf");
 VIC_fnc_spawnAmbientHerds        = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnAmbientHerds.sqf");
 VIC_fnc_setupMutantHabitats      = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_setupMutantHabitats.sqf");
+VIC_fnc_spawnBloodsuckerNest     = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnBloodsuckerNest.sqf");
+VIC_fnc_manageHerds              = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageHerds.sqf");
+VIC_fnc_manageHostiles           = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageHostiles.sqf");
+VIC_fnc_manageNests              = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageNests.sqf");
 panic_fnc_onEmissionBuildUp  = compile preprocessFileLineNumbers (_root + "\functions\panic\fn_onEmissionBuildUp.sqf");
 panic_fnc_onEmissionStart    = compile preprocessFileLineNumbers (_root + "\functions\panic\fn_onEmissionStart.sqf");
 panic_fnc_onEmissionEnd      = compile preprocessFileLineNumbers (_root + "\functions\panic\fn_onEmissionEnd.sqf");
@@ -69,6 +73,32 @@ VIC_fnc_setupDebugActions        = compile preprocessFileLineNumbers (_root + "\
     [] call VIC_fnc_registerEmissionHooks;
     [] call VIC_fnc_schedulePsyStorms;
     [] call VIC_fnc_setupMutantHabitats;
+    [
+        {
+            while {true} do {
+                [] call VIC_fnc_manageHerds;
+                sleep 60;
+            };
+        }, [], 10
+    ] call CBA_fnc_waitAndExecute;
+
+    [
+        {
+            while {true} do {
+                [] call VIC_fnc_manageHostiles;
+                sleep 60;
+            };
+        }, [], 15
+    ] call CBA_fnc_waitAndExecute;
+
+    [
+        {
+            while {true} do {
+                [] call VIC_fnc_manageNests;
+                sleep 300;
+            };
+        }, [], 20
+    ] call CBA_fnc_waitAndExecute;
     if (["VSA_debugMode", false] call CBA_fnc_getSetting) then {
         [] call VIC_fnc_setupDebugActions;
     };
