@@ -17,8 +17,9 @@ if (isNil "STALKER_anomalyMarkers") then { STALKER_anomalyMarkers = [] };
 private _markerName = format ["anom_trapdoor_%1", diag_tickTime];
 private _marker = createMarker [_markerName, _site];
 _marker setMarkerShape "ELLIPSE";
-_marker setMarkerSize [10,10];
-_marker setMarkerColor "ColorDarkGreen";
+    _marker setMarkerSize [10,10];
+    // Replace dark green with standard green for clarity
+    _marker setMarkerColor "ColorGreen";
 _marker setMarkerText "Trapdoor 10m";
 STALKER_anomalyMarkers pushBack _marker;
 
