@@ -7,4 +7,5 @@ params ["_pos"];
 
 ["spawnControllerNest"] call VIC_fnc_debugLog;
 
-[_pos, "O_ALF_Controller"] call VIC_fnc_spawnMutantNest;
+private _classes = ["armst_controller_new", "armst_controller_new2", "armst_controller_new3"];
+[_pos, selectRandom _classes] call VIC_fnc_spawnMutantNest;

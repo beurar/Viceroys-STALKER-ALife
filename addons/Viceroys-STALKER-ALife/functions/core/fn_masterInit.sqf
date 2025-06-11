@@ -68,6 +68,7 @@ VIC_fnc_spawnPseudogiantNest    = compile preprocessFileLineNumbers (_root + "\f
 VIC_fnc_spawnIzlomNest          = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnIzlomNest.sqf");
 VIC_fnc_spawnCorruptorNest      = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnCorruptorNest.sqf");
 VIC_fnc_spawnSmasherNest        = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnSmasherNest.sqf");
+VIC_fnc_spawnAcidSmasherNest    = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnAcidSmasherNest.sqf");
 VIC_fnc_spawnBehemothNest       = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnBehemothNest.sqf");
 VIC_fnc_manageHerds              = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageHerds.sqf");
 VIC_fnc_manageHostiles           = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageHostiles.sqf");

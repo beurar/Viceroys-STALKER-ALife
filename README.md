@@ -77,8 +77,9 @@ Every mutant type can establish a nest which spawns defenders when players are n
 * **Pseudogiant** – Towering brutes that shake the ground.
 * **Izlom** – Twisted humanoids shuffling across the Zone.
 * **Corruptor** – Parasitic creature that can seize control of a host body.
-* **Behemoth** – Massive mutant that hurls rocks and bone shards, devastating everything in its path.
+* **Goliath** – Massive mutant that hurls rocks and bone shards, devastating everything in its path.
 * **Smasher** – Mini-boss monster that leaps and crushes obstacles with ease.
+* **Acid Smasher** – Corrosive variant that spews acid while smashing through targets.
 
 ## Spooks and Other Anomalies
 Drongo’s system adds creepy events such as ghostly whispers or sudden darkening of the sky. These spook zones appear mostly at night and vanish after a short time, keeping players uneasy as they travel.

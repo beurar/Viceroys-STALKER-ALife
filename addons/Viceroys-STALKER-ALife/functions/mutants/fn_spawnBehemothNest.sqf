@@ -6,4 +6,4 @@
 params ["_pos"];
 
 ["spawnBehemothNest"] call VIC_fnc_debugLog;
-[_pos, "WBK_Behemoth"] call VIC_fnc_spawnMutantNest;
+[_pos, "WBK_Goliaph_3"] call VIC_fnc_spawnMutantNest;
