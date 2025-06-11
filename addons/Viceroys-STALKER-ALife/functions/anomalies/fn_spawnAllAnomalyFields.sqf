@@ -20,9 +20,7 @@ private _nightOnly   = ["VSA_anomalyNightOnly", false] call VIC_fnc_getSetting;
 
 if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 
-
 if (isNil "STALKER_anomalyFields") then { STALKER_anomalyFields = [] };
-
 private _types = [
     VIC_fnc_createField_burner,
     VIC_fnc_createField_clicker,
