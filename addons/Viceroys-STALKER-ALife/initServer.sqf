@@ -9,6 +9,7 @@ STALKER_SpookDuration  = 15;     // minutes zones remain active
 STALKER_AnomalyFieldDuration = 30; // minutes anomaly fields persist
 
 drg_activeSpookZones = [];
+STALKER_activeSpooks = [];
 
 // Global tracking arrays for spawned groups
 STALKER_activeHerds = [];
