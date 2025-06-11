@@ -52,7 +52,19 @@ class CfgFunctions
             file = "Viceroys-STALKER-ALife\functions\mutants";
             class spawnAmbientHerds{};
             class spawnMutantGroup{};
+            class spawnMutantNest{};
             class spawnBloodsuckerNest{};
+            class spawnBoarNest{};
+            class spawnCatNest{};
+            class spawnFleshNest{};
+            class spawnBlindDogNest{};
+            class spawnPseudodogNest{};
+            class spawnControllerNest{};
+            class spawnPseudogiantNest{};
+            class spawnIzlomNest{};
+            class spawnCorruptorNest{};
+            class spawnSmasherNest{};
+            class spawnBehemothNest{};
             class manageHerds{};
             class manageHostiles{};
             class manageNests{};
@@ -114,6 +126,10 @@ class CfgFunctions
             class createField_meatgrinder{};
             class createField_springboard{};
             class createField_whirligig{};
+            class createField_launchpad{};
+            class createField_leech{};
+            class createField_trapdoor{};
+            class createField_zapper{};
         };
 
         class AnomalyFindSites
@@ -127,6 +143,10 @@ class CfgFunctions
             class findSite_meatgrinder{};
             class findSite_springboard{};
             class findSite_whirligig{};
+            class findSite_launchpad{};
+            class findSite_leech{};
+            class findSite_trapdoor{};
+            class findSite_zapper{};
         };
     };
 };

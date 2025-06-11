@@ -1,6 +1,6 @@
 # Viceroy's STALKER ALife
 
-This project implements a dynamic **ALife** system inspired by the S.T.A.L.K.E.R. series. It is designed to provide a living Zone filled with dangers and events. The scripts are structured to run inside Arma 3 using common mod dependencies.
+This project implements a dynamic **ALife** system inspired by the S.T.A.L.K.E.R. series. It is an **Arma 3** mod that creates a living Zone filled with dangers and events using common mod dependencies.
 
 ## Purpose
 
@@ -25,6 +25,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 ### Mutants
 * Spawns roaming mutant packs and ambient herds.
 * Example mutants include pseudodogs, snorks and other Zone creatures.
+* Dedicated nest spawns for every mutant type keep their territories dangerous.
 
 ### Mutant Habitats
 * Defines simple territory markers via **fn_setupMutantHabitats.sqf**.
@@ -46,6 +47,52 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 ### Zombification
 * Tracks dead units and may reanimate them as zombies after a delay.
 * Integrates with **WebKnight’s Zombies & Demons** to handle the zombies themselves.
+
+## Anomaly Types
+Each anomaly behaves differently and creates unique hazards:
+
+* **Burner** – Columns of fire that ignite anything passing through.
+* **Electra** – Violent bursts of electricity arcing between objects.
+* **Fruit Punch** – Acidic eruptions that corrode armour and flesh.
+* **Springboard** – Kinetic traps that launch the unlucky into the air.
+* **Gravi** – Crushing gravitational wells that draw victims inward.
+* **Meatgrinder** – Shredding vortex of debris and metal.
+* **Whirligig** – Swirling force that pulls nearby objects to its centre.
+* **Clicker** – Emits clicking sounds before discharging lethal energy.
+* **Launchpad** – Hurls victims a random distance away.
+* **Leech** – Drains stamina and may sap health.
+* **Trapdoor** – Teleports the unwary up to a kilometre.
+* **Zapper** – Strikes intruders with bolts of lightning.
+
+## Mutant Creatures and Nests
+Every mutant type can establish a nest which spawns defenders when players are near:
+
+* **Bloodsucker** – Stealthy predators that lurk in ruined structures.
+* **Boar** – Aggressive packs of tusked beasts.
+* **Cat** – Fast moving felines that stalk lone travellers.
+* **Flesh** – Slow but hardy pig-like creatures.
+* **Blind Dog** – Pack hunters that overwhelm with numbers.
+* **Pseudodog** – Mutated canines with psychic screeches.
+* **Controller** – Psionic mutants capable of mind tricks.
+* **Pseudogiant** – Towering brutes that shake the ground.
+* **Izlom** – Twisted humanoids shuffling across the Zone.
+* **Corruptor** – Parasitic creature that can seize control of a host body.
+* **Behemoth** – Massive mutant that hurls rocks and bone shards, devastating everything in its path.
+* **Smasher** – Mini-boss monster that leaps and crushes obstacles with ease.
+
+## Spooks and Other Anomalies
+Drongo’s system adds creepy events such as ghostly whispers or sudden darkening of the sky. These spook zones appear mostly at night and vanish after a short time, keeping players uneasy as they travel.
+
+Common spook types include:
+* **Wendigo** – Deer-like humanoid that leaps at nearby prey.
+* **Shadowman** – Jet-black figure able to teleport and strike with psychic blasts.
+* **Vampires** – Fast, tough monsters that dive into melee with powerful leaps.
+* **Mindflayer** – Slow but dangerous psy-creature capable of mind control.
+* **411** – Near-invisible hunter that kills those who turn their backs.
+* **Rake** – Pale crouched mutant attacking with vicious claws.
+* **Abomination** – Shrouded in darkness, stabbing victims from range.
+* **Snatcher** – Semi-visible shapeshifter that teleports targets far away.
+* **Cursed Idol** – Animated idol requiring heavy weapons to destroy.
 
 ## Setup
 
