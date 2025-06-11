@@ -7,13 +7,7 @@ class CfgPatches
         requiredAddons[] = {
             "A3_Functions_F",
             "CBA_Extended_EventHandlers",
-            "cba_main",
-            "diwako_anomalies_main",
-            "WBK_Zombies",
-            "CWP_main",
-            "drg_anomalies",
-            "HS_Mutants",
-            "HS_Items"
+            "cba_main"
         };
     };
 };
