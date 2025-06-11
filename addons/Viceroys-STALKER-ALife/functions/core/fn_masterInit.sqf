@@ -18,9 +18,9 @@ if (isServer) then {
 // --- Function Registration -------------------------------------------------
 VIC_fnc_resetAIBehavior          = compile preprocessFileLineNumbers (_root + "\functions\ai\fn_resetAIBehavior.sqf");
 VIC_fnc_triggerAIPanic           = compile preprocessFileLineNumbers (_root + "\functions\ai\fn_triggerAIPanic.sqf");
-VIC_fnc_cleanupRadiationZones    = compile preprocessFileLineNumbers (_root + "\functions\radiation\fn_cleanupRadiationZones.sqf");
-VIC_fnc_spawnRadiationZone       = compile preprocessFileLineNumbers (_root + "\functions\radiation\fn_spawnRadiationZone.sqf");
-VIC_fnc_spawnRandomRadiationZones = compile preprocessFileLineNumbers (_root + "\functions\radiation\fn_spawnRandomRadiationZones.sqf");
+VIC_fnc_cleanupChemicalZones    = compile preprocessFileLineNumbers (_root + "\functions\chemical\fn_cleanupChemicalZones.sqf");
+VIC_fnc_spawnChemicalZone       = compile preprocessFileLineNumbers (_root + "\functions\chemical\fn_spawnChemicalZone.sqf");
+VIC_fnc_spawnRandomChemicalZones = compile preprocessFileLineNumbers (_root + "\functions\chemical\fn_spawnRandomChemicalZones.sqf");
 VIC_fnc_spawnZombiesFromQueue    = compile preprocessFileLineNumbers (_root + "\functions\zombification\fn_spawnZombiesFromQueue.sqf");
 VIC_fnc_trackDeadForZombify      = compile preprocessFileLineNumbers (_root + "\functions\zombification\fn_trackDeadForZombify.sqf");
 VIC_fnc_spawnAllAnomalyFields    = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_spawnAllAnomalyFields.sqf");
@@ -81,8 +81,8 @@ anomalies_fnc_onEmissionStart   = compile preprocessFileLineNumbers (_root + "\f
 anomalies_fnc_onEmissionEnd     = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_onEmissionEnd.sqf");
 mutants_fnc_onEmissionStart  = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_onEmissionStart.sqf");
 mutants_fnc_onEmissionEnd    = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_onEmissionEnd.sqf");
-radiation_fnc_onEmissionStart = compile preprocessFileLineNumbers (_root + "\functions\radiation\fn_onEmissionStart.sqf");
-radiation_fnc_onEmissionEnd   = compile preprocessFileLineNumbers (_root + "\functions\radiation\fn_onEmissionEnd.sqf");
+chemical_fnc_onEmissionStart = compile preprocessFileLineNumbers (_root + "\functions\chemical\fn_onEmissionStart.sqf");
+chemical_fnc_onEmissionEnd   = compile preprocessFileLineNumbers (_root + "\functions\chemical\fn_onEmissionEnd.sqf");
 zombification_fnc_onEmissionEnd = compile preprocessFileLineNumbers (_root + "\functions\zombification\fn_onEmissionEnd.sqf");
 VIC_fnc_hasPlayersNearby         = compile preprocessFileLineNumbers (_root + "\functions\core\fn_hasPlayersNearby.sqf");
 VIC_fnc_registerEmissionHooks    = compile preprocessFileLineNumbers (_root + "\functions\core\fn_registerEmissionHooks.sqf");

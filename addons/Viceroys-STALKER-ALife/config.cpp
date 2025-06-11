@@ -74,12 +74,12 @@ class CfgFunctions
             class onEmissionEnd{};
         };
 
-        class Radiation
+        class Chemical
         {
-            file = "Viceroys-STALKER-ALife\functions\radiation";
-            class cleanupRadiationZones{};
-            class spawnRadiationZone{};
-            class spawnRandomRadiationZones{};
+            file = "Viceroys-STALKER-ALife\functions\chemical";
+            class cleanupChemicalZones{};
+            class spawnChemicalZone{};
+            class spawnRandomChemicalZones{};
             class onEmissionStart{};
             class onEmissionEnd{};
         };

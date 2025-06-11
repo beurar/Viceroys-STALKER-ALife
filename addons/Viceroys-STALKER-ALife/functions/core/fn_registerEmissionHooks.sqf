@@ -37,7 +37,7 @@ missionNamespace setVariable ["emission_active", false];
         [] call panic_fnc_onEmissionStart;
         [] call anomalies_fnc_onEmissionStart;
         [] call mutants_fnc_onEmissionStart;
-        [] call radiation_fnc_onEmissionStart;
+        [] call chemical_fnc_onEmissionStart;
     }
 ] call CBA_fnc_addEventHandler;
 
@@ -51,16 +51,16 @@ missionNamespace setVariable ["emission_active", false];
         [] call panic_fnc_onEmissionEnd;
         [] call anomalies_fnc_onEmissionEnd;
         [] call mutants_fnc_onEmissionEnd;
-        [] call radiation_fnc_onEmissionEnd;
+        [] call chemical_fnc_onEmissionEnd;
         [] call zombification_fnc_onEmissionEnd;
 
-        // remove old radiation zones and spawn new ones
-        [true] call VIC_fnc_cleanupRadiationZones;
+        // remove old chemical zones and spawn new ones
+        [true] call VIC_fnc_cleanupChemicalZones;
 
-        private _radius = ["VSA_emissionRadiationRadius", 300] call CBA_fnc_getSetting;
-        private _count  = ["VSA_emissionRadiationCount", 2] call CBA_fnc_getSetting;
+        private _radius = ["VSA_emissionChemicalRadius", 300] call CBA_fnc_getSetting;
+        private _count  = ["VSA_emissionChemicalCount", 2] call CBA_fnc_getSetting;
         {
-            [_x, _radius, _count, -1] call VIC_fnc_spawnRandomRadiationZones;
+            [_x, _radius, _count, -1] call VIC_fnc_spawnRandomChemicalZones;
         } forEach allPlayers;
     }
 ] call CBA_fnc_addEventHandler;
