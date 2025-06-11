@@ -131,9 +131,7 @@ VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\f
     params ["_unit"];
     [_unit] call VIC_fnc_trackDeadForZombify;
 }] call CBA_fnc_addEventHandler;
-};
-
-else {
+} else {
     ["postInit", {
         if (hasInterface && ["VSA_debugMode", false] call CBA_fnc_getSetting) then {
             [] call VIC_fnc_setupDebugActions;
