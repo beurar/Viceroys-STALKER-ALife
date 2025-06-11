@@ -8,8 +8,8 @@ if (missionNamespace getVariable ["VSA_debugActionsAdded", false]) exitWith {};
 missionNamespace setVariable ["VSA_debugActionsAdded", true];
 
 player addAction ["Spawn Psy-Storm", { [] call VIC_fnc_triggerPsyStorm }];
-player addAction ["Spawn Radiation Zone", { [getPos player, 100] call VIC_fnc_spawnRadiationZone }];
-player addAction ["Spawn Random Radiation", { [getPos player, 200] call VIC_fnc_spawnRandomRadiationZones }];
+player addAction ["Spawn Chemical Zone", { [getPos player, 100] call VIC_fnc_spawnChemicalZone }];
+player addAction ["Spawn Random Chemicals", { [getPos player, 200] call VIC_fnc_spawnRandomChemicalZones }];
 player addAction ["Spawn Anomaly Fields", { [getPos player, 200] call VIC_fnc_spawnAllAnomalyFields }];
 player addAction ["Spawn Mutant Group", { [getPos player] call VIC_fnc_spawnMutantGroup }];
 player addAction ["Spawn Spook Zone", { [] call VIC_fnc_spawnSpookZone }];

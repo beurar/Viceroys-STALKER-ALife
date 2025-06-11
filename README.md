@@ -4,7 +4,7 @@ This project implements a dynamic **ALife** system inspired by the S.T.A.L.K.E.R
 
 ## Purpose
 
-The goal of this mod is to add atmosphere and unpredictable encounters to missions. Mutants roam freely, anomalies manifest across the map, radiation pockets appear and disappear, and AI units respond to threats with panic or by seeking shelter from emissions. The system is modular so mission makers can enable only the elements they need.
+The goal of this mod is to add atmosphere and unpredictable encounters to missions. Mutants roam freely, anomalies manifest across the map, chemical gas pockets appear and disappear, and AI units respond to threats with panic or by seeking shelter from emissions. The system is modular so mission makers can enable only the elements they need.
 
 ## Major Systems
 
@@ -32,8 +32,8 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Systems rely on **fn_hasPlayersNearby.sqf** so activity sleeps when players are far away.
 * CBA settings allow mission makers to customize these behaviors.
 
-### Radiation
-* Randomly creates radiation zones that damage unprotected units.
+### Chemical Zones
+* Randomly creates chemical gas zones that damage unprotected units.
 * Cleanup functions remove old zones to keep performance reasonable.
 
 ### Spooks

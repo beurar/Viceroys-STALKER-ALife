@@ -66,53 +66,61 @@
 ] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
-// Radiation
+// Chemical Zones
 // -----------------------------------------------------------------------------
 [
-    "VSA_enableRadiation",
+    "VSA_enableChemicalZones",
     "CHECKBOX",
-    ["Enable Radiation Zones", "Toggle radiation zone spawning"],
-    "Viceroy's STALKER ALife - Radiation",
+    ["Enable Chemical Zones", "Toggle chemical gas zone spawning"],
+    "Viceroy's STALKER ALife - Chemical",
     true
 ] call CBA_fnc_addSetting;
 
 [
-    "VSA_radiationZoneCount",
+    "VSA_chemicalZoneCount",
     "SLIDER",
-    ["Radiation Zones per Area", "Number of radiation zones created"],
-    "Viceroy's STALKER ALife - Radiation",
+    ["Chemical Zones per Area", "Number of chemical zones created"],
+    "Viceroy's STALKER ALife - Chemical",
     [2, 0, 10, 0]
 ] call CBA_fnc_addSetting;
 
 [
-    "VSA_radiationSpawnWeight",
+    "VSA_chemicalSpawnWeight",
     "SLIDER",
-    ["Radiation Spawn Weight", "Relative chance for radiation zone creation"],
-    "Viceroy's STALKER ALife - Radiation",
+    ["Chemical Spawn Weight", "Relative chance for chemical zone creation"],
+    "Viceroy's STALKER ALife - Chemical",
     [50, 0, 100, 0]
 ] call CBA_fnc_addSetting;
 
 [
-    "VSA_radiationNightOnly",
+    "VSA_chemicalNightOnly",
     "CHECKBOX",
-    ["Night Time Only", "Radiation zones only appear at night"],
-    "Viceroy's STALKER ALife - Radiation",
+    ["Night Time Only", "Chemical zones only appear at night"],
+    "Viceroy's STALKER ALife - Chemical",
     false
 ] call CBA_fnc_addSetting;
 
 [
-    "VSA_emissionRadiationCount",
+    "VSA_chemicalZoneRadius",
     "SLIDER",
-    ["Zones After Emission", "Radiation zones spawned after an emission"],
-    "VSA - Radiation",
+    ["Chemical Zone Radius", "Radius of each chemical zone"],
+    "Viceroy's STALKER ALife - Chemical",
+    [50, 10, 200, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_emissionChemicalCount",
+    "SLIDER",
+    ["Zones After Emission", "Chemical zones spawned after an emission"],
+    "VSA - Chemical",
     [2, 0, 10, 0]
 ] call CBA_fnc_addSetting;
 
 [
-    "VSA_emissionRadiationRadius",
+    "VSA_emissionChemicalRadius",
     "SLIDER",
-    ["Emission Radiation Radius", "Search radius around players for emission zones"],
-    "VSA - Radiation",
+    ["Emission Chemical Radius", "Search radius around players for emission zones"],
+    "VSA - Chemical",
     [300, 50, 2000, 0]
 ] call CBA_fnc_addSetting;
 
