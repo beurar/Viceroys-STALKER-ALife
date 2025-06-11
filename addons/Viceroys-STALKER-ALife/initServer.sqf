@@ -1,6 +1,5 @@
 // initServer.sqf
 // Launch master initialization on the dedicated server
-[] execVM "\Viceroys-STALKER-ALife\functions\core\fn_masterInit.sqf";
 // Server initialization for STALKER ALife
 
 // Spook zone configuration
