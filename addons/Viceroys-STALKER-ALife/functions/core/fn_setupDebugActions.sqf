@@ -16,6 +16,7 @@ player addAction ["Spawn Spook Zone", { [] call VIC_fnc_spawnSpookZone }];
 player addAction ["Spawn Zombies From Queue", { [] call VIC_fnc_spawnZombiesFromQueue }];
 player addAction ["Spawn Ambient Herds", { [] call VIC_fnc_spawnAmbientHerds }];
 player addAction ["Generate Mutant Habitats", { [] call VIC_fnc_setupMutantHabitats }];
+player addAction ["Cycle Habitats", { [] call VIC_fnc_manageHabitats }];
 player addAction ["Mark All Buildings", { [] call VIC_fnc_markAllBuildings }];
 
 ["Debug actions added"] call VIC_fnc_debugLog;
