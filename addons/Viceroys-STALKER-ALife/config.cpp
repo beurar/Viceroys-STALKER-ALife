@@ -33,6 +33,7 @@ class CfgFunctions
             file = "Viceroys-STALKER-ALife\functions\ai";
             class resetAIBehavior{};
             class triggerAIPanic{};
+            class avoidAnomalies{};
         };
 
         class Panic

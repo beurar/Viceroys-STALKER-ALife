@@ -15,6 +15,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 ### AI Panic
 * AI groups react to nearby emissions or scary events by fleeing to cover positions.
 * Uses **fn_triggerAIPanic.sqf** and **fn_resetAIBehavior.sqf** to manage behavior states.
+* Optional avoidance of nearby anomalies controlled by **VSA_aiAnomalyAvoidChance**.
 
 ### Anomalies
 * Procedurally spawns anomaly fields using scripts in `functions/anomalies`.

@@ -19,6 +19,7 @@ if (isServer) then {
 // --- Function Registration -------------------------------------------------
 VIC_fnc_resetAIBehavior          = compile preprocessFileLineNumbers (_root + "\functions\ai\fn_resetAIBehavior.sqf");
 VIC_fnc_triggerAIPanic           = compile preprocessFileLineNumbers (_root + "\functions\ai\fn_triggerAIPanic.sqf");
+VIC_fnc_avoidAnomalies           = compile preprocessFileLineNumbers (_root + "\functions\ai\fn_avoidAnomalies.sqf");
 VIC_fnc_cleanupChemicalZones    = compile preprocessFileLineNumbers (_root + "\functions\chemical\fn_cleanupChemicalZones.sqf");
 VIC_fnc_spawnChemicalZone       = compile preprocessFileLineNumbers (_root + "\functions\chemical\fn_spawnChemicalZone.sqf");
 VIC_fnc_spawnRandomChemicalZones = compile preprocessFileLineNumbers (_root + "\functions\chemical\fn_spawnRandomChemicalZones.sqf");
@@ -130,6 +131,15 @@ VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\f
                 sleep 60;
             };
         }, [], 15
+    ] call CBA_fnc_waitAndExecute;
+
+    [
+        {
+            while {true} do {
+                [] call VIC_fnc_avoidAnomalies;
+                sleep 30;
+            };
+        }, [], 16
     ] call CBA_fnc_waitAndExecute;
 
     [

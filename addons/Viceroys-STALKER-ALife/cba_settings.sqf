@@ -336,6 +336,22 @@ true
     false
 ] call CBA_fnc_addSetting;
 
+[
+    "VSA_aiAnomalyAvoidChance",
+    "SLIDER",
+    ["Anomaly Avoid Chance", "Chance AI moves away from nearby anomalies"],
+    "Viceroy's STALKER ALife - AI",
+    [50, 0, 100, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_aiAnomalyAvoidRange",
+    "SLIDER",
+    ["Anomaly Avoid Range", "Distance to check for anomalies around AI"],
+    "Viceroy's STALKER ALife - AI",
+    [20, 5, 50, 0]
+] call CBA_fnc_addSetting;
+
 
 // Hostile mutant spawns
 [
