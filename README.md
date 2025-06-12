@@ -28,7 +28,8 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Dedicated nest spawns for every mutant type keep their territories dangerous.
 
 ### Mutant Habitats
-* Defines simple territory markers via **fn_setupMutantHabitats.sqf**.
+* Defines territory areas via **fn_setupMutantHabitats.sqf**.
+* Each habitat now uses an ellipse marker to show its bounds and a labeled icon displaying the current population (e.g. `Bloodsucker Habitat: 4/12`).
 * Systems rely on **fn_hasPlayersNearby.sqf** so activity sleeps when players are far away.
 * CBA settings allow mission makers to customize these behaviors.
 
