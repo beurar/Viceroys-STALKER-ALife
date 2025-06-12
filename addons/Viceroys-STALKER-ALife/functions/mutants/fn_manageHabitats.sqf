@@ -2,7 +2,7 @@
     Manages mutant habitats. Spawns units when players approach and
     replenishes cleared habitats over time.
 
-    STALKER_mutantHabitats entries: [areaMarker, labelMarker, group, position, type, max]
+    STALKER_mutantHabitats entries: [areaMarker, labelMarker, group, position, type, max, count]
 */
 
 ["manageHabitats"] call VIC_fnc_debugLog;
@@ -30,40 +30,44 @@ private _chance = ["VSA_mutantSpawnWeight",50] call VIC_fnc_getSetting;
 
 {
 
-    _x params ["_area","_label","_grp","_pos","_type","_max"];
-    private _near = [_pos,1500] call VIC_fnc_hasPlayersNearby;
+    _x params ["_area","_label","_grp","_pos","_type","_max","_count"];
+    private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+    private _near = [_pos,_dist] call VIC_fnc_hasPlayersNearby;
 
-    if (_near && {isNull _grp}) then {
-        private _class = [_type] call _getClass;
-        _grp = createGroup east;
-        for "_i" from 1 to _max do { _grp createUnit [_class, _pos, [], 0, "FORM"]; };
-        [_grp,_pos] call BIS_fnc_taskDefend;
-    };
-
-    private _alive = if (isNull _grp) then {0} else { {alive _x} count units _grp };
-    if (_alive == 0 && {!isNull _grp}) then {
-        { deleteVehicle _x } forEach units _grp;
-        deleteGroup _grp;
-        _grp = grpNull;
-    } else {
-        // keep group reference updated in case some units died
-        _grp = _grp;
-    };
-
-    if (!_near && {isNull _grp}) then {
-        if (random 100 < _chance) then {
+    if (_near) then {
+        if (isNull _grp && {_count > 0}) then {
             private _class = [_type] call _getClass;
             _grp = createGroup east;
-            for "_i" from 1 to _max do { _grp createUnit [_class, _pos, [], 0, "FORM"]; };
+            for "_i" from 1 to _count do { _grp createUnit [_class, _pos, [], 0, "FORM"]; };
             [_grp,_pos] call BIS_fnc_taskDefend;
+        };
+
+        private _alive = if (isNull _grp) then {0} else { {alive _x} count units _grp };
+        _count = _alive;
+
+        if (_alive == 0 && {!isNull _grp}) then {
+            { deleteVehicle _x } forEach units _grp;
+            deleteGroup _grp;
+            _grp = grpNull;
+        };
+    } else {
+        if (!isNull _grp) then {
+            _count = { alive _x } count units _grp;
+            { deleteVehicle _x } forEach units _grp;
+            deleteGroup _grp;
+            _grp = grpNull;
+        };
+
+        if (_count < _max && { random 100 < _chance }) then {
+            _count = _count + 1;
+            if (_count > _max) then { _count = _max; };
         };
     };
 
+    _area setMarkerColor (if (_count > 0) then {"ColorRed"} else {"ColorGreen"});
+    _label setMarkerColor (if (_count > 0) then {"ColorRed"} else {"ColorGreen"});
+    _label setMarkerText format ["%1 Habitat: %2/%3", _type, _count, _max];
 
-    _area setMarkerColor (if (_grp isEqualTo grpNull) then {"ColorGreen"} else {"ColorRed"});
-    _label setMarkerColor (if (_grp isEqualTo grpNull) then {"ColorGreen"} else {"ColorRed"});
-    _label setMarkerText format ["%1 Habitat: %2/%3", _type, _alive, _max];
-
-    STALKER_mutantHabitats set [_forEachIndex, [_area,_label,_grp,_pos,_type,_max]];
+    STALKER_mutantHabitats set [_forEachIndex, [_area,_label,_grp,_pos,_type,_max,_count]];
 } forEach STALKER_mutantHabitats;
 

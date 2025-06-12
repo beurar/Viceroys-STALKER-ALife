@@ -72,6 +72,8 @@ VIC_fnc_spawnCorruptorNest      = compile preprocessFileLineNumbers (_root + "\f
 VIC_fnc_spawnSmasherNest        = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnSmasherNest.sqf");
 VIC_fnc_spawnAcidSmasherNest    = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnAcidSmasherNest.sqf");
 VIC_fnc_spawnBehemothNest       = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnBehemothNest.sqf");
+VIC_fnc_spawnPredatorAttack     = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnPredatorAttack.sqf");
+VIC_fnc_managePredators         = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_managePredators.sqf");
 VIC_fnc_manageHerds              = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageHerds.sqf");
 VIC_fnc_manageHostiles           = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageHostiles.sqf");
 VIC_fnc_manageNests              = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageNests.sqf");
@@ -134,6 +136,16 @@ VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\f
                 sleep 300;
             };
         }, [], 20
+    ] call CBA_fnc_waitAndExecute;
+
+    [
+        {
+            while {true} do {
+                [] call VIC_fnc_managePredators;
+                private _delay = ["VSA_predatorCheckInterval", 300] call VIC_fnc_getSetting;
+                sleep _delay;
+            };
+        }, [], 23
     ] call CBA_fnc_waitAndExecute;
 
     [
