@@ -1,7 +1,7 @@
 /*
     Handles roaming mutant herds. The leader always remains in the world
     while the rest of the herd is only spawned when players are nearby.
-    STALKER_activeHerds entries: [leader, group, max, count, near]
+    STALKER_activeHerds entries: [leader, group, max, count, near, marker]
 */
 
 ["manageHerds"] call VIC_fnc_debugLog;
@@ -11,7 +11,7 @@ if (isNil "STALKER_activeHerds") exitWith {};
 private _chance = ["VSA_mutantSpawnWeight",50] call VIC_fnc_getSetting;
 
 {
-    _x params ["_leader", "_grp", "_max", "_count", "_near"];
+    _x params ["_leader", "_grp", "_max", "_count", "_near", "_marker"];
 
     if (isNull _grp) then { _grp = createGroup civilian; };
 
@@ -32,6 +32,7 @@ private _chance = ["VSA_mutantSpawnWeight",50] call VIC_fnc_getSetting;
     };
 
     private _pos = getPos _leader;
+    if (_marker != "") then { _marker setMarkerPos _pos; };
 
     if (_near) then {
         private _alive = { alive _x } count units _grp;
@@ -49,7 +50,7 @@ private _chance = ["VSA_mutantSpawnWeight",50] call VIC_fnc_getSetting;
         _count = { alive _x } count units _grp;
     } else {
         {
-            if (_x != _leader) then { deleteVehicle _x }; 
+            if (_x != _leader) then { deleteVehicle _x };
         } forEach units _grp;
 
         if (_count < _max && { random 100 < _chance }) then {
@@ -58,6 +59,10 @@ private _chance = ["VSA_mutantSpawnWeight",50] call VIC_fnc_getSetting;
         };
     };
 
-    STALKER_activeHerds set [_forEachIndex, [_leader, _grp, _max, _count, _near]];
+    if (_marker != "") then {
+        _marker setMarkerAlpha (if (_near) then {1} else {0.2});
+    };
+
+    STALKER_activeHerds set [_forEachIndex, [_leader, _grp, _max, _count, _near, _marker]];
 } forEach STALKER_activeHerds;
 

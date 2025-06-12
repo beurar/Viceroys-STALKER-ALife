@@ -71,6 +71,10 @@ private _chance = ["VSA_mutantSpawnWeight",50] call VIC_fnc_getSetting;
     _label setMarkerColor (if (_count > 0) then {"ColorRed"} else {"ColorGreen"});
     _label setMarkerText format ["%1 Habitat: %2/%3", _type, _count, _max];
 
+    private _alpha = if (_near) then {1} else {0.2};
+    _area setMarkerAlpha _alpha;
+    _label setMarkerAlpha _alpha;
+
     STALKER_mutantHabitats set [_forEachIndex, [_area,_label,_grp,_pos,_type,_max,_count,_near]];
 } forEach STALKER_mutantHabitats;
 

@@ -10,9 +10,9 @@ if (isNil "STALKER_activeHostiles") exitWith {};
 private _size = ["VSA_mutantThreat", 3] call VIC_fnc_getSetting;
 
 {
-    _x params ["_grp", "_type", "_pos"];
+    _x params ["_grp", "_type", "_pos", "_marker", "_near"];
     private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
-    private _near = [_pos, _dist] call VIC_fnc_hasPlayersNearby;
+    _near = [_pos, _dist] call VIC_fnc_hasPlayersNearby;
     if (_near) then {
         if (isNull _grp || { count units _grp == 0 }) then {
             private _new = createGroup east;
@@ -21,14 +21,16 @@ private _size = ["VSA_mutantThreat", 3] call VIC_fnc_getSetting;
                 [_u] call VIC_fnc_initMutantUnit;
             };
             [_new, _pos] call BIS_fnc_taskPatrol;
-            STALKER_activeHostiles set [_forEachIndex, [_new, _type, _pos]];
+            _grp = _new;
         };
     } else {
         if (!isNull _grp) then {
             { deleteVehicle _x } forEach units _grp;
             deleteGroup _grp;
-            STALKER_activeHostiles set [_forEachIndex, [grpNull, _type, _pos]];
+            _grp = grpNull;
         };
     };
+    if (_marker != "") then { _marker setMarkerAlpha (if (_near) then {1} else {0.2}); };
+    STALKER_activeHostiles set [_forEachIndex, [_grp, _type, _pos, _marker, _near]];
 } forEach STALKER_activeHostiles;
 

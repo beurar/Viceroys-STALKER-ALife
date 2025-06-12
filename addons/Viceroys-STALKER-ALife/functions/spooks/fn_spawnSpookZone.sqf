@@ -81,10 +81,20 @@ for "_i" from 1 to _count do {
     private _disp = _class select [4];
     _marker setMarkerText format ["%1 x%2", _disp, _num];
     _zone setVariable ["zoneMarker", _marker];
+    private _range = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+
+    [_zone, _marker, _range] spawn {
+        params ["_zone","_marker","_range"];
+        while {alive _zone} do {
+            private _near = [getPosATL _zone, _range] call VIC_fnc_hasPlayersNearby;
+            _marker setMarkerAlpha (if (_near) then {1} else {0.2});
+            sleep 5;
+        };
+    };
 
     drg_activeSpookZones pushBack _zone;
-    [_zone, _spawned, _duration] spawn {
-        params ["_zone","_spooks","_dur"];
+    [_zone, _spawned, _duration, _marker] spawn {
+        params ["_zone","_spooks","_dur","_marker"];
         sleep (_dur * 60);
         {
             if (!isNull _x) then {
@@ -95,9 +105,8 @@ for "_i" from 1 to _count do {
             };
         } forEach _spooks;
         if (!isNull _zone) then {
-            private _m = _zone getVariable ["zoneMarker", ""];
-            if (_m isNotEqualTo "") then { deleteMarker _m; };
             deleteVehicle _zone;
         };
+        if (_marker != "") then { _marker setMarkerAlpha 0.2; };
     };
 };
