@@ -25,6 +25,8 @@ if (["VSA_enableStorms", true] call VIC_fnc_getSetting isEqualTo false) exitWith
 private _interval = ["VSA_stormInterval", 30] call VIC_fnc_getSetting;
 private _spawnWeight = ["VSA_stormSpawnWeight", 50] call VIC_fnc_getSetting;
 private _nightOnly = ["VSA_stormsNightOnly", false] call VIC_fnc_getSetting;
+private _duration = ["VSA_stormDuration", 60] call VIC_fnc_getSetting;
+private _intensity = ["VSA_stormStrikeIntensity", 3] call VIC_fnc_getSetting;
 
 _minDelay = ["VSA_stormMinDelay", _minDelay] call VIC_fnc_getSetting;
 _maxDelay = ["VSA_stormMaxDelay", _maxDelay] call VIC_fnc_getSetting;
@@ -32,21 +34,21 @@ _maxDelay = ["VSA_stormMaxDelay", _maxDelay] call VIC_fnc_getSetting;
 if (_minDelay < 0) then { _minDelay = 0; };
 if (_maxDelay < _minDelay) then { _maxDelay = _minDelay; };
 
-[_minDelay, _maxDelay, _manualVar, _spawnWeight, _nightOnly] spawn {
-    params ["_min", "_max", "_var", "_weight", "_night"];
+[_minDelay, _maxDelay, _manualVar, _spawnWeight, _nightOnly, _duration, _intensity] spawn {
+    params ["_min", "_max", "_var", "_weight", "_night", "_dur", "_int"];
     private _nextStorm = time + (_min + random (_max - _min));
     while {true} do {
         if (_var != "" && { missionNamespace getVariable [_var, false] }) then {
             missionNamespace setVariable [_var, false, true];
             if (random 100 < _weight && { !(_night && daytime > 5 && daytime < 20) }) then {
-                [] call VIC_fnc_triggerPsyStorm;
+                [_dur, _int] call VIC_fnc_triggerPsyStorm;
             };
             _nextStorm = time + (_min + random (_max - _min));
         };
 
         if (time >= _nextStorm) then {
             if (random 100 < _weight && { !(_night && daytime > 5 && daytime < 20) }) then {
-                [] call VIC_fnc_triggerPsyStorm;
+                [_dur, _int] call VIC_fnc_triggerPsyStorm;
             };
             _nextStorm = time + (_min + random (_max - _min));
         };

@@ -275,6 +275,11 @@ true
     false
 ] call CBA_fnc_addSetting;
 
+["VSA_stormMinDelay","SLIDER",["Min Delay (s)","Minimum seconds between storms"],"Viceroy's STALKER ALife - Storms",[0,7200,1800,0]] call CBA_fnc_addSetting;
+["VSA_stormMaxDelay","SLIDER",["Max Delay (s)","Maximum seconds between storms"],"Viceroy's STALKER ALife - Storms",[0,7200,3600,0]] call CBA_fnc_addSetting;
+["VSA_stormDuration","SLIDER",["Storm Duration (s)","Length of each psy-storm"],"Viceroy's STALKER ALife - Storms",[5,300,60,0]] call CBA_fnc_addSetting;
+["VSA_stormStrikeIntensity","SLIDER",["Strike Intensity","Psy discharges spawned per second"],"Viceroy's STALKER ALife - Storms",[1,20,3,0]] call CBA_fnc_addSetting;
+
 // -----------------------------------------------------------------------------
 // Zombification
 // -----------------------------------------------------------------------------

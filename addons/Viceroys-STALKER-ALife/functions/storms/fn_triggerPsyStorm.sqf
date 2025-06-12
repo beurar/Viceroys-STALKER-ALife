@@ -6,14 +6,16 @@
 
     Params:
         0: NUMBER - duration of the storm in seconds (default 60)
-        1: NUMBER - damage applied to exposed units per tick (default 0.03)
-        2: BOOL   - enable hallucination effects (default true)
-        3: BOOL   - spawn spook zone when finished (default false)
-        4: BOOL   - spawn zombies when finished (default false)
+        1: NUMBER - strikes spawned each second (default 3)
+        2: NUMBER - damage applied to exposed units per tick (default 0.03)
+        3: BOOL   - enable hallucination effects (default true)
+        4: BOOL   - spawn spook zone when finished (default false)
+        5: BOOL   - spawn zombies when finished (default false)
 */
 
 params [
     ["_duration", 60],
+    ["_intensity", 3],
     ["_damage", 0.03],
     ["_hallucinations", true],
     ["_spawnSpooks", false],
@@ -38,6 +40,14 @@ for "_i" from 1 to _ticks do {
             };
         };
     } forEach allUnits;
+
+    for "_j" from 1 to _intensity do {
+        private _pos = [random worldSize, random worldSize, 0];
+        private _surf = [_pos] call VIC_fnc_getSurfacePosition;
+        private _module = "diwako_anomalies_main_modulePsyDischarge" createVehicle _surf;
+        ["init", _module] call diwako_anomalies_main_fnc_modulePsyDischarge;
+        [_surf] call BIS_fnc_moduleLightning;
+    };
 
     if (_hallucinations && {random 1 < 0.15}) then {
         private _sounds = [
