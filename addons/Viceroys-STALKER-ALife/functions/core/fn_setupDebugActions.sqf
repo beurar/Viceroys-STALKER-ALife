@@ -7,7 +7,11 @@ if (!hasInterface) exitWith {};
 if (missionNamespace getVariable ["VSA_debugActionsAdded", false]) exitWith {};
 missionNamespace setVariable ["VSA_debugActionsAdded", true];
 
-player addAction ["Spawn Psy-Storm", { [] call VIC_fnc_triggerPsyStorm }];
+player addAction ["Spawn Psy-Storm", {
+    private _dur = ["VSA_stormDuration", 60] call VIC_fnc_getSetting;
+    private _int = ["VSA_stormStrikeIntensity", 3] call VIC_fnc_getSetting;
+    [_dur, _int] call VIC_fnc_triggerPsyStorm
+}];
 player addAction ["Spawn Chemical Zone", { [getPos player, 100] call VIC_fnc_spawnChemicalZone }];
 player addAction ["Spawn Random Chemicals", { [getPos player, 200] call VIC_fnc_spawnRandomChemicalZones }];
 player addAction ["Spawn Anomaly Fields", { [getPos player, 200] call VIC_fnc_spawnAllAnomalyFields }];
