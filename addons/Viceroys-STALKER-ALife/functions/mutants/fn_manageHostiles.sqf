@@ -11,7 +11,8 @@ private _size = ["VSA_mutantThreat", 3] call VIC_fnc_getSetting;
 
 {
     _x params ["_grp", "_type", "_pos"];
-    private _near = [_pos, 1500] call VIC_fnc_hasPlayersNearby;
+    private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+    private _near = [_pos, _dist] call VIC_fnc_hasPlayersNearby;
     if (_near) then {
         if (isNull _grp || { count units _grp == 0 }) then {
             private _new = createGroup east;

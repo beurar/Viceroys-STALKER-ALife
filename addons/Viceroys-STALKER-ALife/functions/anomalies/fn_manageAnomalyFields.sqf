@@ -10,7 +10,8 @@ if (isNil "STALKER_anomalyFields") exitWith {};
 {
     _x params ["_center","_radius","_fn","_count","_objs","_marker","_site"];
     private _pos = if (_site isEqualTo []) then {_center} else {_site};
-    private _near = [_pos,1500] call VIC_fnc_hasPlayersNearby;
+    private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+    private _near = [_pos,_dist] call VIC_fnc_hasPlayersNearby;
 
     if (_near) then {
         if (_objs isEqualTo []) then {

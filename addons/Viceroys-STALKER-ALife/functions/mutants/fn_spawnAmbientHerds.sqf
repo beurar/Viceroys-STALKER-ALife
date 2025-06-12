@@ -1,8 +1,10 @@
 /*
-    Spawns passive mutant herds roaming the world.
+    Spawns roaming mutant herds that sleep when players are far away.
+    Only a single leader unit is created initially and used as an anchor
+    for the herd while the rest of the members are tracked virtually.
     Settings via CBA:
       - VSA_ambientHerdCount:   number of herds to spawn (default 2)
-      - VSA_ambientHerdSize:    units per herd (default 4)
+      - VSA_ambientHerdSize:    maximum units per herd (default 4)
       - VSA_ambientNightOnly:   spawn only at night if true (default false)
       - VSA_enableMutants:      master toggle for mutant systems
 */
@@ -23,13 +25,12 @@ if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 
 for "_i" from 1 to _herdCount do {
     private _pos = [random worldSize, random worldSize, 0];
-    if (![_pos, 1500] call VIC_fnc_hasPlayersNearby) then { continue };
+    private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+    if (![_pos, _dist] call VIC_fnc_hasPlayersNearby) then { continue };
     private _grp = createGroup civilian;
-    for "_j" from 1 to _herdSize do {
-        private _unit = _grp createUnit ["C_ALF_Mutant", _pos, [], 0, "FORM"];
-        _unit disableAI "TARGET";
-        _unit disableAI "AUTOTARGET";
-    };
+    private _leader = _grp createUnit ["C_ALF_Mutant", _pos, [], 0, "FORM"];
+    _leader disableAI "TARGET";
+    _leader disableAI "AUTOTARGET";
     [_grp, _pos] call BIS_fnc_taskPatrol;
-    STALKER_activeHerds pushBack [_grp, "herd", _pos];
+    STALKER_activeHerds pushBack [_leader, _grp, _herdSize, _herdSize];
 };

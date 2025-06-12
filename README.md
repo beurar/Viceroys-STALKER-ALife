@@ -26,11 +26,18 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Spawns roaming mutant packs and ambient herds.
 * Example mutants include pseudodogs, snorks and other Zone creatures.
 * Dedicated nest spawns for every mutant type keep their territories dangerous.
+* Ambient herds keep one leader active while sleeping and only spawn the rest of
+  the herd when players come within a configurable nearby range (default 1500
+  meters). Their population slowly
+  regenerates over time.
+* Rare predator ambushes may spawn a chimera or pack of bloodsuckers at night to
+  hunt nearby players.
 
 ### Mutant Habitats
 * Defines territory areas via **fn_setupMutantHabitats.sqf**.
 * Each habitat now uses an ellipse marker to show its bounds and a labeled icon displaying the current population (e.g. `Bloodsucker Habitat: 4/12`).
-* Systems rely on **fn_hasPlayersNearby.sqf** so activity sleeps when players are far away.
+* Systems rely on **fn_hasPlayersNearby.sqf** so habitats sleep and despawn when players are farther than the configured nearby range (default 1500m).
+* Population counts persist while sleeping and gradually replenish between spawn cycles.
 * CBA settings allow mission makers to customize these behaviors.
 
 ### Chemical Zones
@@ -105,11 +112,11 @@ spawns at night, during the day or both.
    * [Healthy Stalker Mutants](https://steamcommunity.com/sharedfiles/filedetails/?id=3105717594)
    * [Healthy Stalker Items](https://steamcommunity.com/sharedfiles/filedetails/?id=3105592413)
    * [Chemical Warfare Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3295358796)
-3. Review `cba_settings.sqf` for adjustable options.
+3. Review `cba_settings.sqf` for adjustable options such as the player nearby range used by many systems.
 4. Enable **VSA_debugMode** to show on-screen debug messages and access testing actions.
    This option can now be toggled while a mission is running and the debug
    actions will appear automatically.
-5. When debug mode is active, your scroll menu includes options to trigger storms, spawn anomaly fields or spook zones, generate habitats, spawn ambient herds and other test helpers.
+5. When debug mode is active, your scroll menu includes options to trigger storms, spawn anomaly fields or spook zones, generate habitats, spawn ambient herds, summon predator attacks and other test helpers.
 
 If your mission reports undefined CBA settings, ensure that **CBA A3** is loaded and initialized before this mod. Settings now fall back to defaults via `VIC_fnc_getSetting` when CBA has not yet finished loading.
 

@@ -14,6 +14,7 @@ STALKER_activeSpooks = [];
 // Global tracking arrays for spawned groups
 STALKER_activeHerds = [];
 STALKER_activeHostiles = [];
+STALKER_activePredators = [];
 STALKER_mutantNests = [];
 STALKER_anomalyFields = [];
 

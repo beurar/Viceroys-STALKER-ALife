@@ -15,6 +15,7 @@ player addAction ["Spawn Mutant Group", { [getPos player] call VIC_fnc_spawnMuta
 player addAction ["Spawn Spook Zone", { [] call VIC_fnc_spawnSpookZone }];
 player addAction ["Spawn Zombies From Queue", { [] call VIC_fnc_spawnZombiesFromQueue }];
 player addAction ["Spawn Ambient Herds", { [] call VIC_fnc_spawnAmbientHerds }];
+player addAction ["Spawn Predator Attack", { [player] call VIC_fnc_spawnPredatorAttack }];
 player addAction ["Generate Mutant Habitats", { [] call VIC_fnc_setupMutantHabitats }];
 player addAction ["Cycle Habitats", { [] call VIC_fnc_manageHabitats }];
 player addAction ["Mark All Buildings", { [] call VIC_fnc_markAllBuildings }];
