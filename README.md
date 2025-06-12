@@ -113,8 +113,7 @@ spawns at night, during the day or both.
    * [Diwako’s Anomalies](https://github.com/diwako/Anomaly)
    * [WebKnight’s Zombies & Demons](https://steamcommunity.com/sharedfiles/filedetails/?id=2378964543)
    * [Drongo’s Spooks and Anomalies](https://steamcommunity.com/sharedfiles/filedetails/?id=2262255106)
-   * [Healthy Stalker Mutants](https://steamcommunity.com/sharedfiles/filedetails/?id=3105717594)
-   * [Healthy Stalker Items](https://steamcommunity.com/sharedfiles/filedetails/?id=3105592413)
+   * [Stalker Stuff](https://steamcommunity.com/sharedfiles/filedetails/?id=2781344095)
    * [Chemical Warfare Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3295358796)
 3. Review `cba_settings.sqf` for adjustable options such as the player nearby range used by many systems.
 4. Enable **VSA_debugMode** to show on-screen debug messages and access testing actions.
@@ -140,8 +139,7 @@ Mission makers can tweak or remove individual systems as needed. Most features a
    * [Diwako’s Anomalies](https://github.com/diwako/Anomaly)
    * [WebKnight’s Zombies & Demons](https://steamcommunity.com/sharedfiles/filedetails/?id=2378964543)
    * [Drongo’s Spooks and Anomalies](https://steamcommunity.com/sharedfiles/filedetails/?id=2262255106)
-   * [Healthy Stalker Mutants](https://steamcommunity.com/sharedfiles/filedetails/?id=3105717594)
-   * [Healthy Stalker Items](https://steamcommunity.com/sharedfiles/filedetails/?id=3105592413)
+   * [Stalker Stuff](https://steamcommunity.com/sharedfiles/filedetails/?id=2781344095)
    * [Chemical Warfare Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3295358796)
 
 These mods must be loaded for the scripts in this repository to function correctly.
