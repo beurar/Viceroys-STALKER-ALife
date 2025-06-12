@@ -7,7 +7,8 @@ class CfgPatches
         requiredAddons[] = {
             "A3_Functions_F",
             "CBA_Extended_EventHandlers",
-            "cba_main"
+            "cba_main",
+            "diwako_anomalies_main"
         };
     };
 };

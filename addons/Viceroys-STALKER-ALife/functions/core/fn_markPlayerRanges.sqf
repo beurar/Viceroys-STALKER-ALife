@@ -14,7 +14,7 @@ missionNamespace setVariable ["VSA_rangeMarkersActive", true];
 if (isNil "STALKER_playerRangeMarkers") then { STALKER_playerRangeMarkers = [] };
 
 [] spawn {
-    while (["VSA_debugMode", false] call VIC_fnc_getSetting) do {
+    while { ["VSA_debugMode", false] call VIC_fnc_getSetting } do {
         private _range = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
         private _players = allPlayers;
 
