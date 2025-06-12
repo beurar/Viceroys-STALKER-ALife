@@ -17,10 +17,10 @@ if (!isNil "STALKER_mutantHabitats") then {
 
 if (!isNil "STALKER_activeHerds") then {
     {
-        _x params ["_leader","_grp","_max","_count","_near"];
+        _x params ["_leader","_grp","_max","_count","_near","_marker"];
         _near = [getPos _leader,_range] call VIC_fnc_hasPlayersNearby;
-        STALKER_activeHerds set [_forEachIndex, [_leader,_grp,_max,_count,_near]];
+        STALKER_activeHerds set [_forEachIndex, [_leader,_grp,_max,_count,_near,_marker]];
     } forEach STALKER_activeHerds;
-};
+}; 
 
 true

@@ -40,4 +40,11 @@ switch (_type) do {
 
 [_grp, _player] call BIS_fnc_taskAttack;
 
-STALKER_activePredators pushBack [_grp, _player];
+private _markerName = format ["pred_%1", diag_tickTime];
+private _marker = createMarker [_markerName, _spawnPos];
+_marker setMarkerShape "ICON";
+_marker setMarkerType "mil_warning";
+_marker setMarkerColor "ColorRed";
+_marker setMarkerAlpha 1;
+
+STALKER_activePredators pushBack [_grp, _player, _marker, true];

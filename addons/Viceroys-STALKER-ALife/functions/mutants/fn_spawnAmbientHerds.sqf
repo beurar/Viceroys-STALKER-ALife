@@ -35,5 +35,12 @@ for "_i" from 1 to _herdCount do {
     _leader setVariable ["VSA_herdIndex", count STALKER_activeHerds];
     _leader addEventHandler ["Killed", { [_this#0] call VIC_fnc_onMutantKilled }];
     [_grp, _pos] call BIS_fnc_taskPatrol;
-    STALKER_activeHerds pushBack [_leader, _grp, _herdSize, _herdSize, false];
-};
+    private _markerName = format ["herd_%1_%2", count STALKER_activeHerds, diag_tickTime];
+    private _marker = createMarker [_markerName, _pos];
+    _marker setMarkerShape "ICON";
+    _marker setMarkerType "mil_dot";
+    _marker setMarkerColor "ColorOrange";
+    _marker setMarkerAlpha 0.2;
+
+    STALKER_activeHerds pushBack [_leader, _grp, _herdSize, _herdSize, false, _marker];
+}; 

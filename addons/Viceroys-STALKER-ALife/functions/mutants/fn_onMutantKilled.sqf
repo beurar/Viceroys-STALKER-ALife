@@ -11,10 +11,10 @@ if (!isServer) exitWith {};
 private _herdIndex = _unit getVariable ["VSA_herdIndex", -1];
 if (_herdIndex > -1 && {!isNil "STALKER_activeHerds"}) then {
     private _entry = STALKER_activeHerds select _herdIndex;
-    _entry params ["_leader","_grp","_max","_count","_near"];
+    _entry params ["_leader","_grp","_max","_count","_near","_marker"];
     _count = _count - 1;
     if (_count < 0) then {_count = 0;};
-    STALKER_activeHerds set [_herdIndex, [_leader,_grp,_max,_count,_near]];
+    STALKER_activeHerds set [_herdIndex, [_leader,_grp,_max,_count,_near,_marker]];
 };
 
 // Habitat members

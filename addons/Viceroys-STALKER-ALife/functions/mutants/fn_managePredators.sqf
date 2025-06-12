@@ -1,6 +1,6 @@
 /*
     Periodically spawns predator attacks on players and cleans up finished groups.
-    STALKER_activePredators entries: [group, target]
+    STALKER_activePredators entries: [group, target, marker, near]
 */
 
 ["managePredators"] call VIC_fnc_debugLog;
@@ -12,15 +12,15 @@ private _chance    = ["VSA_predatorAttackChance", 5] call VIC_fnc_getSetting;
 private _nightOnly = ["VSA_predatorNightOnly", true] call VIC_fnc_getSetting;
 
 if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {
-    // still cleanup existing predators
     {
-        _x params ["_grp", "_target"];
+        _x params ["_grp", "_target", "_marker", "_near"];
         if (!isNull _grp) then {
             { deleteVehicle _x } forEach units _grp;
             deleteGroup _grp;
         };
+        if (_marker != "") then { _marker setMarkerAlpha 0.2; };
+        STALKER_activePredators set [_forEachIndex, [grpNull, _target, _marker, false]];
     } forEach STALKER_activePredators;
-    STALKER_activePredators = [];
 };
 
 if ((count allPlayers) > 0 && {random 100 < _chance}) then {
@@ -33,15 +33,16 @@ if ((count allPlayers) > 0 && {random 100 < _chance}) then {
 private _range = ["VSA_predatorRange", 1500] call VIC_fnc_getSetting;
 
 {
-    _x params ["_grp", "_target"];
+    _x params ["_grp", "_target", "_marker", "_near"];
     private _alive = if (isNull _grp) then {0} else { {alive _x} count units _grp };
-    private _near = [_target, _range] call VIC_fnc_hasPlayersNearby;
+    _near = [_target, _range] call VIC_fnc_hasPlayersNearby;
     if (_alive == 0 || {!_near}) then {
         if (!isNull _grp) then {
             { deleteVehicle _x } forEach units _grp;
             deleteGroup _grp;
+            _grp = grpNull;
         };
-        STALKER_activePredators set [_forEachIndex, objNull];
     };
+    if (_marker != "") then { _marker setMarkerAlpha (if (_alive > 0 && _near) then {1} else {0.2}); };
+    STALKER_activePredators set [_forEachIndex, [_grp, _target, _marker, _near]];
 } forEach STALKER_activePredators;
-STALKER_activePredators = STALKER_activePredators - [objNull];

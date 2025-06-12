@@ -100,6 +100,7 @@ VIC_fnc_getSurfacePosition       = compile preprocessFileLineNumbers (_root + "\
 VIC_fnc_debugLog                 = compile preprocessFileLineNumbers (_root + "\functions\core\fn_debugLog.sqf");
 VIC_fnc_setupDebugActions        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_setupDebugActions.sqf");
 VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markAllBuildings.sqf");
+VIC_fnc_markPlayerRanges        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markPlayerRanges.sqf");
 
 // --- PostInit ---------------------------------------------------------------
 ["postInit", {
@@ -181,6 +182,7 @@ VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\f
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         [] call VIC_fnc_setupDebugActions;
         [] call VIC_fnc_markAllBuildings;
+        [] call VIC_fnc_markPlayerRanges;
     };
 }] call CBA_fnc_addEventHandler;
 
@@ -194,6 +196,7 @@ VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\f
         if (hasInterface && ["VSA_debugMode", false] call VIC_fnc_getSetting) then {
             [] call VIC_fnc_setupDebugActions;
             [] call VIC_fnc_markAllBuildings;
+            [] call VIC_fnc_markPlayerRanges;
         };
     }] call CBA_fnc_addEventHandler;
 };
@@ -204,5 +207,6 @@ VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\f
     if (hasInterface && {_setting isEqualTo "VSA_debugMode" && {_value}}) then {
         [] call VIC_fnc_setupDebugActions;
         [] call VIC_fnc_markAllBuildings;
+        [] call VIC_fnc_markPlayerRanges;
     };
 }] call CBA_fnc_addEventHandler;

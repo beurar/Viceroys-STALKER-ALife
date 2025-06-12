@@ -38,6 +38,12 @@ for "_i" from 1 to _groupCount do {
         [_u] call VIC_fnc_initMutantUnit;
     };
     [_grp, _spawnPos] call BIS_fnc_taskPatrol;
-    STALKER_activeHostiles pushBack [_grp, "hostile", _spawnPos];
+    private _markerName = format ["hostile_%1_%2", _i, diag_tickTime];
+    private _marker = createMarker [_markerName, _spawnPos];
+    _marker setMarkerShape "ICON";
+    _marker setMarkerType "mil_dot";
+    _marker setMarkerColor "ColorOrange";
+    _marker setMarkerAlpha 1;
+    STALKER_activeHostiles pushBack [_grp, "hostile", _spawnPos, _marker, true];
 };
 
