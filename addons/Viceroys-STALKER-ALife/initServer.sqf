@@ -17,6 +17,7 @@ STALKER_activeHostiles = [];
 STALKER_activePredators = [];
 STALKER_mutantNests = [];
 STALKER_anomalyFields = [];
+STALKER_minefields = [];
 
 // Prepare spook zone locations
 [] call compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\spooks\fn_setupSpookZones.sqf";
@@ -25,5 +26,11 @@ STALKER_anomalyFields = [];
 for "_i" from 1 to 100 do {
     private _pos = [random worldSize, random worldSize, 0];
     [_pos, 1000] call VIC_fnc_spawnAllAnomalyFields;
+};
+
+// Generate minefields across the map
+for "_i" from 1 to 50 do {
+    private _pos = [random worldSize, random worldSize, 0];
+    [_pos, 1000] call VIC_fnc_spawnMinefields;
 };
 

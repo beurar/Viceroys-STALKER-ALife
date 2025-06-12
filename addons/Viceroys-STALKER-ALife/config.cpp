@@ -89,6 +89,15 @@ class CfgFunctions
             class setupSpookZones{};
             class spawnSpookZone{};
         };
+        class Minefields
+        {
+            file = "Viceroys-STALKER-ALife\functions\minefields";
+            class spawnMinefields{};
+            class spawnAPERSField{};
+            class spawnIED{};
+            class manageMinefields{};
+        };
+
 
         class Storms
         {
