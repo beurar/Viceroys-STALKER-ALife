@@ -19,6 +19,8 @@ if (isNil "STALKER_activePredators") then { STALKER_activePredators = []; };
 private _spawnMarker = "";
 private _range = ["VSA_predatorRange", 1500] call VIC_fnc_getSetting;
 private _spawnPos = _player getPos [_range, random 360];
+_spawnPos = [_spawnPos] call VIC_fnc_findLandPosition;
+if (_spawnPos isEqualTo []) exitWith {};
 
 if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
     _spawnMarker = createMarker [format ["pred_%1", diag_tickTime], _spawnPos];

@@ -1,6 +1,6 @@
 /*
-    Creates circle markers around all players showing the range used
-    for nearby checks. Only runs on clients when debug mode is enabled.
+    Draws a circle marker around the local player showing the range used
+    for nearby checks.
 
     Returns: BOOL
 */
@@ -11,37 +11,23 @@ if (!hasInterface) exitWith { false };
 if (missionNamespace getVariable ["VSA_rangeMarkersActive", false]) exitWith { true };
 missionNamespace setVariable ["VSA_rangeMarkersActive", true];
 
-if (isNil "STALKER_playerRangeMarkers") then { STALKER_playerRangeMarkers = [] };
+if (isNil "STALKER_playerRangeMarker") then { STALKER_playerRangeMarker = "" };
 
 [] spawn {
-    while { ["VSA_debugMode", false] call VIC_fnc_getSetting } do {
+    while { true } do {
         private _range = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
-        private _players = allPlayers;
-
-        {
-            private _idx = _forEachIndex;
-            private _m = if (_idx < count STALKER_playerRangeMarkers) then {
-                STALKER_playerRangeMarkers select _idx
-            } else {
-                private _name = format ["playerRange_%1_%2", _idx, diag_tickTime];
-                private _marker = createMarkerLocal [_name, getPosATL _x];
-                _marker setMarkerShape "ELLIPSE";
-                _marker setMarkerColor "ColorBlue";
-                STALKER_playerRangeMarkers pushBack _marker;
-                _marker
-            };
-            _m setMarkerPosLocal getPosATL _x;
-            _m setMarkerSizeLocal [_range, _range];
-        } forEach _players;
-
-        for [{_i = count STALKER_playerRangeMarkers - 1}, {_i >= count _players}, {_i = _i - 1}] do {
-            deleteMarkerLocal (STALKER_playerRangeMarkers deleteAt _i);
+        if (STALKER_playerRangeMarker isEqualTo "") then {
+            private _name = format ["playerRange_%1", diag_tickTime];
+            STALKER_playerRangeMarker = createMarkerLocal [_name, position player];
+            STALKER_playerRangeMarker setMarkerShape "ELLIPSE";
+            STALKER_playerRangeMarker setMarkerColor "ColorBlue";
         };
-
+        STALKER_playerRangeMarker setMarkerPosLocal position player;
+        STALKER_playerRangeMarker setMarkerSizeLocal [_range, _range];
         sleep 1;
     };
-    { deleteMarkerLocal _x } forEach STALKER_playerRangeMarkers;
-    STALKER_playerRangeMarkers = [];
+    if (STALKER_playerRangeMarker != "") then { deleteMarkerLocal STALKER_playerRangeMarker; };
+    STALKER_playerRangeMarker = "";
     missionNamespace setVariable ["VSA_rangeMarkersActive", false];
 };
 

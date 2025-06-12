@@ -100,6 +100,9 @@ VIC_fnc_hasPlayersNearby         = compile preprocessFileLineNumbers (_root + "\
 VIC_fnc_registerEmissionHooks    = compile preprocessFileLineNumbers (_root + "\functions\core\fn_registerEmissionHooks.sqf");
 VIC_fnc_getSetting               = compile preprocessFileLineNumbers (_root + "\functions\core\fn_getSetting.sqf");
 VIC_fnc_getSurfacePosition       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_getSurfacePosition.sqf");
+VIC_fnc_isWaterPosition         = compile preprocessFileLineNumbers (_root + "\functions\core\fn_isWaterPosition.sqf");
+VIC_fnc_findLandPosition        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findLandPosition.sqf");
+VIC_fnc_getLandSurfacePosition  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_getLandSurfacePosition.sqf");
 VIC_fnc_debugLog                 = compile preprocessFileLineNumbers (_root + "\functions\core\fn_debugLog.sqf");
 VIC_fnc_setupDebugActions        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_setupDebugActions.sqf");
 VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markAllBuildings.sqf");
@@ -196,10 +199,12 @@ VIC_fnc_markPlayerRanges        = compile preprocessFileLineNumbers (_root + "\f
   }] call CBA_fnc_addEventHandler;
 } else {
     ["postInit", {
-        if (hasInterface && ["VSA_debugMode", false] call VIC_fnc_getSetting) then {
-            [] call VIC_fnc_setupDebugActions;
-            [] call VIC_fnc_markAllBuildings;
+        if (hasInterface) then {
             [] call VIC_fnc_markPlayerRanges;
+            if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
+                [] call VIC_fnc_setupDebugActions;
+                [] call VIC_fnc_markAllBuildings;
+            };
         };
     }] call CBA_fnc_addEventHandler;
 };

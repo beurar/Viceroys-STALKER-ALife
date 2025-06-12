@@ -22,7 +22,7 @@ STALKER_anomalyFields = [];
 [] call compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\spooks\fn_setupSpookZones.sqf";
 
 // Generate anomaly fields across the map
-for "_i" from 1 to 10 do {
+for "_i" from 1 to 100 do {
     private _pos = [random worldSize, random worldSize, 0];
     [_pos, 1000] call VIC_fnc_spawnAllAnomalyFields;
 };
