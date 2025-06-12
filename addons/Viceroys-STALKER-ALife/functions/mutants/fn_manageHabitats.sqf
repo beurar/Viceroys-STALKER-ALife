@@ -1,6 +1,7 @@
 /*
     Manages mutant habitats. Spawns units when players approach and
     replenishes cleared habitats over time.
+
     STALKER_mutantHabitats entries: [areaMarker, labelMarker, group, position, type, max]
 */
 
@@ -28,6 +29,7 @@ private _getClass = {
 private _chance = ["VSA_mutantSpawnWeight",50] call VIC_fnc_getSetting;
 
 {
+
     _x params ["_area","_label","_grp","_pos","_type","_max"];
     private _near = [_pos,1500] call VIC_fnc_hasPlayersNearby;
 
@@ -56,6 +58,7 @@ private _chance = ["VSA_mutantSpawnWeight",50] call VIC_fnc_getSetting;
             [_grp,_pos] call BIS_fnc_taskDefend;
         };
     };
+
 
     _area setMarkerColor (if (_grp isEqualTo grpNull) then {"ColorGreen"} else {"ColorRed"});
     _label setMarkerColor (if (_grp isEqualTo grpNull) then {"ColorGreen"} else {"ColorRed"});

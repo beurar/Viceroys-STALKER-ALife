@@ -34,6 +34,7 @@ private _createMarker = {
         case "Izlom": { ["VSA_habitatSize_Izlom",10] call VIC_fnc_getSetting };
         default {10};
     };
+
     _label setMarkerText format ["%1 Habitat: 0/%2", _type, _max];
     STALKER_mutantHabitats pushBack [_area, _label, grpNull, _pos, _type, _max];
 };
