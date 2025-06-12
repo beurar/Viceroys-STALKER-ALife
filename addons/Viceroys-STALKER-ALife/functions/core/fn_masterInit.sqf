@@ -5,7 +5,10 @@
 */
 
 // --- CBA Settings -----------------------------------------------------------
-private _root = "\Viceroys-STALKER-ALife";
+private _root = "Viceroys-STALKER-ALife";
+if (!(fileExists (_root + "\cba_settings.sqf"))) then {
+    _root = "\Viceroys-STALKER-ALife";
+};
 private _settings = _root + "\cba_settings.sqf";
 if (fileExists _settings) then {
     waitUntil {!isNil "CBA_fnc_addSetting"};
