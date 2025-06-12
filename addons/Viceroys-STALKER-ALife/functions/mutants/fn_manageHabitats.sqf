@@ -2,7 +2,7 @@
     Manages mutant habitats. Spawns units when players approach and
     replenishes cleared habitats over time.
 
-    STALKER_mutantHabitats entries: [areaMarker, labelMarker, group, position, type, max, count]
+    STALKER_mutantHabitats entries: [areaMarker, labelMarker, group, position, type, max, count, near]
 */
 
 ["manageHabitats"] call VIC_fnc_debugLog;
@@ -30,15 +30,18 @@ private _chance = ["VSA_mutantSpawnWeight",50] call VIC_fnc_getSetting;
 
 {
 
-    _x params ["_area","_label","_grp","_pos","_type","_max","_count"];
-    private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
-    private _near = [_pos,_dist] call VIC_fnc_hasPlayersNearby;
+    _x params ["_area","_label","_grp","_pos","_type","_max","_count","_near"];
 
     if (_near) then {
         if (isNull _grp && {_count > 0}) then {
             private _class = [_type] call _getClass;
             _grp = createGroup east;
-            for "_i" from 1 to _count do { _grp createUnit [_class, _pos, [], 0, "FORM"]; };
+            for "_i" from 1 to _count do {
+                private _u = _grp createUnit [_class, _pos, [], 0, "FORM"];
+                [_u] call VIC_fnc_initMutantUnit;
+                _u setVariable ["VSA_habitatIndex", _forEachIndex];
+                _u addEventHandler ["Killed", { [_this#0] call VIC_fnc_onMutantKilled }];
+            };
             [_grp,_pos] call BIS_fnc_taskDefend;
         };
 
@@ -68,6 +71,6 @@ private _chance = ["VSA_mutantSpawnWeight",50] call VIC_fnc_getSetting;
     _label setMarkerColor (if (_count > 0) then {"ColorRed"} else {"ColorGreen"});
     _label setMarkerText format ["%1 Habitat: %2/%3", _type, _count, _max];
 
-    STALKER_mutantHabitats set [_forEachIndex, [_area,_label,_grp,_pos,_type,_max,_count]];
+    STALKER_mutantHabitats set [_forEachIndex, [_area,_label,_grp,_pos,_type,_max,_count,_near]];
 } forEach STALKER_mutantHabitats;
 

@@ -32,12 +32,15 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
   regenerates over time.
 * Rare predator ambushes may spawn a chimera or pack of bloodsuckers at night to
   hunt nearby players.
+* Mutants no longer use default Arma voices and remain silent when spawned.
 
 ### Mutant Habitats
 * Defines territory areas via **fn_setupMutantHabitats.sqf**.
 * Each habitat now uses an ellipse marker to show its bounds and a labeled icon displaying the current population (e.g. `Bloodsucker Habitat: 4/12`).
 * Systems rely on **fn_hasPlayersNearby.sqf** so habitats sleep and despawn when players are farther than the configured nearby range (default 1500m).
 * Population counts persist while sleeping and gradually replenish between spawn cycles.
+* Player proximity is checked on a separate timer via `VSA_proximityCheckInterval`.
+* Habitat and herd counts update immediately when mutants are killed.
 * CBA settings allow mission makers to customize these behaviors.
 
 ### Chemical Zones

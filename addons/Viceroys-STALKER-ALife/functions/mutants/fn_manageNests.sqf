@@ -15,7 +15,10 @@ if (isNil "STALKER_mutantNests") exitWith {};
         if (isNull _nest) then { _nest = "Land_Campfire_F" createVehicle _pos; };
         if (isNull _grp || { count units _grp == 0 }) then {
             private _new = createGroup east;
-            for "_i" from 1 to 3 do { _new createUnit [_class, _pos, [], 0, "FORM"]; };
+            for "_i" from 1 to 3 do {
+                private _u = _new createUnit [_class, _pos, [], 0, "FORM"];
+                [_u] call VIC_fnc_initMutantUnit;
+            };
             STALKER_mutantNests set [_forEachIndex, [_nest, _new, _pos, _class]];
         } else {
             STALKER_mutantNests set [_forEachIndex, [_nest, _grp, _pos, _class]];

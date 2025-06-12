@@ -29,8 +29,11 @@ for "_i" from 1 to _herdCount do {
     if (![_pos, _dist] call VIC_fnc_hasPlayersNearby) then { continue };
     private _grp = createGroup civilian;
     private _leader = _grp createUnit ["C_ALF_Mutant", _pos, [], 0, "FORM"];
+    [_leader] call VIC_fnc_initMutantUnit;
     _leader disableAI "TARGET";
     _leader disableAI "AUTOTARGET";
+    _leader setVariable ["VSA_herdIndex", count STALKER_activeHerds];
+    _leader addEventHandler ["Killed", { [_this#0] call VIC_fnc_onMutantKilled }];
     [_grp, _pos] call BIS_fnc_taskPatrol;
-    STALKER_activeHerds pushBack [_leader, _grp, _herdSize, _herdSize];
+    STALKER_activeHerds pushBack [_leader, _grp, _herdSize, _herdSize, false];
 };
