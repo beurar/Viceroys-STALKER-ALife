@@ -47,9 +47,10 @@ for "_i" from 1 to _fieldCount do {
     if (_site isEqualTo []) then { continue };
     _site = [_site] call VIC_fnc_findLandPosition;
     if (_site isEqualTo []) then { continue };
-    private _spawned = [_center, _radius, 0, _site] call _fn;
+    private _spawned = [_center, _radius, 1, _site] call _fn;
     if (_spawned isEqualTo []) then { continue };
     private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
+    { if (!isNull _x) then { deleteVehicle _x; } } forEach _spawned;
     if (_marker != "") then { _marker setMarkerAlpha 0.2; };
     STALKER_anomalyFields pushBack [_center,_radius,_fn,5,[],_marker,_site];
 };
