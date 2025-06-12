@@ -35,7 +35,10 @@ _module setVariable ["CBRN_Radius", _radius, true];
 _module setVariable ["CBRN_Lifetime", _duration, true];
 _module setVariable ["CBRN_Thickness", 1, true];
 _module setVariable ["CBRN_ChemType", 1, true]; // Asphyxiant gas
-[_module] call CBRN_fnc_ModuleSpawnCSGas;
+[
+    "init",
+    _module
+] call CBRN_fnc_ModuleSpawnCSGas;
 
 // Create and configure a map marker for this chemical zone
 private _markerName = format ["chem_%1", diag_tickTime];
