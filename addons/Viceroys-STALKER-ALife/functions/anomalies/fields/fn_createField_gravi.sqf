@@ -13,22 +13,25 @@ if (_site isEqualTo []) then {
     _site = [_center,_radius] call VIC_fnc_findSite_gravi;
 };
 if (_site isEqualTo []) exitWith { [] };
+_site = [_site] call VIC_fnc_findLandPosition;
+if (_site isEqualTo []) exitWith { [] };
 
 // Create a marker for this anomaly field
 if (isNil "STALKER_anomalyMarkers") then { STALKER_anomalyMarkers = [] };
 private _markerName = format ["anom_gravi_%1", diag_tickTime];
 private _marker = createMarker [_markerName, _site];
 _marker setMarkerShape "ELLIPSE";
-_marker setMarkerSize [15,15];
+_marker setMarkerSize [30,30];
 // Brown marker helps identify gravi fields
 _marker setMarkerColor "ColorBrown";
-_marker setMarkerText "Gravi 15m";
+_marker setMarkerText "Gravi 30m";
 STALKER_anomalyMarkers pushBack _marker;
 
 private _spawned = [];
 for "_i" from 1 to _count do {
-    private _off = [_site, random 15, random 360] call BIS_fnc_relPos;
-    private _surf = [_off] call VIC_fnc_getSurfacePosition;
+    private _off = [_site, random 30, random 360] call BIS_fnc_relPos;
+    private _surf = [_off] call VIC_fnc_getLandSurfacePosition;
+    if (_surf isEqualTo []) then { continue };
     private _create = missionNamespace getVariable ["diwako_anomalies_main_fnc_createGravi", {}];
     if (_create isEqualTo {}) then {
         ["createField_gravi: Diwako Anomalies missing"] call VIC_fnc_debugLog;
