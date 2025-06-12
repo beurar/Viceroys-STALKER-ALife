@@ -48,6 +48,11 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Randomly creates chemical gas zones that damage unprotected units.
 * Cleanup functions remove old zones to keep performance reasonable.
 
+### Minefields
+* Generates APERS minefields on town outskirts and single IEDs on roads.
+* Mines despawn when no players are nearby and respawn when someone approaches.
+* Enable debug mode to visualize fields and place test minefields via the action menu.
+
 ### Spooks
 * Lightweight supernatural events to unsettle players.
 * Random zones may spawn spooky audio or visual effects.
