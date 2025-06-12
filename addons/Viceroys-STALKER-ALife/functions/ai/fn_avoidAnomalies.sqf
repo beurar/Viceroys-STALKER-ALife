@@ -17,7 +17,10 @@ private _chance = ["VSA_aiAnomalyAvoidChance", 50] call VIC_fnc_getSetting;
 private _range  = ["VSA_aiAnomalyAvoidRange", 20] call VIC_fnc_getSetting;
 
 private _anoms = [];
-{ _x params [,,,,"_objs"]; _anoms append _objs; } forEach STALKER_anomalyFields;
+{
+    private _objs = _x select 4;
+    _anoms append _objs;
+} forEach STALKER_anomalyFields;
 if (_anoms isEqualTo []) exitWith {};
 
 {
