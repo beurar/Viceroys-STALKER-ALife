@@ -27,11 +27,13 @@ private _grp = createGroup east;
 
 switch (_type) do {
     case "chimera": {
-        _grp createUnit [selectRandom _chimeraClasses, _spawnPos, [], 0, "FORM"];
+        private _u = _grp createUnit [selectRandom _chimeraClasses, _spawnPos, [], 0, "FORM"];
+        [_u] call VIC_fnc_initMutantUnit;
     };
     case "bloodsucker": {
         for "_i" from 1 to 3 do {
-            _grp createUnit [selectRandom _bloodsuckerClasses, _spawnPos, [], 0, "FORM"];
+            private _u = _grp createUnit [selectRandom _bloodsuckerClasses, _spawnPos, [], 0, "FORM"];
+            [_u] call VIC_fnc_initMutantUnit;
         };
     };
 };

@@ -78,6 +78,9 @@ VIC_fnc_manageHerds              = compile preprocessFileLineNumbers (_root + "\
 VIC_fnc_manageHostiles           = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageHostiles.sqf");
 VIC_fnc_manageNests              = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageNests.sqf");
 VIC_fnc_manageHabitats           = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageHabitats.sqf");
+VIC_fnc_updateProximity          = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_updateProximity.sqf");
+VIC_fnc_onMutantKilled           = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_onMutantKilled.sqf");
+VIC_fnc_initMutantUnit          = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_initMutantUnit.sqf");
 panic_fnc_onEmissionBuildUp  = compile preprocessFileLineNumbers (_root + "\functions\panic\fn_onEmissionBuildUp.sqf");
 panic_fnc_onEmissionStart    = compile preprocessFileLineNumbers (_root + "\functions\panic\fn_onEmissionStart.sqf");
 panic_fnc_onEmissionEnd      = compile preprocessFileLineNumbers (_root + "\functions\panic\fn_onEmissionEnd.sqf");
@@ -102,6 +105,15 @@ VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\f
     [] call VIC_fnc_registerEmissionHooks;
     [] call VIC_fnc_schedulePsyStorms;
     [] call VIC_fnc_setupMutantHabitats;
+    [
+        {
+            while {true} do {
+                [] call VIC_fnc_updateProximity;
+                private _delay = ["VSA_proximityCheckInterval", 30] call VIC_fnc_getSetting;
+                sleep _delay;
+            };
+        }, [], 8
+    ] call CBA_fnc_waitAndExecute;
     [
         {
             while {true} do {

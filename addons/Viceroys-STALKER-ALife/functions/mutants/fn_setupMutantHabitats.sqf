@@ -36,7 +36,7 @@ private _createMarker = {
     };
 
     _label setMarkerText format ["%1 Habitat: %2/%2", _type, _max];
-    STALKER_mutantHabitats pushBack [_area, _label, grpNull, _pos, _type, _max, _max];
+    STALKER_mutantHabitats pushBack [_area, _label, grpNull, _pos, _type, _max, _max, false];
 };
 
 private _center = [worldSize/2, worldSize/2, 0];

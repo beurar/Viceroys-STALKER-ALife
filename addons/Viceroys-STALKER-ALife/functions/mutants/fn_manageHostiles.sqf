@@ -16,7 +16,10 @@ private _size = ["VSA_mutantThreat", 3] call VIC_fnc_getSetting;
     if (_near) then {
         if (isNull _grp || { count units _grp == 0 }) then {
             private _new = createGroup east;
-            for "_i" from 1 to _size do { _new createUnit ["O_ALF_Mutant", _pos, [], 0, "FORM"]; };
+            for "_i" from 1 to _size do {
+                private _u = _new createUnit ["O_ALF_Mutant", _pos, [], 0, "FORM"];
+                [_u] call VIC_fnc_initMutantUnit;
+            };
             [_new, _pos] call BIS_fnc_taskPatrol;
             STALKER_activeHostiles set [_forEachIndex, [_new, _type, _pos]];
         };

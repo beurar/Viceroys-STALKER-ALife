@@ -34,7 +34,8 @@ for "_i" from 1 to _groupCount do {
     private _spawnPos = _centerPos getPos [100 + random 100, random 360];
     private _grp = createGroup east;
     for "_j" from 1 to _threat do {
-        _grp createUnit ["O_ALF_Mutant", _spawnPos, [], 0, "FORM"];
+        private _u = _grp createUnit ["O_ALF_Mutant", _spawnPos, [], 0, "FORM"];
+        [_u] call VIC_fnc_initMutantUnit;
     };
     [_grp, _spawnPos] call BIS_fnc_taskPatrol;
     STALKER_activeHostiles pushBack [_grp, "hostile", _spawnPos];

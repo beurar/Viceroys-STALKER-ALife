@@ -22,7 +22,8 @@ if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 
 private _grp = createGroup east;
 for "_i" from 1 to 3 do {
-    _grp createUnit [_class, _pos, [], 0, "FORM"];
+    private _u = _grp createUnit [_class, _pos, [], 0, "FORM"];
+    [_u] call VIC_fnc_initMutantUnit;
 };
 private _nestObj = "Land_Campfire_F" createVehicle _pos;
 
