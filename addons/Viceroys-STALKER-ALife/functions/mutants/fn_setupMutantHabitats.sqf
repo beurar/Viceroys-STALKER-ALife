@@ -17,6 +17,7 @@ private _createMarker = {
     _area setMarkerShape "ELLIPSE";
     _area setMarkerColor "ColorGreen";
     _area setMarkerSize [150,150];
+    _area setMarkerText format ["%1 Habitat Area", _type];
 
     private _label = createMarker [_base + "_label", _pos];
     _label setMarkerShape "ICON";
