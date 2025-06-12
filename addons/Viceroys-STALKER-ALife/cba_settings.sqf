@@ -453,6 +453,40 @@ true
 ["VSA_habitatSize_Izlom","SLIDER",["Izlom Habitat Size","Max izlom per habitat"],"Viceroy's STALKER ALife - Mutants",[0, 50, 10, 0]] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
+// Minefields
+// -----------------------------------------------------------------------------
+[
+    "VSA_enableMinefields",
+    "CHECKBOX",
+    ["Enable Minefields", "Toggle spawning of minefields"],
+    "Viceroy's STALKER ALife - Minefields",
+    true
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_minefieldCount",
+    "SLIDER",
+    ["APERS Fields per Area", "Number of APERS minefields generated"],
+    "Viceroy's STALKER ALife - Minefields",
+    [0, 20, 2, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_minefieldSize",
+    "SLIDER",
+    ["APERS Field Size", "Side length in meters for APERS minefields"],
+    "Viceroy's STALKER ALife - Minefields",
+    [10, 100, 30, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_IEDCount",
+    "SLIDER",
+    ["IEDs per Area", "Number of IEDs placed on roads"],
+    "Viceroy's STALKER ALife - Minefields",
+    [0, 20, 2, 0]
+] call CBA_fnc_addSetting;
+// -----------------------------------------------------------------------------
 // Debug
 // -----------------------------------------------------------------------------
 [
