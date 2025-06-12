@@ -16,8 +16,17 @@ if (["VSA_enableMutants", true] call VIC_fnc_getSetting isEqualTo false) exitWit
 
 if (isNil "STALKER_activePredators") then { STALKER_activePredators = []; };
 
+private _spawnMarker = "";
 private _range = ["VSA_predatorRange", 1500] call VIC_fnc_getSetting;
-private _spawnPos = getPos _player getPos [_range, random 360];
+private _spawnPos = _player getPos [_range, random 360];
+
+if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
+    _spawnMarker = createMarker [format ["pred_%1", diag_tickTime], _spawnPos];
+    _spawnMarker setMarkerShape "ICON";
+    _spawnMarker setMarkerType "mil_dot";
+    _spawnMarker setMarkerColor "ColorRed";
+    _spawnMarker setMarkerText "Predator Spawn";
+};
 
 private _chimeraClasses = ["armst_chimera"];
 private _bloodsuckerClasses = ["armst_krovosos","armst_krovosos2"];

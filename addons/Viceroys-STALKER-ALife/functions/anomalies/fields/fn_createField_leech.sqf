@@ -19,14 +19,14 @@ if (isNil "STALKER_anomalyMarkers") then { STALKER_anomalyMarkers = [] };
 private _markerName = format ["anom_leech_%1", diag_tickTime];
 private _marker = createMarker [_markerName, _site];
 _marker setMarkerShape "ELLIPSE";
-_marker setMarkerSize [10,10];
+_marker setMarkerSize [15,15];
 _marker setMarkerColor "ColorBlack";
-_marker setMarkerText "Leech 10m";
+_marker setMarkerText "Leech 15m";
 STALKER_anomalyMarkers pushBack _marker;
 
 private _spawned = [];
 for "_i" from 1 to _count do {
-    private _off = [_site, random 10, random 360] call BIS_fnc_relPos;
+    private _off = [_site, random 15, random 360] call BIS_fnc_relPos;
     private _surf = [_off] call VIC_fnc_getSurfacePosition;
     private _anom = createVehicle ["DSA_Leech", ASLToATL _surf, [], 0, "NONE"];
     _anom setVariable ["zoneMarker", _marker];

@@ -31,7 +31,6 @@ if ((count allPlayers) > 0 && {random 100 < _chance}) then {
 };
 
 private _range = ["VSA_predatorRange", 1500] call VIC_fnc_getSetting;
-
 {
     _x params ["_grp", "_target", "_marker", "_near"];
     private _alive = if (isNull _grp) then {0} else { {alive _x} count units _grp };
