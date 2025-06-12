@@ -1,6 +1,6 @@
 /*
     Periodically spawns predator attacks on players and cleans up finished groups.
-    STALKER_activePredators entries: [group, target]
+    STALKER_activePredators entries: [group, target, marker]
 */
 
 ["managePredators"] call VIC_fnc_debugLog;
@@ -14,11 +14,12 @@ private _nightOnly = ["VSA_predatorNightOnly", true] call VIC_fnc_getSetting;
 if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {
     // still cleanup existing predators
     {
-        _x params ["_grp", "_target"];
+        _x params ["_grp", "_target", "_marker"];
         if (!isNull _grp) then {
             { deleteVehicle _x } forEach units _grp;
             deleteGroup _grp;
         };
+        if (_marker != "") then { deleteMarker _marker }; 
     } forEach STALKER_activePredators;
     STALKER_activePredators = [];
 };
@@ -32,8 +33,8 @@ if ((count allPlayers) > 0 && {random 100 < _chance}) then {
 
 private _range = ["VSA_predatorRange", 1500] call VIC_fnc_getSetting;
 
-{
-    _x params ["_grp", "_target"];
+{ 
+    _x params ["_grp", "_target", "_marker"];
     private _alive = if (isNull _grp) then {0} else { {alive _x} count units _grp };
     private _near = [_target, _range] call VIC_fnc_hasPlayersNearby;
     if (_alive == 0 || {!_near}) then {
@@ -41,6 +42,7 @@ private _range = ["VSA_predatorRange", 1500] call VIC_fnc_getSetting;
             { deleteVehicle _x } forEach units _grp;
             deleteGroup _grp;
         };
+        if (_marker != "") then { deleteMarker _marker };
         STALKER_activePredators set [_forEachIndex, objNull];
     };
 } forEach STALKER_activePredators;

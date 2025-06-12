@@ -19,15 +19,15 @@ if (isNil "STALKER_anomalyMarkers") then { STALKER_anomalyMarkers = [] };
 private _markerName = format ["anom_whirligig_%1", diag_tickTime];
 private _marker = createMarker [_markerName, _site];
 _marker setMarkerShape "ELLIPSE";
-_marker setMarkerSize [10,10];
+_marker setMarkerSize [15,15];
 // Whirligig fields are marked with white
 _marker setMarkerColor "ColorWhite";
-_marker setMarkerText "Whirligig 10m";
+_marker setMarkerText "Whirligig 15m";
 STALKER_anomalyMarkers pushBack _marker;
 
 private _spawned = [];
 for "_i" from 1 to _count do {
-    private _off = [_site, random 10, random 360] call BIS_fnc_relPos;
+    private _off = [_site, random 15, random 360] call BIS_fnc_relPos;
     private _surf = [_off] call VIC_fnc_getSurfacePosition;
     private _anom = [_surf] call diwako_anomalies_main_fnc_createWhirligig;
     _anom setVariable ["zoneMarker", _marker];
