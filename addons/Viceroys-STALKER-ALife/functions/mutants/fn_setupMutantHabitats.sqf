@@ -11,11 +11,17 @@ if (isNil "STALKER_mutantHabitats") then { STALKER_mutantHabitats = []; };
 
 private _createMarker = {
     params ["_type", "_pos"];
-    private _name = format ["hab_%1_%2", toLower _type, diag_tickTime + random 1000];
-    private _marker = createMarker [_name, _pos];
-    _marker setMarkerShape "ELLIPSE";
-    _marker setMarkerColor "ColorGreen";
-    _marker setMarkerSize [150,150];
+    private _base = format ["hab_%1_%2", toLower _type, diag_tickTime + random 1000];
+
+    private _area = createMarker [_base + "_area", _pos];
+    _area setMarkerShape "ELLIPSE";
+    _area setMarkerColor "ColorGreen";
+    _area setMarkerSize [150,150];
+
+    private _label = createMarker [_base + "_label", _pos];
+    _label setMarkerShape "ICON";
+    _label setMarkerType "mil_dot";
+    _label setMarkerColor "ColorGreen";
     private _max = switch (_type) do {
         case "Bloodsucker": { ["VSA_habitatSize_Bloodsucker",12] call VIC_fnc_getSetting };
         case "Blind Dog": { ["VSA_habitatSize_Dog",50] call VIC_fnc_getSetting };
@@ -28,8 +34,9 @@ private _createMarker = {
         case "Izlom": { ["VSA_habitatSize_Izlom",10] call VIC_fnc_getSetting };
         default {10};
     };
-    _marker setMarkerText format ["%1 Habitat: 0/%2", _type, _max];
-    STALKER_mutantHabitats pushBack [_marker, grpNull, _pos, _type, _max];
+
+    _label setMarkerText format ["%1 Habitat: 0/%2", _type, _max];
+    STALKER_mutantHabitats pushBack [_area, _label, grpNull, _pos, _type, _max];
 };
 
 private _center = [worldSize/2, worldSize/2, 0];
