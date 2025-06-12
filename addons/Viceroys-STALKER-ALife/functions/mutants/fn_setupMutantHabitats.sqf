@@ -52,7 +52,7 @@ private _locations = nearestLocations [_center, [], worldSize];
         case "Hill": {selectRandom ["Boar","Cat","Flesh"]};
         default {""};
     };
-    if (_type != "") then {
+    if (_type != "" && { !([_pos] call VIC_fnc_isWaterPosition) }) then {
         [_type, _pos] call _createMarker;
     };
 } forEach _locations;

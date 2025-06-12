@@ -5,8 +5,10 @@
         1: STRING - unit class to spawn
 */
 params ["_pos", "_class"];
-
 ["spawnMutantNest"] call VIC_fnc_debugLog;
+
+_pos = [_pos] call VIC_fnc_findLandPosition;
+if (_pos isEqualTo []) exitWith {};
 
 if (!isServer) exitWith {};
 

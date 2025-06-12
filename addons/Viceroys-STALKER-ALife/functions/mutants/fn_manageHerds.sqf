@@ -17,6 +17,8 @@ private _chance = ["VSA_mutantSpawnWeight",50] call VIC_fnc_getSetting;
 
     if (isNull _leader || {!alive _leader}) then {
         private _pos = if (!isNull _leader) then { getPos _leader } else { [random worldSize, random worldSize, 0] };
+        _pos = [_pos] call VIC_fnc_findLandPosition;
+        if (_pos isEqualTo []) then { continue };
         if ({ alive _x } count units _grp > 0) then {
             _leader = selectRandom (units _grp);
         } else {
