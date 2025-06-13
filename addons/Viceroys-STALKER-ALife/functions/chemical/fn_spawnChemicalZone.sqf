@@ -30,7 +30,8 @@ if (_duration < 0) then {
 };
 
 // Create the module that spawns the gas cloud
-private _module = "PHEN_CWPLUS_ModuleSpawnCSGas" createVehicle _position;
+// 2.16 update requires modules with a brain to be spawned via createAgent
+private _module = createAgent ["PHEN_CWPLUS_ModuleSpawnCSGas", _position, [], 0, "NONE"];
 _module setVariable ["CBRN_Radius", _radius, true];
 _module setVariable ["CBRN_Lifetime", _duration, true];
 _module setVariable ["CBRN_Thickness", 1, true];
