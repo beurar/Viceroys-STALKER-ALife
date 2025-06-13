@@ -457,6 +457,7 @@ true
 ["VSA_habitatSize_Controller","SLIDER",["Controller Habitat Size","Max controllers per habitat"],"Viceroy's STALKER ALife - Mutants",[0, 40, 8, 0]] call CBA_fnc_addSetting;
 ["VSA_habitatSize_Pseudogiant","SLIDER",["Pseudogiant Habitat Size","Max pseudogiants per habitat"],"Viceroy's STALKER ALife - Mutants",[0, 30, 6, 0]] call CBA_fnc_addSetting;
 ["VSA_habitatSize_Izlom","SLIDER",["Izlom Habitat Size","Max izlom per habitat"],"Viceroy's STALKER ALife - Mutants",[0, 50, 10, 0]] call CBA_fnc_addSetting;
+["VSA_habitatSize_Snork","SLIDER",["Snork Habitat Size","Max snorks per habitat"],"Viceroy's STALKER ALife - Mutants",[0, 60, 12, 0]] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
 // Minefields

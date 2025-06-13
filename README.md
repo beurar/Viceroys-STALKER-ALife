@@ -42,6 +42,8 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Population counts persist while sleeping and gradually replenish between spawn cycles.
 * Player proximity is checked on a separate timer via `VSA_proximityCheckInterval`.
 * Habitat and herd counts update immediately when mutants are killed.
+* Habitat placement now selects random buildings, forests and swamps with weighted preferences.
+  Locations are offset slightly each mission so nests appear in different spots every time.
 * CBA settings allow mission makers to customize these behaviors.
 
 ### Chemical Zones
@@ -92,6 +94,7 @@ Every mutant type can establish a nest which spawns defenders when players are n
 * **Flesh** – Slow but hardy pig-like creatures.
 * **Blind Dog** – Pack hunters that overwhelm with numbers.
 * **Pseudodog** – Mutated canines with psychic screeches.
+* **Snork** – Feral mutants that charge at enemies with terrifying leaps.
 * **Controller** – Psionic mutants capable of mind tricks.
 * **Pseudogiant** – Towering brutes that shake the ground.
 * **Izlom** – Twisted humanoids shuffling across the Zone.

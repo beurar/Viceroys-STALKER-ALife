@@ -57,6 +57,7 @@ class CfgFunctions
             class spawnFleshNest{};
             class spawnBlindDogNest{};
             class spawnPseudodogNest{};
+            class spawnSnorkNest{};
             class spawnControllerNest{};
             class spawnPseudogiantNest{};
             class spawnIzlomNest{};
