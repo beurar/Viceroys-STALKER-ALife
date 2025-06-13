@@ -19,9 +19,14 @@ private _getClass = {
         case "Flesh": { selectRandom ["armst_PLOT","armst_PLOT2"] };
         case "Blind Dog": { selectRandom ["armst_blinddog1","armst_blinddog2","armst_blinddog3"] };
         case "Pseudodog": { selectRandom ["armst_pseudodog","armst_pseudodog2"] };
+        case "Snork": { "armst_snork" };
         case "Controller": { selectRandom ["armst_controller_new","armst_controller_new2","armst_controller_new3"] };
         case "Pseudogiant": { selectRandom ["armst_giant","armst_giant2"] };
         case "Izlom": { "armst_izlom" };
+        case "Corruptor": { "WBK_SpecialZombie_Corrupted_3" };
+        case "Smasher": { "WBK_SpecialZombie_Smasher_3" };
+        case "Acid Smasher": { "WBK_SpecialZombie_Smasher_Acid_3" };
+        case "Behemoth": { "WBK_Goliaph_3" };
         default { "O_ALF_Mutant" };
     };
 };
