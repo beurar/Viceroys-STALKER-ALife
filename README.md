@@ -181,28 +181,74 @@ Mission makers can tweak or remove individual systems as needed. Most features a
 
 ## SQF Syntax
 
-Arma scripts use the SQF language where each statement is terminated with a semicolon (`;`).
-Consistent semicolon placement avoids unexpected behavior when the engine
-parses your files. A typical variable assignment looks like:
+The SQF language is intentionally minimal and relies heavily on built-in
+operators. An operator can be **nular** (no arguments), **unary** (one argument)
+or **binary** (two arguments). Understanding how these operators consume their
+arguments helps prevent subtle bugs.
+
+### Terminating an Expression
+
+Each statement must end with a semicolon (`;`) or a comma. Semicolons are the
+common convention and make intent clear.
 
 ```sqf
-private _count = 5;
-_count = _count + 1;
+_num = 10;
+_num = _num + 20; systemChat str _num;
 ```
 
-Control structures such as `if` and `for` are also followed by a semicolon after
-their closing brace:
+The above code contains three expressions separated by semicolons even though
+two share the same line.
+
+### Brackets
+
+* `()` override the default order of precedence or simply aid readability.
+* `[]` create arrays.
+* `{}` enclose code blocks and are used in control structures.
+
+### Whitespaces and Blank Lines
+
+Leading or trailing spaces and tabs are ignored by the engine. Lines containing
+only whitespace are skipped entirely.
+
+### Comments
+
+`//` starts a single-line comment while `/* */` encloses a block comment.
+Comments are removed during preprocessing and must not appear inside strings.
+Avoid using the legacy `comment` unary operator as it still executes without any
+benefit.
+
+### Operator Types
+
+**Nular operators** recompute a value each time they are accessed:
 
 ```sqf
-if (_count > 0) then {
-    hint format ["Count is %1", _count];
-};
+_unitsArray = allUnits;
+systemChat str count _unitsArray;
+group player createUnit ["B_RangeMaster_F", getPosATL player, [], 0, "NONE"];
+systemChat str count _unitsArray;
+systemChat str count allUnits;
 ```
 
-Omitting the semicolon at the end of a statement can cause subsequent lines to
-be treated as part of the same command, resulting in script errors. Always check
-that every command ends with a semicolon unless it is the last line before a
-preprocessor directive.
+This prints `5`, `5`, then `6` because `allUnits` generates a fresh array on
+every call while `_unitsArray` stores a snapshot.
+
+**Unary operators** consume the expression on their right. Parentheses are often
+required when combining them with other operators:
+
+```sqf
+_arr = [[1,2,3,4,5],[1,2,3,4],[1,2]];
+count (_arr select 2); // evaluates to 2
+```
+
+**Binary operators** take a left and right argument and follow their precedence
+from left to right. Complex expressions benefit from parentheses for clarity:
+
+```sqf
+_arr = [[[[[1]]]]];
+_arr select 0 select 1 - 1 select 15 / 3 - 5 select 0 select 10 * 10 + 4 * 0 - 100;
+```
+
+Adding brackets to the above expression reveals the actual order of evaluation.
 
 ## Dependencies
 
