@@ -47,7 +47,9 @@ for "_i" from 1 to _ticks do {
         private _module = "diwako_anomalies_main_modulePsyDischarge" createVehicle _surf;
         private _fncDischarge = missionNamespace getVariable ["diwako_anomalies_main_fnc_modulePsyDischarge", {}];
         ["init", _module] call _fncDischarge;
-        [_surf] call BIS_fnc_moduleLightning;
+        private _logic = "Logic" createVehicle _surf;
+        [_logic, [], true] call BIS_fnc_moduleLightning;
+        deleteVehicle _logic;
     };
 
     if (_hallucinations && {random 1 < 0.15}) then {
