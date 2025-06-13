@@ -52,4 +52,4 @@ for "_i" from 1 to _count do {
     STALKER_ambushes pushBack [_pos, objNull, [], [], false, _marker];
 };
 
-true
+true;
