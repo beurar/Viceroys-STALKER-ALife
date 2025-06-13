@@ -224,7 +224,6 @@ VIC_fnc_manageStalkerCamps     = compile preprocessFileLineNumbers (_root + "\fu
     ] call CBA_fnc_waitAndExecute;
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         [] call VIC_fnc_setupDebugActions;
-        [] call VIC_fnc_markAllBuildings;
         [] call VIC_fnc_markPlayerRanges;
     };
 }] call CBA_fnc_addEventHandler;
@@ -240,7 +239,6 @@ VIC_fnc_manageStalkerCamps     = compile preprocessFileLineNumbers (_root + "\fu
             [] call VIC_fnc_markPlayerRanges;
             if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
                 [] call VIC_fnc_setupDebugActions;
-                [] call VIC_fnc_markAllBuildings;
             };
         };
     }] call CBA_fnc_addEventHandler;
@@ -251,7 +249,6 @@ VIC_fnc_manageStalkerCamps     = compile preprocessFileLineNumbers (_root + "\fu
     params ["_setting", "_value"];
     if (hasInterface && {_setting isEqualTo "VSA_debugMode" && {_value}}) then {
         [] call VIC_fnc_setupDebugActions;
-        [] call VIC_fnc_markAllBuildings;
         [] call VIC_fnc_markPlayerRanges;
     };
 }] call CBA_fnc_addEventHandler;
