@@ -16,11 +16,9 @@ if (isNull _road) then {
     _road = nearestRoad _center;
 };
 
-private _pos = _center;
-if (!isNull _road) then {
-    _pos = getPos _road;
-};
+if (isNull _road) exitWith { [] };
 
+private _pos = getPos _road;
 private _ied = createMine ["IEDLandSmall_F", _pos, [], 0];
 
-[_ied];
+[_ied]

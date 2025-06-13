@@ -22,10 +22,12 @@ private _townDist = ["VSA_ambushTownDistance", 700] call VIC_fnc_getSetting;
 for "_i" from 1 to _count do {
     private _pos = [];
     private _road = objNull;
+
     for "_j" from 1 to 30 do {
         private _candidate = _center getPos [random _radius, random 360];
         _candidate = [_candidate] call VIC_fnc_findLandPosition;
-        if (_candidate isEqualTo []) then { continue }; 
+        if (_candidate isEqualTo []) then { continue };
+
         if (!([_candidate] call VIC_fnc_isWaterPosition)) then {
             if ((nearestLocations [_candidate, ["NameVillage","NameCity","NameCityCapital","NameLocal"], _townDist]) isEqualTo []) then {
                 _road = nearestRoad _candidate;
@@ -33,7 +35,9 @@ for "_i" from 1 to _count do {
             };
         };
     };
-    if (_pos isEqualTo []) then { continue }; 
+
+    if (_pos isEqualTo []) then { continue };
+
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         _marker = createMarker [format ["amb_%1", diag_tickTime + _i], _pos];
@@ -42,6 +46,7 @@ for "_i" from 1 to _count do {
         _marker setMarkerColor "ColorBlack";
         _marker setMarkerAlpha 0.2;
     };
+
     STALKER_ambushes pushBack [_pos, objNull, [], [], false, _marker];
 };
 
