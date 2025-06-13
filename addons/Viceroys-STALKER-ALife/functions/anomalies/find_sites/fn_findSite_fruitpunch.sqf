@@ -12,5 +12,5 @@ private _posCenter = if (_center isEqualType objNull) then { getPos _center } el
 private _sites = selectBestPlaces [_posCenter, _radius, "meadow", 1, 25];
 if (_sites isEqualTo []) exitWith { [] };
 private _pos = (_sites select 0) select 0;
-if ([_pos] call VIC_fnc_isWaterPosition) exitWith { [] };
+if (_pos call VIC_fnc_isWaterPosition) exitWith { [] };
 _pos

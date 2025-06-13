@@ -28,7 +28,7 @@ for "_i" from 1 to _count do {
         _candidate = [_candidate] call VIC_fnc_findLandPosition;
         if (_candidate isEqualTo []) then { continue; };
 
-        if (!([_candidate] call VIC_fnc_isWaterPosition)) then {
+        if (!(_candidate call VIC_fnc_isWaterPosition)) then {
             private _locations = nearestLocations [
                 _candidate,
                 ["NameVillage","NameCity","NameCityCapital","NameLocal"],

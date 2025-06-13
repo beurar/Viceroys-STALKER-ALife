@@ -18,6 +18,6 @@ if (_base isEqualType []) then {
 
 for "_i" from 0 to _attempts do {
     private _candidate = if (_i == 0) then { _base } else { [_base, random _radius, random 360] call BIS_fnc_relPos };
-    if (!([_candidate] call VIC_fnc_isWaterPosition)) exitWith { _candidate };
+    if (!(_candidate call VIC_fnc_isWaterPosition)) exitWith { _candidate };
 };
 []
