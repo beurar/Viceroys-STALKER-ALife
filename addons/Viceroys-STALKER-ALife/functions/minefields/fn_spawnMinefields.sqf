@@ -28,7 +28,7 @@ for "_i" from 1 to _fieldCount do {
     private _tPos = locationPosition _town;
     private _pos = _tPos getPos [150 + random 200, random 360];
     _pos = [_pos] call VIC_fnc_findLandPosition;
-    if (_pos isEqualTo []) then { continue };
+    if (_pos isEqualTo []) then { continue; };
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         _marker = createMarker [format ["mf_%1", diag_tickTime], _pos];
@@ -46,7 +46,7 @@ for "_i" from 1 to _iedCount do {
     private _town = selectRandom _towns;
     private _tPos = locationPosition _town;
     private _road = nearestRoad _tPos;
-    if (isNull _road) then { continue };
+    if (isNull _road) then { continue; };
     private _pos = getPos _road;
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
