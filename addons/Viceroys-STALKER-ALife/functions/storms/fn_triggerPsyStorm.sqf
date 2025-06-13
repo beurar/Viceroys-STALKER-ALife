@@ -25,10 +25,15 @@ for "_i" from 1 to _ticks do {
     for "_j" from 1 to _currentIntensity do {
         private _pos = [random worldSize, random worldSize, 0];
         private _surf = [_pos] call VIC_fnc_getSurfacePosition;
-        private _module = "diwako_anomalies_main_modulePsyDischarge" createVehicle _surf;
+    // Psy discharge uses a module (Logic) which has a brain. Using createVehicle
+    // triggers an engine warning in recent Arma versions, so create it locally
+    // instead.
+    private _module = "diwako_anomalies_main_modulePsyDischarge" createVehicleLocal _surf;
         private _fncDischarge = missionNamespace getVariable ["diwako_anomalies_main_fnc_modulePsyDischarge", {}];
         ["init", _module] call _fncDischarge;
-        private _logic = "Logic" createVehicle _surf;
+    // BIS_fnc_moduleLightning also relies on a Logic object. Create it locally
+    // to avoid the same engine warning as above.
+    private _logic = "Logic" createVehicleLocal _surf;
         [_logic, [], true] call BIS_fnc_moduleLightning;
         deleteVehicle _logic;
     };
