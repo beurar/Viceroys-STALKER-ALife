@@ -59,6 +59,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Generates APERS minefields on town outskirts and single IEDs on roads.
 * Mines despawn when no players are nearby and respawn when someone approaches.
 * Enable debug mode to visualize fields and place test minefields via the action menu.
+* Abandoned and damaged vehicles may appear on or near roads.
 
 ### Spooks
 * Lightweight supernatural events to unsettle players.

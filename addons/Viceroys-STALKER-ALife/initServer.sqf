@@ -34,3 +34,5 @@ for "_i" from 1 to 50 do {
     [_pos, 1000] call VIC_fnc_spawnMinefields;
 };
 
+private _wreckCount = ["VSA_wreckCount", 10] call VIC_fnc_getSetting;
+[_wreckCount] call VIC_fnc_spawnAbandonedVehicles;

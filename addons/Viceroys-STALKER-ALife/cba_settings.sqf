@@ -496,6 +496,25 @@ true
     "Viceroy's STALKER ALife - Minefields",
     [0, 20, 2, 0]
 ] call CBA_fnc_addSetting;
+
+// -----------------------------------------------------------------------------
+// Wrecks
+// -----------------------------------------------------------------------------
+[
+    "VSA_enableWrecks",
+    "CHECKBOX",
+    ["Enable Abandoned Vehicles", "Spawn damaged vehicles near roads"],
+    "Viceroy's STALKER ALife - Wrecks",
+    true
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_wreckCount",
+    "SLIDER",
+    ["Abandoned Vehicle Count", "Number of vehicles spawned across the map"],
+    "Viceroy's STALKER ALife - Wrecks",
+    [0, 50, 10, 0]
+] call CBA_fnc_addSetting;
 // -----------------------------------------------------------------------------
 // Debug
 // -----------------------------------------------------------------------------

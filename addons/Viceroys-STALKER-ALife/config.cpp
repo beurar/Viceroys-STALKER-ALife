@@ -98,6 +98,11 @@ class CfgFunctions
             class spawnIED{};
             class manageMinefields{};
         };
+        class Wrecks
+        {
+            file = "Viceroys-STALKER-ALife\functions\wrecks";
+            class spawnAbandonedVehicles{};
+        };
 
 
         class Storms

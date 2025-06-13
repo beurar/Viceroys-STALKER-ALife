@@ -64,6 +64,7 @@ VIC_fnc_spawnMinefields        = compile preprocessFileLineNumbers (_root + "\fu
 VIC_fnc_spawnAPERSField        = compile preprocessFileLineNumbers (_root + "\functions\minefields\fn_spawnAPERSField.sqf");
 VIC_fnc_spawnIED               = compile preprocessFileLineNumbers (_root + "\functions\minefields\fn_spawnIED.sqf");
 VIC_fnc_manageMinefields       = compile preprocessFileLineNumbers (_root + "\functions\minefields\fn_manageMinefields.sqf");
+VIC_fnc_spawnAbandonedVehicles = compile preprocessFileLineNumbers (_root + "\functions\wrecks\fn_spawnAbandonedVehicles.sqf");
 VIC_fnc_spawnAmbientHerds        = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnAmbientHerds.sqf");
 VIC_fnc_setupMutantHabitats      = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_setupMutantHabitats.sqf");
 VIC_fnc_spawnMutantNest         = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnMutantNest.sqf");
