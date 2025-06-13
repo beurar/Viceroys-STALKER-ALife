@@ -43,11 +43,7 @@ for "_i" from 1 to _ticks do {
 
     for "_j" from 1 to _currentLightning do {
         private _center = getPos (selectRandom allPlayers);
-        private _pos = [
-            (_center select 0) + (random (_range * 2) - _range),
-            (_center select 1) + (random (_range * 2) - _range),
-            0
-        ];
+        private _pos = [_center, random _range, random 360] call BIS_fnc_relPos;
         private _surf = [_pos] call VIC_fnc_getSurfacePosition;
         private _logic = "Logic" createVehicleLocal _surf;
         [_logic, [], true] call BIS_fnc_moduleLightning;
@@ -56,11 +52,7 @@ for "_i" from 1 to _ticks do {
 
     for "_j" from 1 to _currentDischarge do {
         private _center = getPos (selectRandom allPlayers);
-        private _pos = [
-            (_center select 0) + (random (_range * 2) - _range),
-            (_center select 1) + (random (_range * 2) - _range),
-            0
-        ];
+        private _pos = [_center, random _range, random 360] call BIS_fnc_relPos;
         private _surf = [_pos] call VIC_fnc_getSurfacePosition;
         private _module = "diwako_anomalies_main_modulePsyDischarge" createVehicleLocal _surf;
         private _fncDischarge = missionNamespace getVariable ["diwako_anomalies_main_fnc_modulePsyDischarge", {}];
