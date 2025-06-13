@@ -106,12 +106,12 @@ private _buildings = allMissionObjects "building";
     _pos = [_pos, 0, 100, 5, 0, 0, 0] call BIS_fnc_findSafePos;
     if (random 1 > 0.5) then {
         private _env = switch (type _x) do {
-            case "NameCity": "urban";
-            case "NameCityCapital": "urban";
-            case "NameVillage": "rural";
-            case "NameLocal": "rural";
-            case "Hill": "rural";
-            default "generic";
+            case "NameCity": { "urban" };
+            case "NameCityCapital": { "urban" };
+            case "NameVillage": { "rural" };
+            case "NameLocal": { "rural" };
+            case "Hill": { "rural" };
+            default { "generic" };
         };
         if (!([_pos] call VIC_fnc_isWaterPosition)) then {
             private _type = [_env] call _selectType;
