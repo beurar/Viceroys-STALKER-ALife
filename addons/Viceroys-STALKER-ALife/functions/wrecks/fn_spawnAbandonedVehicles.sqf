@@ -25,12 +25,12 @@ for "_i" from 1 to _count do {
     if (isNull _road) then {
         _road = nearestRoad _base;
     };
-    if (isNull _road) then { continue };
+    if (isNull _road) then { continue; };
 
     private _pos = getPos _road;
     _pos = _pos getPos [2 + random 3, random 360];
     _pos = [_pos] call VIC_fnc_getLandSurfacePosition;
-    if (_pos isEqualTo []) then { continue };
+    if (_pos isEqualTo []) then { continue; };
 
     private _veh = createVehicle [selectRandom _classes, ASLtoATL _pos, [], 0, "CAN_COLLIDE"];
     _veh setPosATL (ASLtoATL _pos);
