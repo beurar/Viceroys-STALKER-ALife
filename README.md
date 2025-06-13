@@ -59,6 +59,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Habitat and herd counts update immediately when mutants are killed.
 * Habitat placement now selects random buildings, forests and swamps with weighted preferences.
   Locations are offset slightly each mission so nests appear in different spots every time.
+* Habitats will never overlap one another so each territory is distinct.
 * CBA settings allow mission makers to customize these behaviors.
 
 ### Stalker Camps
