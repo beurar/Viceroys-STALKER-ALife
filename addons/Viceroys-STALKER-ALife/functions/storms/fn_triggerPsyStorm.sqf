@@ -27,6 +27,7 @@ params [
 private _startFog = fog;
 private _startRain = rain;
 private _range = ["VSA_stormRadius", 1500] call VIC_fnc_getSetting;
+private _gasEnabled = ["VSA_stormGasDischarges", false] call VIC_fnc_getSetting;
 
 if (count allPlayers == 0) exitWith {};
 
@@ -64,6 +65,10 @@ for "_i" from 1 to _ticks do {
         private _module = "diwako_anomalies_main_modulePsyDischarge" createVehicleLocal _surf;
         private _fncDischarge = missionNamespace getVariable ["diwako_anomalies_main_fnc_modulePsyDischarge", {}];
         ["init", _module] call _fncDischarge;
+        if (_gasEnabled) then {
+            // Spawn a 30m Nova Gas cloud lasting 90 seconds
+            [_surf, 30, 90, 4] call VIC_fnc_spawnChemicalZone;
+        };
     };
 
     sleep 1;
