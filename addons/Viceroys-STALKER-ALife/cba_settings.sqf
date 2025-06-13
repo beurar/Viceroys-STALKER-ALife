@@ -374,6 +374,8 @@ true
 ["VSA_stormDischargeStart","SLIDER",["Discharge Start","Psy discharge occurrences per second at storm start"],"Viceroy's STALKER ALife - Storms",[6,200,6,0]] call CBA_fnc_addSetting;
 ["VSA_stormDischargeEnd","SLIDER",["Discharge End","Psy discharge occurrences per second when storm ends"],"Viceroy's STALKER ALife - Storms",[6,200,12,0]] call CBA_fnc_addSetting;
 
+["VSA_stormRadius","SLIDER",["Storm Radius","Maximum distance from players for storm effects"],"Viceroy's STALKER ALife - Storms",[100,7500,1500,0]] call CBA_fnc_addSetting;
+
 // -----------------------------------------------------------------------------
 // Zombification
 // -----------------------------------------------------------------------------
