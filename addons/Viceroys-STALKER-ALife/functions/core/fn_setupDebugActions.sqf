@@ -9,9 +9,11 @@ missionNamespace setVariable ["VSA_debugActionsAdded", true];
 
 player addAction ["Spawn Psy-Storm", {
     private _dur = ["VSA_stormDuration", 180] call VIC_fnc_getSetting;
-    private _start = ["VSA_stormIntensityStart", 2] call VIC_fnc_getSetting;
-    private _end = ["VSA_stormIntensityEnd", 6] call VIC_fnc_getSetting;
-    [_dur, _start, _end] remoteExec ["VIC_fnc_triggerPsyStorm", 2];
+    private _lStart = ["VSA_stormLightningStart", 6] call VIC_fnc_getSetting;
+    private _lEnd   = ["VSA_stormLightningEnd", 12] call VIC_fnc_getSetting;
+    private _dStart = ["VSA_stormDischargeStart", 6] call VIC_fnc_getSetting;
+    private _dEnd   = ["VSA_stormDischargeEnd", 12] call VIC_fnc_getSetting;
+    [_dur, _lStart, _lEnd, _dStart, _dEnd] remoteExec ["VIC_fnc_triggerPsyStorm", 2];
 }];
 player addAction ["Spawn Chemical Zone", {
     [getPos player, 100] remoteExec ["VIC_fnc_spawnChemicalZone", 2];

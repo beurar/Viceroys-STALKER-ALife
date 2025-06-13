@@ -278,8 +278,10 @@ true
 ["VSA_stormMinDelay","SLIDER",["Min Delay (s)","Minimum seconds between storms"],"Viceroy's STALKER ALife - Storms",[0,7200,1800,0]] call CBA_fnc_addSetting;
 ["VSA_stormMaxDelay","SLIDER",["Max Delay (s)","Maximum seconds between storms"],"Viceroy's STALKER ALife - Storms",[0,7200,3600,0]] call CBA_fnc_addSetting;
 ["VSA_stormDuration","SLIDER",["Storm Duration (s)","Length of each psy-storm"],"Viceroy's STALKER ALife - Storms",[30,600,180,0]] call CBA_fnc_addSetting;
-["VSA_stormIntensityStart","SLIDER",["Intensity Start","Strikes per second at storm start"],"Viceroy's STALKER ALife - Storms",[1,20,2,0]] call CBA_fnc_addSetting;
-["VSA_stormIntensityEnd","SLIDER",["Intensity End","Strikes per second when storm ends"],"Viceroy's STALKER ALife - Storms",[1,40,6,0]] call CBA_fnc_addSetting;
+["VSA_stormLightningStart","SLIDER",["Lightning Start","Lightning strikes per second at storm start"],"Viceroy's STALKER ALife - Storms",[6,200,6,0]] call CBA_fnc_addSetting;
+["VSA_stormLightningEnd","SLIDER",["Lightning End","Lightning strikes per second when storm ends"],"Viceroy's STALKER ALife - Storms",[6,200,12,0]] call CBA_fnc_addSetting;
+["VSA_stormDischargeStart","SLIDER",["Discharge Start","Psy discharge occurrences per second at storm start"],"Viceroy's STALKER ALife - Storms",[6,200,6,0]] call CBA_fnc_addSetting;
+["VSA_stormDischargeEnd","SLIDER",["Discharge End","Psy discharge occurrences per second when storm ends"],"Viceroy's STALKER ALife - Storms",[6,200,12,0]] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
 // Zombification
