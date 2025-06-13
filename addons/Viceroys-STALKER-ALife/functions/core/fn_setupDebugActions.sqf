@@ -11,19 +11,44 @@ player addAction ["Spawn Psy-Storm", {
     private _dur = ["VSA_stormDuration", 180] call VIC_fnc_getSetting;
     private _start = ["VSA_stormIntensityStart", 2] call VIC_fnc_getSetting;
     private _end = ["VSA_stormIntensityEnd", 6] call VIC_fnc_getSetting;
-    [_dur, _start, _end] call VIC_fnc_triggerPsyStorm
+    [_dur, _start, _end] remoteExec ["VIC_fnc_triggerPsyStorm", 2];
 }];
-player addAction ["Spawn Chemical Zone", { [getPos player, 100] call VIC_fnc_spawnChemicalZone }];
-player addAction ["Spawn Random Chemicals", { [getPos player, 200] call VIC_fnc_spawnRandomChemicalZones }];
-player addAction ["Spawn Anomaly Fields", { [getPos player, 200] call VIC_fnc_spawnAllAnomalyFields }];
-player addAction ["Spawn Mutant Group", { [getPos player] call VIC_fnc_spawnMutantGroup }];
-player addAction ["Spawn Spook Zone", { [] call VIC_fnc_spawnSpookZone }];
-player addAction ["Spawn Zombies From Queue", { [] call VIC_fnc_spawnZombiesFromQueue }];
-player addAction ["Spawn Ambient Herds", { [] call VIC_fnc_spawnAmbientHerds }];
-player addAction ["Spawn Predator Attack", { [player] call VIC_fnc_spawnPredatorAttack }];
-player addAction ["Spawn Minefields", { [getPos player, 300] call VIC_fnc_spawnMinefields }];
-player addAction ["Generate Mutant Habitats", { [] call VIC_fnc_setupMutantHabitats }];
-player addAction ["Cycle Habitats", { [] call VIC_fnc_manageHabitats }];
+player addAction ["Spawn Chemical Zone", {
+    [getPos player, 100] remoteExec ["VIC_fnc_spawnChemicalZone", 2];
+}];
+player addAction ["Spawn Random Chemicals", {
+    [getPos player, 200] remoteExec ["VIC_fnc_spawnRandomChemicalZones", 2];
+}];
+player addAction ["Spawn Anomaly Fields", {
+    for "_i" from 1 to 100 do {
+        private _pos = [random worldSize, random worldSize, 0];
+        [_pos, 1000] remoteExec ["VIC_fnc_spawnAllAnomalyFields", 2];
+    };
+}];
+player addAction ["Spawn Mutant Group", {
+    [getPos player] remoteExec ["VIC_fnc_spawnMutantGroup", 2];
+}];
+player addAction ["Spawn Spook Zone", {
+    [] remoteExec ["VIC_fnc_spawnSpookZone", 2];
+}];
+player addAction ["Spawn Zombies From Queue", {
+    [] remoteExec ["VIC_fnc_spawnZombiesFromQueue", 2];
+}];
+player addAction ["Spawn Ambient Herds", {
+    [] remoteExec ["VIC_fnc_spawnAmbientHerds", 2];
+}];
+player addAction ["Spawn Predator Attack", {
+    [player] remoteExec ["VIC_fnc_spawnPredatorAttack", 2];
+}];
+player addAction ["Spawn Minefields", {
+    [getPos player, 300] remoteExec ["VIC_fnc_spawnMinefields", 2];
+}];
+player addAction ["Generate Mutant Habitats", {
+    [] remoteExec ["VIC_fnc_setupMutantHabitats", 2];
+}];
+player addAction ["Cycle Habitats", {
+    [] remoteExec ["VIC_fnc_manageHabitats", 2];
+}];
 player addAction ["Mark All Buildings", { [] call VIC_fnc_markAllBuildings }];
 
 ["Debug actions added"] call VIC_fnc_debugLog;
