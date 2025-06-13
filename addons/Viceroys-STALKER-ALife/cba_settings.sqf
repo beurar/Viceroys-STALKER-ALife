@@ -546,6 +546,15 @@ true
 ["VSA_habitatSize_Snork","SLIDER",["Snork Habitat Size","Max snorks per habitat"],"Viceroy's STALKER ALife - Mutants",[0, 60, 12, 0]] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
+// Ambushes
+// -----------------------------------------------------------------------------
+["VSA_enableAmbushes","CHECKBOX",["Enable Ambushes","Toggle road ambush spawning"],"Viceroy's STALKER ALife - Ambushes",true] call CBA_fnc_addSetting;
+["VSA_ambushCount","SLIDER",["Ambushes per Area","Number of ambush sites generated"],"Viceroy's STALKER ALife - Ambushes",[0,20,3,0]] call CBA_fnc_addSetting;
+["VSA_ambushTownDistance","SLIDER",["Town Distance","Minimum distance from towns"],"Viceroy's STALKER ALife - Ambushes",[100,2000,700,0]] call CBA_fnc_addSetting;
+["VSA_ambushMinUnits","SLIDER",["Min Units","Minimum units spawned at an ambush"],"Viceroy's STALKER ALife - Ambushes",[0,20,3,0]] call CBA_fnc_addSetting;
+["VSA_ambushMaxUnits","SLIDER",["Max Units","Maximum units spawned at an ambush"],"Viceroy's STALKER ALife - Ambushes",[0,20,6,0]] call CBA_fnc_addSetting;
+
+// -----------------------------------------------------------------------------
 // Minefields
 // -----------------------------------------------------------------------------
 [
@@ -578,6 +587,25 @@ true
     ["IEDs per Area", "Number of IEDs placed on roads"],
     "Viceroy's STALKER ALife - Minefields",
     [0, 20, 2, 0]
+] call CBA_fnc_addSetting;
+
+// -----------------------------------------------------------------------------
+// Wrecks
+// -----------------------------------------------------------------------------
+[
+    "VSA_enableWrecks",
+    "CHECKBOX",
+    ["Enable Abandoned Vehicles", "Spawn damaged vehicles near roads"],
+    "Viceroy's STALKER ALife - Wrecks",
+    true
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_wreckCount",
+    "SLIDER",
+    ["Abandoned Vehicle Count", "Number of vehicles spawned across the map"],
+    "Viceroy's STALKER ALife - Wrecks",
+    [0, 50, 10, 0]
 ] call CBA_fnc_addSetting;
 // -----------------------------------------------------------------------------
 // Debug
