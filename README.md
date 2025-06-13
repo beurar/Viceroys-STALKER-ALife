@@ -144,6 +144,7 @@ spawns at night, during the day or both.
    This option can now be toggled while a mission is running and the debug
    actions will appear automatically.
 5. When debug mode is active, your scroll menu includes options to trigger storms, spawn anomaly fields or spook zones, generate habitats, spawn ambient herds, summon predator attacks and other test helpers. All spawn actions run on the server so they work correctly in multiplayer and the anomaly field option populates random locations across the map.
+6. Use the **Mark All Buildings** action from this menu if you need to visualize every building. Buildings are no longer marked automatically when debug mode is enabled.
 
 If your mission reports undefined CBA settings, ensure that **CBA A3** is loaded and initialized before this mod. Settings now fall back to defaults via `VIC_fnc_getSetting` when CBA has not yet finished loading.
 
