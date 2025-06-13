@@ -11,6 +11,12 @@ if (!hasInterface) exitWith { false };
 
 if (isNil "STALKER_buildingMarkers") then { STALKER_buildingMarkers = [] };
 
+// Collect mission placed buildings and terrain buildings
+private _center = [worldSize / 2, worldSize / 2, 0];
+private _buildings = nearestObjects [_center, ["House"], worldSize];
+_buildings append (allMissionObjects "building");
+_buildings = _buildings arrayIntersect _buildings; // remove duplicates
+
 {
     private _type = typeOf _x;
     private _pos = getPosATL _x;
@@ -21,6 +27,6 @@ if (isNil "STALKER_buildingMarkers") then { STALKER_buildingMarkers = [] };
     _marker setMarkerColor "ColorYellow";
     _marker setMarkerText _type;
     STALKER_buildingMarkers pushBack _marker;
-} forEach (allMissionObjects "building");
+} forEach _buildings;
 
 true
