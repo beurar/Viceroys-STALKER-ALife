@@ -64,7 +64,7 @@ for "_i" from 1 to _ticks do {
             [_agl] spawn {
                 params ["_pos"];
                 sleep 5;
-                [_pos, 30, 15, 4, -0.1, 3] remoteExec ["CBRN_fnc_spawnMist", 0];
+                [_pos, 30, 30, 4, -0.1, 3] remoteExec ["CBRN_fnc_spawnMist", 0];
             };
         };
     };

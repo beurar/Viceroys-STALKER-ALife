@@ -94,7 +94,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Works with the emission hook system for mission-specific consequences.
 * Optional Nova Gas clouds spawn at every Psy Discharge by default.
   Controlled by `VSA_stormGasDischarges`, this creates a 30m zone that
-  appears five seconds after each discharge, lasts 15 seconds, and
+  appears five seconds after each discharge, lasts 30 seconds, and
   uses a mist density of 3.
 
 ### Zombification
