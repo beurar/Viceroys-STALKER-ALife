@@ -17,12 +17,16 @@ params [
     ["_lightningStart", 6],
     ["_lightningEnd", 12],
     ["_dischargeStart", 6],
-    ["_dischargeEnd", 12]
+    ["_dischargeEnd", 12],
+    ["_fogEnd", 0.6],
+    ["_rainEnd", 0.8]
 ];
 
 
 ["triggerPsyStorm"] call VIC_fnc_debugLog;
 private _range = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+private _startFog = fog;
+private _startRain = rain;
 
 if (count allPlayers == 0) exitWith {};
 
@@ -31,6 +35,10 @@ for "_i" from 1 to _ticks do {
     private _progress = (_i - 1) / (_ticks max 1);
     private _currentLightning = round (_lightningStart + (_lightningEnd - _lightningStart) * _progress);
     private _currentDischarge = round (_dischargeStart + (_dischargeEnd - _dischargeStart) * _progress);
+    private _currentFog = _startFog + (_fogEnd - _startFog) * _progress;
+    private _currentRain = _startRain + (_rainEnd - _startRain) * _progress;
+    0 setFog _currentFog;
+    0 setRain _currentRain;
 
     for "_j" from 1 to _currentLightning do {
         private _center = getPos (selectRandom allPlayers);
@@ -60,4 +68,7 @@ for "_i" from 1 to _ticks do {
 
     sleep 1;
 };
+
+0 setFog _startFog;
+0 setRain _startRain;
 
