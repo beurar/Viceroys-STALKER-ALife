@@ -44,12 +44,16 @@ if (_duration < 0) then {
     _duration = 10800; // default to three hours
 };
 
+// Convert the supplied position to AGL for the mist effect so it spawns
+// directly on the ground regardless of the coordinate type passed in.
+private _agl = ASLToAGL _position;
+
 // Spawn the mist cloud across all machines
-[_position, _radius, _duration, _chemType, _verticleSpread, _thickness] remoteExec ["CBRN_fnc_spawnMist", 0];
+[_agl, _radius, _duration, _chemType, _verticleSpread, _thickness] remoteExec ["CBRN_fnc_spawnMist", 0];
 
 // Create and configure a map marker for this chemical zone
 private _markerName = format ["chem_%1", diag_tickTime];
-private _marker = createMarker [_markerName, _position];
+private _marker = createMarker [_markerName, ASLToATL _position];
 _marker setMarkerShape "ELLIPSE";
 _marker setMarkerSize [_radius, _radius];
 _marker setMarkerColor "ColorGreen";
