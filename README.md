@@ -69,6 +69,8 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 
 ### Chemical Zones
 * Randomly creates chemical gas zones that damage unprotected units.
+* Fields favour low terrain so gas tends to pool in valleys.
+* Zones sleep when no players are nearby and reactivate on approach.
 * Cleanup functions remove old zones to keep performance reasonable.
 
 ### Minefields

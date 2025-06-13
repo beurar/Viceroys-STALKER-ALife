@@ -21,6 +21,9 @@ player addAction ["Spawn Chemical Zone", {
 player addAction ["Spawn Random Chemicals", {
     [getPos player, 200] remoteExec ["VIC_fnc_spawnRandomChemicalZones", 2];
 }];
+player addAction ["Spawn Valley Chemicals", {
+    [getPos player, 200] remoteExec ["VIC_fnc_spawnValleyChemicalZones", 2];
+}];
 player addAction ["Spawn Permanent Fields", {
     for "_i" from 1 to 100 do {
         private _pos = [random worldSize, random worldSize, 0];
