@@ -1,14 +1,17 @@
 /*
-    Spawns a Chemical Warfare Plus gas zone at the given position.
-    The zone uses the Asphyxiant gas type by default and lasts for
+    Spawns a chemical mist cloud using CBRN_fnc_spawnMist.
+    The gas defaults to the Asphyxiant chemical index and lasts for
     three hours unless a different duration is provided.
 
     Params:
         0: POSITION - center of the gas cloud
         1: NUMBER   - radius of the zone in meters (default: 50)
         2: NUMBER   - duration in seconds (optional, defaults to 10800)
-        3: NUMBER   - gas type ID as defined by Chemical Warfare Plus
+        3: NUMBER   - chemical index used by CBRN_fnc_spawnMist
                       (optional, defaults to 1 - Asphyxiant)
+
+        4: NUMBER   - vertical spread of the mist (optional, default -0.1)
+        5: NUMBER   - thickness of the mist (optional, default 1)
 
     // Gas Type IDs:
     // 0 - CS Gas
@@ -18,14 +21,16 @@
     // 4 - Nova
 
     Returns:
-        OBJECT - handle to the spawned module
+        BOOLEAN - true when the zone was spawned
 */
 
 params [
     ["_position", [0,0,0]],
     ["_radius", 50],
     ["_duration", -1],
-    ["_chemType", 1]
+    ["_chemType", 1],
+    ["_verticleSpread", -0.1],
+    ["_thickness", 1]
 ];
 
 ["spawnChemicalZone"] call VIC_fnc_debugLog;
@@ -39,17 +44,8 @@ if (_duration < 0) then {
     _duration = 10800; // default to three hours
 };
 
-// Create the module that spawns the gas cloud
-// 2.16 update requires modules with a brain to be spawned via createAgent
-private _module = createAgent ["PHEN_CWPLUS_ModuleSpawnCSGas", _position, [], 0, "NONE"];
-_module setVariable ["CBRN_Radius", _radius, true];
-_module setVariable ["CBRN_Lifetime", _duration, true];
-_module setVariable ["CBRN_Thickness", 1, true];
-_module setVariable ["CBRN_ChemType", _chemType, true];
-[
-    "init",
-    [_module]
-] call CBRN_fnc_ModuleSpawnCSGas;
+// Spawn the mist cloud across all machines
+[_position, _radius, _duration, _chemType, _verticleSpread, _thickness] remoteExec ["CBRN_fnc_spawnMist", 0];
 
 // Create and configure a map marker for this chemical zone
 private _markerName = format ["chem_%1", diag_tickTime];
@@ -66,9 +62,11 @@ if (_duration >= 0) then {
 };
 
 STALKER_chemicalZones pushBack [
-    _module,
+    _position,
+    _radius,
+    true,
     _marker,
     _expires
 ];
 
-_module
+true
