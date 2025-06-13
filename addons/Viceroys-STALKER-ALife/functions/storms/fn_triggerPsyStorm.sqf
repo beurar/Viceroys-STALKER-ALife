@@ -1,49 +1,26 @@
 /*
     Author: Codex
     Description:
-        Applies screen effects and optional hallucinations, damages exposed units
-        and can spawn spooks or zombies.
+        Triggers lightning strikes and Psy Discharges across the map.
 
     Params:
         0: NUMBER - duration of the storm in seconds (default 180)
         1: NUMBER - starting strikes per second (default 2)
         2: NUMBER - ending strikes per second (default 6)
-        3: NUMBER - damage applied to exposed units per tick (default 0.03)
-        4: BOOL   - enable hallucination effects (default true)
-        5: BOOL   - spawn spook zone when finished (default false)
-        6: BOOL   - spawn zombies when finished (default false)
 */
 
 params [
     ["_duration", 180],
     ["_startIntensity", 2],
-    ["_endIntensity", 6],
-    ["_damage", 0.03],
-    ["_hallucinations", true],
-    ["_spawnSpooks", false],
-    ["_spawnZombies", false]
+    ["_endIntensity", 6]
 ];
 
 ["triggerPsyStorm"] call VIC_fnc_debugLog;
-
-private _effect = ppEffectCreate ["ColorCorrections", 1500];
-_effect ppEffectEnable true;
-_effect ppEffectAdjust [0.2, 1, 0, [1,0.2,1,0.2], [0,0,0,1], [1,1,1,0]];
-_effect ppEffectCommit 0;
 
 private _ticks = floor _duration;
 for "_i" from 1 to _ticks do {
     private _progress = (_i - 1) / (_ticks max 1);
     private _currentIntensity = round (_startIntensity + (_endIntensity - _startIntensity) * _progress);
-    {
-        if (alive _x) then {
-            private _from = eyePos _x;
-            private _to = _from vectorAdd [0,0,50];
-            if (lineIntersectsSurfaces [_from, _to, _x, objNull, true] isEqualTo []) then {
-                _x setDamage ((damage _x) + _damage);
-            };
-        };
-    } forEach allUnits;
 
     for "_j" from 1 to _currentIntensity do {
         private _pos = [random worldSize, random worldSize, 0];
@@ -56,24 +33,6 @@ for "_i" from 1 to _ticks do {
         deleteVehicle _logic;
     };
 
-    if (_hallucinations && {random 1 < 0.15}) then {
-        private _sounds = [
-            "a3\sounds_f\characters\human-sfx\personality\tired-breathing-02.wss",
-            "a3\sounds_f\sfx\alarm_independent.wss"
-        ];
-        playSound3D [selectRandom _sounds, player];
-    };
-
     sleep 1;
 };
 
-_effect ppEffectEnable false;
-ppEffectDestroy _effect;
-
-if (_spawnSpooks) then {
-    [] call VIC_fnc_spawnSpookZone;
-};
-
-if (_spawnZombies) then {
-    [] call VIC_fnc_spawnZombiesFromQueue;
-};
