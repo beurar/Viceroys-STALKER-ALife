@@ -34,3 +34,9 @@ for "_i" from 1 to 50 do {
     [_pos, 1000] call VIC_fnc_spawnMinefields;
 };
 
+// Generate ambushes across the map
+for "_i" from 1 to 20 do {
+    private _pos = [random worldSize, random worldSize, 0];
+    [_pos, 1000] call VIC_fnc_spawnAmbushes;
+};
+
