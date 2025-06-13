@@ -380,6 +380,15 @@ true
 
 ["VSA_stormGasDischarges","CHECKBOX",["Gas Under Discharges","Spawn Nova gas clouds at discharge locations"],"Viceroy's STALKER ALife - Storms",true] call CBA_fnc_addSetting;
 
+// Size of the spawned Nova mist in meters
+["VSA_stormGasRadius","SLIDER",["Gas Radius","Nova mist radius at each discharge"],"Viceroy's STALKER ALife - Storms",[0,50,20,0]] call CBA_fnc_addSetting;
+
+// How thick/dense the mist appears
+["VSA_stormGasDensity","SLIDER",["Gas Density","Mist thickness at each discharge"],"Viceroy's STALKER ALife - Storms",[1,10,3,0]] call CBA_fnc_addSetting;
+
+// Vertical spread from the ground up or down
+["VSA_stormGasVertical","SLIDER",["Gas Vertical Spread","Vertical spread of the mist"],"Viceroy's STALKER ALife - Storms",[-2,2,1,2]] call CBA_fnc_addSetting;
+
 // -----------------------------------------------------------------------------
 // Zombification
 // -----------------------------------------------------------------------------
