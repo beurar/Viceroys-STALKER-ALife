@@ -24,7 +24,10 @@ private _maxUnits = ["VSA_ambushMaxUnits", 6] call VIC_fnc_getSetting;
 
         if (_mines isEqualTo []) then {
             private _road = nearestRoad _pos;
-            private _dir = if (isNull _road) then {0} else {getDir _road};
+            private _dir = 0;
+            if (!isNull _road) then {
+                _dir = getDir _road;
+            };
             for "_i" from -8 to 8 step 3 do {
                 private _cPos = _pos getPos [_i, _dir];
                 private _left = _cPos getPos [2, _dir + 90];
@@ -40,7 +43,10 @@ private _maxUnits = ["VSA_ambushMaxUnits", 6] call VIC_fnc_getSetting;
             private _count = floor(random (_maxUnits - _minUnits + 1)) + _minUnits;
             private _half = ceil(_count / 2);
             private _road = nearestRoad _pos;
-            private _dir = if (isNull _road) then {0} else {getDir _road};
+            private _dir = 0;
+            if (!isNull _road) then {
+                _dir = getDir _road;
+            };
             for "_i" from 1 to _half do {
                 private _p = _pos getPos [10 + random 5, _dir + 90];
                 private _u = _grp1 createUnit ["B_Spotter_F", _p, [], 0, "FORM"];
