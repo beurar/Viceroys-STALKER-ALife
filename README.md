@@ -24,6 +24,13 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Map markers are removed automatically when their anomaly field expires after
   `STALKER_AnomalyFieldDuration` minutes.
 * Fields are distributed randomly across the entire map.
+* Fields can be **Permanent** or **Temporary**. Permanent fields remain in place
+  and only reshuffle their anomalies during an emission. Temporary fields are
+  deleted after an emission and respawn at new random positions. The ratio of
+  permanent fields is controlled by `VSA_permanentFieldChance`. Permanent fields
+  also receive thematic names on their map markers. When no towns are nearby the
+  names fall back to generic locations like the coast, a hill or a forest based
+  on the surrounding terrain.
 * Anomalies only activate when players are nearby and go dormant when no one is in range.
 
 ### Mutants
@@ -144,7 +151,7 @@ spawns at night, during the day or both.
 4. Enable **VSA_debugMode** to show on-screen debug messages and access testing actions.
    This option can now be toggled while a mission is running and the debug
    actions will appear automatically.
-5. When debug mode is active, your scroll menu includes options to trigger storms, spawn anomaly fields or spook zones, generate habitats, spawn ambient herds, summon predator attacks and other test helpers. All spawn actions run on the server so they work correctly in multiplayer and the anomaly field option populates random locations across the map.
+5. When debug mode is active, your scroll menu includes options to trigger storms, spawn permanent or temporary anomaly fields, cycle existing fields, spawn spook zones, generate habitats, spawn ambient herds, summon predator attacks and other test helpers. All spawn actions run on the server so they work correctly in multiplayer. Permanent fields will show a randomly generated name on their marker for easy reference.
 6. Use the **Mark All Buildings** action from this menu if you need to visualize every building. Buildings are no longer marked automatically when debug mode is enabled.
 
 If your mission reports undefined CBA settings, ensure that **CBA A3** is loaded and initialized before this mod. Settings now fall back to defaults via `VIC_fnc_getSetting` when CBA has not yet finished loading.
@@ -158,6 +165,8 @@ All functions are contained under the `functions` directory and follow the `TAG_
 * **VIC_fnc_spawnAllAnomalyFields** – Places anomaly fields across the map. This
   mod does not spawn fields automatically; missions must call this function (or
   use the provided `initServer.sqf`) to populate the world.
+* **VIC_fnc_cycleAnomalyFields** – Reshuffles permanent fields and relocates temporary ones. Useful for testing without a full emission.
+* **VIC_fnc_generateFieldName** – Produces themed names for permanent anomaly field markers using local town names when possible.
 
 Mission makers can tweak or remove individual systems as needed. Most features are script-only and do not require placing special modules in the editor, though some settings may be exposed through CBA.
 

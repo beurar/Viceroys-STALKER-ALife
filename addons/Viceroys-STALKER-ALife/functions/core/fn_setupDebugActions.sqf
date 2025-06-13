@@ -21,11 +21,20 @@ player addAction ["Spawn Chemical Zone", {
 player addAction ["Spawn Random Chemicals", {
     [getPos player, 200] remoteExec ["VIC_fnc_spawnRandomChemicalZones", 2];
 }];
-player addAction ["Spawn Anomaly Fields", {
+player addAction ["Spawn Permanent Fields", {
     for "_i" from 1 to 100 do {
         private _pos = [random worldSize, random worldSize, 0];
-        [_pos, 1000] remoteExec ["VIC_fnc_spawnAllAnomalyFields", 2];
+        [_pos, 1000, 1] remoteExec ["VIC_fnc_spawnAllAnomalyFields", 2];
     };
+}];
+player addAction ["Spawn Temporary Fields", {
+    for "_i" from 1 to 100 do {
+        private _pos = [random worldSize, random worldSize, 0];
+        [_pos, 1000, 0] remoteExec ["VIC_fnc_spawnAllAnomalyFields", 2];
+    };
+}];
+player addAction ["Cycle Anomaly Fields", {
+    [] remoteExec ["VIC_fnc_cycleAnomalyFields", 2];
 }];
 player addAction ["Spawn Mutant Group", {
     [getPos player] remoteExec ["VIC_fnc_spawnMutantGroup", 2];
