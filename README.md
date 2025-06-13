@@ -96,6 +96,9 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
   Controlled by `VSA_stormGasDischarges`, this creates a 20m zone that
   appears five seconds after each discharge, lasts 20 seconds, and
   uses a mist density of 3 with greater vertical spread.
+  The radius, density and vertical spread can be tweaked via the
+  `VSA_stormGasRadius`, `VSA_stormGasDensity` and `VSA_stormGasVertical`
+  CBA settings.
 
 ### Zombification
 * Tracks dead units and may reanimate them as zombies after a delay.
