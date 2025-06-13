@@ -47,7 +47,7 @@ for "_i" from 1 to _iedCount do {
     private _town = selectRandom _towns;
     private _tPos = locationPosition _town;
     private _road = nearestRoad _tPos;
-    if (isNull _road) then { continue };
+    if (isNull _road) then { continue; };
 
     private _pos = getPos _road;
     private _marker = "";
