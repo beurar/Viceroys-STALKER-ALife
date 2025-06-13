@@ -22,7 +22,7 @@ params [
 
 
 ["triggerPsyStorm"] call VIC_fnc_debugLog;
-private _range = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+private _range = ["VSA_stormRadius", 1500] call VIC_fnc_getSetting;
 
 if (count allPlayers == 0) exitWith {};
 
