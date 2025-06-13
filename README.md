@@ -251,6 +251,16 @@ _arr select 0 select 1 - 1 select 15 / 3 - 5 select 0 select 10 * 10 + 4 * 0 - 1
 
 Adding brackets to the above expression reveals the actual order of evaluation.
 
+### exitWith Usage
+
+In SQF, exitWith must be followed by a single expression that returns a value.
+
+A block enclosed in `{}` is valid only if it is treated as a single expression,
+like an array, a function call, or a single value.
+
+But writing `exitWith { statement1; statement2; }` is not valid if those
+statements are not themselves returning a final value. In your case, you have:
+
 ## Dependencies
 
    * [CBA A3](https://github.com/CBATeam/CBA_A3)
