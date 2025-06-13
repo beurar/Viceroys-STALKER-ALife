@@ -186,7 +186,9 @@ VIC_fnc_manageStalkerCamps     = compile preprocessFileLineNumbers (_root + "\fu
         {
             while {true} do {
                 [] call VIC_fnc_managePredators;
-                private _delay = ["VSA_predatorCheckInterval", 300] call VIC_fnc_getSetting;
+                private _day   = ["VSA_predatorCheckIntervalDay", 300] call VIC_fnc_getSetting;
+                private _night = ["VSA_predatorCheckIntervalNight", 300] call VIC_fnc_getSetting;
+                private _delay = if (daytime > 5 && daytime < 20) then {_day} else {_night};
                 sleep _delay;
             };
         }, [], 23

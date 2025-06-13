@@ -8,20 +8,7 @@
 if (!isServer) exitWith {};
 if (isNil "STALKER_activePredators") then { STALKER_activePredators = []; };
 
-private _chance    = ["VSA_predatorAttackChance", 5] call VIC_fnc_getSetting;
-private _nightOnly = ["VSA_predatorNightOnly", true] call VIC_fnc_getSetting;
-
-if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {
-    {
-        _x params ["_grp", "_target", "_marker", "_near"];
-        if (!isNull _grp) then {
-            { deleteVehicle _x } forEach units _grp;
-            deleteGroup _grp;
-        };
-        if (_marker != "") then { _marker setMarkerAlpha 0.2; };
-        STALKER_activePredators set [_forEachIndex, [grpNull, _target, _marker, false]];
-    } forEach STALKER_activePredators;
-};
+private _chance = ["VSA_predatorAttackChance", 5] call VIC_fnc_getSetting;
 
 if ((count allPlayers) > 0 && {random 100 < _chance}) then {
     private _player = selectRandom allPlayers;
