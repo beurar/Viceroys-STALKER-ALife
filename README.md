@@ -41,6 +41,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Systems rely on **fn_hasPlayersNearby.sqf** so habitats sleep and despawn when players are farther than the configured nearby range (default 1500m).
 * Population counts persist while sleeping and gradually replenish between spawn cycles.
 * Player proximity is checked on a separate timer via `VSA_proximityCheckInterval`.
+* Habitat updates run on their own timer via `VSA_habitatCheckInterval`.
 * Habitat and herd counts update immediately when mutants are killed.
 * CBA settings allow mission makers to customize these behaviors.
 
