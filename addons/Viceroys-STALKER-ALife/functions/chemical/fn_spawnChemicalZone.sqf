@@ -1,12 +1,21 @@
 /*
     Spawns a Chemical Warfare Plus gas zone at the given position.
-    The zone uses the Asphyxiant gas type and lasts for three hours
-    by default.
+    The zone uses the Asphyxiant gas type by default and lasts for
+    three hours unless a different duration is provided.
 
     Params:
         0: POSITION - center of the gas cloud
         1: NUMBER   - radius of the zone in meters (default: 50)
         2: NUMBER   - duration in seconds (optional, defaults to 10800)
+        3: NUMBER   - gas type ID as defined by Chemical Warfare Plus
+                      (optional, defaults to 1 - Asphyxiant)
+
+    // Gas Type IDs:
+    // 0 - CS Gas
+    // 1 - Asphyxiant
+    // 2 - Nerve
+    // 3 - Blister
+    // 4 - Nova
 
     Returns:
         OBJECT - handle to the spawned module
@@ -15,7 +24,8 @@
 params [
     ["_position", [0,0,0]],
     ["_radius", 50],
-    ["_duration", -1]
+    ["_duration", -1],
+    ["_chemType", 1]
 ];
 
 ["spawnChemicalZone"] call VIC_fnc_debugLog;
@@ -35,7 +45,7 @@ private _module = createAgent ["PHEN_CWPLUS_ModuleSpawnCSGas", _position, [], 0,
 _module setVariable ["CBRN_Radius", _radius, true];
 _module setVariable ["CBRN_Lifetime", _duration, true];
 _module setVariable ["CBRN_Thickness", 1, true];
-_module setVariable ["CBRN_ChemType", 1, true]; // Asphyxiant gas
+_module setVariable ["CBRN_ChemType", _chemType, true];
 [
     "init",
     [_module]
