@@ -15,11 +15,13 @@ private _maxUnits = ["VSA_ambushMaxUnits", 6] call VIC_fnc_getSetting;
 {
     _x params ["_pos","_veh","_mines","_groups","_triggered","_marker"];
     private _near = [_pos,_range] call VIC_fnc_hasPlayersNearby;
+
     if (_near) then {
         if (isNull _veh) then {
             _veh = "C_Van_01_transport_F" createVehicle _pos;
             _veh allowDamage false;
         };
+
         if (_mines isEqualTo []) then {
             private _road = nearestRoad _pos;
             private _dir = if (isNull _road) then {0} else {getDir _road};
@@ -31,11 +33,12 @@ private _maxUnits = ["VSA_ambushMaxUnits", 6] call VIC_fnc_getSetting;
                 _mines pushBack (createMine ["APERSMine", _right, [], 0]);
             };
         };
+
         if (!_triggered && {[_pos,20] call VIC_fnc_hasPlayersNearby}) then {
             private _grp1 = createGroup east;
             private _grp2 = createGroup east;
             private _count = floor(random (_maxUnits - _minUnits + 1)) + _minUnits;
-            private _half = ceil(_count/2);
+            private _half = ceil(_count / 2);
             private _road = nearestRoad _pos;
             private _dir = if (isNull _road) then {0} else {getDir _road};
             for "_i" from 1 to _half do {
@@ -67,6 +70,7 @@ private _maxUnits = ["VSA_ambushMaxUnits", 6] call VIC_fnc_getSetting;
         { if (!isNull _x) then { { deleteVehicle _y } forEach units _x; deleteGroup _x; } } forEach _groups; _groups = [];
         _triggered = false;
     };
+
     if (_marker != "") then { _marker setMarkerAlpha (if (_near) then {1} else {0.2}); };
     STALKER_ambushes set [_forEachIndex, [_pos,_veh,_mines,_groups,_triggered,_marker]];
 } forEach STALKER_ambushes;
