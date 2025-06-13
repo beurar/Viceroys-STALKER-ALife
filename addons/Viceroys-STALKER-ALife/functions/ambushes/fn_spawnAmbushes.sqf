@@ -31,9 +31,7 @@ for "_i" from 1 to _count do {
         if (!([_candidate] call VIC_fnc_isWaterPosition)) then {
             if ((nearestLocations [_candidate, ["NameVillage","NameCity","NameCityCapital","NameLocal"], _townDist]) isEqualTo []) then {
                 _road = nearestRoad _candidate;
-                if (!isNull _road) exitWith {
-                    _pos = getPos _road;
-                };
+                if (!isNull _road) exitWith { _pos = getPos _road };
             };
         };
     };
