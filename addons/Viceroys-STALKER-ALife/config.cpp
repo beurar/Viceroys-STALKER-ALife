@@ -27,6 +27,7 @@ class CfgFunctions
             class getSetting{};
             class getSurfacePosition{};
             class hasPlayersNearby{};
+            class createGlobalMarker{};
             class weightedPick{};
             class selectWeightedBuilding{};
         };

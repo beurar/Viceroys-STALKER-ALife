@@ -35,7 +35,9 @@ private _size = ["VSA_stalkerCampSize", 4] call VIC_fnc_getSetting;
         };
         if (!isNull _camp) then { deleteVehicle _camp; _camp = objNull; };
     };
-    if (_marker != "") then { _marker setMarkerAlpha (if (_near) then {1} else {0.2}); };
+    if (_marker != "") then {
+        [_marker, (if (_near) then {1} else {0.2})] remoteExec ["setMarkerAlpha", 0];
+    };
     STALKER_camps set [_forEachIndex, [_camp, _grp, _pos, _marker, _side]];
 } forEach STALKER_camps;
 
