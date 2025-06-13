@@ -34,9 +34,13 @@ for "_i" from 1 to 50 do {
     [_pos, 1000] call VIC_fnc_spawnMinefields;
 };
 
+// Generate wrecks
+private _wreckCount = ["VSA_wreckCount", 10] call VIC_fnc_getSetting;
+[_wreckCount] call VIC_fnc_spawnAbandonedVehicles;
+
+
 // Generate ambushes across the map
 for "_i" from 1 to 20 do {
     private _pos = [random worldSize, random worldSize, 0];
     [_pos, 1000] call VIC_fnc_spawnAmbushes;
 };
-
