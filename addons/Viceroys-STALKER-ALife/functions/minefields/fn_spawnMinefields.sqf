@@ -47,18 +47,18 @@ for "_i" from 1 to _iedCount do {
     private _town = selectRandom _towns;
     private _tPos = locationPosition _town;
     private _road = nearestRoad _tPos;
-    if (!isNull _road) then {
-        private _pos = getPos _road;
-        private _marker = "";
-        if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
-            _marker = createMarker [format ["ied_%1", diag_tickTime], _pos];
-            _marker setMarkerShape "ICON";
-            _marker setMarkerType "mil_triangle";
-            _marker setMarkerColor "ColorRed";
-            _marker setMarkerText "IED";
-            _marker setMarkerAlpha 0.2;
-        };
-        STALKER_minefields pushBack [_pos,"IED",0,[],_marker];
+    if (isNull _road) then { continue };
+
+    private _pos = getPos _road;
+    private _marker = "";
+    if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
+        _marker = createMarker [format ["ied_%1", diag_tickTime], _pos];
+        _marker setMarkerShape "ICON";
+        _marker setMarkerType "mil_triangle";
+        _marker setMarkerColor "ColorRed";
+        _marker setMarkerText "IED";
+        _marker setMarkerAlpha 0.2;
     };
+    STALKER_minefields pushBack [_pos,"IED",0,[],_marker];
 };
 
