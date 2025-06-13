@@ -45,7 +45,8 @@ for "_i" from 1 to _ticks do {
         private _pos = [random worldSize, random worldSize, 0];
         private _surf = [_pos] call VIC_fnc_getSurfacePosition;
         private _module = "diwako_anomalies_main_modulePsyDischarge" createVehicle _surf;
-        ["init", _module] call diwako_anomalies_main_fnc_modulePsyDischarge;
+        private _fncDischarge = missionNamespace getVariable ["diwako_anomalies_main_fnc_modulePsyDischarge", {}];
+        ["init", _module] call _fncDischarge;
         [_surf] call BIS_fnc_moduleLightning;
     };
 
