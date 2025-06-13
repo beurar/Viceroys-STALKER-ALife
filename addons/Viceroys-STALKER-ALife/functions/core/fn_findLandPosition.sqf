@@ -10,6 +10,11 @@
 params ["_center", ["_radius",50], ["_attempts",10]];
 
 private _base = if (_center isEqualType objNull) then { getPos _center } else { _center };
+// ensure we have a 3D position
+if (_base isEqualType []) then {
+    _base params ["_bx","_by",["_bz",0]];
+    _base = [_bx,_by,_bz];
+};
 
 for "_i" from 0 to _attempts do {
     private _candidate = if (_i == 0) then { _base } else { [_base, random _radius, random 360] call BIS_fnc_relPos };
