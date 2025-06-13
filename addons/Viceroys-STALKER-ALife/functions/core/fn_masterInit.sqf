@@ -112,12 +112,19 @@ VIC_fnc_debugLog                 = compile preprocessFileLineNumbers (_root + "\
 VIC_fnc_setupDebugActions        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_setupDebugActions.sqf");
 VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markAllBuildings.sqf");
 VIC_fnc_markPlayerRanges        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markPlayerRanges.sqf");
+VIC_fnc_spawnAmbientStalkers   = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnAmbientStalkers.sqf");
+VIC_fnc_spawnStalkerCamp       = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnStalkerCamp.sqf");
+VIC_fnc_spawnStalkerCamps      = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnStalkerCamps.sqf");
+VIC_fnc_manageStalkerCamps     = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_manageStalkerCamps.sqf");
+
 
 // --- PostInit ---------------------------------------------------------------
 ["postInit", {
     [] call VIC_fnc_registerEmissionHooks;
     [] call VIC_fnc_schedulePsyStorms;
     [] call VIC_fnc_setupMutantHabitats;
+    [] call VIC_fnc_spawnAmbientStalkers;
+    [] call VIC_fnc_spawnStalkerCamps;
     [
         {
             while {true} do {
@@ -199,6 +206,15 @@ VIC_fnc_markPlayerRanges        = compile preprocessFileLineNumbers (_root + "\f
                 sleep 60;
             };
         }, [], 27
+    ] call CBA_fnc_waitAndExecute;
+
+    [
+        {
+            while {true} do {
+                [] call VIC_fnc_manageStalkerCamps;
+                sleep 60;
+            };
+        }, [], 29
     ] call CBA_fnc_waitAndExecute;
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         [] call VIC_fnc_setupDebugActions;

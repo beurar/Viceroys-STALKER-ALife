@@ -51,6 +51,12 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
   Locations are offset slightly each mission so nests appear in different spots every time.
 * CBA settings allow mission makers to customize these behaviors.
 
+### Stalker Camps
+* Roaming stalker groups wander the wilderness providing ambient life.
+* Random camps appear in buildings or open terrain.
+* Camps may belong to BLUFOR, OPFOR or Independent factions based on configurable chances.
+* Group counts and sizes are fully adjustable through CBA settings.
+
 ### Chemical Zones
 * Randomly creates chemical gas zones that damage unprotected units.
 * Cleanup functions remove old zones to keep performance reasonable.
