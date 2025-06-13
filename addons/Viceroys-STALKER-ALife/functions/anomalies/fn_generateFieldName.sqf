@@ -32,8 +32,10 @@ if (_pos isNotEqualTo []) then {
             _feature = "Coast";
         } else {
             private _road = nearestRoad _pos;
-            if (!isNull _road && {_pos distance2D (getPos _road) < 50}) then {
-                _feature = "Road";
+            if (!isNull _road) then {
+                if (_pos distance2D (getPos _road) < 50) then {
+                    _feature = "Road";
+                };
             };
             if (_feature isEqualTo "") then {
                 private _trees = nearestTerrainObjects [_pos, ["TREE","SMALL TREE","BUSH"], 40, false];
