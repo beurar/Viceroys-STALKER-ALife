@@ -21,6 +21,7 @@ if (isNil "STALKER_playerRangeMarker") then { STALKER_playerRangeMarker = "" };
             STALKER_playerRangeMarker = createMarkerLocal [_name, position player];
             STALKER_playerRangeMarker setMarkerShape "ELLIPSE";
             STALKER_playerRangeMarker setMarkerColor "ColorBlue";
+            STALKER_playerRangeMarker setMarkerAlphaLocal 0.05;
         };
         STALKER_playerRangeMarker setMarkerPosLocal position player;
         STALKER_playerRangeMarker setMarkerSizeLocal [_range, _range];
