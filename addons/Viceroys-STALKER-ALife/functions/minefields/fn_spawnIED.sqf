@@ -21,4 +21,4 @@ if (isNull _road) exitWith { [] };
 private _pos = getPos _road;
 private _ied = createMine ["IEDLandSmall_F", _pos, [], 0];
 
-[_ied]
+[_ied];
