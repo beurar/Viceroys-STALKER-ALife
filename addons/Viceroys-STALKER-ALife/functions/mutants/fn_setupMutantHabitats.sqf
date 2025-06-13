@@ -11,6 +11,13 @@ if (isNil "STALKER_mutantHabitats") then { STALKER_mutantHabitats = []; };
 
 private _createMarker = {
     params ["_type", "_pos"];
+
+    // Skip this location if it overlaps an existing habitat
+    private _overlap = false;
+    {
+        if (_pos distance2D (_x#3) < 300) exitWith { _overlap = true };
+    } forEach STALKER_mutantHabitats;
+    if (_overlap) exitWith { false };
     private _base = format ["hab_%1_%2", toLower _type, diag_tickTime + random 1000];
 
     private _area = createMarker [_base + "_area", _pos];
