@@ -185,7 +185,8 @@ VIC_fnc_markPlayerRanges        = compile preprocessFileLineNumbers (_root + "\f
         {
             while {true} do {
                 [] call VIC_fnc_manageHabitats;
-                sleep 300;
+                private _delay = ["VSA_habitatCheckInterval", 5] call VIC_fnc_getSetting;
+                sleep _delay;
             };
         }, [], 25
     ] call CBA_fnc_waitAndExecute;
