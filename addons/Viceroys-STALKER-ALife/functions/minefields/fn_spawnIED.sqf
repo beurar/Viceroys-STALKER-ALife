@@ -12,9 +12,7 @@ params ["_center"];
 if (!isServer) exitWith { [] };
 
 private _road = roadAt _center;
-if (isNull _road) then {
-    _road = nearestRoad _center;
-};
+if (isNull _road) then { _road = nearestRoad _center; };
 
 if (isNull _road) exitWith { [] };
 
