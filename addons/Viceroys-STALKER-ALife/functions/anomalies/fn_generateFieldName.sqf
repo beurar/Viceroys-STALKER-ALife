@@ -28,7 +28,7 @@ if (_pos isNotEqualTo []) then {
         _places = _locs apply { text _x };
     } else {
         private _feature = "";
-        if ([_pos] call VIC_fnc_isWaterPosition) then {
+        if (_pos call VIC_fnc_isWaterPosition) then {
             _feature = "Coast";
         } else {
             private _road = nearestRoad _pos;

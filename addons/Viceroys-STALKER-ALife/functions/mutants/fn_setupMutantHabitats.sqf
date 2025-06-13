@@ -122,7 +122,7 @@ _buildings = _buildings arrayIntersect _buildings; // remove duplicates
             case "Hill": { "rural" };
             default { "generic" };
         };
-        if (!([_pos] call VIC_fnc_isWaterPosition)) then {
+        if (!(_pos call VIC_fnc_isWaterPosition)) then {
             private _type = [_env] call _selectType;
             [_type, _pos] call _createMarker;
         };
@@ -134,7 +134,7 @@ for "_i" from 1 to 20 do {
     private _b = selectRandom _buildings;
     private _pos = getPosATL _b;
     _pos = [_pos, 0, 25, 5, 0, 0, 0] call BIS_fnc_findSafePos;
-    if (!([_pos] call VIC_fnc_isWaterPosition)) then {
+    if (!(_pos call VIC_fnc_isWaterPosition)) then {
         private _type = ["urban"] call _selectType;
         [_type, _pos] call _createMarker;
     };
@@ -144,7 +144,7 @@ private _forestSites = selectBestPlaces [_center, worldSize, "forest", 1, 50];
 {
     private _pos = (_x select 0);
     _pos = [_pos, 0, 75, 5, 0, 0, 0] call BIS_fnc_findSafePos;
-    if (!([_pos] call VIC_fnc_isWaterPosition)) then {
+    if (!(_pos call VIC_fnc_isWaterPosition)) then {
         private _type = ["forest"] call _selectType;
         [_type, _pos] call _createMarker;
     };
@@ -154,7 +154,7 @@ private _swampSites = selectBestPlaces [_center, worldSize, "meadow", 1, 50];
 {
     private _pos = (_x select 0);
     _pos = [_pos, 0, 75, 5, 0, 0, 0] call BIS_fnc_findSafePos;
-    if (!([_pos] call VIC_fnc_isWaterPosition)) then {
+    if (!(_pos call VIC_fnc_isWaterPosition)) then {
         private _type = ["swamp"] call _selectType;
         [_type, _pos] call _createMarker;
     };
@@ -167,7 +167,7 @@ private _existing = STALKER_mutantHabitats apply { _x#4 };
         if !(_buildings isEqualTo []) then {
             private _p = getPosATL (selectRandom _buildings);
             _p = [_p, 0, 25, 5, 0, 0, 0] call BIS_fnc_findSafePos;
-            if (!([_p] call VIC_fnc_isWaterPosition)) then { [_x, _p] call _createMarker; };
+            if (!(_p call VIC_fnc_isWaterPosition)) then { [_x, _p] call _createMarker; };
         };
     };
 } forEach _allTypes;
