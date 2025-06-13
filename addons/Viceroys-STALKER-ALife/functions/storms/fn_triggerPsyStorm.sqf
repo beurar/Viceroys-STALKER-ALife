@@ -20,7 +20,11 @@ params [
     ["_dischargeEnd", 12]
 ];
 
+
 ["triggerPsyStorm"] call VIC_fnc_debugLog;
+private _range = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+
+if (count allPlayers == 0) exitWith {};
 
 private _ticks = floor _duration;
 for "_i" from 1 to _ticks do {
@@ -29,7 +33,12 @@ for "_i" from 1 to _ticks do {
     private _currentDischarge = round (_dischargeStart + (_dischargeEnd - _dischargeStart) * _progress);
 
     for "_j" from 1 to _currentLightning do {
-        private _pos = [random worldSize, random worldSize, 0];
+        private _center = getPos (selectRandom allPlayers);
+        private _pos = [
+            (_center select 0) + (random (_range * 2) - _range),
+            (_center select 1) + (random (_range * 2) - _range),
+            0
+        ];
         private _surf = [_pos] call VIC_fnc_getSurfacePosition;
         private _logic = "Logic" createVehicleLocal _surf;
         [_logic, [], true] call BIS_fnc_moduleLightning;
@@ -37,7 +46,12 @@ for "_i" from 1 to _ticks do {
     };
 
     for "_j" from 1 to _currentDischarge do {
-        private _pos = [random worldSize, random worldSize, 0];
+        private _center = getPos (selectRandom allPlayers);
+        private _pos = [
+            (_center select 0) + (random (_range * 2) - _range),
+            (_center select 1) + (random (_range * 2) - _range),
+            0
+        ];
         private _surf = [_pos] call VIC_fnc_getSurfacePosition;
         private _module = "diwako_anomalies_main_modulePsyDischarge" createVehicleLocal _surf;
         private _fncDischarge = missionNamespace getVariable ["diwako_anomalies_main_fnc_modulePsyDischarge", {}];
