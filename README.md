@@ -79,6 +79,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Mines despawn when no players are nearby and respawn when someone approaches.
 * Enable debug mode to visualize fields and place test minefields via the action menu.
 * Abandoned and damaged vehicles may appear on or near roads.
+* Fallen players leave a red X marker that vanishes once the body is removed.
 
 ### Spooks
 * Lightweight supernatural events to unsettle players.
