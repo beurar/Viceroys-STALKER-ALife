@@ -30,18 +30,18 @@ if (isServer && !isNil "STALKER_anomalyFields") then {
             _objs = _spawned;
             if (_perm && {_marker != ""}) then {
                 private _type = switch (_fn) do {
-                    case VIC_fnc_createField_burner: "burner";
-                    case VIC_fnc_createField_electra: "electra";
-                    case VIC_fnc_createField_fruitpunch: "fruitpunch";
-                    case VIC_fnc_createField_springboard: "springboard";
-                    case VIC_fnc_createField_gravi: "gravi";
-                    case VIC_fnc_createField_meatgrinder: "meatgrinder";
-                    case VIC_fnc_createField_whirligig: "whirligig";
-                    case VIC_fnc_createField_clicker: "clicker";
-                    case VIC_fnc_createField_launchpad: "launchpad";
-                    case VIC_fnc_createField_leech: "leech";
-                    case VIC_fnc_createField_trapdoor: "trapdoor";
-                    case VIC_fnc_createField_zapper: "zapper";
+                    case VIC_fnc_createField_burner: {"burner"};
+                    case VIC_fnc_createField_electra: {"electra"};
+                    case VIC_fnc_createField_fruitpunch: {"fruitpunch"};
+                    case VIC_fnc_createField_springboard: {"springboard"};
+                    case VIC_fnc_createField_gravi: {"gravi"};
+                    case VIC_fnc_createField_meatgrinder: {"meatgrinder"};
+                    case VIC_fnc_createField_whirligig: {"whirligig"};
+                    case VIC_fnc_createField_clicker: {"clicker"};
+                    case VIC_fnc_createField_launchpad: {"launchpad"};
+                    case VIC_fnc_createField_leech: {"leech"};
+                    case VIC_fnc_createField_trapdoor: {"trapdoor"};
+                    case VIC_fnc_createField_zapper: {"zapper"};
                     default {""};
                 };
                 _marker setMarkerText ([_type, _site] call VIC_fnc_generateFieldName);
