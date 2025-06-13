@@ -11,10 +11,18 @@ params ["_center","_radius", ["_count",5], ["_site", []]];
 
 if (_site isEqualTo []) then {
     _site = [_center,_radius] call VIC_fnc_findSite_whirligig;
+    if (_site isEqualTo []) exitWith {
+        ["createField_whirligig: no site"] call VIC_fnc_debugLog;
+        []
+    };
+} else {
+    [format ["createField_whirligig: using site %1", _site]] call VIC_fnc_debugLog;
 };
-if (_site isEqualTo []) exitWith { [] };
 _site = [_site] call VIC_fnc_findLandPosition;
-if (_site isEqualTo []) exitWith { [] };
+if (_site isEqualTo []) exitWith {
+    ["createField_whirligig: land position failed"] call VIC_fnc_debugLog;
+    []
+};
 
 // Create a marker for this anomaly field
 if (isNil "STALKER_anomalyMarkers") then { STALKER_anomalyMarkers = [] };
@@ -36,4 +44,5 @@ for "_i" from 1 to _count do {
     _anom setVariable ["zoneMarker", _marker];
     _spawned pushBack _anom;
 };
+[format ["createField_whirligig spawned %1", count _spawned]] call VIC_fnc_debugLog;
 _spawned

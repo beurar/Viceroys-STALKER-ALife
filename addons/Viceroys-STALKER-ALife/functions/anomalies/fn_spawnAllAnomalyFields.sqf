@@ -8,9 +8,12 @@
 */
 params ["_center","_radius", ["_type", -1]];
 
+
 ["spawnAllAnomalyFields"] call VIC_fnc_debugLog;
 
-if (["VSA_enableAnomalies", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
+if (["VSA_enableAnomalies", true] call VIC_fnc_getSetting isEqualTo false) exitWith {
+    ["spawnAllAnomalyFields: anomalies disabled"] call VIC_fnc_debugLog;
+};
 
 // Prepare anomaly marker tracking
 if (isNil "STALKER_anomalyMarkers") then { STALKER_anomalyMarkers = [] };
@@ -21,7 +24,9 @@ private _spawnWeight = ["VSA_anomalySpawnWeight", 50] call VIC_fnc_getSetting;
 private _permChance  = ["VSA_permanentFieldChance", 50] call VIC_fnc_getSetting;
 private _nightOnly   = ["VSA_anomalyNightOnly", false] call VIC_fnc_getSetting;
 
-if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
+if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {
+    ["spawnAllAnomalyFields: night only"] call VIC_fnc_debugLog;
+};
 
 if (isNil "STALKER_anomalyFields") then { STALKER_anomalyFields = [] };
 
@@ -41,9 +46,27 @@ private _types = [
 ];
 
 for "_i" from 1 to _fieldCount do {
-    if ((count STALKER_anomalyMarkers) >= _maxFields) exitWith {};
+    if ((count STALKER_anomalyMarkers) >= _maxFields) exitWith {
+        ["spawnAllAnomalyFields: max fields reached"] call VIC_fnc_debugLog;
+    };
     if (random 100 >= _spawnWeight) then { continue };
     private _fn = selectRandom _types;
+    private _typeName = switch (_fn) do {
+        case VIC_fnc_createField_burner: "burner";
+        case VIC_fnc_createField_electra: "electra";
+        case VIC_fnc_createField_fruitpunch: "fruitpunch";
+        case VIC_fnc_createField_springboard: "springboard";
+        case VIC_fnc_createField_gravi: "gravi";
+        case VIC_fnc_createField_meatgrinder: "meatgrinder";
+        case VIC_fnc_createField_whirligig: "whirligig";
+        case VIC_fnc_createField_clicker: "clicker";
+        case VIC_fnc_createField_launchpad: "launchpad";
+        case VIC_fnc_createField_leech: "leech";
+        case VIC_fnc_createField_trapdoor: "trapdoor";
+        case VIC_fnc_createField_zapper: "zapper";
+        default {""};
+    };
+    [format ["spawnAllAnomalyFields: attempting %1", _typeName]] call VIC_fnc_debugLog;
     private _permanent = if (_type == -1) then { (random 100) < _permChance } else { _type == 1 };
     private _site = [];
     if (_permanent && {random 100 < 70}) then {
@@ -85,24 +108,15 @@ for "_i" from 1 to _fieldCount do {
             if (!isNull _b) then { _site = getPosATL _b; };
         };
     };
-    private _spawned = if (_site isEqualTo []) then { [_center, _radius] call _fn } else { [_center, _radius, nil, _site] call _fn };
-    if (_spawned isEqualTo []) then { continue };
-    private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
-    private _typeName = switch (_fn) do {
-        case VIC_fnc_createField_burner: "burner";
-        case VIC_fnc_createField_electra: "electra";
-        case VIC_fnc_createField_fruitpunch: "fruitpunch";
-        case VIC_fnc_createField_springboard: "springboard";
-        case VIC_fnc_createField_gravi: "gravi";
-        case VIC_fnc_createField_meatgrinder: "meatgrinder";
-        case VIC_fnc_createField_whirligig: "whirligig";
-        case VIC_fnc_createField_clicker: "clicker";
-        case VIC_fnc_createField_launchpad: "launchpad";
-        case VIC_fnc_createField_leech: "leech";
-        case VIC_fnc_createField_trapdoor: "trapdoor";
-        case VIC_fnc_createField_zapper: "zapper";
-        default {""};
+    if (!(_site isEqualTo [])) then {
+        [format ["spawnAllAnomalyFields: using site %1", _site]] call VIC_fnc_debugLog;
     };
+    private _spawned = if (_site isEqualTo []) then { [_center, _radius] call _fn } else { [_center, _radius, nil, _site] call _fn };
+    if (_spawned isEqualTo []) then {
+        [format ["spawnAllAnomalyFields: %1 failed", _typeName]] call VIC_fnc_debugLog;
+        continue
+    };
+    private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
     private _site   = if (_marker isEqualTo "") then { getPosATL (_spawned select 0) } else { getMarkerPos _marker };
     if (_marker != "") then {
         _marker setMarkerAlpha 0.2;
@@ -113,4 +127,5 @@ for "_i" from 1 to _fieldCount do {
     private _dur = missionNamespace getVariable ["STALKER_AnomalyFieldDuration", 30];
     private _exp = diag_tickTime + (_dur * 60);
     STALKER_anomalyFields pushBack [_center,_radius,_fn,count _spawned,_spawned,_marker,_site,_exp,_permanent];
+    [format ["spawnAllAnomalyFields: spawned %1 %2", count _spawned, _typeName]] call VIC_fnc_debugLog;
 };
