@@ -104,6 +104,13 @@ class CfgFunctions
             class spawnAbandonedVehicles{};
         };
 
+        class Ambushes
+        {
+            file = "Viceroys-STALKER-ALife\functions\ambushes";
+            class spawnAmbushes{};
+            class manageAmbushes{};
+        };
+
 
         class Storms
         {
