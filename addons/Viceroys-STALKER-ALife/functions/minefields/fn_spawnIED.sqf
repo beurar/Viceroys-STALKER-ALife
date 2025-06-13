@@ -17,4 +17,4 @@ private _pos = if (isNull _road) then { _center } else { getPos _road };
 
 private _ied = createMine ["IEDLandSmall_F", _pos, [], 0];
 
-[_ied]
+[_ied];
