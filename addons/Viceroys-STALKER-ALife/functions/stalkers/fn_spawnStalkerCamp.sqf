@@ -34,12 +34,9 @@ private _campfire = "Campfire_burning_F" createVehicle _pos;
 
 private _marker = "";
 if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
-    private _name = format ["camp_%1", diag_tickTime];
-    _marker = createMarker [_name, _pos];
-    _marker setMarkerShape "ICON";
-    _marker setMarkerType "mil_box";
-    _marker setMarkerColor switch (_side) do { case blufor: {"ColorBlue"}; case opfor: {"ColorRed"}; default {"ColorGreen"}; };
-    _marker setMarkerAlpha 0.2;
+    _marker = format ["camp_%1", diag_tickTime];
+    private _color = switch (_side) do { case blufor: {"ColorBlue"}; case opfor: {"ColorRed"}; default {"ColorGreen"}; };
+    [_marker, _pos, "ICON", "mil_box", _color, 0.2] call VIC_fnc_createGlobalMarker;
 };
 
 STALKER_camps pushBack [_campfire, _grp, _pos, _marker, _side];

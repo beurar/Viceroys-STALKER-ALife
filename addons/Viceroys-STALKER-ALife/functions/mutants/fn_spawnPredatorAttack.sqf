@@ -23,11 +23,8 @@ _spawnPos = [_spawnPos] call VIC_fnc_findLandPosition;
 if (_spawnPos isEqualTo []) exitWith {};
 
 if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
-    _spawnMarker = createMarker [format ["pred_%1", diag_tickTime], _spawnPos];
-    _spawnMarker setMarkerShape "ICON";
-    _spawnMarker setMarkerType "mil_dot";
-    _spawnMarker setMarkerColor "ColorRed";
-    _spawnMarker setMarkerText "Predator Spawn";
+    _spawnMarker = format ["pred_%1", diag_tickTime];
+    [_spawnMarker, _spawnPos, "ICON", "mil_dot", "ColorRed", 1, "Predator Spawn"] call VIC_fnc_createGlobalMarker;
 };
 
 private _dogClasses       = ["armst_blinddog1","armst_blinddog2","armst_blinddog3"];
@@ -105,10 +102,7 @@ switch (_type) do {
 [_grp, _player] call BIS_fnc_taskAttack;
 
 private _markerName = format ["pred_%1", diag_tickTime];
-private _marker = createMarker [_markerName, _spawnPos];
-_marker setMarkerShape "ICON";
-_marker setMarkerType "mil_warning";
-_marker setMarkerColor "ColorRed";
-_marker setMarkerAlpha 1;
+private _marker = _markerName;
+[_marker, _spawnPos, "ICON", "mil_warning", "ColorRed", 1] call VIC_fnc_createGlobalMarker;
 
 STALKER_activePredators pushBack [_grp, _player, _marker, true];

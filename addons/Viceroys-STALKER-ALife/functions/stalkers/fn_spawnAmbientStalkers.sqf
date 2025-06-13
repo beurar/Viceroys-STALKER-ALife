@@ -36,12 +36,8 @@ for "_i" from 1 to _groupCount do {
 
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
-        private _name = format ["stk_%1_%2", count STALKER_stalkerGroups, diag_tickTime];
-        _marker = createMarker [_name, _pos];
-        _marker setMarkerShape "ICON";
-        _marker setMarkerType "mil_dot";
-        _marker setMarkerColor "ColorGreen";
-        _marker setMarkerAlpha 0.2;
+        _marker = format ["stk_%1_%2", count STALKER_stalkerGroups, diag_tickTime];
+        [_marker, _pos, "ICON", "mil_dot", "ColorGreen", 0.2] call VIC_fnc_createGlobalMarker;
     };
 
     STALKER_stalkerGroups pushBack [_grp, _marker];
