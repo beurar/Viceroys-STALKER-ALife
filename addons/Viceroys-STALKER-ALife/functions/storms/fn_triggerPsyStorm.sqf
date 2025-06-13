@@ -67,7 +67,9 @@ for "_i" from 1 to _ticks do {
         ["init", _module] call _fncDischarge;
         if (_gasEnabled) then {
             // Spawn a 30m Nova Gas cloud lasting 90 seconds
-            [_surf, 30, 90, 4] call VIC_fnc_spawnChemicalZone;
+            // Convert the surface position from ASL to AGL so the gas spawns on the ground
+            private _agl = ASLToAGL _surf;
+            [_agl, 30, 90, 4] call VIC_fnc_spawnChemicalZone;
         };
     };
 
