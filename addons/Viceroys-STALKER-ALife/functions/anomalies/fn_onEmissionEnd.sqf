@@ -7,7 +7,7 @@
 if (isServer && !isNil "STALKER_anomalyFields") then {
     private _mode = ["VSA_anomalyEmissionMode",1] call VIC_fnc_getSetting;
     {
-        _x params ["_center","_radius","_fn","_count","_objs","_marker","_site"];
+        _x params ["_center","_radius","_fn","_count","_objs","_marker","_site","_exp"];
         { if (!isNull _x) then { deleteVehicle _x; } } forEach _objs;
         if (_marker != "") then {
             deleteMarker _marker;
@@ -26,7 +26,9 @@ if (isServer && !isNil "STALKER_anomalyFields") then {
                 _objs = _spawned;
             };
         };
-        STALKER_anomalyFields set [_forEachIndex, [_center,_radius,_fn,_count,_objs,_marker,_site]];
+        private _dur = missionNamespace getVariable ["STALKER_AnomalyFieldDuration", 30];
+        _exp = diag_tickTime + (_dur * 60);
+        STALKER_anomalyFields set [_forEachIndex, [_center,_radius,_fn,_count,_objs,_marker,_site,_exp]];
     } forEach STALKER_anomalyFields;
 };
 
