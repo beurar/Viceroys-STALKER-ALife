@@ -26,7 +26,7 @@ for "_i" from 1 to _count do {
     for "_j" from 1 to 30 do {
         private _candidate = _center getPos [random _radius, random 360];
         _candidate = [_candidate] call VIC_fnc_findLandPosition;
-        if (_candidate isEqualTo []) then { continue };
+        if (_candidate isEqualTo []) then { continue; };
 
         if (!([_candidate] call VIC_fnc_isWaterPosition)) then {
             if ((nearestLocations [_candidate, ["NameVillage","NameCity","NameCityCapital","NameLocal"], _townDist]) isEqualTo []) then {
@@ -38,7 +38,7 @@ for "_i" from 1 to _count do {
         };
     };
 
-    if (_pos isEqualTo []) then { continue };
+    if (_pos isEqualTo []) then { continue; };
 
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
