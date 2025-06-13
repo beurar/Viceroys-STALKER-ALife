@@ -5,17 +5,19 @@
         and can spawn spooks or zombies.
 
     Params:
-        0: NUMBER - duration of the storm in seconds (default 60)
-        1: NUMBER - strikes spawned each second (default 3)
-        2: NUMBER - damage applied to exposed units per tick (default 0.03)
-        3: BOOL   - enable hallucination effects (default true)
-        4: BOOL   - spawn spook zone when finished (default false)
-        5: BOOL   - spawn zombies when finished (default false)
+        0: NUMBER - duration of the storm in seconds (default 180)
+        1: NUMBER - starting strikes per second (default 2)
+        2: NUMBER - ending strikes per second (default 6)
+        3: NUMBER - damage applied to exposed units per tick (default 0.03)
+        4: BOOL   - enable hallucination effects (default true)
+        5: BOOL   - spawn spook zone when finished (default false)
+        6: BOOL   - spawn zombies when finished (default false)
 */
 
 params [
-    ["_duration", 60],
-    ["_intensity", 3],
+    ["_duration", 180],
+    ["_startIntensity", 2],
+    ["_endIntensity", 6],
     ["_damage", 0.03],
     ["_hallucinations", true],
     ["_spawnSpooks", false],
@@ -31,6 +33,8 @@ _effect ppEffectCommit 0;
 
 private _ticks = floor _duration;
 for "_i" from 1 to _ticks do {
+    private _progress = (_i - 1) / (_ticks max 1);
+    private _currentIntensity = round (_startIntensity + (_endIntensity - _startIntensity) * _progress);
     {
         if (alive _x) then {
             private _from = eyePos _x;
@@ -41,7 +45,7 @@ for "_i" from 1 to _ticks do {
         };
     } forEach allUnits;
 
-    for "_j" from 1 to _intensity do {
+    for "_j" from 1 to _currentIntensity do {
         private _pos = [random worldSize, random worldSize, 0];
         private _surf = [_pos] call VIC_fnc_getSurfacePosition;
         private _module = "diwako_anomalies_main_modulePsyDischarge" createVehicle _surf;
