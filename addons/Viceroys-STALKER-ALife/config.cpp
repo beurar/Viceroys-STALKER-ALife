@@ -73,6 +73,15 @@ class CfgFunctions
             class onEmissionStart{};
             class onEmissionEnd{};
         };
+        class Stalkers
+        {
+            file = "Viceroys-STALKER-ALife\functions\stalkers";
+            class spawnAmbientStalkers{};
+            class spawnStalkerCamp{};
+            class spawnStalkerCamps{};
+            class manageStalkerCamps{};
+        };
+
 
         class Chemical
         {

@@ -39,6 +39,12 @@ player addAction ["Spawn Zombies From Queue", {
 player addAction ["Spawn Ambient Herds", {
     [] remoteExec ["VIC_fnc_spawnAmbientHerds", 2];
 }];
+player addAction ["Spawn Ambient Stalkers", {
+    [] remoteExec ["VIC_fnc_spawnAmbientStalkers", 2];
+}];
+player addAction ["Spawn Stalker Camps", {
+    [getPos player, 300] remoteExec ["VIC_fnc_spawnStalkerCamps", 2];
+}];
 player addAction ["Spawn Predator Attack", {
     [player] remoteExec ["VIC_fnc_spawnPredatorAttack", 2];
 }];
