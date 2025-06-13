@@ -93,9 +93,9 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Duration, lightning and discharge intensity curves, the radius around players for effects, and the delay between storms can all be configured via CBA settings.
 * Works with the emission hook system for mission-specific consequences.
 * Optional Nova Gas clouds spawn at every Psy Discharge by default.
-  Controlled by `VSA_stormGasDischarges`, this creates a 30m zone that
-  appears five seconds after each discharge, lasts 30 seconds, and
-  uses a mist density of 3.
+  Controlled by `VSA_stormGasDischarges`, this creates a 20m zone that
+  appears five seconds after each discharge, lasts 20 seconds, and
+  uses a mist density of 3 with greater vertical spread.
 
 ### Zombification
 * Tracks dead units and may reanimate them as zombies after a delay.

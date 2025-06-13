@@ -58,13 +58,13 @@ for "_i" from 1 to _ticks do {
         private _fncDischarge = missionNamespace getVariable ["diwako_anomalies_main_fnc_modulePsyDischarge", {}];
         ["init", _module] call _fncDischarge;
         if (_gasEnabled) then {
-            // Spawn a 30m Nova mist after the discharge finishes
+            // Spawn a 20m Nova mist with increased vertical spread after the discharge finishes
             // Convert the surface position from ASL to AGL so the gas spawns on the ground
             private _agl = ASLToAGL _surf;
             [_agl] spawn {
                 params ["_pos"];
                 sleep 5;
-                [_pos, 30, 30, 4, -0.1, 3] remoteExec ["CBRN_fnc_spawnMist", 0];
+                [_pos, 20, 20, 4, 1, 3] remoteExec ["CBRN_fnc_spawnMist", 0];
             };
         };
     };
