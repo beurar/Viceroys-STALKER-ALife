@@ -59,8 +59,8 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 
 ### Storms
 * Periodic psy-storms that force players to seek shelter.
-* During a storm random Psy Discharges rain down across the map with Zeus lightning effects.
-* Duration, intensity and the delay between storms can be configured via CBA settings.
+* During a storm random Psy Discharges rain down across the map with Zeus lightning effects that grow more frequent over time.
+* Duration, starting and ending intensity, and the delay between storms can all be configured via CBA settings.
 * Works with the emission hook system for mission-specific consequences.
 
 ### Zombification
