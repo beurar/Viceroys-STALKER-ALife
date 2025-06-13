@@ -45,7 +45,47 @@ for "_i" from 1 to _fieldCount do {
     if (random 100 >= _spawnWeight) then { continue };
     private _fn = selectRandom _types;
     private _permanent = if (_type == -1) then { (random 100) < _permChance } else { _type == 1 };
-    private _spawned = [_center, _radius] call _fn;
+    private _site = [];
+    if (_permanent && {random 100 < 70}) then {
+        private _cats = switch (_fn) do {
+            case VIC_fnc_createField_electra: {
+                [
+                    [["transform","highvoltage","turbine","solar","power","pole"],5],
+                    [["unfinished","construction"],1]
+                ]
+            };
+            case VIC_fnc_createField_fruitpunch: {
+                [
+                    [["pier","dock","wood","slum","shed","reservoir"],4],
+                    [["unfinished","construction"],1]
+                ]
+            };
+            case VIC_fnc_createField_gravi: {
+                [
+                    [["stone","castle","fort","rock"],4],
+                    [["unfinished","construction"],1]
+                ]
+            };
+            case VIC_fnc_createField_clicker: {
+                [
+                    [[""],4,{ params ["_b"]; (nearestLocations [getPosATL _b,["NameCity","NameVillage","NameCityCapital","NameLocal"],500]) isEqualTo [] }],
+                    [["unfinished","construction"],1]
+                ]
+            };
+            case VIC_fnc_createField_leech: {
+                [
+                    [["chapel","church","grave","cemetery"],5],
+                    [["unfinished","construction"],1]
+                ]
+            };
+            default { [] };
+        };
+        if !(_cats isEqualTo []) then {
+            private _b = [_cats] call VIC_fnc_selectWeightedBuilding;
+            if (!isNull _b) then { _site = getPosATL _b; };
+        };
+    };
+    private _spawned = if (_site isEqualTo []) then { [_center, _radius] call _fn } else { [_center, _radius, nil, _site] call _fn };
     if (_spawned isEqualTo []) then { continue };
     private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
     private _typeName = switch (_fn) do {
