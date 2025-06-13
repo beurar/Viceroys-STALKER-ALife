@@ -28,6 +28,12 @@ for "_i" from 1 to 100 do {
     [_pos, 1000] call VIC_fnc_spawnAllAnomalyFields;
 };
 
+// Generate chemical zones across the map
+for "_i" from 1 to 100 do {
+    private _pos = [random worldSize, random worldSize, 0];
+    [_pos, 1000] call VIC_fnc_spawnValleyChemicalZones;
+};
+
 // Generate minefields across the map
 for "_i" from 1 to 50 do {
     private _pos = [random worldSize, random worldSize, 0];

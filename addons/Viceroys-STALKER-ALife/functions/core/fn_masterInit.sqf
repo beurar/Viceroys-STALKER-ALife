@@ -26,6 +26,9 @@ VIC_fnc_avoidAnomalies           = compile preprocessFileLineNumbers (_root + "\
 VIC_fnc_cleanupChemicalZones    = compile preprocessFileLineNumbers (_root + "\functions\chemical\fn_cleanupChemicalZones.sqf");
 VIC_fnc_spawnChemicalZone       = compile preprocessFileLineNumbers (_root + "\functions\chemical\fn_spawnChemicalZone.sqf");
 VIC_fnc_spawnRandomChemicalZones = compile preprocessFileLineNumbers (_root + "\functions\chemical\fn_spawnRandomChemicalZones.sqf");
+VIC_fnc_findValleyPosition      = compile preprocessFileLineNumbers (_root + "\functions\chemical\fn_findValleyPosition.sqf");
+VIC_fnc_spawnValleyChemicalZones = compile preprocessFileLineNumbers (_root + "\functions\chemical\fn_spawnValleyChemicalZones.sqf");
+VIC_fnc_manageChemicalZones     = compile preprocessFileLineNumbers (_root + "\functions\chemical\fn_manageChemicalZones.sqf");
 VIC_fnc_spawnZombiesFromQueue    = compile preprocessFileLineNumbers (_root + "\functions\zombification\fn_spawnZombiesFromQueue.sqf");
 VIC_fnc_trackDeadForZombify      = compile preprocessFileLineNumbers (_root + "\functions\zombification\fn_trackDeadForZombify.sqf");
 VIC_fnc_spawnAllAnomalyFields    = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_spawnAllAnomalyFields.sqf");
@@ -148,6 +151,15 @@ VIC_fnc_manageStalkerCamps     = compile preprocessFileLineNumbers (_root + "\fu
                 sleep 60;
             };
         }, [], 10
+    ] call CBA_fnc_waitAndExecute;
+
+    [
+        {
+            while {true} do {
+                [] call VIC_fnc_manageChemicalZones;
+                sleep 60;
+            };
+        }, [], 13
     ] call CBA_fnc_waitAndExecute;
 
     [
