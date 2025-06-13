@@ -373,6 +373,8 @@ true
 ["VSA_stormLightningEnd","SLIDER",["Lightning End","Lightning strikes per second when storm ends"],"Viceroy's STALKER ALife - Storms",[6,200,12,0]] call CBA_fnc_addSetting;
 ["VSA_stormDischargeStart","SLIDER",["Discharge Start","Psy discharge occurrences per second at storm start"],"Viceroy's STALKER ALife - Storms",[6,200,6,0]] call CBA_fnc_addSetting;
 ["VSA_stormDischargeEnd","SLIDER",["Discharge End","Psy discharge occurrences per second when storm ends"],"Viceroy's STALKER ALife - Storms",[6,200,12,0]] call CBA_fnc_addSetting;
+["VSA_stormFogEnd","SLIDER",["Fog at Peak","Fog level when the storm peaks"],"Viceroy's STALKER ALife - Storms",[0,1,0.6,2]] call CBA_fnc_addSetting;
+["VSA_stormRainEnd","SLIDER",["Rain at Peak","Rain intensity when the storm peaks"],"Viceroy's STALKER ALife - Storms",[0,1,0.8,2]] call CBA_fnc_addSetting;
 
 ["VSA_stormRadius","SLIDER",["Storm Radius","Maximum distance from players for storm effects"],"Viceroy's STALKER ALife - Storms",[100,7500,1500,0]] call CBA_fnc_addSetting;
 

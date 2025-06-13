@@ -84,6 +84,9 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 ### Storms
 * Periodic psy-storms that force players to seek shelter.
 * During a storm lightning and Psy Discharges strike separately across the map. Their frequency ramps up over time.
+* Fog and rain intensify as the storm builds, then fade once it passes.
+* Duration, lightning and discharge intensity curves, and the delay between storms can all be configured via CBA settings.
+* New settings `VSA_stormFogEnd` and `VSA_stormRainEnd` control the maximum fog and rain.
 * Duration, lightning and discharge intensity curves, the radius around players for effects, and the delay between storms can all be configured via CBA settings.
 * Works with the emission hook system for mission-specific consequences.
 

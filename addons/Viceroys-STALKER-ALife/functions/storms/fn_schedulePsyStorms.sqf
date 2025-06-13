@@ -30,6 +30,8 @@ private _lightningStart = ["VSA_stormLightningStart", 6] call VIC_fnc_getSetting
 private _lightningEnd   = ["VSA_stormLightningEnd", 12] call VIC_fnc_getSetting;
 private _dischargeStart = ["VSA_stormDischargeStart", 6] call VIC_fnc_getSetting;
 private _dischargeEnd   = ["VSA_stormDischargeEnd", 12] call VIC_fnc_getSetting;
+private _fogEnd         = ["VSA_stormFogEnd", 0.6] call VIC_fnc_getSetting;
+private _rainEnd        = ["VSA_stormRainEnd", 0.8] call VIC_fnc_getSetting;
 
 _minDelay = ["VSA_stormMinDelay", _minDelay] call VIC_fnc_getSetting;
 _maxDelay = ["VSA_stormMaxDelay", _maxDelay] call VIC_fnc_getSetting;
@@ -37,21 +39,21 @@ _maxDelay = ["VSA_stormMaxDelay", _maxDelay] call VIC_fnc_getSetting;
 if (_minDelay < 0) then { _minDelay = 0; };
 if (_maxDelay < _minDelay) then { _maxDelay = _minDelay; };
 
-[_minDelay, _maxDelay, _manualVar, _spawnWeight, _nightOnly, _duration, _lightningStart, _lightningEnd, _dischargeStart, _dischargeEnd] spawn {
-    params ["_min", "_max", "_var", "_weight", "_night", "_dur", "_lStart", "_lEnd", "_dStart", "_dEnd"];
+[_minDelay, _maxDelay, _manualVar, _spawnWeight, _nightOnly, _duration, _lightningStart, _lightningEnd, _dischargeStart, _dischargeEnd, _fogEnd, _rainEnd] spawn {
+    params ["_min", "_max", "_var", "_weight", "_night", "_dur", "_lStart", "_lEnd", "_dStart", "_dEnd", "_fEnd", "_rEnd"];
     private _nextStorm = time + (_min + random (_max - _min));
     while {true} do {
         if (_var != "" && { missionNamespace getVariable [_var, false] }) then {
             missionNamespace setVariable [_var, false, true];
             if (random 100 < _weight && { !(_night && daytime > 5 && daytime < 20) }) then {
-                [_dur, _lStart, _lEnd, _dStart, _dEnd] call VIC_fnc_triggerPsyStorm;
+                [_dur, _lStart, _lEnd, _dStart, _dEnd, _fEnd, _rEnd] call VIC_fnc_triggerPsyStorm;
             };
             _nextStorm = time + (_min + random (_max - _min));
         };
 
         if (time >= _nextStorm) then {
             if (random 100 < _weight && { !(_night && daytime > 5 && daytime < 20) }) then {
-                [_dur, _lStart, _lEnd, _dStart, _dEnd] call VIC_fnc_triggerPsyStorm;
+                [_dur, _lStart, _lEnd, _dStart, _dEnd, _fEnd, _rEnd] call VIC_fnc_triggerPsyStorm;
             };
             _nextStorm = time + (_min + random (_max - _min));
         };
