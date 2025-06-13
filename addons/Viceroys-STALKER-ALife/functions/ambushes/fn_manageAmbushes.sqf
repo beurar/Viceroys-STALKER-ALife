@@ -24,10 +24,7 @@ private _maxUnits = ["VSA_ambushMaxUnits", 6] call VIC_fnc_getSetting;
 
         if (_mines isEqualTo []) then {
             private _road = nearestRoad _pos;
-            private _dir = 0;
-            if (!isNull _road) then {
-                _dir = getDir _road;
-            };
+            private _dir = if (!isNull _road) then { getDir _road } else { 0 };
             for "_i" from -8 to 8 step 3 do {
                 private _cPos = _pos getPos [_i, _dir];
                 private _left = _cPos getPos [2, _dir + 90];
