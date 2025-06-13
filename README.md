@@ -37,6 +37,8 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
   packs of dogs, herds of boars or even snorks. When night falls chimeras,
   bloodsuckers, cats or pseudodogs stalk their prey. Very rarely a lone goliath
   or crusher may strike.
+* Predator attack checks use separate day and night intervals via
+  `VSA_predatorCheckIntervalDay` and `VSA_predatorCheckIntervalNight`.
 * Mutants no longer use default Arma voices and remain silent when spawned.
 
 ### Mutant Habitats
