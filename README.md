@@ -179,6 +179,31 @@ All functions are contained under the `functions` directory and follow the `TAG_
 
 Mission makers can tweak or remove individual systems as needed. Most features are script-only and do not require placing special modules in the editor, though some settings may be exposed through CBA.
 
+## SQF Syntax
+
+Arma scripts use the SQF language where each statement is terminated with a semicolon (`;`).
+Consistent semicolon placement avoids unexpected behavior when the engine
+parses your files. A typical variable assignment looks like:
+
+```sqf
+private _count = 5;
+_count = _count + 1;
+```
+
+Control structures such as `if` and `for` are also followed by a semicolon after
+their closing brace:
+
+```sqf
+if (_count > 0) then {
+    hint format ["Count is %1", _count];
+};
+```
+
+Omitting the semicolon at the end of a statement can cause subsequent lines to
+be treated as part of the same command, resulting in script errors. Always check
+that every command ends with a semicolon unless it is the last line before a
+preprocessor directive.
+
 ## Dependencies
 
    * [CBA A3](https://github.com/CBATeam/CBA_A3)
