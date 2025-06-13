@@ -106,7 +106,9 @@ private _selectType = {
 
 private _center = [worldSize/2, worldSize/2, 0];
 private _locations = nearestLocations [_center, [], worldSize];
-private _buildings = allMissionObjects "building";
+private _buildings = nearestObjects [_center, ["House"], worldSize];
+_buildings append (allMissionObjects "building");
+_buildings = _buildings arrayIntersect _buildings; // remove duplicates
 
 {
     private _pos = locationPosition _x;
@@ -128,6 +130,7 @@ private _buildings = allMissionObjects "building";
 } forEach _locations;
 
 for "_i" from 1 to 20 do {
+    if (_buildings isEqualTo []) exitWith {};
     private _b = selectRandom _buildings;
     private _pos = getPosATL _b;
     _pos = [_pos, 0, 25, 5, 0, 0, 0] call BIS_fnc_findSafePos;
@@ -161,9 +164,11 @@ private _allTypes = _weightsGeneric apply { _x#0 };
 private _existing = STALKER_mutantHabitats apply { _x#4 };
 {
     if (!(_x in _existing)) then {
-        private _p = getPosATL (selectRandom _buildings);
-        _p = [_p, 0, 25, 5, 0, 0, 0] call BIS_fnc_findSafePos;
-        if (!([_p] call VIC_fnc_isWaterPosition)) then { [_x, _p] call _createMarker; };
+        if !(_buildings isEqualTo []) then {
+            private _p = getPosATL (selectRandom _buildings);
+            _p = [_p, 0, 25, 5, 0, 0, 0] call BIS_fnc_findSafePos;
+            if (!([_p] call VIC_fnc_isWaterPosition)) then { [_x, _p] call _createMarker; };
+        };
     };
 } forEach _allTypes;
 
