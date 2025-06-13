@@ -1,5 +1,7 @@
 /*
     Spawns anomaly fields around a position.
+    Fields persist for `STALKER_AnomalyFieldDuration` minutes before
+    being removed automatically.
     Params:
         0: POSITION or OBJECT - search center
         1: NUMBER            - search radius
@@ -23,34 +25,30 @@ if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 if (isNil "STALKER_anomalyFields") then { STALKER_anomalyFields = [] };
 
 private _types = [
-    [VIC_fnc_createField_burner,      VIC_fnc_findSite_burner],
-    [VIC_fnc_createField_clicker,     VIC_fnc_findSite_clicker],
-    [VIC_fnc_createField_electra,     VIC_fnc_findSite_electra],
-    [VIC_fnc_createField_fruitpunch,  VIC_fnc_findSite_fruitpunch],
-    [VIC_fnc_createField_gravi,       VIC_fnc_findSite_gravi],
-    [VIC_fnc_createField_meatgrinder, VIC_fnc_findSite_meatgrinder],
-    [VIC_fnc_createField_springboard, VIC_fnc_findSite_springboard],
-    [VIC_fnc_createField_whirligig,   VIC_fnc_findSite_whirligig],
-    [VIC_fnc_createField_launchpad,   VIC_fnc_findSite_launchpad],
-    [VIC_fnc_createField_leech,       VIC_fnc_findSite_leech],
-    [VIC_fnc_createField_trapdoor,    VIC_fnc_findSite_trapdoor],
-    [VIC_fnc_createField_zapper,      VIC_fnc_findSite_zapper]
+    VIC_fnc_createField_burner,
+    VIC_fnc_createField_clicker,
+    VIC_fnc_createField_electra,
+    VIC_fnc_createField_fruitpunch,
+    VIC_fnc_createField_gravi,
+    VIC_fnc_createField_meatgrinder,
+    VIC_fnc_createField_springboard,
+    VIC_fnc_createField_whirligig,
+    VIC_fnc_createField_launchpad,
+    VIC_fnc_createField_leech,
+    VIC_fnc_createField_trapdoor,
+    VIC_fnc_createField_zapper
 ];
 
 for "_i" from 1 to _fieldCount do {
     if ((count STALKER_anomalyMarkers) >= _maxFields) exitWith {};
     if (random 100 >= _spawnWeight) then { continue };
-    private _pair  = selectRandom _types;
-    private _fn    = _pair select 0;
-    private _finder = _pair select 1;
-    private _site  = [_center, _radius] call _finder;
-    if (_site isEqualTo []) then { continue };
-    _site = [_site] call VIC_fnc_findLandPosition;
-    if (_site isEqualTo []) then { continue };
-    private _spawned = [_center, _radius, 1, _site] call _fn;
+    private _fn = selectRandom _types;
+    private _spawned = [_center, _radius] call _fn;
     if (_spawned isEqualTo []) then { continue };
     private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
-    { if (!isNull _x) then { deleteVehicle _x; } } forEach _spawned;
+    private _site   = if (_marker isEqualTo "") then { getPosATL (_spawned select 0) } else { getMarkerPos _marker };
     if (_marker != "") then { _marker setMarkerAlpha 0.2; };
-    STALKER_anomalyFields pushBack [_center,_radius,_fn,5,[],_marker,_site];
+    private _dur = missionNamespace getVariable ["STALKER_AnomalyFieldDuration", 30];
+    private _exp = diag_tickTime + (_dur * 60);
+    STALKER_anomalyFields pushBack [_center,_radius,_fn,count _spawned,_spawned,_marker,_site,_exp];
 };

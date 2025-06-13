@@ -21,7 +21,8 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Procedurally spawns anomaly fields using scripts in `functions/anomalies`.
 * Supports common anomaly types like burners, electras, fruit punches and springboards.
 * Relies on **Diwako’s Anomalies** for the core anomaly logic.
-* Map markers are removed when their anomaly field despawns after `STALKER_AnomalyFieldDuration` minutes.
+* Map markers are removed automatically when their anomaly field expires after
+  `STALKER_AnomalyFieldDuration` minutes.
 * Fields are distributed randomly across the entire map.
 * Anomalies only activate when players are nearby and go dormant when no one is in range.
 
@@ -154,7 +155,9 @@ All functions are contained under the `functions` directory and follow the `TAG_
 
 * **VIC_fnc_masterInit** – Initializes all subsystems.
 * **VIC_fnc_registerEmissionHooks** – Adds mission-specific callbacks for storm events.
-* **VIC_fnc_spawnAllAnomalyFields** – Places anomaly fields across the map.
+* **VIC_fnc_spawnAllAnomalyFields** – Places anomaly fields across the map. This
+  mod does not spawn fields automatically; missions must call this function (or
+  use the provided `initServer.sqf`) to populate the world.
 
 Mission makers can tweak or remove individual systems as needed. Most features are script-only and do not require placing special modules in the editor, though some settings may be exposed through CBA.
 
