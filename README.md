@@ -33,8 +33,10 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
   the herd when players come within a configurable nearby range (default 1500
   meters). Their population slowly
   regenerates over time.
-* Rare predator ambushes may spawn a chimera or pack of bloodsuckers at night to
-  hunt nearby players.
+* Predator ambushes now depend on the time of day. Daylight attacks can bring
+  packs of dogs, herds of boars or even snorks. When night falls chimeras,
+  bloodsuckers, cats or pseudodogs stalk their prey. Very rarely a lone goliath
+  or crusher may strike.
 * Mutants no longer use default Arma voices and remain silent when spawned.
 
 ### Mutant Habitats

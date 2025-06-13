@@ -30,13 +30,58 @@ if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
     _spawnMarker setMarkerText "Predator Spawn";
 };
 
-private _chimeraClasses = ["armst_chimera"];
+private _dogClasses       = ["armst_blinddog1","armst_blinddog2","armst_blinddog3"];
+private _boarClasses      = ["armst_boar","armst_boar2"];
+private _snorkClasses     = ["armst_snork"];
+private _pseudodogClasses = ["armst_pseudodog","armst_pseudodog2"];
+private _catClasses       = ["armst_cat"];
+private _chimeraClasses   = ["armst_chimera"];
 private _bloodsuckerClasses = ["armst_krovosos","armst_krovosos2"];
+private _goliathClasses   = ["WBK_Goliaph_3"];
+private _crusherClasses   = ["WBK_SpecialZombie_Smasher_3"];
 
-private _type = selectRandom ["chimera","bloodsucker"];
+private _isNight = !(daytime > 5 && daytime < 20);
+
+private _dayTypes   = ["dog","boar","snork"];
+private _nightTypes = ["chimera","bloodsucker","cat","pseudodog"];
+private _rareTypes  = ["goliath","crusher"];
+
+private _type = if (random 100 < 3) then { selectRandom _rareTypes } else {
+    if (_isNight) then { selectRandom _nightTypes } else { selectRandom _dayTypes }
+};
 private _grp = createGroup east;
 
 switch (_type) do {
+    case "dog": {
+        for "_i" from 1 to 4 do {
+            private _u = _grp createUnit [selectRandom _dogClasses, _spawnPos, [], 0, "FORM"];
+            [_u] call VIC_fnc_initMutantUnit;
+        };
+    };
+    case "boar": {
+        for "_i" from 1 to 3 do {
+            private _u = _grp createUnit [selectRandom _boarClasses, _spawnPos, [], 0, "FORM"];
+            [_u] call VIC_fnc_initMutantUnit;
+        };
+    };
+    case "snork": {
+        for "_i" from 1 to 3 do {
+            private _u = _grp createUnit [selectRandom _snorkClasses, _spawnPos, [], 0, "FORM"];
+            [_u] call VIC_fnc_initMutantUnit;
+        };
+    };
+    case "pseudodog": {
+        for "_i" from 1 to 3 do {
+            private _u = _grp createUnit [selectRandom _pseudodogClasses, _spawnPos, [], 0, "FORM"];
+            [_u] call VIC_fnc_initMutantUnit;
+        };
+    };
+    case "cat": {
+        for "_i" from 1 to 2 do {
+            private _u = _grp createUnit [selectRandom _catClasses, _spawnPos, [], 0, "FORM"];
+            [_u] call VIC_fnc_initMutantUnit;
+        };
+    };
     case "chimera": {
         private _u = _grp createUnit [selectRandom _chimeraClasses, _spawnPos, [], 0, "FORM"];
         [_u] call VIC_fnc_initMutantUnit;
@@ -46,6 +91,14 @@ switch (_type) do {
             private _u = _grp createUnit [selectRandom _bloodsuckerClasses, _spawnPos, [], 0, "FORM"];
             [_u] call VIC_fnc_initMutantUnit;
         };
+    };
+    case "goliath": {
+        private _u = _grp createUnit [selectRandom _goliathClasses, _spawnPos, [], 0, "FORM"];
+        [_u] call VIC_fnc_initMutantUnit;
+    };
+    case "crusher": {
+        private _u = _grp createUnit [selectRandom _crusherClasses, _spawnPos, [], 0, "FORM"];
+        [_u] call VIC_fnc_initMutantUnit;
     };
 };
 
