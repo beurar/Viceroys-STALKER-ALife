@@ -121,6 +121,7 @@ VIC_fnc_setupDebugActions        = compile preprocessFileLineNumbers (_root + "\
 VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markAllBuildings.sqf");
 VIC_fnc_markPlayerRanges        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markPlayerRanges.sqf");
 VIC_fnc_createGlobalMarker     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_createGlobalMarker.sqf");
+VIC_fnc_markDeathLocation      = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markDeathLocation.sqf");
 VIC_fnc_weightedPick           = compile preprocessFileLineNumbers (_root + "\functions\core\fn_weightedPick.sqf");
 VIC_fnc_selectWeightedBuilding = compile preprocessFileLineNumbers (_root + "\functions\core\fn_selectWeightedBuilding.sqf");
 VIC_fnc_spawnAmbientStalkers   = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnAmbientStalkers.sqf");
@@ -249,6 +250,7 @@ VIC_fnc_manageStalkerCamps     = compile preprocessFileLineNumbers (_root + "\fu
 ["EntityKilled", {
     params ["_unit"];
     [_unit] call VIC_fnc_trackDeadForZombify;
+    [_unit] call VIC_fnc_markDeathLocation;
   }] call CBA_fnc_addEventHandler;
 } else {
     ["postInit", {
