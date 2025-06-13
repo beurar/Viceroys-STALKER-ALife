@@ -24,9 +24,9 @@ params [
 
 
 ["triggerPsyStorm"] call VIC_fnc_debugLog;
-private _range = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
 private _startFog = fog;
 private _startRain = rain;
+private _range = ["VSA_stormRadius", 1500] call VIC_fnc_getSetting;
 
 if (count allPlayers == 0) exitWith {};
 
