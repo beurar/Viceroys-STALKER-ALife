@@ -27,7 +27,7 @@ params [
 private _startFog = fog;
 private _startRain = rain;
 private _range = ["VSA_stormRadius", 1500] call VIC_fnc_getSetting;
-private _gasEnabled = ["VSA_stormGasDischarges", false] call VIC_fnc_getSetting;
+private _gasEnabled = ["VSA_stormGasDischarges", true] call VIC_fnc_getSetting;
 
 if (count allPlayers == 0) exitWith {};
 
