@@ -37,7 +37,7 @@ for "_i" from 1 to _count do {
     };
 
     private _expires = if (_duration >= 0) then { diag_tickTime + _duration } else {-1};
-    STALKER_chemicalZones pushBack [_pos,_zoneRadius,objNull,_marker,_expires];
+    STALKER_chemicalZones pushBack [_pos,_zoneRadius,false,_marker,_expires];
 };
 
 true
