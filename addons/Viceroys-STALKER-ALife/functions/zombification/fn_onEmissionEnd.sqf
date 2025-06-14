@@ -5,4 +5,6 @@
 
 ["zombification_onEmissionEnd"] call VIC_fnc_debugLog;
 
+[] call VIC_fnc_spawnZombiesFromQueue;
+
 true
