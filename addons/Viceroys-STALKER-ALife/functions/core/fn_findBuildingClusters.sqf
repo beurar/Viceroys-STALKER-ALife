@@ -1,0 +1,42 @@
+/*
+    Finds clusters of buildings that are at least 1km away from any town or named location.
+
+    Params:
+        0: SCALAR - Min number of buildings to count as a cluster (default: 3)
+        1: SCALAR - Radius for detecting nearby buildings (default: 40m)
+        2: SCALAR - Distance to avoid from towns (default: 1000m)
+        3: SCALAR - Grid step for scanning (default: 500m)
+
+    Returns:
+        ARRAY of ARRAYs - Each subarray is a cluster of building OBJECTS
+*/
+
+params [["_minBuildings", 3], ["_clusterRadius", 40], ["_townClearDist", 1000], ["_step", 500]];
+
+["findBuildingClusters"] call VIC_fnc_debugLog;
+
+private _clusters = [];
+private _locations = nearestLocations [[worldSize / 2, worldSize / 2, 0], worldSize, ["NameCity", "NameVillage", "NameLocal"]];
+
+for "_px" from 0 to worldSize step _step do {
+    for "_py" from 0 to worldSize step _step do {
+        private _scanCenter = [_px, _py, 0];
+
+        // Skip positions too close to a named location
+        private _nearTown = _locations findIf { _scanCenter distance2D (locationPosition _x) < _townClearDist } != -1;
+        if (_nearTown) then { continue; };
+
+        private _nearBuildings = _scanCenter nearObjects ["House", _clusterRadius];
+        private _realBuildings = _nearBuildings select {
+            !isObjectHidden _x &&
+            { getModelInfo _x select 0 != "" } &&
+            { alive _x }
+        };
+
+        if ((count _realBuildings) >= _minBuildings) then {
+            _clusters pushBack _realBuildings;
+        };
+    };
+};
+
+_clusters
