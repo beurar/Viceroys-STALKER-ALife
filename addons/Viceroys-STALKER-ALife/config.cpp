@@ -30,6 +30,7 @@ class CfgFunctions
             class createGlobalMarker{};
             class weightedPick{};
             class selectWeightedBuilding{};
+            class findBridges{};
         };
 
         class AI
