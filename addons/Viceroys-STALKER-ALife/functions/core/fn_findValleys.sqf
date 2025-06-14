@@ -31,7 +31,15 @@ for "_x" from 0 to worldSize step _step do {
         private _validCount = 0;
 
         {
-            if (_x inArea [[worldSize/2, worldSize/2], worldSize/2, worldSize/2]) then {
+            if (
+                _x inArea [
+                    [worldSize/2, worldSize/2, 0],
+                    worldSize/2,
+                    worldSize/2,
+                    0,
+                    false
+                ]
+            ) then {
                 _avgNeighborHeight = _avgNeighborHeight + (getTerrainHeightASL _x);
                 _validCount = _validCount + 1;
             };
