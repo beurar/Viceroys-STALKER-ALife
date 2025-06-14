@@ -60,3 +60,7 @@ for "_i" from 1 to _iedCount do {
     STALKER_minefields pushBack [_pos,"IED",0,[],_marker];
 };
 
+if !(missionNamespace getVariable ["VIC_minefieldManagerRunning", false]) then {
+    [] call VIC_fnc_startMinefieldManager;
+};
+
