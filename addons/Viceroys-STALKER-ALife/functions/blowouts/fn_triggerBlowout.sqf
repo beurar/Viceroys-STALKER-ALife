@@ -25,6 +25,11 @@ _speedMax = ["VSA_blowoutSpeedMax", _speedMax] call VIC_fnc_getSetting;
 
 if (!isServer) exitWith {};
 
+// ensure the TTS emission module is loaded
+if (isNil "tts_emission_fnc_startRandomEmissions") exitWith {
+    ["TTS emission module missing, aborting blowout"] call VIC_fnc_debugLog;
+};
+
 private _duration = _minDur + random (_maxDur - _minDur);
 
 missionNamespace setVariable ["TTS_EMISSION_DIRECTION", _dir, true];
@@ -38,4 +43,4 @@ publicVariable "tts_emission_randomEmissions";
 [_duration + 5, {
     tts_emission_randomEmissions = false;
     publicVariable "tts_emission_randomEmissions";
-}] call CBA_fnc_waitAndExecute;
+}, []] call CBA_fnc_waitAndExecute;
