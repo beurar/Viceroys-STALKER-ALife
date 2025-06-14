@@ -397,10 +397,30 @@ true
 ["VSA_stormGasVertical","SLIDER",["Gas Vertical Spread","Vertical spread of the mist"],"Viceroy's STALKER ALife - Storms",[-2,2,1,2]] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
+// Blowouts
+// -----------------------------------------------------------------------------
+[
+    "VSA_enableBlowouts",
+    "CHECKBOX",
+    ["Enable Blowouts", "Toggle emission blowouts"],
+    "Viceroy's STALKER ALife - Blowouts",
+    true
+] call CBA_fnc_addSetting;
+
+["VSA_blowoutMinDelay","SLIDER",["Min Delay (h)","Minimum hours between blowouts"],"Viceroy's STALKER ALife - Blowouts",[0,168,12,0]] call CBA_fnc_addSetting;
+["VSA_blowoutMaxDelay","SLIDER",["Max Delay (h)","Maximum hours between blowouts"],"Viceroy's STALKER ALife - Blowouts",[0,168,72,0]] call CBA_fnc_addSetting;
+["VSA_blowoutDurationMin","SLIDER",["Min Duration (s)","Shortest blowout length"],"Viceroy's STALKER ALife - Blowouts",[60,3600,300,0]] call CBA_fnc_addSetting;
+["VSA_blowoutDurationMax","SLIDER",["Max Duration (s)","Longest blowout length"],"Viceroy's STALKER ALife - Blowouts",[60,3600,900,0]] call CBA_fnc_addSetting;
+["VSA_blowoutDirection","SLIDER",["Wave Direction","Approach direction in degrees"],"Viceroy's STALKER ALife - Blowouts",[0,359,0,0]] call CBA_fnc_addSetting;
+["VSA_blowoutSpeedMin","SLIDER",["Wave Speed Min","Minimum wave speed"],"Viceroy's STALKER ALife - Blowouts",[50,300,125,0]] call CBA_fnc_addSetting;
+["VSA_blowoutSpeedMax","SLIDER",["Wave Speed Max","Maximum wave speed"],"Viceroy's STALKER ALife - Blowouts",[50,300,125,0]] call CBA_fnc_addSetting;
+
+// -----------------------------------------------------------------------------
 // Overcast behaviour
 // -----------------------------------------------------------------------------
 ["VSA_stormOvercast","SLIDER",["Storm Overcast","Cloud coverage during a storm"],"Viceroy's STALKER ALife - Storms",[0,1,1,2]] call CBA_fnc_addSetting;
 ["VSA_stormOvercastTime","SLIDER",["Overcast Transition (s)","Seconds to reach full overcast"],"Viceroy's STALKER ALife - Storms",[0,300,60,0]] call CBA_fnc_addSetting;
+
 
 // -----------------------------------------------------------------------------
 // Zombification

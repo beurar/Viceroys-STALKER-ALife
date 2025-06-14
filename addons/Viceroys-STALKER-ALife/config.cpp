@@ -122,7 +122,13 @@ class CfgFunctions
             class spawnAmbushes{};
             class manageAmbushes{};
         };
-
+        class Blowouts
+        {
+            file = "Viceroys-STALKER-ALife\functions\blowouts";
+            class scheduleBlowouts{};
+            class triggerBlowout{};
+            class placeTownSirens{};
+        };
 
         class Storms
         {

@@ -62,6 +62,9 @@ VIC_fnc_createField_trapdoor    = compile preprocessFileLineNumbers (_root + "\f
 VIC_fnc_createField_zapper      = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fields\fn_createField_zapper.sqf");
 VIC_fnc_schedulePsyStorms        = compile preprocessFileLineNumbers (_root + "\functions\storms\fn_schedulePsyStorms.sqf");
 VIC_fnc_triggerPsyStorm          = compile preprocessFileLineNumbers (_root + "\functions\storms\fn_triggerPsyStorm.sqf");
+VIC_fnc_scheduleBlowouts         = compile preprocessFileLineNumbers (_root + "\functions\blowouts\fn_scheduleBlowouts.sqf");
+VIC_fnc_triggerBlowout           = compile preprocessFileLineNumbers (_root + "\functions\blowouts\fn_triggerBlowout.sqf");
+VIC_fnc_placeTownSirens          = compile preprocessFileLineNumbers (_root + "\functions\blowouts\fn_placeTownSirens.sqf");
 VIC_fnc_setupSpookZones          = compile preprocessFileLineNumbers (_root + "\functions\spooks\fn_setupSpookZones.sqf");
 VIC_fnc_spawnSpookZone           = compile preprocessFileLineNumbers (_root + "\functions\spooks\fn_spawnSpookZone.sqf");
 VIC_fnc_spawnMutantGroup         = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnMutantGroup.sqf");
@@ -143,6 +146,8 @@ VIC_fnc_completeChemSample   = compile preprocessFileLineNumbers (_root + "\func
 ["postInit", {
     [] call VIC_fnc_registerEmissionHooks;
     [] call VIC_fnc_schedulePsyStorms;
+    [] call VIC_fnc_scheduleBlowouts;
+    [] call VIC_fnc_placeTownSirens;
     [] call VIC_fnc_setupMutantHabitats;
     [] call VIC_fnc_spawnAmbientStalkers;
     [] call VIC_fnc_spawnStalkerCamps;
