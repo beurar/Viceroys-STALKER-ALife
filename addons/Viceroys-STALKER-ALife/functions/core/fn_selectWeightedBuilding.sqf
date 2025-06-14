@@ -12,8 +12,9 @@ private _options = [];
 {
     _x params ["_words","_weight",["_cond",{true}]];
     private _subset = _all select {
-        private _type = toLower (typeOf _x);
-        ({ _type find _x2 > -1 } count _words > 0) && { [_x] call _cond };
+        private _building = _x;
+        private _type = toLower (typeOf _building);
+        ({ _type find _x > -1 } count _words > 0) && { [_building] call _cond };
     };
     if (!(_subset isEqualTo [])) then {
         _options pushBack [_subset,_weight];
