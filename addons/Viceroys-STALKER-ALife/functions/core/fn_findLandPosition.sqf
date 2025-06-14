@@ -20,7 +20,23 @@ _base params [["_bx",0],["_by",0],["_bz",0]];
 _base = [_bx,_by,_bz];
 
 for "_i" from 0 to _attempts do {
-    private _candidate = if (_i == 0) then { _base } else { [_base, random _radius, random 360] call BIS_fnc_relPos };
-    if (!(_candidate call VIC_fnc_isWaterPosition)) exitWith { _candidate };
+    private _candidate = if (_i == 0) then {
+        _base
+    } else {
+        [_base, random _radius, random 360] call BIS_fnc_relPos
+    };
+
+    private _surf = [_candidate] call VIC_fnc_getLandSurfacePosition;
+    if (!(_surf isEqualTo [])) exitWith { ASLToAGL _surf };
+};
+
+// if nothing found, try a wider search once
+if (_radius < 200) then { _radius = _radius * 1.5 };
+if (_attempts < 20) then { _attempts = _attempts + 5 };
+
+for "_i" from 0 to _attempts do {
+    private _candidate = [_base, random _radius, random 360] call BIS_fnc_relPos;
+    private _surf = [_candidate] call VIC_fnc_getLandSurfacePosition;
+    if (!(_surf isEqualTo [])) exitWith { ASLToAGL _surf };
 };
 []
