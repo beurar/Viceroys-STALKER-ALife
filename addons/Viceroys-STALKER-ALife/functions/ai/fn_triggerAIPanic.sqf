@@ -3,7 +3,7 @@
     Author: Viceroy's STALKER ALife
     Description:
         Sends nearby AI units into a panic state during emission buildup.
-        Units will try to move inside the nearest building or trench.
+        Units will seek out a building within 300 meters and garrison it.
 
     Parameter(s):
         0: <ARRAY> (Optional) Array of AI units to affect. Defaults to all non-player units.
@@ -49,9 +49,13 @@ private _groups = [];
 {
     private _grp = _x;
     private _leader = leader _grp;
-    if (!alive _leader) then { continue }; 
-    private _building = nearestBuilding _leader;
-    if (isNull _building) then { continue };
+    if (!alive _leader) then { continue };
+
+    // Find the nearest building within 300m for the group to garrison
+    private _searchRadius = 300;
+    private _buildings = nearestObjects [_leader, ["House"], _searchRadius];
+    if (_buildings isEqualTo []) then { continue };
+    private _building = _buildings select 0;
 
     private _pos = getPosATL _building;
     private _hasPlayers = count (allPlayers select { _x distance _building < 15 }) > 0;
@@ -64,7 +68,7 @@ private _groups = [];
         };
     } else {
         if (isClass (configFile >> "CfgPatches" >> "lambs_danger")) then {
-            [_grp, _pos, 50, [], false, true, 0, false] call lambs_wp_fnc_taskGarrison;
+            [_grp, _pos, 300, [], false, true, 0, false] call lambs_wp_fnc_taskGarrison;
         } else {
             [_grp, _pos] call BIS_fnc_taskDefend;
         };
