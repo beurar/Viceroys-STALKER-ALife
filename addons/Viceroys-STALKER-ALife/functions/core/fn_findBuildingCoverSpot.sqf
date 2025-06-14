@@ -29,7 +29,7 @@ private _nearBuildings = _playerPos nearObjects ["House", _searchRadius];
 
     if (
         !surfaceIsWater _hiddenPos &&
-        [ _player, "VIEW" ] checkVisibility [ _player eyePos, _hiddenPos ] < 0.05
+        [ _player, "VIEW" ] checkVisibility [ eyePos _player, _hiddenPos ] < 0.05
     ) exitWith {
         _hiddenPos
     };

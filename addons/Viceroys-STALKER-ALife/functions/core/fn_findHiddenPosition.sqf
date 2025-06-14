@@ -34,7 +34,7 @@ private _validSpots = [];
         private _seen = false;
 
         {
-            if ([ _x, "VIEW" ] checkVisibility [ _x eyePos, _pos ] > 0.1) exitWith {
+            if ([ _x, "VIEW" ] checkVisibility [ eyePos _x, _pos ] > 0.1) exitWith {
                 _seen = true;
             };
         } forEach _players;
