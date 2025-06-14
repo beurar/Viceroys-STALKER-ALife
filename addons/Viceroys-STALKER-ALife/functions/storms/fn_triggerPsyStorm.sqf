@@ -41,18 +41,18 @@ if (_stepsOvercast > 0) then {
     for "_i" from 1 to _stepsOvercast do {
         private _prog = _i / (_stepsOvercast max 1);
         private _current = _startOvercast + (_overcastEnd - _startOvercast) * _prog;
-        0 setOvercast _current;
+        0 setOvercast _current; forceWeatherChange;
         sleep 1;
     };
 } else {
-    0 setOvercast _overcastEnd;
+    0 setOvercast _overcastEnd; forceWeatherChange;
 };
 
 if (count allPlayers == 0) exitWith {};
 
 private _ticks = floor _duration;
 for "_i" from 1 to _ticks do {
-    0 setOvercast _overcastEnd;
+    0 setOvercast _overcastEnd; forceWeatherChange;
     private _progress = (_i - 1) / (_ticks max 1);
     private _currentLightning = round (_lightningStart + (_lightningEnd - _lightningStart) * _progress);
     private _currentDischarge = round (_dischargeStart + (_dischargeEnd - _dischargeStart) * _progress);
@@ -102,9 +102,9 @@ if (_stepsOvercast > 0) then {
     for "_i" from 1 to _stepsOvercast do {
         private _prog = _i / (_stepsOvercast max 1);
         private _current = _overcastEnd + (_startOvercast - _overcastEnd) * _prog;
-        0 setOvercast _current;
+        0 setOvercast _current; forceWeatherChange;
         sleep 1;
     };
 };
-0 setOvercast _startOvercast;
+0 setOvercast _startOvercast; forceWeatherChange;
 
