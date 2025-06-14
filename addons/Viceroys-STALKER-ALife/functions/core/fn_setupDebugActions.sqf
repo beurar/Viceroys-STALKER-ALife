@@ -83,6 +83,7 @@ player addAction ["Mark Beach Spots", { [] call VIC_fnc_markBeaches }];
 player addAction ["Mark Valleys", { [] call VIC_fnc_markValleys }];
 player addAction ["Mark Building Clusters", { [] call VIC_fnc_markBuildingClusters }];
 player addAction ["Mark Hidden Spot", { [] call VIC_fnc_markHiddenPosition }];
+player addAction ["Mark Building Cover", { [] call VIC_fnc_markBuildingCoverSpot }];
 
 ["Debug actions added"] call VIC_fnc_debugLog;
 
