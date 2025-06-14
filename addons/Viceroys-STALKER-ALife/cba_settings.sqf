@@ -397,6 +397,12 @@ true
 ["VSA_stormGasVertical","SLIDER",["Gas Vertical Spread","Vertical spread of the mist"],"Viceroy's STALKER ALife - Storms",[-2,2,1,2]] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
+// Overcast behaviour
+// -----------------------------------------------------------------------------
+["VSA_stormOvercast","SLIDER",["Storm Overcast","Cloud coverage during a storm"],"Viceroy's STALKER ALife - Storms",[0,1,1,2]] call CBA_fnc_addSetting;
+["VSA_stormOvercastTime","SLIDER",["Overcast Transition (s)","Seconds to reach full overcast"],"Viceroy's STALKER ALife - Storms",[0,300,60,0]] call CBA_fnc_addSetting;
+
+// -----------------------------------------------------------------------------
 // Zombification
 // -----------------------------------------------------------------------------
 [
