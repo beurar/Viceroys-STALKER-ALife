@@ -26,11 +26,8 @@ if (_site isEqualTo []) exitWith {
 
 if (isNil "STALKER_anomalyMarkers") then { STALKER_anomalyMarkers = [] };
 private _markerName = format ["anom_bridge_%1", diag_tickTime];
-private _marker = createMarker [_markerName, _site];
-_marker setMarkerShape "ELLIPSE";
+private _marker = [_markerName, _site, "ELLIPSE", "", "ColorBlue", 1, "Bridge Electra 30m"] call VIC_fnc_createGlobalMarker;
 _marker setMarkerSize [30,30];
-_marker setMarkerColor "ColorBlue";
-_marker setMarkerText "Bridge Electra 30m";
 STALKER_anomalyMarkers pushBack _marker;
 
 private _spawned = [];

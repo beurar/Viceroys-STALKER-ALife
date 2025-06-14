@@ -27,12 +27,8 @@ if (_site isEqualTo []) exitWith {
 // Create a marker for this anomaly field
 if (isNil "STALKER_anomalyMarkers") then { STALKER_anomalyMarkers = [] };
 private _markerName = format ["anom_whirligig_%1", diag_tickTime];
-private _marker = createMarker [_markerName, _site];
-_marker setMarkerShape "ELLIPSE";
+private _marker = [_markerName, _site, "ELLIPSE", "", "ColorWhite", 1, "Whirligig 30m"] call VIC_fnc_createGlobalMarker;
 _marker setMarkerSize [30,30];
-// Whirligig fields are marked with white
-_marker setMarkerColor "ColorWhite";
-_marker setMarkerText "Whirligig 30m";
 STALKER_anomalyMarkers pushBack _marker;
 
 private _spawned = [];
