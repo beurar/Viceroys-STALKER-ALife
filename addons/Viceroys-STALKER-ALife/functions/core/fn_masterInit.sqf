@@ -104,6 +104,7 @@ VIC_fnc_startMinefieldManager  = compile preprocessFileLineNumbers (_root + "\fu
 VIC_fnc_spawnAmbushes          = compile preprocessFileLineNumbers (_root + "\functions\ambushes\fn_spawnAmbushes.sqf");
 VIC_fnc_manageAmbushes         = compile preprocessFileLineNumbers (_root + "\functions\ambushes\fn_manageAmbushes.sqf");
 VIC_fnc_startAmbushManager     = compile preprocessFileLineNumbers (_root + "\functions\ambushes\fn_startAmbushManager.sqf");
+VIC_fnc_setupAnomalyFields      = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_setupAnomalyFields.sqf");
 VIC_fnc_spawnAmbientHerds        = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnAmbientHerds.sqf");
 VIC_fnc_setupMutantHabitats      = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_setupMutantHabitats.sqf");
 VIC_fnc_spawnMutantNest         = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnMutantNest.sqf");
@@ -169,6 +170,7 @@ VIC_fnc_completeChemSample   = compile preprocessFileLineNumbers (_root + "\func
     [] call VIC_fnc_schedulePsyStorms;
     [] call VIC_fnc_scheduleBlowouts;
     [] call VIC_fnc_placeTownSirens;
+    [] call VIC_fnc_setupAnomalyFields;
     [] call VIC_fnc_setupMutantHabitats;
     [] call VIC_fnc_spawnAmbientStalkers;
     [] call VIC_fnc_spawnStalkerCamps;
