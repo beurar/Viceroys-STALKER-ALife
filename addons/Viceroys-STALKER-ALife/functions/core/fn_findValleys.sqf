@@ -2,14 +2,14 @@
     Identifies valley-like positions based on relative terrain elevation.
 
     Params:
-        0: SCALAR - Sampling step size (default: 500m grid)
+        0: SCALAR - Sampling step size (default: 250m grid)
         1: SCALAR - Elevation threshold in meters to be "lower than surrounding" (default: 15m)
 
     Returns:
         ARRAY of POSITIONs - Valley center candidates
 */
 
-params [["_step", 500], ["_depthThreshold", 15]];
+params [["_step", 250], ["_depthThreshold", 15]];
 
 ["findValleys"] call VIC_fnc_debugLog;
 
