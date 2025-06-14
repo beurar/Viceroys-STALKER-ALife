@@ -78,6 +78,10 @@ player addAction ["Cycle Habitats", {
 player addAction ["Mark All Buildings", { [] call VIC_fnc_markAllBuildings }];
 player addAction ["Mark Rock Clusters", { [] call VIC_fnc_markRockClusters }];
 player addAction ["Mark Sniper Spots", { [] call VIC_fnc_markSniperSpots }];
+player addAction ["Mark Swamps", { [] call VIC_fnc_markSwamps }];
+player addAction ["Mark Beach Spots", { [] call VIC_fnc_markBeaches }];
+player addAction ["Mark Valleys", { [] call VIC_fnc_markValleys }];
+player addAction ["Mark Building Clusters", { [] call VIC_fnc_markBuildingClusters }];
 
 ["Debug actions added"] call VIC_fnc_debugLog;
 
