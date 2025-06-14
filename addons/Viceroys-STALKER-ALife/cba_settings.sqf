@@ -415,6 +415,9 @@ true
 ["VSA_blowoutSpeedMin","SLIDER",["Wave Speed Min","Minimum wave speed"],"Viceroy's STALKER ALife - Blowouts",[50,300,125,0]] call CBA_fnc_addSetting;
 ["VSA_blowoutSpeedMax","SLIDER",["Wave Speed Max","Maximum wave speed"],"Viceroy's STALKER ALife - Blowouts",[50,300,125,0]] call CBA_fnc_addSetting;
 
+// kill AI units caught outside during a blowout
+["VSA_killAIEmission","CHECKBOX",["Kill Unsheltered AI","AI without shelter die during a blowout"],"Viceroy's STALKER ALife - Blowouts",true] call CBA_fnc_addSetting;
+
 // -----------------------------------------------------------------------------
 // Overcast behaviour
 // -----------------------------------------------------------------------------
