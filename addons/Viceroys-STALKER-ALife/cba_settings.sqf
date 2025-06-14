@@ -137,6 +137,13 @@
     [0, 250, 50, 0]
 ] call CBA_fnc_addSetting;
 
+["VSA_chemicalGasType",
+ "LIST",
+ ["Chemical Gas Type", "Gas used for chemical zones"],
+ "Viceroy's STALKER ALife - Chemical",
+ [[0,1,2,3,4],["CS","Asphyxiant","Nerve","Blister","Nova"],1]
+] call CBA_fnc_addSetting;
+
 [
     "VSA_emissionChemicalCount",
     "SLIDER",

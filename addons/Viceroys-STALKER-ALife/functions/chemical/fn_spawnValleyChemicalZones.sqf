@@ -23,21 +23,14 @@ private _zoneRadius = ["VSA_chemicalZoneRadius", 50] call VIC_fnc_getSetting;
 if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 
 for "_i" from 1 to _count do {
-    private _base = _center getPos [random _radius, random 360];
+    private _centerPos = if (_center isEqualType objNull) then { getPos _center } else { _center };
+    private _ang = random 360;
+    private _dist = random _radius;
+    private _base = [(_centerPos select 0) + _dist * sin _ang, (_centerPos select 1) + _dist * cos _ang, _centerPos select 2];
     private _pos = [_base, 30, 10] call VIC_fnc_findValleyPosition;
     if (_pos isEqualTo []) then { continue };
 
-    private _marker = "";
-    if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
-        _marker = createMarker [format ["chem_%1", diag_tickTime + _i], ASLtoATL _pos];
-        _marker setMarkerShape "ELLIPSE";
-        _marker setMarkerSize [_zoneRadius,_zoneRadius];
-        _marker setMarkerColor "ColorGreen";
-        _marker setMarkerAlpha 0.2;
-    };
-
-    private _expires = if (_duration >= 0) then { diag_tickTime + _duration } else {-1};
-    STALKER_chemicalZones pushBack [_pos,_zoneRadius,false,_marker,_expires];
+    [_pos, _zoneRadius, _duration] call VIC_fnc_spawnChemicalZone;
 };
 
 true
