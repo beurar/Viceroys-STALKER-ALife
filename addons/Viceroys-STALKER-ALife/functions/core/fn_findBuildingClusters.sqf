@@ -19,8 +19,8 @@ private _clusters = [];
 // Include all relevant town location types
 private _locations = nearestLocations [
     [worldSize / 2, worldSize / 2, 0],
-    worldSize,
-    ["NameVillage", "NameCity", "NameCityCapital", "NameLocal"]
+    ["NameVillage", "NameCity", "NameCityCapital", "NameLocal"],
+    worldSize
 ];
 
 for "_px" from 0 to worldSize step _step do {
