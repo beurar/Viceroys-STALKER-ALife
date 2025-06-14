@@ -53,7 +53,9 @@ if (_duration < 0) then {
 private _agl = ASLToAGL _position;
 
 // Spawn the mist cloud across all machines
-[_agl, _radius, _duration, _chemType, _verticleSpread, _thickness] remoteExec ["CBRN_fnc_spawnMist", 0];
+// Spawn the mist across all clients
+[_agl, _radius, _duration, _chemType, _verticleSpread, _thickness]
+    remoteExec ["CBRN_fnc_spawnMist", 0];
 
 // Create and configure a map marker for this chemical zone
 private _markerName = format ["chem_%1", diag_tickTime];
@@ -77,4 +79,4 @@ STALKER_chemicalZones pushBack [
     _expires
 ];
 
-true
+true;
