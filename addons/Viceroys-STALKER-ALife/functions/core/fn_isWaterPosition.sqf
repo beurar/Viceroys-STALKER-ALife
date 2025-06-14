@@ -1,15 +1,17 @@
 /*
     Returns true if the given position is water.
     Params:
-        0: ARRAY - position [x,y,z] or [x,y]
+        0: ARRAY or OBJECT - position [x,y,z] or object
     Returns:
         BOOL - true if water surface
 */
-// Accepts either [x,y] or [x,y,z] and normalises to 3D
-if !(_this isEqualType []) exitWith { false };
-if ((count _this) < 2) exitWith { false };
 
-_this params ["_x","_y",["_z",0]];
+// allow passing an object directly
+private _pos = if (_this isEqualType objNull) then { getPos _this } else { _this };
+if !(_pos isEqualType []) exitWith { false };
+if ((count _pos) < 2) exitWith { false };
+
+_pos params [["_x",0],["_y",0],["_z",0]];
 
 private _asl = AGLToASL [_x,_y,_z];
 (surfaceIsWater _asl)
