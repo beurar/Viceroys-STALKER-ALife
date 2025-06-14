@@ -10,6 +10,10 @@
         2: NUMBER - lightning strikes per second when storm ends (default 12)
         3: NUMBER - discharge occurrences per second at storm start (default 6)
         4: NUMBER - discharge occurrences per second when storm ends (default 12)
+        5: NUMBER - fog level when the storm peaks (default 0.6)
+        6: NUMBER - rain intensity when the storm peaks (default 0.8)
+        7: NUMBER - overcast level during the storm (default 1)
+        8: NUMBER - seconds to reach full overcast before strikes (default 60)
 */
 
 params [
@@ -19,20 +23,36 @@ params [
     ["_dischargeStart", 6],
     ["_dischargeEnd", 12],
     ["_fogEnd", 0.6],
-    ["_rainEnd", 0.8]
+    ["_rainEnd", 0.8],
+    ["_overcastEnd", 1],
+    ["_overcastTime", 60]
 ];
 
 
 ["triggerPsyStorm"] call VIC_fnc_debugLog;
 private _startFog = fog;
 private _startRain = rain;
+private _startOvercast = overcast;
 private _range = ["VSA_stormRadius", 1500] call VIC_fnc_getSetting;
 private _gasEnabled = ["VSA_stormGasDischarges", true] call VIC_fnc_getSetting;
+
+private _stepsOvercast = floor _overcastTime;
+if (_stepsOvercast > 0) then {
+    for "_i" from 1 to _stepsOvercast do {
+        private _prog = _i / (_stepsOvercast max 1);
+        private _current = _startOvercast + (_overcastEnd - _startOvercast) * _prog;
+        0 setOvercast _current;
+        sleep 1;
+    };
+} else {
+    0 setOvercast _overcastEnd;
+};
 
 if (count allPlayers == 0) exitWith {};
 
 private _ticks = floor _duration;
 for "_i" from 1 to _ticks do {
+    0 setOvercast _overcastEnd;
     private _progress = (_i - 1) / (_ticks max 1);
     private _currentLightning = round (_lightningStart + (_lightningEnd - _lightningStart) * _progress);
     private _currentDischarge = round (_dischargeStart + (_dischargeEnd - _dischargeStart) * _progress);
@@ -78,4 +98,13 @@ for "_i" from 1 to _ticks do {
 
 0 setFog _startFog;
 0 setRain _startRain;
+if (_stepsOvercast > 0) then {
+    for "_i" from 1 to _stepsOvercast do {
+        private _prog = _i / (_stepsOvercast max 1);
+        private _current = _overcastEnd + (_startOvercast - _overcastEnd) * _prog;
+        0 setOvercast _current;
+        sleep 1;
+    };
+};
+0 setOvercast _startOvercast;
 
