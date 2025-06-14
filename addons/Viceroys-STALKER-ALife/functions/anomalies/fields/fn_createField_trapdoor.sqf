@@ -27,12 +27,8 @@ if (_site isEqualTo []) exitWith {
 // Create a marker for this anomaly field
 if (isNil "STALKER_anomalyMarkers") then { STALKER_anomalyMarkers = [] };
 private _markerName = format ["anom_trapdoor_%1", diag_tickTime];
-private _marker = createMarker [_markerName, _site];
-_marker setMarkerShape "ELLIPSE";
-    _marker setMarkerSize [30,30];
-    // Replace dark green with standard green for clarity
-    _marker setMarkerColor "ColorGreen";
-_marker setMarkerText "Trapdoor 30m";
+private _marker = [_markerName, _site, "ELLIPSE", "", "ColorGreen", 1, "Trapdoor 30m"] call VIC_fnc_createGlobalMarker;
+_marker setMarkerSize [30,30];
 STALKER_anomalyMarkers pushBack _marker;
 
 private _spawned = [];
