@@ -110,6 +110,7 @@ class CfgFunctions
             class spawnAPERSField{};
             class spawnIED{};
             class manageMinefields{};
+            class startMinefieldManager{};
         };
         class Wrecks
         {
@@ -122,6 +123,7 @@ class CfgFunctions
             file = "Viceroys-STALKER-ALife\functions\ambushes";
             class spawnAmbushes{};
             class manageAmbushes{};
+            class startAmbushManager{};
         };
         class Blowouts
         {

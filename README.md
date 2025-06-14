@@ -77,7 +77,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 ### Minefields
 * Generates APERS minefields on town outskirts and single IEDs on roads. These no longer spawn automatically on mission start.
 * Mines despawn when no players are nearby and respawn when someone approaches.
-* Enable debug mode to visualize fields and place test minefields via the action menu. Ambush sites can also be spawned this way.
+* Enable debug mode to visualize fields and place test minefields via the action menu. Ambush sites can also be spawned this way. Use the new actions to start the minefield and ambush managers when testing.
 * Abandoned and damaged vehicles may appear on or near roads.
 * Fallen players leave a red X marker that vanishes once the body is removed.
 
