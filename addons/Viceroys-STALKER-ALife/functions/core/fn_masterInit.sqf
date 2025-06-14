@@ -129,6 +129,13 @@ VIC_fnc_spawnStalkerCamp       = compile preprocessFileLineNumbers (_root + "\fu
 VIC_fnc_spawnStalkerCamps      = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnStalkerCamps.sqf");
 VIC_fnc_manageStalkerCamps     = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_manageStalkerCamps.sqf");
 
+VIC_fnc_isAntistasiUltimate  = compile preprocessFileLineNumbers (_root + "\functions\antistasi\fn_isAntistasiUltimate.sqf");
+VIC_fnc_startMutantHunt      = compile preprocessFileLineNumbers (_root + "\functions\antistasi\fn_startMutantHunt.sqf");
+VIC_fnc_startArtefactHunt    = compile preprocessFileLineNumbers (_root + "\functions\antistasi\fn_startArtefactHunt.sqf");
+VIC_fnc_startChemSample      = compile preprocessFileLineNumbers (_root + "\functions\antistasi\fn_startChemSample.sqf");
+VIC_fnc_completeArtefactHunt = compile preprocessFileLineNumbers (_root + "\functions\antistasi\fn_completeArtefactHunt.sqf");
+VIC_fnc_completeChemSample   = compile preprocessFileLineNumbers (_root + "\functions\antistasi\fn_completeChemSample.sqf");
+
 
 // --- PostInit ---------------------------------------------------------------
 ["postInit", {

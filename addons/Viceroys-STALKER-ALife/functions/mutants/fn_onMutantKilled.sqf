@@ -30,4 +30,12 @@ if (_habIndex > -1 && {!isNil "STALKER_mutantHabitats"}) then {
     STALKER_mutantHabitats set [_habIndex, [_area,_label,_grp,_pos,_type,_max,_count,_near]];
 };
 
+if (missionNamespace getVariable ["STALKER_mutantHunt_active", false]) then {
+    private _entry = missionNamespace getVariable ["STALKER_mutantHunt", [0,0,0]];
+    _entry params ["_kills","_reward","_end"];
+    _kills = _kills + 1;
+    missionNamespace setVariable ["STALKER_mutantHunt", [_kills,_reward,_end]];
+    if (!isNil "A3U_fnc_addMoney") then { [_reward] call A3U_fnc_addMoney; };
+};
+
 true
