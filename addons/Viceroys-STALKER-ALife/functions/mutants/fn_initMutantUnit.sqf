@@ -10,4 +10,10 @@ _unit disableAI "RADIOPROTOCOL";
 _unit setSpeaker "NoVoice";
 _unit setVariable ["BIS_noCoreConversations", true];
 
+// Disable LAMBS danger AI on mutants if the mod is present
+if (isClass (configFile >> "CfgPatches" >> "lambs_danger")) then {
+    (group _unit) setVariable ["lambs_danger_disablegroupAI", true];
+    _unit setVariable ["lambs_danger_disableAI", true];
+};
+
 true
