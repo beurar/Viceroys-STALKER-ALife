@@ -26,7 +26,7 @@ _speedMax = ["VSA_blowoutSpeedMax", _speedMax] call VIC_fnc_getSetting;
 if (!isServer) exitWith {};
 
 // ensure the TTS emission module is loaded
-if (isNil "tts_emission_fnc_startRandomEmissions") exitWith {
+if (isNil "tts_emission_fnc_startEmission") exitWith {
     ["TTS emission module missing, aborting blowout"] call VIC_fnc_debugLog;
 };
 
@@ -35,12 +35,26 @@ private _duration = _minDur + random (_maxDur - _minDur);
 missionNamespace setVariable ["TTS_EMISSION_DIRECTION", _dir, true];
 missionNamespace setVariable ["TTS_EMISSION_DURATION", _duration, true];
 
-// start emission using TTS
-tts_emission_randomEmissions = true;
-publicVariable "tts_emission_randomEmissions";
-[0,0,_speedMin,_speedMax,false] call tts_emission_fnc_startRandomEmissions;
+// configure TTS emission behaviour
+tts_emission_playerEffect      = 0; // kill unsheltered players
+private _killAI                = ["VSA_killAIEmission", true] call VIC_fnc_getSetting;
+tts_emission_aiEffect          = if (_killAI) then {0} else {1};
+tts_emission_vehicleEffect     = 3; // disable engines
+tts_emission_aircraftEffect    = 0; // lightning strike
+tts_emission_sirenType         = 0; // classic siren
+tts_emission_useSirenObject    = false;
+tts_emission_protectionEquipment = [];
+tts_emission_shelterTypes      = ["Building","Car","Tank","Air","Ship"];
+tts_emission_immuneUnits       = [];
+tts_emission_waveSpeed         = _speedMin;
+tts_emission_approachDirection = switch (true) do {
+    case (_dir <= 45 || _dir > 315): {"N"};
+    case (_dir > 45 && _dir <= 135): {"E"};
+    case (_dir > 135 && _dir <= 225): {"S"};
+    default {"W"};
+};
+tts_emission_showEmissionOnMap = false;
+tts_emission_disableRain       = false;
 
-[_duration + 5, {
-    tts_emission_randomEmissions = false;
-    publicVariable "tts_emission_randomEmissions";
-}, []] call CBA_fnc_waitAndExecute;
+// start emission using TTS
+[] spawn tts_emission_fnc_startEmission;

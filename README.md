@@ -101,6 +101,11 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
   `VSA_stormGasRadius`, `VSA_stormGasDensity` and `VSA_stormGasVertical`
   CBA settings.
 
+### Blowouts
+* Severe emission waves triggered via the included functions.
+* AI and players caught outside of shelter are lethal casualties by default.
+* Behaviour can be toggled through the `VSA_killAIEmission` CBA setting.
+
 ### Zombification
 * Tracks dead units and may reanimate them as zombies after a delay.
 * Integrates with **WebKnight’s Zombies & Demons** to handle the zombies themselves.
