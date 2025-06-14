@@ -4,7 +4,7 @@
     Params:
         0: SCALAR - Minimum number of rocks in a cluster (default: 4)
         1: SCALAR - Cluster radius (default: 20 meters)
-        2: SCALAR - Grid step size (default: 500m)
+        2: SCALAR - (Unused, kept for backwards compatibility)
 
     Returns:
         ARRAY of ARRAYs - Each subarray is a cluster of rock OBJECTS
@@ -22,20 +22,39 @@ private _rockClassnames = [
     "Land_Stone_big_F", "Land_R_rock_general1", "Land_r_rock_general2"
 ];
 
+private _allRocks = [];
+{
+    _allRocks append (
+        nearestTerrainObjects [[worldSize / 2, worldSize / 2, 0], [_x], worldSize, false, true]
+    );
+} forEach _rockClassnames;
+
+_allRocks = _allRocks arrayIntersect _allRocks; // Remove duplicates
+
 private _clusters = [];
+private _remaining = +_allRocks;
 
-for "_x" from 0 to worldSize step _step do {
-    for "_y" from 0 to worldSize step _step do {
-        private _center = [_x, _y, 0];
-        private _nearRocks = _center nearObjects ["All", _radius];
+while {count _remaining > 0} do {
+    private _stack = [_remaining deleteAt 0];
+    private _cluster = [];
 
-        private _rocks = _nearRocks select {
-            (typeOf _x) in _rockClassnames
-        };
+    while {count _stack > 0} do {
+        private _rock = _stack deleteAt 0;
+        if (_rock in _cluster) then { continue; };
+        _cluster pushBack _rock;
 
-        if ((count _rocks) >= _minRocks) then {
-            _clusters pushBack _rocks;
-        };
+        private _neighbors = nearestTerrainObjects [getPosATL _rock, _rockClassnames, _radius, false, true];
+        {
+            private _idx = _remaining find _x;
+            if (_idx > -1) then {
+                _stack pushBack _x;
+                _remaining deleteAt _idx;
+            };
+        } forEach _neighbors;
+    };
+
+    if ((count _cluster) >= _minRocks) then {
+        _clusters pushBack _cluster;
     };
 };
 
