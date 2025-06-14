@@ -20,28 +20,20 @@ if (_count < 0) then { _count = ["VSA_ambushCount", 3] call VIC_fnc_getSetting; 
 private _townDist = ["VSA_ambushTownDistance", 700] call VIC_fnc_getSetting;
 
 for "_i" from 1 to _count do {
-    private _pos = [];
-    private _road = objNull;
+    private _pos = nil;
 
     for "_j" from 1 to 30 do {
-        private _candidate = _center getPos [random _radius, random 360];
-        _candidate = [_candidate] call VIC_fnc_findLandPosition;
-        if (_candidate isEqualTo []) then { continue; };
+        private _candidate = [_center, _radius, 5] call VIC_fnc_findRoadPosition;
+        if (isNil "_candidate") then { continue; };
 
-        if (!(_candidate call VIC_fnc_isWaterPosition)) then {
-            private _locations = nearestLocations [
-                _candidate,
-                ["NameVillage","NameCity","NameCityCapital","NameLocal"],
-                _townDist
-            ];
-            if (_locations isEqualTo []) then {
-                _road = nearestRoad _candidate;
-                if (!isNull _road) exitWith { _pos = getPos _road };
-            };
-        };
+        private _locations = nearestLocations [
+            _candidate,
+            ["NameVillage","NameCity","NameCityCapital","NameLocal"],
+            _townDist
+        ];
+        if (_locations isEqualTo []) exitWith { _pos = _candidate };
     };
-
-    if (_pos isEqualTo []) then { continue; };
+    if (isNil "_pos") then { continue; };
 
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
