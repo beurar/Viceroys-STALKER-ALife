@@ -68,7 +68,7 @@ private _vocab = createHashMapFromArray [
         ["Mire","Slough","Acid","Decay","Poison","Stain","Pustule","Slick","Spill"]
     ]],
     ["springboard", [
-        ["Vaultline","Spring Nest","Catapult Hollows","Leap Spiral","Kicker’s Field","The Jolt Zone","Bounce Ridge","Skyhook Flats"],
+        ["Vaultline","Spring Nest","Catapult Hollows","Leap Spiral","Kicker's Field","The Jolt Zone","Bounce Ridge","Skyhook Flats"],
         ["Boundless","Kinetic","Vaulting","Elastic","Rebounding","Tense","Sudden","Snapping"],
         ["Bounce","Toss","Launch","Vault","Spring","Recoil","Lift","Eject"]
     ]],
@@ -78,7 +78,7 @@ private _vocab = createHashMapFromArray [
         ["Well","Weight","Mass","Collapse","Core","Pull","Sink","Anchor"]
     ]],
     ["meatgrinder", [
-        ["Bone Spiral","Fleshmill","Grind Nest","The Maw","Carver’s Hollow","Shredline","The Biting Coil","Viscera Yard","Rend Veil"],
+        ["Bone Spiral","Fleshmill","Grind Nest","The Maw","Carver's Hollow","Shredline","The Biting Coil","Viscera Yard","Rend Veil"],
         ["Gory","Shredded","Butchered","Torn","Mangled","Ragged","Gashed","Splintered"],
         ["Gore","Grinder","Flesh","Bone","Blades","Rend","Viscera","Teeth","Carcass"]
     ]],
@@ -88,17 +88,17 @@ private _vocab = createHashMapFromArray [
         ["Gyre","Vortex","Coil","Whirl","Spiral","Loop","Twine","Spindle"]
     ]],
     ["clicker", [
-        ["Snap Reach","Death Step","Trigger Field","Clicker’s Vale","Sudden Nest","The Ticker Fold","Rattle Den","Burstline"],
+        ["Snap Reach","Death Step","Trigger Field","Clicker's Vale","Sudden Nest","The Ticker Fold","Rattle Den","Burstline"],
         ["Sudden","Ticking","Snapping","Clattering","Unseen","Hidden","Staccato","Clicking","Popping"],
         ["Click","Trigger","Surprise","Snap","Step","Jerk","Knock","Beat"]
     ]],
     ["launchpad", [
-        ["Throwfield","Eject Zone","Skytrail","Jumper’s Veil","Toss Nest","Updraft Hollow","Skydash Fold","Flungpath"],
+        ["Throwfield","Eject Zone","Skytrail","Jumper's Veil","Toss Nest","Updraft Hollow","Skydash Fold","Flungpath"],
         ["Chaotic","Launched","Spinning","Thrown","Flinging","Jolted","Tossed","Drifting"],
         ["Pad","Hurl","Launch","Lift","Ejection","Airwell","Glide","Burst"]
     ]],
     ["leech", [
-        ["Whisper Cradle","Fading Hollow","Lull Nest","Wane Field","The Quiet Vale","Children’s Steps","Weeping Fold","Echo Latch"],
+        ["Whisper Cradle","Fading Hollow","Lull Nest","Wane Field","The Quiet Vale","Children's Steps","Weeping Fold","Echo Latch"],
         ["Haunted","Whispering","Draining","Weeping","Ghostly","Faint","Weary","Sorrowful","Pale"],
         ["Lull","Fade","Haunt","Wane","Sorrow","Weep","Whisper","Drain","Chill"]
     ]],
