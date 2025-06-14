@@ -276,6 +276,16 @@ statements are not themselves returning a final value. In your case, you have:
 
 These mods must be loaded for the scripts in this repository to function correctly.
 
+## Antistasi Integration
+
+When Antistasi Ultimate is detected, several helper functions can create side missions:
+
+* **VIC_fnc_startMutantHunt** – awards money for each mutant killed during the hunt period.
+* **VIC_fnc_startArtefactHunt** – places an artefact in an existing anomaly field and tasks players to retrieve it.
+* **VIC_fnc_startChemSample** – chooses a chemical zone and requires players to stay inside for 90 seconds to collect samples.
+
+These helpers do nothing if Antistasi Ultimate is not loaded.
+
 ## Branding
 
 The repository ships with `logo.paa` as the main logo and `Icon.paa` for smaller

@@ -183,6 +183,17 @@ class CfgFunctions
             class findSite_trapdoor{};
             class findSite_zapper{};
         };
+
+        class Antistasi
+        {
+            file = "Viceroys-STALKER-ALife\functions\antistasi";
+            class isAntistasiUltimate{};
+            class startMutantHunt{};
+            class startArtefactHunt{};
+            class startChemSample{};
+            class completeArtefactHunt{};
+            class completeChemSample{};
+        };
     };
 };
 
