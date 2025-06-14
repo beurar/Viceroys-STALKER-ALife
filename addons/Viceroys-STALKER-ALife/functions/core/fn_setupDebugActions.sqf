@@ -75,6 +75,12 @@ player addAction ["Generate Mutant Habitats", {
 player addAction ["Cycle Habitats", {
     [] remoteExec ["VIC_fnc_manageHabitats", 2];
 }];
+player addAction ["Trigger AI Panic", {
+    [] remoteExec ["VIC_fnc_triggerAIPanic", 2];
+}];
+player addAction ["Reset AI Behaviour", {
+    [] remoteExec ["VIC_fnc_resetAIBehavior", 2];
+}];
 player addAction ["Mark All Buildings", { [] call VIC_fnc_markAllBuildings }];
 player addAction ["Mark Rock Clusters", { [] call VIC_fnc_markRockClusters }];
 player addAction ["Mark Sniper Spots", { [] call VIC_fnc_markSniperSpots }];
