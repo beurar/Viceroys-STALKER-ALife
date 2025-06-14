@@ -21,13 +21,33 @@ private _swamps = [];
 for "_x" from 0 to worldSize step _step do {
     for "_y" from 0 to worldSize step _step do {
         private _pos = [_x, _y, 0];
+
+        private _waterNearby = false;
+        private _depthOk = false;
+
+        // Check the current grid position first
         if ([_pos] call VIC_fnc_isWaterPosition) then {
-            private _depth = abs (getTerrainHeightASL _pos);
-            if (_depth <= _maxDepth) then {
-                private _veg = nearestTerrainObjects [_pos, ["BUSH","REED","SMALL TREE","TREE"], _radius, false];
-                if ((count _veg) >= _minVeg) then {
-                    _swamps pushBack _pos;
+            _waterNearby = true;
+            if ((abs (getTerrainHeightASL _pos)) <= _maxDepth) then {
+                _depthOk = true;
+            };
+        } else {
+            // Sample neighboring grid positions for water
+            {
+                private _test = [_pos, _step / 2, _xDir] call BIS_fnc_relPos;
+                if ([_test] call VIC_fnc_isWaterPosition) exitWith {
+                    _waterNearby = true;
+                    if ((abs (getTerrainHeightASL _test)) <= _maxDepth) then {
+                        _depthOk = true;
+                    };
                 };
+            } forEach [0,45,90,135,180,225,270,315];
+        };
+
+        if (_waterNearby && _depthOk) then {
+            private _veg = nearestTerrainObjects [_pos, ["BUSH","REED","SMALL TREE","TREE"], _radius, false];
+            if ((count _veg) >= _minVeg) then {
+                _swamps pushBack _pos;
             };
         };
     };
