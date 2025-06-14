@@ -14,4 +14,8 @@ params [
     ["_radius", _default]
 ];
 
-(allPlayers findIf { _x distance2D _pos <= _radius } > -1)
+private _near = false;
+{
+    if (_x distance _pos <= _radius) exitWith { _near = true };
+} forEach allPlayers;
+_near

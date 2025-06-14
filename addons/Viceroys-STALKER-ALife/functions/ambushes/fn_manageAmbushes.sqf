@@ -27,7 +27,10 @@ private _maxUnits = ["VSA_ambushMaxUnits", 6] call VIC_fnc_getSetting;
             private _dir = 0;
             if (!isNil {_roadPos} && { !(_roadPos isEqualTo []) }) then {
                 private _road = roadAt _roadPos;
-                if (isNull _road) then { _road = nearestRoad _roadPos; };
+                if (isNull _road) then {
+                    private _roads = _roadPos nearRoads 50;
+                    if ((count _roads) > 0) then { _road = _roads select 0; };
+                };
                 if (!isNull _road) then { _dir = getDir _road; };
             };
             for "_i" from -8 to 8 step 3 do {
@@ -47,9 +50,12 @@ private _maxUnits = ["VSA_ambushMaxUnits", 6] call VIC_fnc_getSetting;
             private _roadPos = [_pos, 50, 5] call VIC_fnc_findRoadPosition;
             private _dir = 0;
             if (!isNil {_roadPos} && { !(_roadPos isEqualTo []) }) then {
-                private _road = roadAt _roadPos;
-                if (isNull _road) then { _road = nearestRoad _roadPos; };
-                if (!isNull _road) then { _dir = getDir _road; };
+            private _road = roadAt _roadPos;
+            if (isNull _road) then {
+                private _roads = _roadPos nearRoads 50;
+                if ((count _roads) > 0) then { _road = _roads select 0; };
+            };
+            if (!isNull _road) then { _dir = getDir _road; };
             };
             for "_i" from 1 to _half do {
                 private _p = _pos getPos [10 + random 5, _dir + 90];

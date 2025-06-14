@@ -41,7 +41,7 @@ for [{_i = (count STALKER_anomalyFields) - 1}, {_i >= 0}, {_i = _i - 1}] do {
         };
         if (_marker != "") then { _marker setMarkerAlpha 1; };
     } else {
-        if (_objs isNotEqualTo []) then {
+        if ((count _objs) > 0) then {
             { if (!isNull _x) then { deleteVehicle _x; } } forEach _objs;
             _objs = [];
         };

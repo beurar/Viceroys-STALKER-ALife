@@ -23,7 +23,8 @@ for "_i" from 1 to _count do {
     private _base = [random worldSize, random worldSize, 0];
     private _road = roadAt _base;
     if (isNull _road) then {
-        _road = nearestRoad _base;
+        private _roads = _base nearRoads 50;
+        if ((count _roads) > 0) then { _road = _roads select 0; };
     };
 
     if (!isNull _road) then {

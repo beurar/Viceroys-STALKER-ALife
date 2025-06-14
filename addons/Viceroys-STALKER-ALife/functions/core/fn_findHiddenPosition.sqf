@@ -45,7 +45,7 @@ private _validSpots = [];
     };
 } forEach _players;
 
-if (_validSpots isNotEqualTo []) then {
+if ((count _validSpots) > 0) then {
     selectRandom _validSpots
 } else {
     nil

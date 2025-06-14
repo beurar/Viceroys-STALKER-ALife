@@ -21,7 +21,7 @@ private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
         };
         if (_marker != "") then { _marker setMarkerAlpha 1; };
     } else {
-        if (_objs isNotEqualTo []) then {
+        if ((count _objs) > 0) then {
             { if (!isNull _x) then { deleteVehicle _x; } } forEach _objs;
             _objs = [];
         };
