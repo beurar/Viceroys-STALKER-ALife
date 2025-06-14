@@ -77,6 +77,7 @@ player addAction ["Cycle Habitats", {
 }];
 player addAction ["Mark All Buildings", { [] call VIC_fnc_markAllBuildings }];
 player addAction ["Mark Rock Clusters", { [] call VIC_fnc_markRockClusters }];
+player addAction ["Mark Beach Spots", { [] call VIC_fnc_markBeaches }];
 
 ["Debug actions added"] call VIC_fnc_debugLog;
 
