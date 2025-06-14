@@ -102,8 +102,10 @@ VIC_fnc_spawnAPERSField        = compile preprocessFileLineNumbers (_root + "\fu
 VIC_fnc_spawnIED               = compile preprocessFileLineNumbers (_root + "\functions\minefields\fn_spawnIED.sqf");
 VIC_fnc_manageMinefields       = compile preprocessFileLineNumbers (_root + "\functions\minefields\fn_manageMinefields.sqf");
 VIC_fnc_spawnAbandonedVehicles = compile preprocessFileLineNumbers (_root + "\functions\wrecks\fn_spawnAbandonedVehicles.sqf");
+VIC_fnc_startMinefieldManager  = compile preprocessFileLineNumbers (_root + "\functions\minefields\fn_startMinefieldManager.sqf");
 VIC_fnc_spawnAmbushes          = compile preprocessFileLineNumbers (_root + "\functions\ambushes\fn_spawnAmbushes.sqf");
 VIC_fnc_manageAmbushes         = compile preprocessFileLineNumbers (_root + "\functions\ambushes\fn_manageAmbushes.sqf");
+VIC_fnc_startAmbushManager     = compile preprocessFileLineNumbers (_root + "\functions\ambushes\fn_startAmbushManager.sqf");
 VIC_fnc_spawnAmbientHerds        = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnAmbientHerds.sqf");
 VIC_fnc_setupMutantHabitats      = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_setupMutantHabitats.sqf");
 VIC_fnc_spawnMutantNest         = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_spawnMutantNest.sqf");
@@ -260,17 +262,7 @@ VIC_fnc_completeChemSample   = compile preprocessFileLineNumbers (_root + "\func
     [
         {
             while {true} do {
-                [] call VIC_fnc_manageMinefields;
-                sleep 60;
-            };
-        }, [], 27
-    ] call CBA_fnc_waitAndExecute;
-
-    [
-        {
-            while {true} do {
                 [] call VIC_fnc_manageStalkerCamps;
-                [] call VIC_fnc_manageAmbushes;
                 sleep 60;
             };
         }, [], 29

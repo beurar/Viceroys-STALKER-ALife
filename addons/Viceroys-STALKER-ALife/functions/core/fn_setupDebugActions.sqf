@@ -66,8 +66,14 @@ player addAction ["Spawn Predator Attack", {
 player addAction ["Spawn Minefields", {
     [getPos player, 300] remoteExec ["VIC_fnc_spawnMinefields", 2];
 }];
+player addAction ["Start Minefield Logic", {
+    [] remoteExec ["VIC_fnc_startMinefieldManager", 2];
+}];
 player addAction ["Spawn Ambush", {
     [getPos player, 300] remoteExec ["VIC_fnc_spawnAmbushes", 2];
+}];
+player addAction ["Start Ambush Logic", {
+    [] remoteExec ["VIC_fnc_startAmbushManager", 2];
 }];
 player addAction ["Generate Mutant Habitats", {
     [] remoteExec ["VIC_fnc_setupMutantHabitats", 2];

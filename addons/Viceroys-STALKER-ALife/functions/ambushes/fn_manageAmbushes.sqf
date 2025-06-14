@@ -23,8 +23,13 @@ private _maxUnits = ["VSA_ambushMaxUnits", 6] call VIC_fnc_getSetting;
         };
 
         if (_mines isEqualTo []) then {
-            private _road = nearestRoad _pos;
-            private _dir = if (!isNull _road) then { getDir _road } else { 0 };
+            private _roadPos = [_pos, 50, 5] call VIC_fnc_findRoadPosition;
+            private _dir = 0;
+            if (!isNil "_roadPos") then {
+                private _road = roadAt _roadPos;
+                if (isNull _road) then { _road = nearestRoad _roadPos; };
+                if (!isNull _road) then { _dir = getDir _road; };
+            };
             for "_i" from -8 to 8 step 3 do {
                 private _cPos = _pos getPos [_i, _dir];
                 private _left = _cPos getPos [2, _dir + 90];
@@ -39,10 +44,12 @@ private _maxUnits = ["VSA_ambushMaxUnits", 6] call VIC_fnc_getSetting;
             private _grp2 = createGroup east;
             private _count = floor(random (_maxUnits - _minUnits + 1)) + _minUnits;
             private _half = ceil(_count / 2);
-            private _road = nearestRoad _pos;
+            private _roadPos = [_pos, 50, 5] call VIC_fnc_findRoadPosition;
             private _dir = 0;
-            if (!isNull _road) then {
-                _dir = getDir _road;
+            if (!isNil "_roadPos") then {
+                private _road = roadAt _roadPos;
+                if (isNull _road) then { _road = nearestRoad _roadPos; };
+                if (!isNull _road) then { _dir = getDir _road; };
             };
             for "_i" from 1 to _half do {
                 private _p = _pos getPos [10 + random 5, _dir + 90];
