@@ -23,7 +23,10 @@ if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 
 for "_i" from 1 to _count do {
     if (random 100 >= _weight) then { continue };
-    private _pos = _center getPos [random _radius, random 360];
+    private _centerPos = if (_center isEqualType objNull) then { getPos _center } else { _center };
+    private _ang = random 360;
+    private _dist = random _radius;
+    private _pos = [(_centerPos select 0) + _dist * sin _ang, (_centerPos select 1) + _dist * cos _ang, _centerPos select 2];
     [_pos, _zoneRadius, _duration] call VIC_fnc_spawnChemicalZone;
 };
 

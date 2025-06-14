@@ -137,6 +137,13 @@
     [0, 250, 50, 0]
 ] call CBA_fnc_addSetting;
 
+["VSA_chemicalGasType",
+ "LIST",
+ ["Chemical Gas Type", "Gas used for chemical zones"],
+ "Viceroy's STALKER ALife - Chemical",
+ [[0,1,2,3,4],["CS","Asphyxiant","Nerve","Blister","Nova"],1]
+] call CBA_fnc_addSetting;
+
 [
     "VSA_emissionChemicalCount",
     "SLIDER",
@@ -407,7 +414,13 @@ true
 ["VSA_blowoutDirection","SLIDER",["Wave Direction","Approach direction in degrees"],"Viceroy's STALKER ALife - Blowouts",[0,359,0,0]] call CBA_fnc_addSetting;
 ["VSA_blowoutSpeedMin","SLIDER",["Wave Speed Min","Minimum wave speed"],"Viceroy's STALKER ALife - Blowouts",[50,300,125,0]] call CBA_fnc_addSetting;
 ["VSA_blowoutSpeedMax","SLIDER",["Wave Speed Max","Maximum wave speed"],"Viceroy's STALKER ALife - Blowouts",[50,300,125,0]] call CBA_fnc_addSetting;
-["VSA_blowoutSirens","CHECKBOX",["Town Sirens","Place sirens in all towns"],"Viceroy's STALKER ALife - Blowouts",true] call CBA_fnc_addSetting;
+
+// -----------------------------------------------------------------------------
+// Overcast behaviour
+// -----------------------------------------------------------------------------
+["VSA_stormOvercast","SLIDER",["Storm Overcast","Cloud coverage during a storm"],"Viceroy's STALKER ALife - Storms",[0,1,1,2]] call CBA_fnc_addSetting;
+["VSA_stormOvercastTime","SLIDER",["Overcast Transition (s)","Seconds to reach full overcast"],"Viceroy's STALKER ALife - Storms",[0,300,60,0]] call CBA_fnc_addSetting;
+
 
 // -----------------------------------------------------------------------------
 // Zombification

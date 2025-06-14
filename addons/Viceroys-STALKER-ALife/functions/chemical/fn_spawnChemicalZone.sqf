@@ -28,7 +28,7 @@ params [
     ["_position", [0,0,0]],
     ["_radius", 50],
     ["_duration", -1],
-    ["_chemType", 1],
+    ["_chemType", -1],
     ["_verticleSpread", -0.1],
     ["_thickness", 1]
 ];
@@ -38,6 +38,10 @@ params [
 // Array to keep track of active zones and their expiration times
 if (isNil "STALKER_chemicalZones") then {
     STALKER_chemicalZones = [];
+};
+
+if (_chemType < 0) then {
+    _chemType = ["VSA_chemicalGasType", 1] call VIC_fnc_getSetting;
 };
 
 if (_duration < 0) then {
@@ -53,7 +57,7 @@ private _agl = ASLToAGL _position;
 
 // Create and configure a map marker for this chemical zone
 private _markerName = format ["chem_%1", diag_tickTime];
-private _marker = createMarker [_markerName, ASLToATL _position];
+private _marker = createMarker [_markerName, AGLToATL _agl];
 _marker setMarkerShape "ELLIPSE";
 _marker setMarkerSize [_radius, _radius];
 _marker setMarkerColor "ColorGreen";
