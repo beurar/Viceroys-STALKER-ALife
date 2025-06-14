@@ -500,6 +500,14 @@ true
     [0, 100, 20, 0]
 ] call CBA_fnc_addSetting;
 
+[
+    "VSA_fieldAvoidEnabled",
+    "CHECKBOX",
+    ["Avoid Anomaly Fields", "AI will steer clear of anomaly field areas"],
+    "Viceroy's STALKER ALife - AI",
+    true
+] call CBA_fnc_addSetting;
+
 
 // Hostile mutant spawns
 [

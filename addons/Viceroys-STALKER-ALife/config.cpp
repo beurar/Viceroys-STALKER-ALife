@@ -39,6 +39,8 @@ class CfgFunctions
             class resetAIBehavior{};
             class triggerAIPanic{};
             class avoidAnomalies{};
+            class avoidAnomalyFields{};
+            class toggleFieldAvoid{};
         };
 
         class Panic

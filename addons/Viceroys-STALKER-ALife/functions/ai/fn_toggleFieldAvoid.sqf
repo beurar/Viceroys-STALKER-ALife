@@ -1,0 +1,16 @@
+/*
+    File: fn_toggleFieldAvoid.sqf
+    Author: Viceroy's STALKER ALife
+    Description:
+        Toggles AI avoidance of anomaly fields for testing.
+*/
+
+["fn_toggleFieldAvoid"] call VIC_fnc_debugLog;
+
+if (!isServer) exitWith {};
+
+missionNamespace setVariable ["VSA_fieldAvoidEnabled", !(missionNamespace getVariable ["VSA_fieldAvoidEnabled", true]), true];
+private _state = missionNamespace getVariable ["VSA_fieldAvoidEnabled", true];
+[format ["Field avoidance %1", if (_state) then {"enabled"} else {"disabled"}]] call VIC_fnc_debugLog;
+
+true
