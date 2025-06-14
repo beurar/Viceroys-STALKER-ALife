@@ -9,6 +9,8 @@ params ["_center","_radius"];
 ["fn_findSite_gravi"] call VIC_fnc_debugLog;
 
 private _posCenter = if (_center isEqualType objNull) then { getPos _center } else { _center };
-private _sites = selectBestPlaces [_posCenter, _radius, "meadow", 1, 25];
-if (_sites isEqualTo []) exitWith { [] };
-(_sites select 0) select 0
+
+// Pick a random land position within the search radius
+private _site = [_posCenter, _radius] call VIC_fnc_findLandPosition;
+if (_site isEqualTo []) exitWith { [] };
+_site

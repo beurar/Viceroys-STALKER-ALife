@@ -176,6 +176,7 @@ class CfgFunctions
             class createField_leech{};
             class createField_trapdoor{};
             class createField_zapper{};
+            class createField_bridgeElectra{};
         };
 
         class AnomalyFindSites
@@ -193,6 +194,7 @@ class CfgFunctions
             class findSite_leech{};
             class findSite_trapdoor{};
             class findSite_zapper{};
+            class findSite_bridge{};
         };
 
         class Antistasi
