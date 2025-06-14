@@ -21,7 +21,7 @@ while { _attempt < _maxTries } do {
     private _searchCenter = _randomPos;
     private _roadPos = _searchCenter findEmptyPosition [_radius, _radius, "ROAD"];
 
-    if (!isNil "_roadPos" && { isOnRoad _roadPos }) exitWith {
+    if (!(_roadPos isEqualTo []) && { isOnRoad _roadPos }) exitWith {
         _roadPos
     };
 

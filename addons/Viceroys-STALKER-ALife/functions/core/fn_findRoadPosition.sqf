@@ -26,7 +26,7 @@ while { _attempt < _maxTries } do {
 
     private _roadPos = _candidatePos findEmptyPosition [10, 50, "ROAD"];
 
-    if (!isNil "_roadPos" && { isOnRoad _roadPos }) exitWith {
+    if (!(_roadPos isEqualTo []) && { isOnRoad _roadPos }) exitWith {
         _roadPos
     };
 
