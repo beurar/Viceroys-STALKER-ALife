@@ -23,7 +23,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Relies on **Diwako’s Anomalies** for the core anomaly logic.
 * Map markers are removed automatically when their anomaly field expires after
   `STALKER_AnomalyFieldDuration` minutes.
-* Fields are distributed randomly across the entire map.
+* Fields are distributed randomly across the entire map but avoid towns by 500 meters.
 * Fields can be **Permanent** or **Temporary**. Permanent fields remain in place
   and only reshuffle their anomalies during an emission. Temporary fields are
   deleted after an emission and respawn at new random positions. The ratio of

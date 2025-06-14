@@ -7,7 +7,7 @@
     Returns:
         ARRAY - land position or [] if none found
 */
-params ["_center", ["_radius",50], ["_attempts",10]];
+params ["_center", ["_radius",50], ["_attempts",10], ["_excludeTowns", false]];
 
 // fail fast on invalid input
 if (_center isEqualTo [] && { !(_center isEqualType objNull) }) exitWith { [] };
@@ -27,7 +27,10 @@ for "_i" from 0 to _attempts do {
     };
 
     private _surf = [_candidate] call VIC_fnc_getLandSurfacePosition;
-    if (!(_surf isEqualTo [])) exitWith { ASLToAGL _surf };
+    if (!(_surf isEqualTo [])) then {
+        private _pos = ASLToAGL _surf;
+        if (!_excludeTowns || { (nearestLocations [_pos,["NameCity","NameVillage","NameCityCapital","NameLocal"],500]) isEqualTo [] }) exitWith { _pos };
+    };
 };
 
 // if nothing found, try a wider search once
@@ -37,6 +40,9 @@ if (_attempts < 20) then { _attempts = _attempts + 5 };
 for "_i" from 0 to _attempts do {
     private _candidate = [_base, random _radius, random 360] call BIS_fnc_relPos;
     private _surf = [_candidate] call VIC_fnc_getLandSurfacePosition;
-    if (!(_surf isEqualTo [])) exitWith { ASLToAGL _surf };
+    if (!(_surf isEqualTo [])) then {
+        private _pos = ASLToAGL _surf;
+        if (!_excludeTowns || { (nearestLocations [_pos,["NameCity","NameVillage","NameCityCapital","NameLocal"],500]) isEqualTo [] }) exitWith { _pos };
+    };
 };
 []
