@@ -111,6 +111,8 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 ### Zombification
 * Tracks dead units and may reanimate them as zombies after a delay.
 * Integrates with **WebKnight’s Zombies & Demons** to handle the zombies themselves.
+* Units that die while an emission is active will reanimate as zombies when the
+  storm ends.
 
 ## Anomaly Types
 Each anomaly behaves differently and creates unique hazards:
