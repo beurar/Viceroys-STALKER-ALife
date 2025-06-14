@@ -17,6 +17,16 @@ if !(missionNamespace getVariable ["VSA_AIPanicEnabled", true]) exitWith {};
 if (["VSA_enableAIBehaviour", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
 if (["VSA_aiNightOnly", false] call VIC_fnc_getSetting && {daytime > 5 && daytime < 20}) exitWith {};
 
+// Release any groups held during panic
+if (!isNil "STALKER_panicGroups") then {
+    {
+        if (isClass (configFile >> "CfgPatches" >> "lambs_danger")) then {
+            [_x, true, true] call lambs_wp_fnc_taskReset;
+        };
+    } forEach STALKER_panicGroups;
+    STALKER_panicGroups = [];
+};
+
 {
     private _unit = _x;
     if (!alive _unit) then {
@@ -37,6 +47,9 @@ if (["VSA_aiNightOnly", false] call VIC_fnc_getSetting && {daytime > 5 && daytim
     _unit enableAI "AUTOCOMBAT";
     _unit enableAI "TARGET";
     _unit enableAI "AUTOTARGET";
+    if (!isNil { _unit getVariable "vsa_panicGarrison" }) then {
+        _unit setVariable ["vsa_panicGarrison", nil];
+    };
 
 } forEach _units;
 

@@ -11,53 +11,74 @@
 
 params [ ["_units", allUnits select { alive _x && !isPlayer _x }] ];
 
+// Only consider units with ranged weapons
+_units = _units select {
+    (primaryWeapon _x != "" || secondaryWeapon _x != "" || handgunWeapon _x != "")
+};
+
+if (isNil "STALKER_panicGroups") then { STALKER_panicGroups = []; };
+
 [format ["fn_triggerAIPanic units: %1", count _units]] call VIC_fnc_debugLog;
 
 // Exit if panic or AI behaviour tweaks are disabled
 if !(missionNamespace getVariable ["VSA_AIPanicEnabled", true]) exitWith {};
 if (["VSA_enableAIBehaviour", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
 if (["VSA_aiNightOnly", false] call VIC_fnc_getSetting && {daytime > 5 && daytime < 20}) exitWith {};
+
 private _threshold = ["VSA_panicThreshold", 50] call VIC_fnc_getSetting;
+private _groups = [];
 
 {
-    if (random 100 >= _threshold) then {
-        continue;
-    };
+    if (random 100 >= _threshold) then { continue }; 
     private _unit = _x;
-    if (!alive _unit) then {
-        continue;
-    };
+    if (!alive _unit) then { continue }; 
 
-    // Remember original behaviour so it can be restored later
+    // Store current behaviour
     _unit setVariable ["vsa_savedBehaviour", behaviour _unit];
     _unit setVariable ["vsa_savedCombatMode", combatMode _unit];
 
-    // Determine a safe position - preference is a trench, otherwise a building
-    private _safePos = [];
+    private _grp = group _unit;
+    if (isClass (configFile >> "CfgPatches" >> "lambs_danger")) then {
+        _grp setVariable ["lambs_danger_disablegroupAI", true];
+        _unit setVariable ["lambs_danger_disableAI", true];
+    };
 
-    private _trenches = nearestObjects [_unit, ["Land_Trench_01_F"], 50];
-    if (count _trenches > 0) then {
-        _safePos = getPosATL (_trenches select 0);
+    if (!(_grp in _groups)) then { _groups pushBack _grp; };
+} forEach _units;
+
+{
+    private _grp = _x;
+    private _leader = leader _grp;
+    if (!alive _leader) then { continue }; 
+    private _building = nearestBuilding _leader;
+    if (isNull _building) then { continue };
+
+    private _pos = getPosATL _building;
+    private _hasPlayers = count (allPlayers select { _x distance _building < 15 }) > 0;
+
+    if (_hasPlayers) then {
+        if (isClass (configFile >> "CfgPatches" >> "lambs_danger")) then {
+            [_grp, _pos, false] spawn lambs_wp_fnc_taskAssault;
+        } else {
+            [_grp, _pos] call BIS_fnc_taskPatrol;
+        };
     } else {
-        private _building = nearestBuilding _unit;
-        if (!isNull _building) then {
-            _safePos = _building buildingPos 0;
-            if (_safePos isEqualTo [0,0,0]) then {
-                _safePos = getPosATL _building;
-            };
+        if (isClass (configFile >> "CfgPatches" >> "lambs_danger")) then {
+            [_grp, _pos, 50, [], false, true, 0, false] call lambs_wp_fnc_taskGarrison;
+        } else {
+            [_grp, _pos] call BIS_fnc_taskDefend;
         };
     };
 
-    if (!(_safePos isEqualTo [])) then {
-        _unit doMove _safePos;
-    };
+    {
+        _x disableAI "AUTOCOMBAT";
+        _x disableAI "TARGET";
+        _x disableAI "AUTOTARGET";
+        _x setBehaviour "COMBAT";
+        _x setVariable ["vsa_panicGarrison", true];
+    } forEach units _grp;
 
-    // Disable automatic behaviour changes during panic
-    _unit disableAI "AUTOCOMBAT";
-    _unit disableAI "TARGET";
-    _unit disableAI "AUTOTARGET";
-    _unit setBehaviour "COMBAT";
-
-} forEach _units;
+    STALKER_panicGroups pushBackUnique _grp;
+} forEach _groups;
 
 true
