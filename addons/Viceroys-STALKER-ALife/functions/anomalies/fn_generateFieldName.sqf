@@ -22,17 +22,23 @@ private _stalkers = [
 ];
 
 private _places = [];
-if (_pos isNotEqualTo []) then {
+if ((count _pos) > 0) then {
     private _locs = nearestLocations [_pos, ["NameVillage","NameCity","NameCityCapital","NameLocal"], 3000];
-    if (_locs isNotEqualTo []) then {
+    if ((count _locs) > 0) then {
         _places = _locs apply { text _x };
     } else {
         private _feature = "";
         if (_pos call VIC_fnc_isWaterPosition) then {
             _feature = "Coast";
         } else {
-            private _road = nearestRoad _pos;
-            if (!isNull _road && { _pos distance2D (getPos _road) < 50 }) then {
+            private _road = roadAt _pos;
+            if (isNull _road) then {
+                private _roads = _pos nearRoads 50;
+                if ((count _roads) > 0) then { _road = _roads select 0; };
+            };
+            private _nearRoad = false;
+            if (!isNull _road) then { _nearRoad = _pos distance (getPos _road) < 50; };
+            if (_nearRoad) then {
                 _feature = "Road";
             };
             if (_feature isEqualTo "") then {
@@ -49,7 +55,7 @@ if (_pos isNotEqualTo []) then {
 };
 
 // Vocabulary dictionary
-private _vocab = createHashMapFromArray [
+private _vocab = [
     ["burner", [
         ["Inferno","Pyre","Cinderfield","Flamewalk","Ashwell","Furnace","Smokestep","Firecrawl","Burning Verge","Charveil"],
         ["Ashen","Scorched","Charred","Blazing","Smouldering","Ignited","Searing","Redhot","Kindled"],
@@ -118,8 +124,11 @@ private _adjs = ["Unstable"];
 private _nouns = ["Field"];
 
 // Assign vocab if type matches
-private _set = _vocab get (toLower _type);
-if (!isNil "_set") then {
+private _set = [];
+{
+    if ((_x select 0) isEqualTo (toLower _type)) exitWith { _set = _x select 1; };
+} forEach _vocab;
+if ((count _set) > 0) then {
     _desc = _set select 0;
     _adjs = _set select 1;
     _nouns = _set select 2;

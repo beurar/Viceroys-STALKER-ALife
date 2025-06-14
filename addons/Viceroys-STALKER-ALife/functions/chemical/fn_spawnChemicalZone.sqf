@@ -59,7 +59,8 @@ private _agl = ASLToAGL _position;
 
 // Create and configure a map marker for this chemical zone
 private _markerName = format ["chem_%1", diag_tickTime];
-private _marker = createMarker [_markerName, AGLToATL _agl];
+private _atl = ASLToATL (AGLToASL _agl);
+private _marker = createMarker [_markerName, _atl];
 _marker setMarkerShape "ELLIPSE";
 _marker setMarkerSize [_radius, _radius];
 _marker setMarkerColor "ColorGreen";

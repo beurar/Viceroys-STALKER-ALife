@@ -28,7 +28,10 @@ for "_px" from 0 to worldSize step _step do {
         private _scanCenter = [_px, _py, 0];
 
         // Skip positions too close to a named location
-        private _nearTown = _locations findIf { _scanCenter distance2D (locationPosition _x) < _townClearDist } != -1;
+        private _nearTown = false;
+        {
+            if (_scanCenter distance (locationPosition _x) < _townClearDist) exitWith { _nearTown = true };
+        } forEach _locations;
         if (_nearTown) then { continue; };
 
         private _nearBuildings = _scanCenter nearObjects ["House", _clusterRadius];
