@@ -76,6 +76,7 @@ player addAction ["Cycle Habitats", {
     [] remoteExec ["VIC_fnc_manageHabitats", 2];
 }];
 player addAction ["Mark All Buildings", { [] call VIC_fnc_markAllBuildings }];
+player addAction ["Mark Rock Clusters", { [] call VIC_fnc_markRockClusters }];
 
 ["Debug actions added"] call VIC_fnc_debugLog;
 
