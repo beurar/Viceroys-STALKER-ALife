@@ -1,5 +1,5 @@
 /*
-    Finds clusters of buildings that are at least 1km away from any town or named location.
+    Finds clusters of buildings that are at least 1km away from any town (of any type) or named location.
 
     Params:
         0: SCALAR - Min number of buildings to count as a cluster (default: 3)
@@ -16,7 +16,12 @@ params [["_minBuildings", 3], ["_clusterRadius", 40], ["_townClearDist", 1000], 
 ["findBuildingClusters"] call VIC_fnc_debugLog;
 
 private _clusters = [];
-private _locations = nearestLocations [[worldSize / 2, worldSize / 2, 0], worldSize, ["NameCity", "NameVillage", "NameLocal"]];
+// Include all relevant town location types
+private _locations = nearestLocations [
+    [worldSize / 2, worldSize / 2, 0],
+    worldSize,
+    ["NameVillage", "NameCity", "NameCityCapital", "NameLocal"]
+];
 
 for "_px" from 0 to worldSize step _step do {
     for "_py" from 0 to worldSize step _step do {
