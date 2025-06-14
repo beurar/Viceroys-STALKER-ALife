@@ -54,6 +54,13 @@ private _groups = [];
     // Find the nearest building within 300m for the group to garrison
     private _searchRadius = 300;
     private _buildings = nearestObjects [_leader, ["House"], _searchRadius];
+    // Filter out ruined or unfinished structures
+    _buildings = _buildings select {
+        private _type = toLower (typeOf _x);
+        (_type find "ruin" == -1) &&
+        (_type find "unfinished" == -1) &&
+        (_type find "construction" == -1)
+    };
     if (_buildings isEqualTo []) then { continue };
     private _building = _buildings select 0;
 
