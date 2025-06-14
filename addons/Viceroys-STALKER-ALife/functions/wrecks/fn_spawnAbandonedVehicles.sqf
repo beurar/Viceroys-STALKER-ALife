@@ -3,7 +3,7 @@
     Params:
         0: NUMBER - number of vehicles to spawn (default 10)
 */
-params [["_count",10]];
+params [["_count", 10]];
 
 ["spawnAbandonedVehicles"] call VIC_fnc_debugLog;
 
@@ -41,4 +41,3 @@ for "_i" from 1 to _count do {
         };
     };
 };
-
