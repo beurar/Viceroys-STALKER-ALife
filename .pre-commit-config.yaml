@@ -1,0 +1,8 @@
+repos:
+- repo: local
+  hooks:
+  - id: sqflint
+    name: SQF syntax check
+    entry: ./scripts/sqflint-hook.sh
+    language: script
+    files: \.sqf$
