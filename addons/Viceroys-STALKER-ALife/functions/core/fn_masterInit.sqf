@@ -16,7 +16,36 @@ if (fileExists _settings) then {
 };
 
 
+
 ["masterInit"] call VIC_fnc_debugLog;
+
+// Functions required on both server and client for debugging helpers
+VIC_fnc_debugLog                 = compile preprocessFileLineNumbers (_root + "\functions\core\fn_debugLog.sqf");
+VIC_fnc_setupDebugActions        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_setupDebugActions.sqf");
+VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markAllBuildings.sqf");
+VIC_fnc_markPlayerRanges        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markPlayerRanges.sqf");
+VIC_fnc_findRockClusters        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findRockClusters.sqf");
+VIC_fnc_markRockClusters        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markRockClusters.sqf");
+VIC_fnc_findSniperSpots        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findSniperSpots.sqf");
+VIC_fnc_markSniperSpots        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markSniperSpots.sqf");
+VIC_fnc_findSwamps             = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findSwamps.sqf");
+VIC_fnc_markSwamps             = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markSwamps.sqf");
+VIC_fnc_findBeachesInMap       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findBeachesInMap.sqf");
+VIC_fnc_markBeaches            = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markBeaches.sqf");
+VIC_fnc_findValleys            = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findValleys.sqf");
+VIC_fnc_markValleys            = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markValleys.sqf");
+VIC_fnc_findBuildingClusters    = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findBuildingClusters.sqf");
+VIC_fnc_markBuildingClusters    = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markBuildingClusters.sqf");
+VIC_fnc_createGlobalMarker     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_createGlobalMarker.sqf");
+VIC_fnc_markDeathLocation      = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markDeathLocation.sqf");
+VIC_fnc_weightedPick           = compile preprocessFileLineNumbers (_root + "\functions\core\fn_weightedPick.sqf");
+VIC_fnc_selectWeightedBuilding = compile preprocessFileLineNumbers (_root + "\functions\core\fn_selectWeightedBuilding.sqf");
+VIC_fnc_findBridges            = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findBridges.sqf");
+VIC_fnc_findHiddenPosition     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findHiddenPosition.sqf");
+VIC_fnc_markHiddenPosition     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markHiddenPosition.sqf");
+VIC_fnc_findBuildingCoverSpot  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findBuildingCoverSpot.sqf");
+VIC_fnc_markBuildingCoverSpot  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markBuildingCoverSpot.sqf");
+
 if (isServer) then {
 
 // --- Function Registration -------------------------------------------------
@@ -121,31 +150,6 @@ VIC_fnc_findLandPosition        = compile preprocessFileLineNumbers (_root + "\f
 VIC_fnc_getLandSurfacePosition  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_getLandSurfacePosition.sqf");
 VIC_fnc_findRoadPosition        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findRoadPosition.sqf");
 VIC_fnc_findRandomRoadPosition  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findRandomRoadPosition.sqf");
-VIC_fnc_debugLog                 = compile preprocessFileLineNumbers (_root + "\functions\core\fn_debugLog.sqf");
-VIC_fnc_setupDebugActions        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_setupDebugActions.sqf");
-VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markAllBuildings.sqf");
-VIC_fnc_markPlayerRanges        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markPlayerRanges.sqf");
-VIC_fnc_findRockClusters        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findRockClusters.sqf");
-VIC_fnc_markRockClusters        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markRockClusters.sqf");
-VIC_fnc_findSniperSpots        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findSniperSpots.sqf");
-VIC_fnc_markSniperSpots        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markSniperSpots.sqf");
-VIC_fnc_findSwamps             = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findSwamps.sqf");
-VIC_fnc_markSwamps             = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markSwamps.sqf");
-VIC_fnc_findBeachesInMap       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findBeachesInMap.sqf");
-VIC_fnc_markBeaches            = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markBeaches.sqf");
-VIC_fnc_findValleys            = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findValleys.sqf");
-VIC_fnc_markValleys            = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markValleys.sqf");
-VIC_fnc_findBuildingClusters    = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findBuildingClusters.sqf");
-VIC_fnc_markBuildingClusters    = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markBuildingClusters.sqf");
-VIC_fnc_createGlobalMarker     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_createGlobalMarker.sqf");
-VIC_fnc_markDeathLocation      = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markDeathLocation.sqf");
-VIC_fnc_weightedPick           = compile preprocessFileLineNumbers (_root + "\functions\core\fn_weightedPick.sqf");
-VIC_fnc_selectWeightedBuilding = compile preprocessFileLineNumbers (_root + "\functions\core\fn_selectWeightedBuilding.sqf");
-VIC_fnc_findBridges            = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findBridges.sqf");
-VIC_fnc_findHiddenPosition     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findHiddenPosition.sqf");
-VIC_fnc_markHiddenPosition     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markHiddenPosition.sqf");
-VIC_fnc_findBuildingCoverSpot  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findBuildingCoverSpot.sqf");
-VIC_fnc_markBuildingCoverSpot  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markBuildingCoverSpot.sqf");
 VIC_fnc_spawnAmbientStalkers   = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnAmbientStalkers.sqf");
 VIC_fnc_spawnStalkerCamp       = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnStalkerCamp.sqf");
 VIC_fnc_spawnStalkerCamps      = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnStalkerCamps.sqf");
