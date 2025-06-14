@@ -40,6 +40,7 @@ VIC_fnc_findHiddenPosition     = compile preprocessFileLineNumbers (_root + "\fu
 VIC_fnc_markHiddenPosition     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markHiddenPosition.sqf");
 VIC_fnc_findBuildingCoverSpot  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findBuildingCoverSpot.sqf");
 VIC_fnc_markBuildingCoverSpot  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markBuildingCoverSpot.sqf");
+VIC_fnc_radioMessage          = compile preprocessFileLineNumbers (_root + "\functions\core\fn_radioMessage.sqf");
 
 if (isServer) then {
 

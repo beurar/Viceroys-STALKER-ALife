@@ -31,6 +31,7 @@ class CfgFunctions
             class weightedPick{};
             class selectWeightedBuilding{};
             class findBridges{};
+            class radioMessage{};
         };
 
         class AI
