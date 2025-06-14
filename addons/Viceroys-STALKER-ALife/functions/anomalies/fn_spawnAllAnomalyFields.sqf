@@ -42,7 +42,8 @@ private _types = [
     VIC_fnc_createField_launchpad,
     VIC_fnc_createField_leech,
     VIC_fnc_createField_trapdoor,
-    VIC_fnc_createField_zapper
+    VIC_fnc_createField_zapper,
+    VIC_fnc_createField_bridgeElectra
 ];
 
 for "_i" from 1 to _fieldCount do {
@@ -64,6 +65,7 @@ for "_i" from 1 to _fieldCount do {
         case VIC_fnc_createField_leech: {"leech"};
         case VIC_fnc_createField_trapdoor: {"trapdoor"};
         case VIC_fnc_createField_zapper: {"zapper"};
+        case VIC_fnc_createField_bridgeElectra: {"bridge"};
         default {""};
     };
     [format ["spawnAllAnomalyFields: attempting %1", _typeName]] call VIC_fnc_debugLog;

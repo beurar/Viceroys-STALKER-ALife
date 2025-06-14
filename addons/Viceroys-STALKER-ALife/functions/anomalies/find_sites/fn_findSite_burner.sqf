@@ -10,7 +10,7 @@ params ["_center", "_radius"];
 
 private _posCenter = if (_center isEqualType objNull) then { getPos _center } else { _center };
 
-private _sites = selectBestPlaces [_posCenter, _radius, "(1 - forest - houses)", 1, 25];
-
-if (_sites isEqualTo []) exitWith { [] };
-(_sites select 0) select 0
+// Pick a random land position within the search radius
+private _site = [_posCenter, _radius] call VIC_fnc_findLandPosition;
+if (_site isEqualTo []) exitWith { [] };
+_site
