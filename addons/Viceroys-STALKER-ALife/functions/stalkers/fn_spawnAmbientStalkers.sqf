@@ -21,11 +21,15 @@ private _nightOnly  = ["VSA_ambientStalkerNightOnly", false] call VIC_fnc_getSet
 
 if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 
+private _players = allPlayers select { alive _x && {!isNull _x} };
+if (_players isEqualTo []) exitWith {};
+
 for "_i" from 1 to _groupCount do {
-    private _pos = [random worldSize, random worldSize, 0];
+    private _center = selectRandom _players;
+    private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+    private _pos = _center getPos [ random (_dist * 0.75), random 360 ];
     _pos = [_pos] call VIC_fnc_findLandPosition;
     if (_pos isEqualTo []) then { continue };
-    private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
     if (!([_pos, _dist] call VIC_fnc_hasPlayersNearby)) then { continue };
 
     private _grp = createGroup independent;
