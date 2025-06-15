@@ -232,7 +232,7 @@ private _traceFunctions = [
     "mutants_fnc_onEmissionStart", "mutants_fnc_onEmissionEnd",
     "chemical_fnc_onEmissionStart", "chemical_fnc_onEmissionEnd",
     "zombification_fnc_onEmissionEnd", "VIC_fnc_hasPlayersNearby",
-    "VIC_fnc_registerEmissionHooks", "VIC_fnc_getSetting",
+    "VIC_fnc_registerEmissionHooks",
     "VIC_fnc_getSurfacePosition", "VIC_fnc_isWaterPosition",
     "VIC_fnc_findLandPosition", "VIC_fnc_getLandSurfacePosition",
     "VIC_fnc_findRoadPosition", "VIC_fnc_findRandomRoadPosition",
