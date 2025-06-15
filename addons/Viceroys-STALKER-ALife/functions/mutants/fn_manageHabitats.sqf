@@ -27,6 +27,13 @@ private _getClass = {
         case "Smasher": { "WBK_SpecialZombie_Smasher_3" };
         case "Acid Smasher": { "WBK_SpecialZombie_Smasher_Acid_3" };
         case "Behemoth": { "WBK_Goliaph_3" };
+        case "Parasite": { "dev_parasite_i" };
+        case "Jumper": { "def_asymhuman_stage2_i" };
+        case "Spitter": { "dev_toxmut_i" };
+        case "Stalker": { "dev_form939_i" };
+        case "Bully": { "dev_asymhuman_i" };
+        case "Hivemind": { "dev_hivemind_i" };
+        case "Zombie": { selectRandom ["WBK_Zombie1","WBK_Zombie2","WBK_Zombie3"] };
         default { "O_ALF_Mutant" };
     };
 };

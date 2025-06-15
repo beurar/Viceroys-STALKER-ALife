@@ -46,6 +46,13 @@ private _createMarker = {
         case "Smasher": { ["VSA_habitatSize_Smasher",8] call VIC_fnc_getSetting };
         case "Acid Smasher": { ["VSA_habitatSize_AcidSmasher",8] call VIC_fnc_getSetting };
         case "Behemoth": { ["VSA_habitatSize_Behemoth",6] call VIC_fnc_getSetting };
+        case "Parasite": { ["VSA_habitatSize_Parasite",10] call VIC_fnc_getSetting };
+        case "Jumper": { ["VSA_habitatSize_Jumper",10] call VIC_fnc_getSetting };
+        case "Spitter": { ["VSA_habitatSize_Spitter",10] call VIC_fnc_getSetting };
+        case "Stalker": { ["VSA_habitatSize_Stalker",10] call VIC_fnc_getSetting };
+        case "Bully": { ["VSA_habitatSize_Bully",10] call VIC_fnc_getSetting };
+        case "Hivemind": { ["VSA_habitatSize_Hivemind",10] call VIC_fnc_getSetting };
+        case "Zombie": { ["VSA_habitatSize_Zombie",10] call VIC_fnc_getSetting };
         default {10};
     };
 
@@ -70,27 +77,32 @@ private _weightedPick = {
 private _weightsGeneric = [
     ["Bloodsucker",1],["Boar",1],["Cat",1],["Flesh",1],["Blind Dog",1],
     ["Pseudodog",1],["Snork",1],["Controller",1],["Pseudogiant",1],["Izlom",1],
-    ["Corruptor",1],["Smasher",1],["Acid Smasher",1],["Behemoth",1]
+    ["Corruptor",1],["Smasher",1],["Acid Smasher",1],["Behemoth",1],
+    ["Parasite",1],["Jumper",1],["Spitter",1],["Stalker",1],["Bully",1],["Hivemind",1],["Zombie",1]
 ];
 private _weightsUrban = [
     ["Snork",3],["Blind Dog",3],["Controller",2],["Izlom",2],
     ["Pseudodog",1],["Boar",1],["Bloodsucker",1],["Flesh",1],["Pseudogiant",1],
-    ["Cat",1],["Corruptor",1],["Smasher",1],["Acid Smasher",1],["Behemoth",1]
+    ["Cat",1],["Corruptor",1],["Smasher",1],["Acid Smasher",1],["Behemoth",1],
+    ["Parasite",1],["Jumper",1],["Spitter",1],["Stalker",1],["Bully",1],["Hivemind",1],["Zombie",2]
 ];
 private _weightsRural = [
     ["Boar",3],["Pseudodog",3],["Pseudogiant",2],
     ["Blind Dog",1],["Bloodsucker",1],["Flesh",1],["Cat",1],["Snork",1],
-    ["Controller",1],["Izlom",1],["Corruptor",1],["Smasher",1],["Acid Smasher",1],["Behemoth",1]
+    ["Controller",1],["Izlom",1],["Corruptor",1],["Smasher",1],["Acid Smasher",1],["Behemoth",1],
+    ["Parasite",1],["Jumper",1],["Spitter",1],["Stalker",1],["Bully",1],["Hivemind",1],["Zombie",1]
 ];
 private _weightsForest = [
     ["Cat",3],["Pseudodog",2],["Boar",1],["Bloodsucker",1],["Flesh",1],
     ["Snork",1],["Controller",1],["Blind Dog",1],["Izlom",1],["Pseudogiant",1],
-    ["Corruptor",1],["Smasher",1],["Acid Smasher",1],["Behemoth",1]
+    ["Corruptor",1],["Smasher",1],["Acid Smasher",1],["Behemoth",1],
+    ["Parasite",1],["Jumper",1],["Spitter",1],["Stalker",1],["Bully",1],["Hivemind",1],["Zombie",1]
 ];
 private _weightsSwamp = [
     ["Bloodsucker",3],["Flesh",3],["Acid Smasher",2],
     ["Boar",1],["Pseudodog",1],["Pseudogiant",1],["Cat",1],["Snork",1],
-    ["Controller",1],["Blind Dog",1],["Izlom",1],["Corruptor",1],["Smasher",1],["Behemoth",1]
+    ["Controller",1],["Blind Dog",1],["Izlom",1],["Corruptor",1],["Smasher",1],["Behemoth",1],
+    ["Parasite",1],["Jumper",1],["Spitter",1],["Stalker",3],["Bully",1],["Hivemind",1],["Zombie",1]
 ];
 
 private _selectType = {

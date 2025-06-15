@@ -154,6 +154,13 @@ Every mutant type can establish a nest which spawns defenders when players are n
 * **Goliath** – Massive mutant that hurls rocks and bone shards, devastating everything in its path.
 * **Smasher** – Mini-boss monster that leaps and crushes obstacles with ease.
 * **Acid Smasher** – Corrosive variant that spews acid while smashing through targets.
+* **Parasite** – Small insectoid horrors that can cause instant death.
+* **Jumper** – Mutated humans that pounce from afar.
+* **Spitter** – Hulking mutants that spit acid at range.
+* **Stalker** – Mutated canines that live in toxic clouds and swamps.
+* **Bully** – Brawny humanoid mutants.
+* **Hivemind** – Organic growths that mindcontrol and psionically attack stalkers.
+* **Zombie** – Standard undead from WebKnight's mod.
 
 ## Spooks and Other Anomalies
 Drongo’s system adds creepy events such as ghostly whispers or sudden darkening of the sky. These spook zones appear mostly at night and vanish after a short time, keeping players uneasy as they travel. When a zone spawns the mod now creates one of the DSA creature classes (currently only `DSA_Abomination`) at the location and cleans it up once the zone expires.
