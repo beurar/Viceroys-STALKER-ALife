@@ -14,7 +14,7 @@ if (isNil "STALKER_coverMarkers") then { STALKER_coverMarkers = [] };
 STALKER_coverMarkers = [];
 
 private _pos = [player] call VIC_fnc_findBuildingCoverSpot;
-if (isNil "_pos") exitWith { false };
+if (isNil {_pos}) exitWith { false };
 
 private _name = format ["cover_%1", diag_tickTime + random 1000];
 private _marker = createMarker [_name, _pos];

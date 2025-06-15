@@ -36,7 +36,7 @@ if (isNil "STALKER_activeSpooks") then { STALKER_activeSpooks = []; };
 for "_i" from 1 to _count do {
     if (random 100 >= _weight) then { continue };
     private _pos = selectRandom drg_spook_zone_positions;
-    if (isNil "_pos") then { continue };
+    if (isNil {_pos}) then { continue };
 
     private _pool = [];
     private _isDay = (daytime > 5 && daytime < 20);

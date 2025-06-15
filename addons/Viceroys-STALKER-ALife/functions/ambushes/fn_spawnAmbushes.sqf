@@ -24,7 +24,7 @@ for "_i" from 1 to _count do {
 
     for "_j" from 1 to 30 do {
         private _candidate = [_center, _radius, 5] call VIC_fnc_findRoadPosition;
-        if (isNil "_candidate") then { continue; };
+        if (isNil {_candidate}) then { continue; };
 
         private _locations = nearestLocations [
             _candidate,
@@ -33,7 +33,7 @@ for "_i" from 1 to _count do {
         ];
         if (_locations isEqualTo []) exitWith { _pos = _candidate };
     };
-    if (isNil "_pos") then { continue; };
+    if (isNil {_pos}) then { continue; };
 
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
