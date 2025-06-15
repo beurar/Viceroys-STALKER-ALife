@@ -218,6 +218,41 @@ class CfgFunctions
     };
 };
 
+class CfgRemoteExec
+{
+    class Functions
+    {
+        mode = 2;
+        jip = 0;
+        class VIC_fnc_triggerPsyStorm     { allowedTargets = 2; };
+        class VIC_fnc_triggerBlowout      { allowedTargets = 2; };
+        class VIC_fnc_spawnChemicalZone   { allowedTargets = 2; };
+        class VIC_fnc_spawnRandomChemicalZones { allowedTargets = 2; };
+        class VIC_fnc_spawnValleyChemicalZones { allowedTargets = 2; };
+        class VIC_fnc_spawnAllAnomalyFields    { allowedTargets = 2; };
+        class VIC_fnc_cycleAnomalyFields  { allowedTargets = 2; };
+        class VIC_fnc_spawnMutantGroup    { allowedTargets = 2; };
+        class VIC_fnc_spawnSpookZone      { allowedTargets = 2; };
+        class VIC_fnc_spawnZombiesFromQueue { allowedTargets = 2; };
+        class VIC_fnc_triggerNecroplague  { allowedTargets = 2; };
+        class VIC_fnc_spawnAmbientHerds   { allowedTargets = 2; };
+        class VIC_fnc_spawnAmbientStalkers { allowedTargets = 2; };
+        class VIC_fnc_spawnStalkerCamps   { allowedTargets = 2; };
+        class VIC_fnc_spawnPredatorAttack { allowedTargets = 2; };
+        class VIC_fnc_spawnMinefields     { allowedTargets = 2; };
+        class VIC_fnc_spawnBoobyTraps     { allowedTargets = 2; };
+        class VIC_fnc_startMinefieldManager { allowedTargets = 2; };
+        class VIC_fnc_spawnAmbushes       { allowedTargets = 2; };
+        class VIC_fnc_startAmbushManager  { allowedTargets = 2; };
+        class VIC_fnc_setupMutantHabitats { allowedTargets = 2; };
+        class VIC_fnc_manageHabitats      { allowedTargets = 2; };
+        class VIC_fnc_triggerAIPanic      { allowedTargets = 2; };
+        class VIC_fnc_resetAIBehavior     { allowedTargets = 2; };
+        class VIC_fnc_toggleFieldAvoid    { allowedTargets = 2; };
+        class VIC_fnc_radioMessage        { allowedTargets = 0; };
+    };
+};
+
 class Extended_PreInit_EventHandlers
 {
     class VIC_StalkerALife_PreInit
