@@ -12,6 +12,7 @@ call compile preprocessFileLineNumbers _settings;
 
 // Compile logging function first so it can be used immediately
 VIC_fnc_debugLog                 = compile preprocessFileLineNumbers (_root + "\functions\core\fn_debugLog.sqf");
+VIC_fnc_traceFunction            = compile preprocessFileLineNumbers (_root + "\functions\core\fn_traceFunction.sqf");
 
 ["masterInit"] call VIC_fnc_debugLog;
 
@@ -165,6 +166,89 @@ VIC_fnc_startArtefactHunt    = compile preprocessFileLineNumbers (_root + "\func
 VIC_fnc_startChemSample      = compile preprocessFileLineNumbers (_root + "\functions\antistasi\fn_startChemSample.sqf");
 VIC_fnc_completeArtefactHunt = compile preprocessFileLineNumbers (_root + "\functions\antistasi\fn_completeArtefactHunt.sqf");
 VIC_fnc_completeChemSample   = compile preprocessFileLineNumbers (_root + "\functions\antistasi\fn_completeChemSample.sqf");
+
+
+private _traceFunctions = [
+    "VIC_fnc_setupDebugActions", "VIC_fnc_markAllBuildings",
+    "VIC_fnc_markPlayerRanges", "VIC_fnc_findRockClusters",
+    "VIC_fnc_markRockClusters", "VIC_fnc_findSniperSpots",
+    "VIC_fnc_markSniperSpots", "VIC_fnc_findSwamps",
+    "VIC_fnc_markSwamps", "VIC_fnc_findBeachesInMap",
+    "VIC_fnc_markBeaches", "VIC_fnc_findValleys",
+    "VIC_fnc_markValleys", "VIC_fnc_findBuildingClusters",
+    "VIC_fnc_markBuildingClusters", "VIC_fnc_createGlobalMarker",
+    "VIC_fnc_markDeathLocation", "VIC_fnc_weightedPick",
+    "VIC_fnc_selectWeightedBuilding", "VIC_fnc_findBridges",
+    "VIC_fnc_findHiddenPosition", "VIC_fnc_markHiddenPosition",
+    "VIC_fnc_findBuildingCoverSpot", "VIC_fnc_markBuildingCoverSpot",
+    "VIC_fnc_radioMessage", "VIC_fnc_resetAIBehavior",
+    "VIC_fnc_cleanupChemicalZones", "VIC_fnc_spawnChemicalZone",
+    "VIC_fnc_spawnRandomChemicalZones", "VIC_fnc_findValleyPosition",
+    "VIC_fnc_spawnValleyChemicalZones",
+    "VIC_fnc_manageChemicalZones", "VIC_fnc_spawnZombiesFromQueue",
+    "VIC_fnc_trackDeadForZombify", "VIC_fnc_spawnAllAnomalyFields",
+    "VIC_fnc_cycleAnomalyFields", "VIC_fnc_cleanupAnomalyMarkers",
+    "VIC_fnc_manageAnomalyFields", "VIC_fnc_generateFieldName",
+    "VIC_fnc_findSite_electra", "VIC_fnc_findSite_springboard",
+    "VIC_fnc_findSite_meatgrinder", "VIC_fnc_findSite_burner",
+    "VIC_fnc_findSite_clicker", "VIC_fnc_findSite_fruitpunch",
+    "VIC_fnc_findSite_whirligig", "VIC_fnc_findSite_gravi",
+    "VIC_fnc_findSite_launchpad", "VIC_fnc_findSite_leech",
+    "VIC_fnc_findSite_trapdoor", "VIC_fnc_findSite_zapper",
+    "VIC_fnc_createField_gravi", "VIC_fnc_createField_burner",
+    "VIC_fnc_createField_electra", "VIC_fnc_createField_fruitpunch",
+    "VIC_fnc_createField_springboard",
+    "VIC_fnc_createField_meatgrinder",
+    "VIC_fnc_createField_whirligig", "VIC_fnc_createField_clicker",
+    "VIC_fnc_createField_launchpad", "VIC_fnc_createField_leech",
+    "VIC_fnc_createField_trapdoor", "VIC_fnc_createField_zapper",
+    "VIC_fnc_schedulePsyStorms", "VIC_fnc_triggerPsyStorm",
+    "VIC_fnc_scheduleBlowouts", "VIC_fnc_triggerBlowout",
+    "VIC_fnc_triggerNecroplague", "VIC_fnc_scheduleNecroplague",
+    "VIC_fnc_placeTownSirens", "VIC_fnc_setupSpookZones",
+    "VIC_fnc_spawnSpookZone", "VIC_fnc_spawnMutantGroup",
+    "VIC_fnc_spawnMinefields", "VIC_fnc_spawnAPERSField",
+    "VIC_fnc_spawnIED", "VIC_fnc_spawnBoobyTraps",
+    "VIC_fnc_manageMinefields", "VIC_fnc_spawnAbandonedVehicles",
+    "VIC_fnc_startMinefieldManager", "VIC_fnc_spawnAmbushes",
+    "VIC_fnc_manageAmbushes", "VIC_fnc_startAmbushManager",
+    "VIC_fnc_setupAnomalyFields", "VIC_fnc_spawnAmbientHerds",
+    "VIC_fnc_setupMutantHabitats", "VIC_fnc_spawnMutantNest",
+    "VIC_fnc_spawnBloodsuckerNest", "VIC_fnc_spawnBoarNest",
+    "VIC_fnc_spawnCatNest", "VIC_fnc_spawnFleshNest",
+    "VIC_fnc_spawnBlindDogNest", "VIC_fnc_spawnPseudodogNest",
+    "VIC_fnc_spawnSnorkNest", "VIC_fnc_spawnControllerNest",
+    "VIC_fnc_spawnPseudogiantNest", "VIC_fnc_spawnIzlomNest",
+    "VIC_fnc_spawnCorruptorNest", "VIC_fnc_spawnSmasherNest",
+    "VIC_fnc_spawnAcidSmasherNest", "VIC_fnc_spawnBehemothNest",
+    "VIC_fnc_spawnPredatorAttack", "VIC_fnc_managePredators",
+    "VIC_fnc_manageHerds", "VIC_fnc_manageHostiles",
+    "VIC_fnc_manageNests", "VIC_fnc_manageHabitats",
+    "VIC_fnc_updateProximity", "VIC_fnc_onMutantKilled",
+    "VIC_fnc_initMutantUnit", "panic_fnc_onEmissionBuildUp",
+    "panic_fnc_onEmissionStart", "panic_fnc_onEmissionEnd",
+    "anomalies_fnc_onEmissionBuildUp",
+    "anomalies_fnc_onEmissionStart", "anomalies_fnc_onEmissionEnd",
+    "mutants_fnc_onEmissionStart", "mutants_fnc_onEmissionEnd",
+    "chemical_fnc_onEmissionStart", "chemical_fnc_onEmissionEnd",
+    "zombification_fnc_onEmissionEnd", "VIC_fnc_hasPlayersNearby",
+    "VIC_fnc_registerEmissionHooks", "VIC_fnc_getSetting",
+    "VIC_fnc_getSurfacePosition", "VIC_fnc_isWaterPosition",
+    "VIC_fnc_findLandPosition", "VIC_fnc_getLandSurfacePosition",
+    "VIC_fnc_findRoadPosition", "VIC_fnc_findRandomRoadPosition",
+    "VIC_fnc_spawnAmbientStalkers", "VIC_fnc_spawnStalkerCamp",
+    "VIC_fnc_spawnStalkerCamps", "VIC_fnc_manageStalkerCamps",
+    "VIC_fnc_isAntistasiUltimate", "VIC_fnc_startMutantHunt",
+    "VIC_fnc_startArtefactHunt", "VIC_fnc_startChemSample",
+    "VIC_fnc_completeArtefactHunt", "VIC_fnc_completeChemSample"
+];
+
+{
+    private _f = missionNamespace getVariable [_x, objNull];
+    if (typeName _f == "CODE") then {
+        missionNamespace setVariable [_x, [_f, _x] call VIC_fnc_traceFunction];
+    };
+} forEach _traceFunctions;
 
 
 // --- PostInit ---------------------------------------------------------------
