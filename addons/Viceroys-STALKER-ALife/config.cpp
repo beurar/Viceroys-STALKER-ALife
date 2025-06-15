@@ -151,6 +151,12 @@ class CfgFunctions
             class trackDeadForZombify{};
             class onEmissionEnd{};
         };
+        class Necroplague
+        {
+            file = "Viceroys-STALKER-ALife\functions\necroplague";
+            class triggerNecroplague{};
+            class scheduleNecroplague{};
+        };
 
         class Anomalies
         {

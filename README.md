@@ -114,6 +114,12 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Integrates with **WebKnight’s Zombies & Demons** and **Necroplague** to handle the zombies themselves.
 * Units that die while an emission is active will reanimate as zombies when the
   storm ends.
+### Necroplague
+* Random event that unleashes zombie hordes from hidden positions.
+* Zombies spawn behind nearby buildings so players often hear them before they see them.
+* Controlled via CBA settings for delay and horde size.
+* Can be manually triggered from debug actions which also mark the spawn points.
+
 
 ## Anomaly Types
 Each anomaly behaves differently and creates unique hazards:

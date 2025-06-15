@@ -461,6 +461,45 @@ true
 ] call CBA_fnc_addSetting;
 
 // -----------------------------------------------------------------------------
+// Necroplague
+// -----------------------------------------------------------------------------
+[
+    "VSA_enableNecroplague",
+    "CHECKBOX",
+    ["Enable Necroplague", "Allow periodic zombie hordes"],
+    "Viceroy's STALKER ALife - Necroplague",
+    true
+] call CBA_fnc_addSetting;
+[
+    "VSA_necroMinDelay",
+    "SLIDER",
+    ["Min Delay (s)", "Minimum seconds between necroplague events"],
+    "Viceroy's STALKER ALife - Necroplague",
+    [0,7200,1800,0]
+] call CBA_fnc_addSetting;
+[
+    "VSA_necroMaxDelay",
+    "SLIDER",
+    ["Max Delay (s)", "Maximum seconds between necroplague events"],
+    "Viceroy's STALKER ALife - Necroplague",
+    [0,7200,3600,0]
+] call CBA_fnc_addSetting;
+[
+    "VSA_necroHordes",
+    "SLIDER",
+    ["Hordes per Player", "Number of zombie groups around each player"],
+    "Viceroy's STALKER ALife - Necroplague",
+    [1,5,2,0]
+] call CBA_fnc_addSetting;
+[
+    "VSA_necroZombies",
+    "SLIDER",
+    ["Zombies per Horde", "Zombies spawned in each group"],
+    "Viceroy's STALKER ALife - Necroplague",
+    [1,20,5,0]
+] call CBA_fnc_addSetting;
+
+// -----------------------------------------------------------------------------
 // AI Behaviour
 // -----------------------------------------------------------------------------
 [
