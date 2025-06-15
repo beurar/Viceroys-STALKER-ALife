@@ -26,7 +26,10 @@ for "_i" from 1 to _count do {
     private _centerPos = if (_center isEqualType objNull) then { getPos _center } else { _center };
     private _ang = random 360;
     private _dist = random _radius;
-    private _pos = [(_centerPos select 0) + _dist * sin _ang, (_centerPos select 1) + _dist * cos _ang, _centerPos select 2];
-    [_pos, _zoneRadius, _duration] call VIC_fnc_spawnChemicalZone;
+    private _base = [(_centerPos select 0) + _dist * sin _ang, (_centerPos select 1) + _dist * cos _ang, _centerPos select 2];
+    private _pos = [_base] call VIC_fnc_findLandPosition;
+    if !(_pos isEqualTo []) then {
+        [_pos, _zoneRadius, _duration] call VIC_fnc_spawnChemicalZone;
+    };
 };
 
