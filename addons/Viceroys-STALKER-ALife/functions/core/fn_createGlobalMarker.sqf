@@ -14,6 +14,8 @@
 */
 params ["_name", "_pos", ["_shape", "ICON"], ["_type", "mil_dot"], ["_color", "ColorWhite"], ["_alpha", 1], ["_text", ""]];
 
+[format ["createGlobalMarker %1 @ %2", _name, _pos]] call VIC_fnc_debugLog;
+
 if (!isServer) exitWith { _name };
 
 [_name, _pos] remoteExec ["createMarker", 0];
@@ -24,5 +26,7 @@ if (!isServer) exitWith { _name };
 if (_text != "") then {
     [_name, _text] remoteExec ["setMarkerText", 0];
 };
+
+[format ["createGlobalMarker done %1", _name]] call VIC_fnc_debugLog;
 
 _name
