@@ -168,6 +168,8 @@ VIC_fnc_completeArtefactHunt = compile preprocessFileLineNumbers (_root + "\func
 VIC_fnc_completeChemSample   = compile preprocessFileLineNumbers (_root + "\functions\antistasi\fn_completeChemSample.sqf");
 
 
+// Functions compiled in this file that should be wrapped with trace logging.
+// VIC_fnc_getSetting is deliberately skipped to avoid recursive tracing.
 private _traceFunctions = [
     "VIC_fnc_setupDebugActions", "VIC_fnc_markAllBuildings",
     "VIC_fnc_markPlayerRanges", "VIC_fnc_findRockClusters",
@@ -182,6 +184,8 @@ private _traceFunctions = [
     "VIC_fnc_findHiddenPosition", "VIC_fnc_markHiddenPosition",
     "VIC_fnc_findBuildingCoverSpot", "VIC_fnc_markBuildingCoverSpot",
     "VIC_fnc_radioMessage", "VIC_fnc_resetAIBehavior",
+    "VIC_fnc_triggerAIPanic", "VIC_fnc_avoidAnomalies",
+    "VIC_fnc_avoidAnomalyFields", "VIC_fnc_toggleFieldAvoid",
     "VIC_fnc_cleanupChemicalZones", "VIC_fnc_spawnChemicalZone",
     "VIC_fnc_spawnRandomChemicalZones", "VIC_fnc_findValleyPosition",
     "VIC_fnc_spawnValleyChemicalZones",
