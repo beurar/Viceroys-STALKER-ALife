@@ -21,8 +21,8 @@ private _classes = ["WBK_Zombie1","WBK_Zombie2","WBK_Zombie3"];
 
     for "_h" from 1 to _hordes do {
         private _pos = [_player,50,5] call VIC_fnc_findBuildingCoverSpot;
-        if (isNil "_pos") then { _pos = [_player,100,5] call VIC_fnc_findBuildingCoverSpot; };
-        if (isNil "_pos") then {
+        if (isNil {_pos}) then { _pos = [_player,100,5] call VIC_fnc_findBuildingCoverSpot; };
+        if (isNil {_pos}) then {
             private _angle = random 360;
             private _dist = 40 + random 40;
             _pos = _player getPos [_dist, _angle];

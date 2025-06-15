@@ -44,7 +44,7 @@ for "_i" from 1 to _iedCount do {
     private _town = selectRandom _towns;
     private _tPos = locationPosition _town;
     private _pos = [_tPos, 200, 10] call VIC_fnc_findRoadPosition;
-    if (isNil "_pos") then { continue; };
+    if (isNil {_pos}) then { continue; };
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         _marker = format ["ied_%1", diag_tickTime];

@@ -17,7 +17,7 @@ if (isNil "STALKER_hiddenMarkers") then { STALKER_hiddenMarkers = [] };
 STALKER_hiddenMarkers = [];
 
 private _pos = [] call VIC_fnc_findHiddenPosition;
-if (isNil "_pos") exitWith { false };
+if (isNil {_pos}) exitWith { false };
 
 private _name = format ["hidden_%1", diag_tickTime + random 1000];
 private _marker = createMarker [_name, _pos];
