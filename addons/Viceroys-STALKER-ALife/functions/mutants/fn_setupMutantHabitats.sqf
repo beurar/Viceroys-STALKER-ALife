@@ -25,16 +25,12 @@ private _createMarker = {
     if (_overlap) exitWith { false };
     private _base = format ["hab_%1_%2", toLower _type, diag_tickTime + random 1000];
 
-    private _area = createMarker [_base + "_area", _pos];
-    _area setMarkerShape "ELLIPSE";
-    _area setMarkerColor "ColorGreen";
-    _area setMarkerSize [150,150];
-    _area setMarkerText format ["%1 Habitat Area", _type];
+    private _area = _base + "_area";
+    [_area, _pos, "ELLIPSE", "", "ColorGreen", 1, format ["%1 Habitat Area", _type]] call VIC_fnc_createGlobalMarker;
+    [_area, [150,150]] remoteExec ["setMarkerSize", 0];
 
-    private _label = createMarker [_base + "_label", _pos];
-    _label setMarkerShape "ICON";
-    _label setMarkerType "mil_dot";
-    _label setMarkerColor "ColorGreen";
+    private _label = _base + "_label";
+    [_label, _pos, "ICON", "mil_dot", "ColorGreen", 1] call VIC_fnc_createGlobalMarker;
     private _max = switch (_type) do {
         case "Bloodsucker": { ["VSA_habitatSize_Bloodsucker",12] call VIC_fnc_getSetting };
         case "Blind Dog": { ["VSA_habitatSize_Dog",50] call VIC_fnc_getSetting };

@@ -37,11 +37,8 @@ for "_i" from 1 to _count do {
 
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
-        _marker = createMarker [format ["amb_%1", diag_tickTime + _i], _pos];
-        _marker setMarkerShape "ICON";
-        _marker setMarkerType "mil_triangle";
-        _marker setMarkerColor "ColorBlack";
-        _marker setMarkerAlpha 0.2;
+        _marker = format ["amb_%1", diag_tickTime + _i];
+        [_marker, _pos, "ICON", "mil_triangle", "ColorBlack", 0.2, "Ambush"] call VIC_fnc_createGlobalMarker;
     };
 
     STALKER_ambushes pushBack [_pos, objNull, [], [], false, _marker];
