@@ -53,8 +53,8 @@ private _createMarker = {
         default {10};
     };
 
-    _label setMarkerText format ["%1 Habitat: %2/%2", _type, _max];
-    STALKER_mutantHabitats pushBack [_area, _label, grpNull, _pos, _type, _max, _max, false];
+    _label setMarkerText format ["%1 Habitat: 0/%2", _type, _max];
+    STALKER_mutantHabitats pushBack [_area, _label, grpNull, _pos, _type, _max, 0, false];
 };
 
 private _weightedPick = {

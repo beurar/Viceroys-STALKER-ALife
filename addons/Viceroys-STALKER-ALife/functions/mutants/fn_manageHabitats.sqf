@@ -31,7 +31,6 @@ private _getClass = {
     };
 };
 
-private _chance = ["VSA_mutantSpawnWeight",50] call VIC_fnc_getSetting;
 
 {
 
@@ -66,7 +65,7 @@ private _chance = ["VSA_mutantSpawnWeight",50] call VIC_fnc_getSetting;
             _grp = grpNull;
         };
 
-        if (_count < _max && { random 100 < _chance }) then {
+        if (_count < _max) then {
             _count = _count + 1;
             if (_count > _max) then { _count = _max; };
         };
