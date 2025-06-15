@@ -110,7 +110,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 
 ### Zombification
 * Tracks dead units and may reanimate them as zombies after a delay.
-* Integrates with **WebKnight’s Zombies & Demons** to handle the zombies themselves.
+* Integrates with **WebKnight’s Zombies & Demons** and **Necroplague** to handle the zombies themselves.
 * Units that die while an emission is active will reanimate as zombies when the
   storm ends.
 
@@ -170,6 +170,7 @@ spawns at night, during the day or both.
    * [Drongo’s Spooks and Anomalies](https://steamcommunity.com/sharedfiles/filedetails/?id=2262255106)
    * [Stalker Stuff](https://steamcommunity.com/sharedfiles/filedetails/?id=2781344095)
    * [Chemical Warfare Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3295358796)
+   * [Necroplague](https://steamcommunity.com/workshop/filedetails/?id=2616555444)
 3. Review `cba_settings.sqf` for adjustable options such as the player nearby range used by many systems.
 4. Enable **VSA_debugMode** to show on-screen debug messages and access testing actions.
    This option can now be toggled while a mission is running and the debug
@@ -282,6 +283,7 @@ statements are not themselves returning a final value. In your case, you have:
    * [Drongo’s Spooks and Anomalies](https://steamcommunity.com/sharedfiles/filedetails/?id=2262255106)
    * [Stalker Stuff](https://steamcommunity.com/sharedfiles/filedetails/?id=2781344095)
    * [Chemical Warfare Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3295358796)
+   * [Necroplague](https://steamcommunity.com/workshop/filedetails/?id=2616555444)
 
 These mods must be loaded for the scripts in this repository to function correctly.
 
