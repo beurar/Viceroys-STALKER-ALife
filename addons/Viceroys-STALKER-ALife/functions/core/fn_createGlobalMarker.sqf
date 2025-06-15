@@ -18,13 +18,13 @@ params ["_name", "_pos", ["_shape", "ICON"], ["_type", "mil_dot"], ["_color", "C
 
 if (!isServer) exitWith { _name };
 
-[_name, _pos] remoteExec ["createMarker", 0];
-[_name, _shape] remoteExec ["setMarkerShape", 0];
-[_name, _type] remoteExec ["setMarkerType", 0];
-[_name, _color] remoteExec ["setMarkerColor", 0];
-[_name, _alpha] remoteExec ["setMarkerAlpha", 0];
+[_name, _pos] remoteExecCall ["createMarker", 0, true];
+[_name, _shape] remoteExecCall ["setMarkerShape", 0, true];
+[_name, _type] remoteExecCall ["setMarkerType", 0, true];
+[_name, _color] remoteExecCall ["setMarkerColor", 0, true];
+[_name, _alpha] remoteExecCall ["setMarkerAlpha", 0, true];
 if (_text != "") then {
-    [_name, _text] remoteExec ["setMarkerText", 0];
+    [_name, _text] remoteExecCall ["setMarkerText", 0, true];
 };
 
 [format ["createGlobalMarker done %1", _name]] call VIC_fnc_debugLog;
