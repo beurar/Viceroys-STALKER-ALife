@@ -10,15 +10,25 @@
 */
 params ["_fn", "_name"];
 
-private _function = _fn;
+// Store the function and name under a unique identifier so the generated
+// wrapper can retrieve them when executed. SQF lacks closures, so this
+// approach avoids undefined-variable errors.
+private _id  = str diag_tickTime;
+private _var = format ["VIC_trace_%1", _id];
 
-{
-    if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
-        [format ["%1 called with %2", _name, str _this]] call VIC_fnc_debugLog;
-    };
-    private _result = _this call _function;
-    if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
-        [format ["%1 returned %2", _name, str _result]] call VIC_fnc_debugLog;
-    };
-    _result
-}
+missionNamespace setVariable [_var, [_fn, _name]];
+
+compileFinal format ["\
+    private _args = _this;\n\
+    private _data = missionNamespace getVariable ['%1', []];\n\
+    private _fn = _data select 0;\n\
+    private _fnName = _data select 1;\n\
+    if ([\"VSA_debugMode\", false] call VIC_fnc_getSetting) then {\n\
+        [(_fnName + ' called with ' + str _args)] call VIC_fnc_debugLog;\n\
+    };\n\
+    private _result = _args call _fn;\n\
+    if ([\"VSA_debugMode\", false] call VIC_fnc_getSetting) then {\n\
+        [(_fnName + ' returned ' + str _result)] call VIC_fnc_debugLog;\n\
+    };\n\
+    _result\n\
+", _var]
