@@ -10,12 +10,12 @@ private _settings = _root + "\cba_settings.sqf";
 waitUntil {!isNil "CBA_fnc_addSetting"};
 call compile preprocessFileLineNumbers _settings;
 
-
+// Compile logging function first so it can be used immediately
+VIC_fnc_debugLog                 = compile preprocessFileLineNumbers (_root + "\functions\core\fn_debugLog.sqf");
 
 ["masterInit"] call VIC_fnc_debugLog;
 
 // Functions required on both server and client for debugging helpers
-VIC_fnc_debugLog                 = compile preprocessFileLineNumbers (_root + "\functions\core\fn_debugLog.sqf");
 VIC_fnc_setupDebugActions        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_setupDebugActions.sqf");
 VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markAllBuildings.sqf");
 VIC_fnc_markPlayerRanges        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markPlayerRanges.sqf");
