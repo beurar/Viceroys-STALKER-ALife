@@ -81,6 +81,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Mines despawn when no players are nearby and respawn when someone approaches.
 * Enable debug mode to visualize fields and place test minefields via the action menu. Ambush sites can also be spawned this way. Use the new actions to start the minefield and ambush managers when testing.
 * Abandoned and damaged vehicles may appear on or near roads.
+* Tripwires and booby traps can spawn inside buildings around towns.
 * Fallen players leave a red X marker that vanishes once the body is removed.
 
 ### Spooks
@@ -175,7 +176,7 @@ spawns at night, during the day or both.
 4. Enable **VSA_debugMode** to show on-screen debug messages and access testing actions.
    This option can now be toggled while a mission is running and the debug
    actions will appear automatically.
-5. When debug mode is active, your scroll menu includes options to trigger storms, spawn permanent or temporary anomaly fields, cycle existing fields, spawn spook zones, generate habitats, spawn ambient herds, summon predator attacks, trigger AI panic or reset their behaviour, and other test helpers. All spawn actions run on the server so they work correctly in multiplayer. Permanent fields will show a randomly generated name on their marker for easy reference.
+5. When debug mode is active, your scroll menu includes options to trigger storms, spawn permanent or temporary anomaly fields, cycle existing fields, spawn spook zones, generate habitats, spawn ambient herds, place booby traps in town buildings, summon predator attacks, trigger AI panic or reset their behaviour, and other test helpers. All spawn actions run on the server so they work correctly in multiplayer. Permanent fields will show a randomly generated name on their marker for easy reference.
 6. Use the **Mark All Buildings** action from this menu if you need to visualize every building. Buildings are no longer marked automatically when debug mode is enabled.
 
 If your mission reports undefined CBA settings, ensure that **CBA A3** is loaded and initialized before this mod. Settings now fall back to defaults via `VIC_fnc_getSetting` when CBA has not yet finished loading.

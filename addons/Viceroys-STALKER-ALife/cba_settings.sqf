@@ -656,6 +656,22 @@ true
     [0, 20, 2, 0]
 ] call CBA_fnc_addSetting;
 
+[
+    "VSA_enableBoobyTraps",
+    "CHECKBOX",
+    ["Enable Booby Traps", "Place tripwires and booby traps in buildings"],
+    "Viceroy's STALKER ALife - Minefields",
+    true
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_boobyTrapCount",
+    "SLIDER",
+    ["Booby Traps per Area", "Number of building traps spawned"],
+    "Viceroy's STALKER ALife - Minefields",
+    [0, 20, 5, 0]
+] call CBA_fnc_addSetting;
+
 // -----------------------------------------------------------------------------
 // Wrecks
 // -----------------------------------------------------------------------------
