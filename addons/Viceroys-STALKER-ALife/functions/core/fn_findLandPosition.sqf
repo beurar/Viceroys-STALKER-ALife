@@ -45,4 +45,14 @@ for "_i" from 0 to _attempts do {
         if (!_excludeTowns || { (nearestLocations [_pos,["NameCity","NameVillage","NameCityCapital","NameLocal"],500]) isEqualTo [] }) exitWith { _pos };
     };
 };
+
+// final attempt using BIS_fnc_findSafePos to avoid infinite failures
+private _safePos = [_base, 0, _radius max 50, 5, 0, 0, 0] call BIS_fnc_findSafePos;
+if (_safePos isEqualType [] && {!(_safePos isEqualTo [0,0,0])}) then {
+    private _surf = [_safePos] call VIC_fnc_getLandSurfacePosition;
+    if (!(_surf isEqualTo [])) then {
+        private _pos = ASLToAGL _surf;
+        if (!_excludeTowns || {(nearestLocations [_pos,["NameCity","NameVillage","NameCityCapital","NameLocal"],500]) isEqualTo []}) exitWith { _pos };
+    };
+};
 []

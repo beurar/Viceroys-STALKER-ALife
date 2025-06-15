@@ -36,7 +36,10 @@ for "_i" from 1 to _count do {
         private _offAng = random 360;
         private _offDist = random (_zoneRadius / 2);
         private _zonePos = [(_pos select 0) + _offDist * sin _offAng, (_pos select 1) + _offDist * cos _offAng, _pos select 2];
-        [_zonePos, _zoneRadius, _duration] call VIC_fnc_spawnChemicalZone;
+        _zonePos = [_zonePos] call VIC_fnc_findLandPosition;
+        if !(_zonePos isEqualTo []) then {
+            [_zonePos, _zoneRadius, _duration] call VIC_fnc_spawnChemicalZone;
+        };
     };
 };
 
