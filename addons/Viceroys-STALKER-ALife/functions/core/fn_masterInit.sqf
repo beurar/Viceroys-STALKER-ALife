@@ -171,7 +171,7 @@ VIC_fnc_completeChemSample   = compile preprocessFileLineNumbers (_root + "\func
 // Functions compiled in this file that should be wrapped with trace logging.
 // VIC_fnc_getSetting is deliberately skipped to avoid recursive tracing.
 private _traceFunctions = [
-    "VIC_fnc_setupDebugActions", "VIC_fnc_markAllBuildings",
+    "VIC_fnc_markAllBuildings",
     "VIC_fnc_markPlayerRanges", "VIC_fnc_findRockClusters",
     "VIC_fnc_markRockClusters", "VIC_fnc_findSniperSpots",
     "VIC_fnc_markSniperSpots", "VIC_fnc_findSwamps",
