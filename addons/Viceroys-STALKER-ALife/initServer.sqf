@@ -1,6 +1,8 @@
 // initServer.sqf
-// Launch master initialization on the dedicated server
-// Server initialization for STALKER ALife
+// Launch master initialization on the server
+// Works for both dedicated and locally hosted games
+
+if (!isServer) exitWith {};
 
 // Spook zone configuration
 STALKER_MinSpookFields = 2;      // minimum zones spawned per emission
