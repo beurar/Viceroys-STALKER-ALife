@@ -6,3 +6,4 @@ repos:
     entry: ./scripts/sqflint-hook.sh
     language: script
     files: \.sqf$
+    exclude: ^addons/Viceroys-STALKER-ALife/functions/core/fn_traceFunction\.sqf$
