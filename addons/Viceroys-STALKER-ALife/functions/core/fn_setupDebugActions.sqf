@@ -66,6 +66,9 @@ player addAction ["Spawn Predator Attack", {
 player addAction ["Spawn Minefields", {
     [getPos player, 300] remoteExec ["VIC_fnc_spawnMinefields", 2];
 }];
+player addAction ["Spawn Booby Traps", {
+    [getPos player, 200] remoteExec ["VIC_fnc_spawnBoobyTraps", 2];
+}];
 player addAction ["Start Minefield Logic", {
     [] remoteExec ["VIC_fnc_startMinefieldManager", 2];
 }];

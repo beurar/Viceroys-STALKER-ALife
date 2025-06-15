@@ -112,6 +112,7 @@ class CfgFunctions
             class spawnMinefields{};
             class spawnAPERSField{};
             class spawnIED{};
+            class spawnBoobyTraps{};
             class manageMinefields{};
             class startMinefieldManager{};
         };
