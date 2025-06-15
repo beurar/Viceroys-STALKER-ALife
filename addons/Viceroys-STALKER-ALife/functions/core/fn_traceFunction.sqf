@@ -23,11 +23,11 @@ compileFinal format ["\
     private _data = missionNamespace getVariable ['%1', []];\n\
     private _fn = _data select 0;\n\
     private _fnName = _data select 1;\n\
-    if ([\"VSA_debugMode\", false] call VIC_fnc_getSetting) then {\n\
+    if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {\n\
         [(_fnName + ' called with ' + str _args)] call VIC_fnc_debugLog;\n\
     };\n\
     private _result = _args call _fn;\n\
-    if ([\"VSA_debugMode\", false] call VIC_fnc_getSetting) then {\n\
+    if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {\n\
         [(_fnName + ' returned ' + str _result)] call VIC_fnc_debugLog;\n\
     };\n\
     _result\n\
