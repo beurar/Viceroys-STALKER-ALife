@@ -13,7 +13,9 @@ params ["_fn", "_name"];
 // Store the function and name under a unique identifier so the generated
 // wrapper can retrieve them when executed. SQF lacks closures, so this
 // approach avoids undefined-variable errors.
-private _id  = str diag_tickTime;
+// diag_tickTime may include decimal places which are invalid in variable names.
+// Multiply and floor to generate a numeric identifier and convert to string.
+private _id  = str floor (diag_tickTime * 1e6);
 private _var = format ["VIC_trace_%1", _id];
 
 missionNamespace setVariable [_var, [_fn, _name]];
