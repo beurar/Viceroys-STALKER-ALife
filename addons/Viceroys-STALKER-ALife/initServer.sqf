@@ -4,6 +4,9 @@
 
 if (!isServer) exitWith {};
 
+// Ensure core functions are compiled when running script-only
+[] call compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\core\fn_masterInit.sqf";
+
 // Spook zone configuration
 STALKER_MinSpookFields = 2;      // minimum zones spawned per emission
 STALKER_MaxSpookFields = 5;      // maximum zones spawned per emission
