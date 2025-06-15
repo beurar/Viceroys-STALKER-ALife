@@ -74,12 +74,9 @@ for "_i" from 1 to _count do {
     _zone setVariable ["spawnedSpooks", _spawned];
 
     private _markerName = format ["spook_%1", diag_tickTime];
-    private _marker = createMarker [_markerName, _pos];
-    _marker setMarkerShape "ELLIPSE";
-    _marker setMarkerSize [25,25];
-    _marker setMarkerColor "ColorBlack";
-    private _disp = _class select [4];
-    _marker setMarkerText format ["%1 x%2", _disp, _num];
+    private _marker = _markerName;
+    [_marker, _pos, "ELLIPSE", "", "ColorBlack", 1, format ["%1 x%2", _class select [4], _num]] call VIC_fnc_createGlobalMarker;
+    [_marker, [25,25]] remoteExec ["setMarkerSize", 0];
     _zone setVariable ["zoneMarker", _marker];
     private _range = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
 

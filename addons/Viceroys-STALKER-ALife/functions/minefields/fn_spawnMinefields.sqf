@@ -31,12 +31,9 @@ for "_i" from 1 to _fieldCount do {
     if (!(_pos isEqualTo [])) then {
         private _marker = "";
         if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
-            _marker = createMarker [format ["mf_%1", diag_tickTime], _pos];
-            _marker setMarkerShape "RECTANGLE";
-            _marker setMarkerSize [_size/2,_size/2];
-            _marker setMarkerColor "ColorYellow";
-            _marker setMarkerText "APERS Field";
-            _marker setMarkerAlpha 0.2;
+            _marker = format ["mf_%1", diag_tickTime];
+            [_marker, _pos, "RECTANGLE", "", "ColorYellow", 0.2, "APERS Field"] call VIC_fnc_createGlobalMarker;
+            [_marker, [_size/2,_size/2]] remoteExec ["setMarkerSize", 0];
         };
         STALKER_minefields pushBack [_pos,"APERS",_size,[],_marker];
     };
@@ -50,12 +47,8 @@ for "_i" from 1 to _iedCount do {
     if (isNil "_pos") then { continue; };
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
-        _marker = createMarker [format ["ied_%1", diag_tickTime], _pos];
-        _marker setMarkerShape "ICON";
-        _marker setMarkerType "mil_triangle";
-        _marker setMarkerColor "ColorRed";
-        _marker setMarkerText "IED";
-        _marker setMarkerAlpha 0.2;
+        _marker = format ["ied_%1", diag_tickTime];
+        [_marker, _pos, "ICON", "mil_triangle", "ColorRed", 0.2, "IED"] call VIC_fnc_createGlobalMarker;
     };
     STALKER_minefields pushBack [_pos,"IED",0,[],_marker];
 };

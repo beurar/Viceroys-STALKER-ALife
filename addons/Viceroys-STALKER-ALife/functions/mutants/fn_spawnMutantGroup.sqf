@@ -41,11 +41,8 @@ for "_i" from 1 to _groupCount do {
     };
     [_grp, _spawnPos] call BIS_fnc_taskPatrol;
     private _markerName = format ["hostile_%1_%2", _i, diag_tickTime];
-    private _marker = createMarker [_markerName, _spawnPos];
-    _marker setMarkerShape "ICON";
-    _marker setMarkerType "mil_dot";
-    _marker setMarkerColor "ColorOrange";
-    _marker setMarkerAlpha 1;
+    private _marker = _markerName;
+    [_marker, _spawnPos, "ICON", "mil_dot", "ColorOrange", 1] call VIC_fnc_createGlobalMarker;
     STALKER_activeHostiles pushBack [_grp, "hostile", _spawnPos, _marker, true];
-};
+}; 
 
