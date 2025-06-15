@@ -51,6 +51,11 @@ player addAction ["Spawn Spook Zone", {
 player addAction ["Spawn Zombies From Queue", {
     [] remoteExec ["VIC_fnc_spawnZombiesFromQueue", 2];
 }];
+player addAction ["Trigger Necroplague", {
+    private _z = ["VSA_necroZombies",5] call VIC_fnc_getSetting;
+    private _h = ["VSA_necroHordes",2] call VIC_fnc_getSetting;
+    [_z, _h, true] remoteExec ["VIC_fnc_triggerNecroplague", 2];
+}];
 player addAction ["Spawn Ambient Herds", {
     [] remoteExec ["VIC_fnc_spawnAmbientHerds", 2];
 }];

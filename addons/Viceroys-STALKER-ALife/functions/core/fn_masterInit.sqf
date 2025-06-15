@@ -91,6 +91,8 @@ VIC_fnc_schedulePsyStorms        = compile preprocessFileLineNumbers (_root + "\
 VIC_fnc_triggerPsyStorm          = compile preprocessFileLineNumbers (_root + "\functions\storms\fn_triggerPsyStorm.sqf");
 VIC_fnc_scheduleBlowouts         = compile preprocessFileLineNumbers (_root + "\functions\blowouts\fn_scheduleBlowouts.sqf");
 VIC_fnc_triggerBlowout           = compile preprocessFileLineNumbers (_root + "\functions\blowouts\fn_triggerBlowout.sqf");
+VIC_fnc_triggerNecroplague  = compile preprocessFileLineNumbers (_root + "\functions\necroplague\fn_triggerNecroplague.sqf");
+VIC_fnc_scheduleNecroplague = compile preprocessFileLineNumbers (_root + "\functions\necroplague\fn_scheduleNecroplague.sqf");
 VIC_fnc_placeTownSirens          = compile preprocessFileLineNumbers (_root + "\functions\blowouts\fn_placeTownSirens.sqf");
 VIC_fnc_setupSpookZones          = compile preprocessFileLineNumbers (_root + "\functions\spooks\fn_setupSpookZones.sqf");
 VIC_fnc_spawnSpookZone           = compile preprocessFileLineNumbers (_root + "\functions\spooks\fn_spawnSpookZone.sqf");
@@ -169,6 +171,7 @@ VIC_fnc_completeChemSample   = compile preprocessFileLineNumbers (_root + "\func
     [] call VIC_fnc_registerEmissionHooks;
     [] call VIC_fnc_schedulePsyStorms;
     [] call VIC_fnc_scheduleBlowouts;
+    [] call VIC_fnc_scheduleNecroplague;
     [] call VIC_fnc_placeTownSirens;
     [] call VIC_fnc_setupAnomalyFields;
     [] call VIC_fnc_setupMutantHabitats;
