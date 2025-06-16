@@ -23,8 +23,9 @@ private _zClasses = [
         deleteVehicle _corpse;
 
         private _class = selectRandom _zClasses;
-        private _zombie = createVehicle [_class, _pos, [], 0, "NONE"];
+        private _zombie = createAgent [_class, _pos, [], 0, "NONE"];
         _zombie setDir _dir;
+        [_zombie] call VIC_fnc_initMutantUnit;
     };
 } forEach _queue;
 

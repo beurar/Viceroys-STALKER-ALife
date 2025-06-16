@@ -11,4 +11,8 @@
 params ["_pos", "_radius"];
 
 // Search all players on the server and return true when one is close
-(allPlayers findIf { alive _x && {_x distance2D _pos <= _radius} }) >= 0
+private _nearby = false;
+{
+    if (alive _x && { _x distance2D _pos <= _radius }) exitWith { _nearby = true };
+} forEach allPlayers;
+_nearby;
