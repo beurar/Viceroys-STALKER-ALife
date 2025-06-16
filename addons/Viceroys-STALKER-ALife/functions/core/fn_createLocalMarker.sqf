@@ -1,5 +1,5 @@
 /*
-    Creates a marker globally on all machines.
+    Creates a marker locally with the given attributes.
 
     Params:
         0: STRING - marker name
@@ -24,12 +24,13 @@ params [
     ["_size", [1,1]]
 ];
 
-[format ["createGlobalMarker %1 @ %2", _name, _pos]] call VIC_fnc_debugLog;
-
-if (!isServer) exitWith { _name };
-
-[_name, _pos, _shape, _type, _color, _alpha, _text, _size] remoteExecCall ["VIC_fnc_createLocalMarker", 0, true];
-
-[format ["createGlobalMarker done %1", _name]] call VIC_fnc_debugLog;
-
-_name
+private _marker = createMarker [_name, _pos];
+_marker setMarkerShape _shape;
+_marker setMarkerSize _size;
+_marker setMarkerType _type;
+_marker setMarkerColor _color;
+_marker setMarkerAlpha _alpha;
+if (_text != "") then {
+    _marker setMarkerText _text;
+};
+_marker

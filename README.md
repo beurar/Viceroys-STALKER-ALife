@@ -318,6 +318,13 @@ The repository ships with `logo.paa` as the main logo and `Icon.paa` for smaller
 launcher displays. These images are referenced in `mod.cpp` so that Arma 3
 shows the mod's branding in the launcher and in-game menus.
 
+## Remote Execution
+
+Engine commands like `createMarker` and `setMarkerType` cannot be executed via
+`remoteExecCall` directly. They must run inside a script that you remote execute.
+Functions such as `VIC_fnc_createGlobalMarker` handle this by calling a local
+helper on each machine.
+
 ## License
 
 This project is licensed under the **Arma Public License Share Alike (APL-SA)**.

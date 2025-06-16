@@ -32,6 +32,7 @@ VIC_fnc_markValleys            = compile preprocessFileLineNumbers (_root + "\fu
 VIC_fnc_findBuildingClusters    = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findBuildingClusters.sqf");
 VIC_fnc_markBuildingClusters    = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markBuildingClusters.sqf");
 VIC_fnc_createGlobalMarker     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_createGlobalMarker.sqf");
+VIC_fnc_createLocalMarker      = compile preprocessFileLineNumbers (_root + "\functions\core\fn_createLocalMarker.sqf");
 VIC_fnc_markDeathLocation      = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markDeathLocation.sqf");
 VIC_fnc_weightedPick           = compile preprocessFileLineNumbers (_root + "\functions\core\fn_weightedPick.sqf");
 VIC_fnc_selectWeightedBuilding = compile preprocessFileLineNumbers (_root + "\functions\core\fn_selectWeightedBuilding.sqf");
