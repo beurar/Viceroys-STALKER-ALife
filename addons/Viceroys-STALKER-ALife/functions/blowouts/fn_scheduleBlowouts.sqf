@@ -1,5 +1,5 @@
 /*
-    Schedule recurring blowout emissions using TTS.
+    Schedule recurring blowouts using Diwako's Anomalies.
     Params: None
 */
 

@@ -1,5 +1,5 @@
 /*
-    Trigger a single blowout emission using TTS.
+    Trigger a single blowout using Diwako's Anomalies.
     Params:
         0: NUMBER - minimum duration in seconds (default 300)
         1: NUMBER - maximum duration in seconds (default 900)
@@ -22,44 +22,23 @@ _speedMin = ["VSA_blowoutSpeedMin", _speedMin] call VIC_fnc_getSetting;
 _speedMax = ["VSA_blowoutSpeedMax", _speedMax] call VIC_fnc_getSetting;
 
 
-["triggerBlowout"] call VIC_fnc_debugLog;
+    ["triggerBlowout"] call VIC_fnc_debugLog;
 
-if (!isServer) exitWith {
-    ["triggerBlowout exit: not server"] call VIC_fnc_debugLog;
-};
+    if (!isServer) exitWith {
+        ["triggerBlowout exit: not server"] call VIC_fnc_debugLog;
+    };
 
-// ensure the TTS emission module is loaded
-if (isNil "tts_emission_fnc_startEmission") exitWith {
-    ["TTS emission module missing, aborting blowout"] call VIC_fnc_debugLog;
-};
+    private _duration = _minDur + random (_maxDur - _minDur);
 
-private _duration = _minDur + random (_maxDur - _minDur);
+    private _blowoutModule = "diwako_anomalies_main_moduleBlowout" createVehicleLocal [0,0,0];
+    _blowoutModule setVariable ["diwako_anomalies_main_wavetime", _duration];
+    _blowoutModule setVariable ["diwako_anomalies_main_direction", _dir];
+    _blowoutModule setVariable ["diwako_anomalies_main_sirens", true];
+    _blowoutModule setVariable ["diwako_anomalies_main_onlyPlayers", true];
+    _blowoutModule setVariable ["diwako_anomalies_main_isLethal", true];
+    _blowoutModule setVariable ["diwako_anomalies_main_environmentParticleEffects", true];
 
-missionNamespace setVariable ["TTS_EMISSION_DIRECTION", _dir, true];
-missionNamespace setVariable ["TTS_EMISSION_DURATION", _duration, true];
-
-// configure TTS emission behaviour
-tts_emission_playerEffect      = 0; // kill unsheltered players
-private _killAI                = ["VSA_killAIEmission", true] call VIC_fnc_getSetting;
-tts_emission_aiEffect          = if (_killAI) then {0} else {1};
-tts_emission_vehicleEffect     = 3; // disable engines
-tts_emission_aircraftEffect    = 0; // lightning strike
-tts_emission_sirenType         = 0; // classic siren
-tts_emission_useSirenObject    = false;
-tts_emission_protectionEquipment = [];
-tts_emission_shelterTypes      = ["Building","Car","Tank","Air","Ship"];
-tts_emission_immuneUnits       = [];
-tts_emission_waveSpeed         = _speedMin;
-tts_emission_approachDirection = switch (true) do {
-    case (_dir <= 45 || _dir > 315): {"N"};
-    case (_dir > 45 && _dir <= 135): {"E"};
-    case (_dir > 135 && _dir <= 225): {"S"};
-    default {"W"};
-};
-tts_emission_showEmissionOnMap = false;
-tts_emission_disableRain       = false;
-
-// start emission using TTS
-[] spawn tts_emission_fnc_startEmission;
+    private _fncBlowout = missionNamespace getVariable ["diwako_anomalies_main_fnc_moduleBlowout", {}];
+    ["init", _blowoutModule] call _fncBlowout;
 
 ["triggerBlowout completed"] call VIC_fnc_debugLog;
