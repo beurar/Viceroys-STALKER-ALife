@@ -37,7 +37,12 @@ for "_i" from 1 to _count do {
     private _off = [_site, random 30, random 360] call BIS_fnc_relPos;
     private _surf = [_off] call VIC_fnc_getLandSurfacePosition;
     if (_surf isEqualTo []) then { continue };
-    private _anom = [_surf] call diwako_anomalies_main_fnc_createBurner;
+    private _create = missionNamespace getVariable ["diwako_anomalies_main_fnc_createBurner", {}];
+    if (_create isEqualTo {}) then {
+        ["createField_burner: Diwako Anomalies missing"] call VIC_fnc_debugLog;
+        continue;
+    };
+    private _anom = [_surf] call _create;
     _anom setVariable ["zoneMarker", _marker];
     _spawned pushBack _anom;
 };
