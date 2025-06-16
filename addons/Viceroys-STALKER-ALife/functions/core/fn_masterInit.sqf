@@ -173,14 +173,6 @@ VIC_fnc_completeChemSample   = compile preprocessFileLineNumbers (_root + "\func
 ["postInit", {
     [] call VIC_fnc_registerEmissionHooks;
     if (["VSA_autoInit", false] call VIC_fnc_getSetting) then {
-        [] call VIC_fnc_schedulePsyStorms;
-        [] call VIC_fnc_scheduleBlowouts;
-        [] call VIC_fnc_scheduleNecroplague;
-        [] call VIC_fnc_placeTownSirens;
-        [] call VIC_fnc_setupAnomalyFields;
-        [] call VIC_fnc_setupMutantHabitats;
-        [] call VIC_fnc_spawnAmbientStalkers;
-        [] call VIC_fnc_spawnStalkerCamps;
     [
         {
             while {true} do {
@@ -190,99 +182,8 @@ VIC_fnc_completeChemSample   = compile preprocessFileLineNumbers (_root + "\func
             };
         }, [], 8
     ] call CBA_fnc_waitAndExecute;
-    [
-        {
-            while {true} do {
-                [] call VIC_fnc_manageHerds;
-                sleep 60;
-            };
-        }, [], 10
-    ] call CBA_fnc_waitAndExecute;
-
-    [
-        {
-            while {true} do {
-                [] call VIC_fnc_manageChemicalZones;
-                sleep 60;
-            };
-        }, [], 13
-    ] call CBA_fnc_waitAndExecute;
-
-    [
-        {
-            while {true} do {
-                [] call VIC_fnc_manageHostiles;
-                sleep 60;
-            };
-        }, [], 15
-    ] call CBA_fnc_waitAndExecute;
-
-    [
-        {
-            while {true} do {
-                [] call VIC_fnc_avoidAnomalies;
-                sleep 30;
-            };
-        }, [], 16
-    ] call CBA_fnc_waitAndExecute;
-
-    [
-        {
-            while {true} do {
-                [] call VIC_fnc_avoidAnomalyFields;
-                sleep 30;
-            };
-        }, [], 17
-    ] call CBA_fnc_waitAndExecute;
-
-    [
-        {
-            while {true} do {
-                [] call VIC_fnc_manageAnomalyFields;
-                sleep 60;
-            };
-        }, [], 18
-    ] call CBA_fnc_waitAndExecute;
-
-    [
-        {
-            while {true} do {
-                [] call VIC_fnc_manageNests;
-                sleep 300;
-            };
-        }, [], 20
-    ] call CBA_fnc_waitAndExecute;
-
-    [
-        {
-            while {true} do {
-                [] call VIC_fnc_managePredators;
-                private _day   = ["VSA_predatorCheckIntervalDay", 300] call VIC_fnc_getSetting;
-                private _night = ["VSA_predatorCheckIntervalNight", 300] call VIC_fnc_getSetting;
-                private _delay = if (daytime > 5 && daytime < 20) then {_day} else {_night};
-                sleep _delay;
-            };
-        }, [], 23
-    ] call CBA_fnc_waitAndExecute;
-
-    [
-        {
-            while {true} do {
-                [] call VIC_fnc_manageHabitats;
-                private _delay = ["VSA_habitatCheckInterval", 5] call VIC_fnc_getSetting;
-                sleep _delay;
-            };
-        }, [], 25
-    ] call CBA_fnc_waitAndExecute;
-
-    [
-        {
-            while {true} do {
-                [] call VIC_fnc_manageStalkerCamps;
-                sleep 60;
-            };
-        }, [], 29
-    ] call CBA_fnc_waitAndExecute;
+    // Additional managers have been disabled for quicker startup and can be
+    // invoked via debug actions when needed.
     };
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         [] call VIC_fnc_setupDebugActions;

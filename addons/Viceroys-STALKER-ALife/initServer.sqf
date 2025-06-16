@@ -25,17 +25,11 @@ STALKER_anomalyFields = [];
 STALKER_minefields = [];
 STALKER_panicGroups = [];
 
-// Prepare spook zone locations
-[] call compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\spooks\fn_setupSpookZones.sqf";
+// Prepare spook zone locations via debug action when needed
+// [] call compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\spooks\fn_setupSpookZones.sqf";
 
-// Generate anomaly fields across the map
-[] call VIC_fnc_setupAnomalyFields;
-
-// Generate chemical zones across the map
-for "_i" from 1 to 100 do {
-    private _pos = [random worldSize, random worldSize, 0];
-    [_pos, 1000] call VIC_fnc_spawnValleyChemicalZones;
-};
+// Anomaly fields, chemical zones and wrecks are now spawned through debug
+// actions rather than during startup to speed up initialization.
 
 // Minefields can be spawned via the debug action
 // for "_i" from 1 to 50 do {
@@ -43,9 +37,9 @@ for "_i" from 1 to 100 do {
 //     [_pos, 1000] call VIC_fnc_spawnMinefields;
 // };
 
-// Generate wrecks
-private _wreckCount = ["VSA_wreckCount", 10] call VIC_fnc_getSetting;
-[_wreckCount] call VIC_fnc_spawnAbandonedVehicles;
+// Generate wrecks via debug action instead of automatically
+// private _wreckCount = ["VSA_wreckCount", 10] call VIC_fnc_getSetting;
+// [_wreckCount] call VIC_fnc_spawnAbandonedVehicles;
 
 
 // Ambushes can be spawned via the debug action
