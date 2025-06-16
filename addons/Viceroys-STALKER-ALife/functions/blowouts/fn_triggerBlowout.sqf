@@ -21,9 +21,12 @@ _dir      = ["VSA_blowoutDirection", _dir] call VIC_fnc_getSetting;
 _speedMin = ["VSA_blowoutSpeedMin", _speedMin] call VIC_fnc_getSetting;
 _speedMax = ["VSA_blowoutSpeedMax", _speedMax] call VIC_fnc_getSetting;
 
+
 ["triggerBlowout"] call VIC_fnc_debugLog;
 
-if (!isServer) exitWith {};
+if (!isServer) exitWith {
+    ["triggerBlowout exit: not server"] call VIC_fnc_debugLog;
+};
 
 // ensure the TTS emission module is loaded
 if (isNil "tts_emission_fnc_startEmission") exitWith {
@@ -58,3 +61,5 @@ tts_emission_disableRain       = false;
 
 // start emission using TTS
 [] spawn tts_emission_fnc_startEmission;
+
+["triggerBlowout completed"] call VIC_fnc_debugLog;

@@ -3,11 +3,16 @@
     Params: None
 */
 
+
 ["scheduleBlowouts"] call VIC_fnc_debugLog;
 
-if (!isServer) exitWith {};
+if (!isServer) exitWith {
+    ["scheduleBlowouts exit: not server"] call VIC_fnc_debugLog;
+};
 
-if (["VSA_enableBlowouts", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
+if (["VSA_enableBlowouts", true] call VIC_fnc_getSetting isEqualTo false) exitWith {
+    ["scheduleBlowouts exit: disabled"] call VIC_fnc_debugLog;
+};
 
 private _minDelay = ["VSA_blowoutMinDelay",12] call VIC_fnc_getSetting; // hours
 private _maxDelay = ["VSA_blowoutMaxDelay",72] call VIC_fnc_getSetting; // hours
@@ -30,3 +35,5 @@ if (_maxDelay < _minDelay) then { _maxDelay = _minDelay; };
         sleep 60;
     };
 };
+
+["scheduleBlowouts completed"] call VIC_fnc_debugLog;

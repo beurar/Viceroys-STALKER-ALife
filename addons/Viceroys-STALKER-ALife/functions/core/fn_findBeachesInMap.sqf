@@ -19,6 +19,8 @@ params [
     ["_vegThreshold", 2]
 ];
 
+["fn_findBeachesInMap"] call VIC_fnc_debugLog;
+
 private _spots = [];
 
 for "_xCoord" from 0 to worldSize step _step do {
@@ -42,6 +44,8 @@ for "_xCoord" from 0 to worldSize step _step do {
             };
         };
     };
-};
+}; 
+
+["fn_findBeachesInMap completed"] call VIC_fnc_debugLog;
 
 _spots
