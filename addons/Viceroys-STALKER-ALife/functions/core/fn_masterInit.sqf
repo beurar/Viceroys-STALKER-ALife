@@ -12,6 +12,8 @@ call compile preprocessFileLineNumbers _settings;
 
 // Compile logging function first so it can be used immediately
 VIC_fnc_debugLog                 = compile preprocessFileLineNumbers (_root + "\functions\core\fn_debugLog.sqf");
+VIC_fnc_getSetting               = compile preprocessFileLineNumbers (_root + "\functions\core\fn_getSetting.sqf");
+// Settings helper is required by the logger
 
 ["masterInit"] call VIC_fnc_debugLog;
 
@@ -149,7 +151,6 @@ chemical_fnc_onEmissionEnd   = compile preprocessFileLineNumbers (_root + "\func
 zombification_fnc_onEmissionEnd = compile preprocessFileLineNumbers (_root + "\functions\zombification\fn_onEmissionEnd.sqf");
 VIC_fnc_hasPlayersNearby         = compile preprocessFileLineNumbers (_root + "\functions\core\fn_hasPlayersNearby.sqf");
 VIC_fnc_registerEmissionHooks    = compile preprocessFileLineNumbers (_root + "\functions\core\fn_registerEmissionHooks.sqf");
-VIC_fnc_getSetting               = compile preprocessFileLineNumbers (_root + "\functions\core\fn_getSetting.sqf");
 VIC_fnc_getSurfacePosition       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_getSurfacePosition.sqf");
 VIC_fnc_isWaterPosition         = compile preprocessFileLineNumbers (_root + "\functions\core\fn_isWaterPosition.sqf");
 VIC_fnc_findLandPosition        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findLandPosition.sqf");
