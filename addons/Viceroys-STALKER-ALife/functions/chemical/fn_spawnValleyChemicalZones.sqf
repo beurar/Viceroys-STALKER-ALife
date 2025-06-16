@@ -14,7 +14,9 @@ params ["_center","_radius", ["_count",-1], ["_duration",-1], ["_clusterSize",3]
 
 ["spawnValleyChemicalZones"] call VIC_fnc_debugLog;
 
-if (["VSA_enableChemicalZones", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
+if (["VSA_enableChemicalZones", true] call VIC_fnc_getSetting isEqualTo false) exitWith {
+    ["spawnValleyChemicalZones: disabled"] call VIC_fnc_debugLog;
+};
 
 if (isNil "STALKER_chemicalZones") then { STALKER_chemicalZones = []; };
 
@@ -22,7 +24,9 @@ if (_count < 0) then { _count = ["VSA_chemicalZoneCount", 2] call VIC_fnc_getSet
 private _nightOnly  = ["VSA_chemicalNightOnly", false] call VIC_fnc_getSetting;
 private _zoneRadius = ["VSA_chemicalZoneRadius", 50] call VIC_fnc_getSetting;
 
-if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
+if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {
+    ["spawnValleyChemicalZones: night only"] call VIC_fnc_debugLog;
+};
 
 for "_i" from 1 to _count do {
     private _centerPos = if (_center isEqualType objNull) then { getPos _center } else { _center };
