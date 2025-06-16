@@ -21,9 +21,9 @@ player addAction ["Spawn Psy-Storm", {
 }];
 player addAction ["Trigger Blowout", {
     if (isServer) then {
-        [] spawn tts_emission_fnc_startEmission;
+        [] call VIC_fnc_triggerBlowout;
     } else {
-        { [] spawn tts_emission_fnc_startEmission } remoteExec [2];
+        [] remoteExec ["VIC_fnc_triggerBlowout", 2];
     };
 }];
 player addAction ["Spawn Chemical Zone", {

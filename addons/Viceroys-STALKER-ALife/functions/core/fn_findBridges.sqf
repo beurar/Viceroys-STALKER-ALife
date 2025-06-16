@@ -39,7 +39,7 @@ for "_x" from 0 to _size step _step do {
         {
             private _obj = _x;
             private _type = typeOf _obj;
-            private _model = toLower getModelInfo _obj select 0;
+            private _model = toLower ((getModelInfo _obj) select 0);
 
             if (
                 _type in _bridgeClassnames ||
