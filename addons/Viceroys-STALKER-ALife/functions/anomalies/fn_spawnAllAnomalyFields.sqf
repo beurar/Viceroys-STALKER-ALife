@@ -1,12 +1,18 @@
 /*
-    Spawns anomaly fields around a position.
-    Fields persist for `STALKER_AnomalyFieldDuration` minutes before
-    being removed automatically.
+    Spawns a number of anomaly fields at random locations across the map.
+    Fields persist for `STALKER_AnomalyFieldDuration` minutes before being
+    removed automatically.
+
     Params:
-        0: POSITION or OBJECT - search center
-        1: NUMBER            - search radius
+        0: POSITION or OBJECT - (ignored) kept for backward compatibility
+        1: NUMBER             - (ignored) kept for backward compatibility
+        2: NUMBER             - forces permanent (1) or temporary (0) fields
 */
 params ["_center","_radius", ["_type", -1]];
+
+// variables kept for compatibility
+_center;
+_radius;
 
 
 ["spawnAllAnomalyFields"] call VIC_fnc_debugLog;
@@ -50,7 +56,12 @@ for "_i" from 1 to _fieldCount do {
     if ((count STALKER_anomalyMarkers) >= _maxFields) exitWith {
         ["spawnAllAnomalyFields: max fields reached"] call VIC_fnc_debugLog;
     };
+
     if (random 100 >= _spawnWeight) then { continue };
+
+    private _pos = [[random worldSize, random worldSize, 0]] call VIC_fnc_findLandPosition;
+    if (_pos isEqualTo []) then { continue };
+
     private _fn = selectRandom _types;
     private _typeName = switch (_fn) do {
         case VIC_fnc_createField_burner: {"burner"};
@@ -68,14 +79,16 @@ for "_i" from 1 to _fieldCount do {
         case VIC_fnc_createField_bridgeElectra: {"bridge"};
         default {""};
     };
+
     [format ["spawnAllAnomalyFields: attempting %1", _typeName]] call VIC_fnc_debugLog;
     private _permanent = if (_type == -1) then { (random 100) < _permChance } else { _type == 1 };
-    private _site = [];
-    private _spawned = if (_site isEqualTo []) then { [_center, _radius] call _fn } else { [_center, _radius, nil, _site] call _fn };
+
+    private _spawned = [_pos, 75] call _fn;
     if (_spawned isEqualTo []) then {
         [format ["spawnAllAnomalyFields: %1 failed", _typeName]] call VIC_fnc_debugLog;
-        continue
+        continue;
     };
+
     private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
     private _site   = if (_marker isEqualTo "") then { getPosATL (_spawned select 0) } else { getMarkerPos _marker };
     if (_marker != "") then {
@@ -84,8 +97,9 @@ for "_i" from 1 to _fieldCount do {
             _marker setMarkerText ([_typeName, _site] call VIC_fnc_generateFieldName);
         };
     };
+
     private _dur = missionNamespace getVariable ["STALKER_AnomalyFieldDuration", 30];
     private _exp = diag_tickTime + (_dur * 60);
-    STALKER_anomalyFields pushBack [_center,_radius,_fn,count _spawned,_spawned,_marker,_site,_exp,_permanent];
+    STALKER_anomalyFields pushBack [_pos,75,_fn,count _spawned,_spawned,_marker,_site,_exp,_permanent];
     [format ["spawnAllAnomalyFields: spawned %1 %2", count _spawned, _typeName]] call VIC_fnc_debugLog;
 };
