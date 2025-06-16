@@ -10,9 +10,13 @@ params ["_center", ["_radius",500], ["_fieldCount",-1], ["_iedCount",-1]];
 
 ["spawnMinefields"] call VIC_fnc_debugLog;
 
-if (!isServer) exitWith {};
+if (!isServer) exitWith {
+    ["spawnMinefields: server only"] call VIC_fnc_debugLog;
+};
 
-if (["VSA_enableMinefields", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
+if (["VSA_enableMinefields", true] call VIC_fnc_getSetting isEqualTo false) exitWith {
+    ["spawnMinefields: disabled"] call VIC_fnc_debugLog;
+};
 
 if (isNil "STALKER_minefields") then { STALKER_minefields = []; };
 
@@ -23,7 +27,9 @@ private _size = ["VSA_minefieldSize",30] call VIC_fnc_getSetting;
 private _towns = nearestLocations [_center, ["NameVillage","NameCity","NameCityCapital","NameLocal"], _radius];
 
 for "_i" from 1 to _fieldCount do {
-    if (_towns isEqualTo []) exitWith {};
+    if (_towns isEqualTo []) exitWith {
+        ["spawnMinefields: no towns found"] call VIC_fnc_debugLog;
+    };
     private _town = selectRandom _towns;
     private _tPos = locationPosition _town;
     private _pos = _tPos getPos [150 + random 200, random 360];
@@ -40,7 +46,9 @@ for "_i" from 1 to _fieldCount do {
 };
 
 for "_i" from 1 to _iedCount do {
-    if (_towns isEqualTo []) exitWith {};
+    if (_towns isEqualTo []) exitWith {
+        ["spawnMinefields: no towns found"] call VIC_fnc_debugLog;
+    };
     private _town = selectRandom _towns;
     private _tPos = locationPosition _town;
     private _pos = [_tPos, 200, 10] call VIC_fnc_findRoadPosition;

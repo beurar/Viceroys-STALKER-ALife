@@ -9,9 +9,13 @@ params ["_center", ["_radius",500], ["_count",-1]];
 
 ["spawnAmbushes"] call VIC_fnc_debugLog;
 
-if (!isServer) exitWith {};
+if (!isServer) exitWith {
+    ["spawnAmbushes: server only"] call VIC_fnc_debugLog;
+};
 
-if (["VSA_enableAmbushes", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
+if (["VSA_enableAmbushes", true] call VIC_fnc_getSetting isEqualTo false) exitWith {
+    ["spawnAmbushes: disabled"] call VIC_fnc_debugLog;
+};
 
 if (isNil "STALKER_ambushes") then { STALKER_ambushes = []; };
 

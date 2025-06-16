@@ -10,6 +10,11 @@
 */
 params ["_name", "_default"];
 
-if (isNil "CBA_fnc_getSetting") exitWith { _default };
+if (isNil "CBA_fnc_getSetting") exitWith {
+    [format ["getSetting: CBA missing for %1", _name]] call VIC_fnc_debugLog;
+    _default
+};
 
-[_name, _default] call CBA_fnc_getSetting
+private _value = [_name, _default] call CBA_fnc_getSetting;
+[format ["getSetting: %1 -> %2", _name, _value]] call VIC_fnc_debugLog;
+_value
