@@ -76,7 +76,11 @@ for "_i" from 1 to _ticks do {
         private _surf = [_pos] call VIC_fnc_getSurfacePosition;
         private _module = "diwako_anomalies_main_modulePsyDischarge" createVehicleLocal _surf;
         private _fncDischarge = missionNamespace getVariable ["diwako_anomalies_main_fnc_modulePsyDischarge", {}];
-        ["init", _module] call _fncDischarge;
+        if (_fncDischarge isEqualTo {}) then {
+            ["triggerPsyStorm: Diwako Anomalies missing"] call VIC_fnc_debugLog;
+        } else {
+            ["init", _module] call _fncDischarge;
+        };
         if (_gasEnabled) then {
             // Spawn a Nova mist after the discharge finishes using CBA settings
             private _radius  = ["VSA_stormGasRadius", 20] call VIC_fnc_getSetting;
@@ -85,10 +89,14 @@ for "_i" from 1 to _ticks do {
 
             // Convert the surface position from ASL to AGL so the gas spawns on the ground
             private _agl = ASLToAGL _surf;
-            [_agl, _radius, 20, 4, _vertical, _density] spawn {
-                params ["_pos", "_r", "_dur", "_chem", "_vert", "_dens"];
-                sleep 5;
-                [_pos, _r, _dur, _chem, _vert, _dens] remoteExec ["CBRN_fnc_spawnMist", 0];
+            if (isNil "CBRN_fnc_spawnMist") then {
+                ["triggerPsyStorm: CBRN mod missing"] call VIC_fnc_debugLog;
+            } else {
+                [_agl, _radius, 20, 4, _vertical, _density] spawn {
+                    params ["_pos", "_r", "_dur", "_chem", "_vert", "_dens"];
+                    sleep 5;
+                    [_pos, _r, _dur, _chem, _vert, _dens] remoteExec ["CBRN_fnc_spawnMist", 0];
+                };
             };
         };
     };
