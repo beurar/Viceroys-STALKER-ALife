@@ -171,14 +171,15 @@ VIC_fnc_completeChemSample   = compile preprocessFileLineNumbers (_root + "\func
 // --- PostInit ---------------------------------------------------------------
 ["postInit", {
     [] call VIC_fnc_registerEmissionHooks;
-    [] call VIC_fnc_schedulePsyStorms;
-    [] call VIC_fnc_scheduleBlowouts;
-    [] call VIC_fnc_scheduleNecroplague;
-    [] call VIC_fnc_placeTownSirens;
-    [] call VIC_fnc_setupAnomalyFields;
-    [] call VIC_fnc_setupMutantHabitats;
-    [] call VIC_fnc_spawnAmbientStalkers;
-    [] call VIC_fnc_spawnStalkerCamps;
+    if (["VSA_autoInit", false] call VIC_fnc_getSetting) then {
+        [] call VIC_fnc_schedulePsyStorms;
+        [] call VIC_fnc_scheduleBlowouts;
+        [] call VIC_fnc_scheduleNecroplague;
+        [] call VIC_fnc_placeTownSirens;
+        [] call VIC_fnc_setupAnomalyFields;
+        [] call VIC_fnc_setupMutantHabitats;
+        [] call VIC_fnc_spawnAmbientStalkers;
+        [] call VIC_fnc_spawnStalkerCamps;
     [
         {
             while {true} do {
@@ -281,6 +282,7 @@ VIC_fnc_completeChemSample   = compile preprocessFileLineNumbers (_root + "\func
             };
         }, [], 29
     ] call CBA_fnc_waitAndExecute;
+    };
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         [] call VIC_fnc_setupDebugActions;
         [] call VIC_fnc_markPlayerRanges;
