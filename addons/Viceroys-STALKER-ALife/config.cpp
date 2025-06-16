@@ -250,6 +250,22 @@ class CfgRemoteExec
         class VIC_fnc_resetAIBehavior     { allowedTargets = 2; };
         class VIC_fnc_toggleFieldAvoid    { allowedTargets = 2; };
         class VIC_fnc_radioMessage        { allowedTargets = 0; };
+        class CBRN_fnc_spawnMist          { allowedTargets = 0; };
+    };
+
+    class Commands
+    {
+        mode = 2;
+        jip = 0;
+        class createMarker    { allowedTargets = 0; };
+        class setMarkerShape  { allowedTargets = 0; };
+        class setMarkerType   { allowedTargets = 0; };
+        class setMarkerColor  { allowedTargets = 0; };
+        class setMarkerAlpha  { allowedTargets = 0; };
+        class setMarkerText   { allowedTargets = 0; };
+        class setMarkerSize   { allowedTargets = 0; };
+        class setMarkerPos    { allowedTargets = 0; };
+        class addAction       { allowedTargets = 0; };
     };
 };
 
