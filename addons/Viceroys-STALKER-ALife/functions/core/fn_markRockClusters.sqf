@@ -6,7 +6,6 @@
 
 ["markRockClusters"] call VIC_fnc_debugLog;
 
-if (!hasInterface) exitWith { false };
 
 if (isNil "STALKER_rockClusterMarkers") then { STALKER_rockClusterMarkers = [] };
 
@@ -22,10 +21,7 @@ private _clusters = [] call VIC_fnc_findRockClusters;
     {
         private _pos = getPosATL _x;
         private _name = format ["rock_%1", diag_tickTime + random 1000];
-        private _marker = createMarker [_name, _pos];
-        _marker setMarkerShape "ICON";
-        _marker setMarkerType "mil_dot";
-        _marker setMarkerColor "ColorBlack";
+        private _marker = [_name, _pos, "ICON", "mil_dot", "ColorBlack"] call VIC_fnc_createGlobalMarker;
         STALKER_rockClusterMarkers pushBack _marker;
     } forEach _x;
 } forEach _clusters;

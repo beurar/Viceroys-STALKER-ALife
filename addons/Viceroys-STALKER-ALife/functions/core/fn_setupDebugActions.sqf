@@ -98,15 +98,15 @@ player addAction ["Reset AI Behaviour", {
 player addAction ["Toggle Field Avoidance", {
     [] remoteExec ["VIC_fnc_toggleFieldAvoid", 2];
 }];
-player addAction ["Mark All Buildings", { [] call VIC_fnc_markAllBuildings }];
-player addAction ["Mark Rock Clusters", { [] call VIC_fnc_markRockClusters }];
-player addAction ["Mark Sniper Spots", { [] call VIC_fnc_markSniperSpots }];
-player addAction ["Mark Swamps", { [] call VIC_fnc_markSwamps }];
+player addAction ["Mark All Buildings", { [] remoteExec ["VIC_fnc_markAllBuildings", 2] }];
+player addAction ["Mark Rock Clusters", { [] remoteExec ["VIC_fnc_markRockClusters", 2] }];
+player addAction ["Mark Sniper Spots", { [] remoteExec ["VIC_fnc_markSniperSpots", 2] }];
+player addAction ["Mark Swamps", { [] remoteExec ["VIC_fnc_markSwamps", 2] }];
 player addAction ["Mark Beach Spots", { [] call VIC_fnc_markBeaches }];
-player addAction ["Mark Valleys", { [] call VIC_fnc_markValleys }];
-player addAction ["Mark Building Clusters", { [] call VIC_fnc_markBuildingClusters }];
-player addAction ["Mark Hidden Spot", { [] call VIC_fnc_markHiddenPosition }];
-player addAction ["Mark Building Cover", { [] call VIC_fnc_markBuildingCoverSpot }];
+player addAction ["Mark Valleys", { [] remoteExec ["VIC_fnc_markValleys", 2] }];
+player addAction ["Mark Building Clusters", { [] remoteExec ["VIC_fnc_markBuildingClusters", 2] }];
+player addAction ["Mark Hidden Spot", { [] remoteExec ["VIC_fnc_markHiddenPosition", 2] }];
+player addAction ["Mark Building Cover", { [] remoteExec ["VIC_fnc_markBuildingCoverSpot", 2] }];
 
 ["Debug actions added"] call VIC_fnc_debugLog;
 

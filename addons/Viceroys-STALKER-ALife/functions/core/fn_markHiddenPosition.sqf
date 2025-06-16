@@ -6,7 +6,6 @@
 
 ["markHiddenPosition"] call VIC_fnc_debugLog;
 
-if (!hasInterface) exitWith { false };
 
 if (isNil "STALKER_hiddenMarkers") then { STALKER_hiddenMarkers = [] };
 
@@ -20,10 +19,7 @@ private _pos = [] call VIC_fnc_findHiddenPosition;
 if (isNil {_pos}) exitWith { false };
 
 private _name = format ["hidden_%1", diag_tickTime + random 1000];
-private _marker = createMarker [_name, _pos];
-_marker setMarkerShape "ICON";
-_marker setMarkerType "mil_dot";
-_marker setMarkerColor "ColorGreen";
+private _marker = [_name, _pos, "ICON", "mil_dot", "ColorGreen"] call VIC_fnc_createGlobalMarker;
 STALKER_hiddenMarkers pushBack _marker;
 
 true

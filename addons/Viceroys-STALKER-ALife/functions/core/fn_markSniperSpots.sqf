@@ -6,7 +6,6 @@
 
 ["markSniperSpots"] call VIC_fnc_debugLog;
 
-if (!hasInterface) exitWith { false };
 
 if (isNil "STALKER_sniperSpotMarkers") then { STALKER_sniperSpotMarkers = [] };
 
@@ -20,10 +19,7 @@ private _spots = [] call VIC_fnc_findSniperSpots;
 
 {
     private _name = format ["sniper_%1_%2", diag_tickTime, _forEachIndex];
-    private _marker = createMarker [_name, _x];
-    _marker setMarkerShape "ICON";
-    _marker setMarkerType "mil_dot";
-    _marker setMarkerColor "ColorBlue";
+    private _marker = [_name, _x, "ICON", "mil_dot", "ColorBlue"] call VIC_fnc_createGlobalMarker;
     STALKER_sniperSpotMarkers pushBack _marker;
 } forEach _spots;
 
