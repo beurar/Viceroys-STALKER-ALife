@@ -8,10 +8,6 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 
 ## Major Systems
 
-### Emission Hooks
-* Centralized hooks that allow missions to react to emission or psy-storm events.
-* Mission makers can register custom functions that run before, during and after storms.
-
 ### AI Panic
 * AI groups react to nearby emissions or scary events by fleeing to cover positions.
 * Uses **fn_triggerAIPanic.sqf** and **fn_resetAIBehavior.sqf** to manage behavior states.
@@ -21,8 +17,6 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Procedurally spawns anomaly fields using scripts in `functions/anomalies`.
 * Supports common anomaly types like burners, electras, fruit punches and springboards.
 * Relies on **Diwako’s Anomalies** for the core anomaly logic.
-* Map markers are removed automatically when their anomaly field expires after
-  `STALKER_AnomalyFieldDuration` minutes.
 * Fields are distributed randomly across the entire map but avoid towns by 500 meters.
 * Fields can be **Permanent** or **Temporary**. Permanent fields remain in place
   and only reshuffle their anomalies during an emission. Temporary fields are
@@ -39,15 +33,13 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Dedicated nest spawns for every mutant type keep their territories dangerous.
 * Ambient herds keep one leader active while sleeping and only spawn the rest of
   the herd when players come within a configurable nearby range (default 1500
-  meters). Their population slowly
-  regenerates over time.
-* Predator ambushes now depend on the time of day. Daylight attacks can bring
+  meters). Their population slowly regenerates over time.
+* Predator ambushes depend on the time of day. Daylight attacks can bring
   packs of dogs, herds of boars or even snorks. When night falls chimeras,
   bloodsuckers, cats or pseudodogs stalk their prey. Very rarely a lone goliath
   or crusher may strike.
 * Predator attack checks use separate day and night intervals via
   `VSA_predatorCheckIntervalDay` and `VSA_predatorCheckIntervalNight`.
-* Mutants no longer use default Arma voices and remain silent when spawned.
 
 ### Mutant Habitats
 * Defines territory areas via **fn_setupMutantHabitats.sqf**.
@@ -77,16 +69,15 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Cleanup functions remove old zones to keep performance reasonable.
 
 ### Minefields
-* Generates APERS minefields on town outskirts and single IEDs on roads. These no longer spawn automatically on mission start.
+* Generates APERS minefields on town outskirts and single IEDs on roads.
 * Mines despawn when no players are nearby and respawn when someone approaches.
-* Enable debug mode to visualize fields and place test minefields via the action menu. Ambush sites can also be spawned this way. Use the new actions to start the minefield and ambush managers when testing.
+* Enable debug mode to visualize fields and place test minefields via the action menu. Ambush sites can also be spawned this way.
 * Abandoned and damaged vehicles may appear on or near roads.
 * Tripwires and booby traps can spawn inside buildings around towns.
 * Fallen players leave a red X marker that vanishes once the body is removed.
 
 ### Spooks
 * Lightweight supernatural events to unsettle players.
-* Random zones may spawn spooky audio or visual effects.
 
 ### Storms
 * Periodic psy-storms that force players to seek shelter.
@@ -114,12 +105,12 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Integrates with **WebKnight’s Zombies & Demons** and **Necroplague** to handle the zombies themselves.
 * Units that die while an emission is active will reanimate as zombies when the
   storm ends.
+  
 ### Necroplague
 * Random event that unleashes zombie hordes from hidden positions.
 * Zombies spawn behind nearby buildings so players often hear them before they see them.
 * Controlled via CBA settings for delay and horde size.
 * Can be manually triggered from debug actions which also mark the spawn points.
-
 
 ## Anomaly Types
 Each anomaly behaves differently and creates unique hazards:
@@ -165,17 +156,7 @@ Every mutant type can establish a nest which spawns defenders when players are n
 ## Spooks and Other Anomalies
 Drongo’s system adds creepy events such as ghostly whispers or sudden darkening of the sky. These spook zones appear mostly at night and vanish after a short time, keeping players uneasy as they travel. When a zone spawns the mod now creates one of the DSA creature classes (currently only `DSA_Abomination`) at the location and cleans it up once the zone expires.
 
-This mod now focuses on a single particularly nasty spook type:
-* **Abomination** – Shrouded in darkness, stabbing victims from range.
-
-It appears only at night and its behaviour can be adjusted via CBA settings.
-
-The creature can be configured individually through CBA settings. Mission
-makers may adjust the spawn chance, number of Abominations and whether it
-spawns at night, during the day or both.
-
 ## Setup
-
 1. Install the mod and load it in your Arma 3 launcher.
 2. Ensure the following dependencies are also loaded:
    * [CBA A3](https://github.com/CBATeam/CBA_A3)
@@ -192,9 +173,6 @@ spawns at night, during the day or both.
    actions will appear automatically.
 6. When debug mode is active, your scroll menu includes options to trigger storms, spawn permanent or temporary anomaly fields, cycle existing fields, spawn spook zones, generate habitats, spawn ambient herds, place booby traps in town buildings, summon predator attacks, trigger AI panic or reset their behaviour, and other test helpers. All spawn actions run on the server so they work correctly in multiplayer. Permanent fields will show a randomly generated name on their marker for easy reference.
 7. Use the **Mark All Buildings** and **Mark Bridges** actions from this menu if you need to visualize these objects. Buildings are no longer marked automatically when debug mode is enabled.
-8. The mod has been tested on locally hosted sessions and dedicated servers. Scripts execute on the server side so clients see consistent behaviour regardless of hosting method.
-
-If your mission reports undefined CBA settings, ensure that **CBA A3** is loaded and initialized before this mod. Settings now fall back to defaults via `VIC_fnc_getSetting` when CBA has not yet finished loading.
 
 ## Usage
 
