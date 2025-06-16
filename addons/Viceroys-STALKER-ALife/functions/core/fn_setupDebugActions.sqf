@@ -107,6 +107,7 @@ player addAction ["Mark Valleys", { [] remoteExec ["VIC_fnc_markValleys", 2] }];
 player addAction ["Mark Building Clusters", { [] remoteExec ["VIC_fnc_markBuildingClusters", 2] }];
 player addAction ["Mark Hidden Spot", { [] remoteExec ["VIC_fnc_markHiddenPosition", 2] }];
 player addAction ["Mark Building Cover", { [] remoteExec ["VIC_fnc_markBuildingCoverSpot", 2] }];
+player addAction ["Mark Bridges", { [] remoteExec ["VIC_fnc_markBridges", 2] }];
 
 ["Debug actions added"] call VIC_fnc_debugLog;
 

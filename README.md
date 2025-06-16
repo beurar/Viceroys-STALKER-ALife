@@ -190,7 +190,7 @@ spawns at night, during the day or both.
    This option can now be toggled while a mission is running and the debug
    actions will appear automatically.
 5. When debug mode is active, your scroll menu includes options to trigger storms, spawn permanent or temporary anomaly fields, cycle existing fields, spawn spook zones, generate habitats, spawn ambient herds, place booby traps in town buildings, summon predator attacks, trigger AI panic or reset their behaviour, and other test helpers. All spawn actions run on the server so they work correctly in multiplayer. Permanent fields will show a randomly generated name on their marker for easy reference.
-6. Use the **Mark All Buildings** action from this menu if you need to visualize every building. Buildings are no longer marked automatically when debug mode is enabled.
+6. Use the **Mark All Buildings** and **Mark Bridges** actions from this menu if you need to visualize these objects. Buildings are no longer marked automatically when debug mode is enabled.
 7. The mod has been tested on locally hosted sessions and dedicated servers. Scripts execute on the server side so clients see consistent behaviour regardless of hosting method.
 
 If your mission reports undefined CBA settings, ensure that **CBA A3** is loaded and initialized before this mod. Settings now fall back to defaults via `VIC_fnc_getSetting` when CBA has not yet finished loading.

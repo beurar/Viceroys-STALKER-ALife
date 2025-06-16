@@ -37,6 +37,7 @@ VIC_fnc_markDeathLocation      = compile preprocessFileLineNumbers (_root + "\fu
 VIC_fnc_weightedPick           = compile preprocessFileLineNumbers (_root + "\functions\core\fn_weightedPick.sqf");
 VIC_fnc_selectWeightedBuilding = compile preprocessFileLineNumbers (_root + "\functions\core\fn_selectWeightedBuilding.sqf");
 VIC_fnc_findBridges            = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findBridges.sqf");
+VIC_fnc_markBridges            = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markBridges.sqf");
 VIC_fnc_findHiddenPosition     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findHiddenPosition.sqf");
 VIC_fnc_markHiddenPosition     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markHiddenPosition.sqf");
 VIC_fnc_findBuildingCoverSpot  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findBuildingCoverSpot.sqf");
