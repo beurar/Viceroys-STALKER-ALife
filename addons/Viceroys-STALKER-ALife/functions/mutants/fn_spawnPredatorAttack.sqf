@@ -10,20 +10,25 @@ params ["_player"];
 
 ["spawnPredatorAttack"] call VIC_fnc_debugLog;
 
-if (!isServer) exitWith {};
+if (!isServer) exitWith {
+    ["spawnPredatorAttack exit: not server"] call VIC_fnc_debugLog;
+};
 
-if (["VSA_enableMutants", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
+if (["VSA_enableMutants", true] call VIC_fnc_getSetting isEqualTo false) exitWith {
+    ["spawnPredatorAttack exit: mutants disabled"] call VIC_fnc_debugLog;
+};
 
 if (isNil "STALKER_activePredators") then { STALKER_activePredators = []; };
 
-private _spawnMarker = "";
 private _range = ["VSA_predatorRange", 1500] call VIC_fnc_getSetting;
 private _spawnPos = _player getPos [_range, random 360];
 _spawnPos = [_spawnPos] call VIC_fnc_findLandPosition;
-if (_spawnPos isEqualTo []) exitWith {};
+if (_spawnPos isEqualTo []) exitWith {
+    ["spawnPredatorAttack exit: invalid position"] call VIC_fnc_debugLog;
+};
 
 if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
-    _spawnMarker = format ["pred_%1", diag_tickTime];
+    private _spawnMarker = format ["pred_%1", diag_tickTime];
     [_spawnMarker, _spawnPos, "ICON", "mil_dot", "ColorRed", 1, "Predator Spawn"] call VIC_fnc_createGlobalMarker;
 };
 
@@ -106,3 +111,5 @@ private _marker = _markerName;
 [_marker, _spawnPos, "ICON", "mil_warning", "ColorRed", 1] call VIC_fnc_createGlobalMarker;
 
 STALKER_activePredators pushBack [_grp, _player, _marker, true];
+
+["spawnPredatorAttack completed"] call VIC_fnc_debugLog;
