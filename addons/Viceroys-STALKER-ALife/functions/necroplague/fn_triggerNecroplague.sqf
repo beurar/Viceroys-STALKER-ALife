@@ -1,5 +1,5 @@
 /*
-    Spawns zombie hordes around each player from hidden positions.
+    Spawns zombie hordes in a circle around each player from 600m away.
 
     Params:
         0: NUMBER - zombies per horde (default 5)
@@ -19,14 +19,10 @@ private _classes = ["WBK_Zombie1","WBK_Zombie2","WBK_Zombie3"];
     private _player = _x;
     if (isNull _player || {!alive _player}) then { continue };
 
+    private _angleStep = 360 / _hordes;
     for "_h" from 1 to _hordes do {
-        private _pos = [_player,50,5] call VIC_fnc_findBuildingCoverSpot;
-        if (isNil {_pos}) then { _pos = [_player,100,5] call VIC_fnc_findBuildingCoverSpot; };
-        if (isNil {_pos}) then {
-            private _angle = random 360;
-            private _dist = 40 + random 40;
-            _pos = _player getPos [_dist, _angle];
-        };
+        private _angle = (_h - 1) * _angleStep;
+        private _pos = _player getPos [600, _angle];
         _pos = [_pos] call VIC_fnc_findLandPosition;
         if (_pos isEqualTo []) then { continue };
         if (_mark) then {
