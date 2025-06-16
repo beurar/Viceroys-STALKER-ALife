@@ -201,9 +201,9 @@ All functions are contained under the `functions` directory and follow the `TAG_
 
 * **VIC_fnc_masterInit** – Initializes all subsystems.
 * **VIC_fnc_registerEmissionHooks** – Adds mission-specific callbacks for storm events.
-* **VIC_fnc_spawnAllAnomalyFields** – Places anomaly fields across the map. This
-  mod does not spawn fields automatically; missions must call this function (or
-  use the provided `initServer.sqf`) to populate the world.
+* **VIC_fnc_spawnAllAnomalyFields** – Spawns anomaly fields at random positions
+  across the map, marks them and tracks their lifetime. Missions must call this
+  function (or use the provided `initServer.sqf`) to populate the world.
 * **VIC_fnc_cycleAnomalyFields** – Reshuffles permanent fields and relocates temporary ones. Useful for testing without a full emission.
 * **VIC_fnc_generateFieldName** – Produces themed names for permanent anomaly field markers using local town names when possible.
 
