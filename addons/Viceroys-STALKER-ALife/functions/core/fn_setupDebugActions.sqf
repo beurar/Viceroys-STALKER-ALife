@@ -16,7 +16,11 @@ player addAction ["Spawn Psy-Storm", {
     [_dur, _lStart, _lEnd, _dStart, _dEnd] remoteExec ["VIC_fnc_triggerPsyStorm", 2];
 }];
 player addAction ["Trigger Blowout", {
-    [] remoteExec ["VIC_fnc_triggerBlowout", 2];
+    if (isServer) then {
+        [] call VIC_fnc_triggerBlowout;
+    } else {
+        [] remoteExec ["VIC_fnc_triggerBlowout", 2];
+    };
 }];
 player addAction ["Spawn Chemical Zone", {
     [getPos player, 100] remoteExec ["VIC_fnc_spawnChemicalZone", 2];
