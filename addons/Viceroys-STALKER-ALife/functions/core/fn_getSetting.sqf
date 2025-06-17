@@ -1,5 +1,6 @@
 /*
-    Wrapper for retrieving a CBA setting with a fallback value.
+    Retrieves a setting directly from the mission namespace with a
+    fallback value.
 
     Params:
         0: STRING - setting variable name
@@ -10,11 +11,6 @@
 */
 params ["_name", "_default"];
 
-if (isNil "CBA_fnc_getSetting") exitWith {
-    [format ["getSetting: CBA missing for %1", _name]] call VIC_fnc_debugLog;
-    _default
-};
-
-private _value = [_name, _default] call CBA_fnc_getSetting;
+private _value = missionNamespace getVariable [_name, _default];
 [format ["getSetting: %1 -> %2", _name, _value]] call VIC_fnc_debugLog;
 _value
