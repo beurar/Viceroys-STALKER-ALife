@@ -41,6 +41,7 @@ private _types = [
     VIC_fnc_createField_meatgrinder,
     VIC_fnc_createField_springboard,
     VIC_fnc_createField_whirligig,
+    VIC_fnc_createField_comet,
     VIC_fnc_createField_launchpad,
     VIC_fnc_createField_leech,
     VIC_fnc_createField_trapdoor,

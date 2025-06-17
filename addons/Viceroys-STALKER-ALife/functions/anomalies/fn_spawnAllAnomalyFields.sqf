@@ -45,6 +45,7 @@ private _types = [
     VIC_fnc_createField_meatgrinder,
     VIC_fnc_createField_springboard,
     VIC_fnc_createField_whirligig,
+    VIC_fnc_createField_comet,
     VIC_fnc_createField_launchpad,
     VIC_fnc_createField_leech,
     VIC_fnc_createField_trapdoor,
@@ -71,6 +72,7 @@ for "_i" from 1 to _fieldCount do {
         case VIC_fnc_createField_gravi: {"gravi"};
         case VIC_fnc_createField_meatgrinder: {"meatgrinder"};
         case VIC_fnc_createField_whirligig: {"whirligig"};
+        case VIC_fnc_createField_comet: {"comet"};
         case VIC_fnc_createField_clicker: {"clicker"};
         case VIC_fnc_createField_launchpad: {"launchpad"};
         case VIC_fnc_createField_leech: {"leech"};
