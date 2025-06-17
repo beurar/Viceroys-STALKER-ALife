@@ -269,6 +269,13 @@ player addAction ["<t color='#ffff00'>Mark Bridges</t>", {
         [] remoteExec ["VIC_fnc_markBridges", 2];
     };
 }];
+player addAction ["<t color='#ffff00'>Mark Roads</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_markRoads;
+    } else {
+        [] remoteExec ["VIC_fnc_markRoads", 2];
+    };
+}];
 
 ["Debug actions added"] call VIC_fnc_debugLog;
 
