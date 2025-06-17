@@ -77,4 +77,24 @@ A block enclosed in `{}` is valid only if it is treated as a single expression,
 like an array, a function call, or a single value.
 
 But writing `exitWith { statement1; statement2; }` is not valid if those
-statements are not themselves returning a final value. In your case, you have:
+statements are not themselves returning a final value.
+
+### Loop Breakouts
+
+When breaking out of a loop, always pass a **string label** to `breakOut`.
+Using a numeric level is deprecated and may cause unexpected behavior. An
+example pattern is:
+
+```sqf
+"mainLoop" call {
+    while {true} do {
+        if (shouldExit) then {
+            breakOut "mainLoop";
+        };
+    };
+};
+```
+
+Avoid forms like `breakOut 1` or `breakTo 1` as they rely on legacy numeric
+levels. Named labels make the intent clear and prevent accidental exits from
+unrelated loops.
