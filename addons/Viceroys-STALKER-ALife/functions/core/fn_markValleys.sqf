@@ -16,6 +16,7 @@ if (isNil "STALKER_valleyMarkers") then { STALKER_valleyMarkers = [] };
 STALKER_valleyMarkers = [];
 
 private _valleys = [] call VIC_fnc_findValleys;
+[format ["markValleys: %1 valleys", count _valleys]] call VIC_fnc_debugLog;
 
 {
     private _area = _x;

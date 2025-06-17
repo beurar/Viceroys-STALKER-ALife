@@ -12,6 +12,13 @@
 */
 params ["_center","_radius", ["_count",-1], ["_duration",-1], ["_clusterSize",3]];
 
+private _debug = ["VSA_debugMode", false] call VIC_fnc_getSetting;
+if (_debug && {isServer}) then {
+    if (isNil "STALKER_valleyBaseMarkers") then { STALKER_valleyBaseMarkers = [] };
+    { if (_x != "") then { deleteMarker _x } } forEach STALKER_valleyBaseMarkers;
+    STALKER_valleyBaseMarkers = [];
+};
+
 ["spawnValleyChemicalZones"] call VIC_fnc_debugLog;
 
 if (["VSA_enableChemicalZones", true] call VIC_fnc_getSetting isEqualTo false) exitWith {
@@ -33,7 +40,17 @@ for "_i" from 1 to _count do {
     private _ang = random 360;
     private _dist = random _radius;
     private _base = [(_centerPos select 0) + _dist * sin _ang, (_centerPos select 1) + _dist * cos _ang, _centerPos select 2];
+    if (_debug && {isServer}) then {
+        private _name = format ["valleyBase_%1", diag_tickTime + random 1000];
+        private _m = [_name, _base, "ICON", "mil_dot", "ColorOrange"] call VIC_fnc_createGlobalMarker;
+        STALKER_valleyBaseMarkers pushBack _m;
+    };
     private _pos = [_base, 30, 10] call VIC_fnc_findValleyPosition;
+    if (_debug && {isServer && { !(_pos isEqualTo []) }}) then {
+        private _name = format ["valleyAnchor_%1", diag_tickTime + random 1000];
+        private _m = [_name, ASLToAGL _pos, "ICON", "mil_triangle", "ColorYellow"] call VIC_fnc_createGlobalMarker;
+        STALKER_valleyBaseMarkers pushBack _m;
+    };
     if (_pos isEqualTo []) then { continue };
 
     for "_j" from 1 to _clusterSize do {
