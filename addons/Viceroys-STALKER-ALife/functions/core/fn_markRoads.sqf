@@ -7,19 +7,29 @@
 ["markRoads"] call VIC_fnc_debugLog;
 
 if (isNil "STALKER_roadMarkers") then { STALKER_roadMarkers = [] };
+if (isNil "STALKER_crossroadMarkers") then { STALKER_crossroadMarkers = [] };
 
 // Remove any existing markers
 {
     if (_x != "") then { deleteMarker _x };
 } forEach STALKER_roadMarkers;
 STALKER_roadMarkers = [];
+{ if (_x != "") then { deleteMarker _x }; } forEach STALKER_crossroadMarkers;
+STALKER_crossroadMarkers = [];
 
 private _roads = [] call VIC_fnc_findRoads;
+private _crossroads = [_roads] call VIC_fnc_findCrossroads;
 
 {
     private _name = format ["road_%1_%2", diag_tickTime, _forEachIndex];
     private _mkr = [_name, _x, "ICON", "mil_dot", "ColorOrange"] call VIC_fnc_createGlobalMarker;
     STALKER_roadMarkers pushBack _mkr;
 } forEach _roads;
+
+{
+    private _name = format ["crossroad_%1_%2", diag_tickTime, _forEachIndex];
+    private _mkr = [_name, _x, "ICON", "mil_triangle", "ColorRed"] call VIC_fnc_createGlobalMarker;
+    STALKER_crossroadMarkers pushBack _mkr;
+} forEach _crossroads;
 
 true
