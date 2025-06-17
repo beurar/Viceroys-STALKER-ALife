@@ -79,9 +79,9 @@
 ] call CBA_fnc_addSetting;
 
 [
-    "VSA_permanentFieldChance",
+    "VSA_stableFieldChance",
     "SLIDER",
-    ["Permanent Field Chance", "Percentage of fields that are permanent"],
+    ["Stable Field Chance", "Percentage of fields that are stable"],
     "Viceroy's STALKER ALife - Anomalies",
     [0, 100, 50, 0]
 ] call CBA_fnc_addSetting;
