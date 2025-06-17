@@ -38,9 +38,9 @@ while {_searchRadius <= _maxRadius} do {
             [_base, random _searchRadius, random 360] call BIS_fnc_relPos
         };
 
-        private _from = _candidate vectorAdd [0,0,1000];
-        private _to   = _candidate vectorAdd [0,0,-1000];
-        private _hit  = lineIntersectsSurfaces [_from,_to,objNull,objNull,true,1,"GEOM","NONE"];
+        private _from = AGLToASL (_candidate vectorAdd [0,0,1000]);
+        private _to   = AGLToASL (_candidate vectorAdd [0,0,-1000]);
+        private _hit  = lineIntersectsSurfaces [_from, _to, objNull, objNull, true, 1, "GEOM", "NONE"];
         if (!(_hit isEqualTo [])) then {
             private _surf = (_hit select 0) select 0;
             if (!((ASLToAGL _surf) call VIC_fnc_isWaterPosition)) then {
