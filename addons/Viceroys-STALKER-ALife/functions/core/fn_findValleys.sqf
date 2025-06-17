@@ -18,6 +18,13 @@
 
 params [["_step", 250], ["_depthThreshold", 15], ["_maxRadius", 750]];
 
+private _debug = ["VSA_debugMode", false] call VIC_fnc_getSetting;
+if (_debug && {isServer}) then {
+    if (isNil "STALKER_valleySeedMarkers") then { STALKER_valleySeedMarkers = [] };
+    { if (_x != "") then { deleteMarker _x } } forEach STALKER_valleySeedMarkers;
+    STALKER_valleySeedMarkers = [];
+};
+
 ["findValleys"] call VIC_fnc_debugLog;
 
 private _valleys = [];
@@ -77,8 +84,15 @@ for "_gx" from 0 to worldSize step _step do {
 
         if (count _valley > 0) then {
             _valleys pushBack _valley;
+            if (_debug && {isServer}) then {
+                private _name = format ["valleySeed_%1", diag_tickTime + random 1000];
+                private _m = [_name, _lowestPos, "ICON", "mil_dot", "ColorBlue"] call VIC_fnc_createGlobalMarker;
+                STALKER_valleySeedMarkers pushBack _m;
+            };
         };
     };
 };
+
+[format ["findValleys: found %1 valleys", count _valleys]] call VIC_fnc_debugLog;
 
 _valleys
