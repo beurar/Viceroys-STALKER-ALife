@@ -1,49 +1,53 @@
 /*
-    Finds sniper-suitable positions based on elevation, cover, and openness.
+    Finds sniper vantage points by firing multiple vertical rays onto each
+    building. The highest impact position from each ray burst becomes a
+    potential sniper spot.
 
     Params:
-        0: SCALAR - Minimum elevation in meters (default: 20)
-        1: SCALAR - Search radius for cover (default: 15m)
-        2: SCALAR - Maximum vegetation nearby (e.g., no dense trees) (default: 10)
-        3: SCALAR - Grid step size (default: 300m)
+        0: SCALAR - Number of rays to cast per building (default: 8)
+        1: SCALAR - Scatter radius around the building center (default: 5m)
 
     Returns:
-        ARRAY of POSITIONs - Sniper vantage points
+        ARRAY of POSITIONs - Sniper vantage points on rooftops
 */
 
-params [["_minElev", 20], ["_coverRadius", 15], ["_maxVegetation", 10], ["_step", 300]];
+params [["_raysPerBuilding", 8], ["_spread", 5]];
 
 ["findSniperSpots"] call VIC_fnc_debugLog;
 
 private _sniperSpots = [];
 
-for "_x" from 0 to worldSize step _step do {
-    for "_y" from 0 to worldSize step _step do {
-        private _pos = [_x, _y, 0];
-        private _elev = getTerrainHeightASL _pos;
+// Gather all buildings from terrain and the mission
+private _center = [worldSize / 2, worldSize / 2, 0];
+private _buildings = nearestObjects [_center, ["House"], worldSize];
+_buildings append (allMissionObjects "building");
+_buildings = _buildings arrayIntersect _buildings; // remove duplicates
 
-        if (_elev < _minElev) then { continue; };
+{
+    private _bPos = getPosASL _x;
+    private _highestPos = [];
+    private _highestZ = -1e9;
 
-        // Count nearby rocks, walls, or small buildings (sniper cover)
-        private _coverObjs = _pos nearObjects ["All", _coverRadius];
-        private _cover = _coverObjs select {
-            private _t = typeOf _x;
-            _t find "Rock" > -1 || _t find "Wall" > -1 || _t find "Stone" > -1 ||
-            _t find "Ruins" > -1 || _t find "House" > -1 || _t find "Bunker" > -1
+    for "_i" from 1 to _raysPerBuilding do {
+        // Random point around building center
+        private _sample = [_bPos, random _spread, random 360] call BIS_fnc_relPos;
+        private _from = AGLToASL (_sample vectorAdd [0,0,200]);
+        private _to   = AGLToASL (_sample vectorAdd [0,0,-200]);
+
+        private _hit = lineIntersectsSurfaces [_from, _to, objNull, objNull, true, 1, "GEOM", "NONE"];
+        if (_hit isEqualTo []) then { continue; };
+
+        private _surf = (_hit select 0) select 0;
+        private _z = _surf select 2;
+        if (_z > _highestZ) then {
+            _highestZ = _z;
+            _highestPos = _surf;
         };
-
-        if ((count _cover) < 1) then { continue; };
-
-        // Check vegetation clutter
-        private _vegetation = _coverObjs select {
-            private _t = typeOf _x;
-            _t find "Tree" > -1 || _t find "Bush" > -1
-        };
-
-        if ((count _vegetation) > _maxVegetation) then { continue; };
-
-        _sniperSpots pushBack _pos;
     };
-};
+
+    if (_highestZ > -1e9) then {
+        _sniperSpots pushBack _highestPos;
+    };
+} forEach _buildings;
 
 _sniperSpots
