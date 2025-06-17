@@ -292,6 +292,7 @@ When Antistasi Ultimate is detected, several helper functions can create side mi
 * **VIC_fnc_startMutantHunt** – awards money for each mutant killed during the hunt period.
 * **VIC_fnc_startArtefactHunt** – places an artefact in an existing anomaly field and tasks players to retrieve it.
 * **VIC_fnc_startChemSample** – chooses a chemical zone and requires players to stay inside for 90 seconds to collect samples.
+* The CBA setting **VSA_disableA3UWeather** stops Antistasi's `AU_persistentWeather` script when enabled.
 
 These helpers do nothing if Antistasi Ultimate is not loaded.
 

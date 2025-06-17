@@ -737,6 +737,17 @@ true
     "Viceroy's STALKER ALife - Wrecks",
     [0, 50, 10, 0]
 ] call CBA_fnc_addSetting;
+
+// -----------------------------------------------------------------------------
+// Antistasi Integration
+// -----------------------------------------------------------------------------
+[
+    "VSA_disableA3UWeather",
+    "CHECKBOX",
+    ["Disable Antistasi Weather", "Stop Antistasi persistent weather script"],
+    "Viceroy's STALKER ALife - Antistasi",
+    false
+] call CBA_fnc_addSetting;
 // -----------------------------------------------------------------------------
 // Debug
 // -----------------------------------------------------------------------------

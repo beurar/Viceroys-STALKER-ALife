@@ -216,6 +216,7 @@ class CfgFunctions
             class startChemSample{};
             class completeArtefactHunt{};
             class completeChemSample{};
+            class disableWeather{};
         };
     };
 };
