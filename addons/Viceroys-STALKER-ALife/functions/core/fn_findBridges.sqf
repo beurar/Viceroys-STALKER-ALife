@@ -16,6 +16,9 @@ private _bridgeClassnames = [
     "Land_Bridge_01_ladder_F",
     "Land_BridgeWooden_01_F",
     "Land_Bridge_Concrete_F",
+    "Land_CHR_asf1_25",
+    "Land_CHR_asf3_25",
+    "Land_Bridge_stone_asf2_25",
     "Land_Pier_small_F",
     "Land_Pier_wall_F",
     "Land_nav_pier_m_F"
