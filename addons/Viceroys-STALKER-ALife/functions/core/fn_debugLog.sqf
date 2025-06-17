@@ -10,8 +10,8 @@ params ["_msg"];
 // When the settings function isn't available yet (e.g. early in init)
 // assume debug mode is enabled so logging still works
 private _enabled = true;
-if (!isNil "VIC_fnc_getSetting") then {
-    _enabled = ["VSA_debugMode", false] call VIC_fnc_getSetting;
+if (!isNil "CBA_fnc_getSetting") then {
+    _enabled = ["VSA_debugMode", false] call CBA_fnc_getSetting;
 };
 
 if (_enabled) then {
