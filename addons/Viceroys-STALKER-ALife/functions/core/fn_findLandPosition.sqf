@@ -43,11 +43,12 @@ private _step = _radius max 1;
 private _searchRadius = 0;
 
 private _found = [];
+private _candidate = [];
 
 scopeName "findLand";
 while {_searchRadius <= _maxRadius && {_found isEqualTo []}} do {
     for "_i" from 0 to _attempts do {
-        private _candidate = if (_searchRadius == 0 && {_i == 0}) then {
+        _candidate = if (_searchRadius == 0 && {_i == 0}) then {
             _base
         } else {
             [_base, random _searchRadius, random 360] call BIS_fnc_relPos
