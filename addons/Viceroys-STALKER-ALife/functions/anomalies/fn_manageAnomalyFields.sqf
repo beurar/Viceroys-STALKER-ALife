@@ -2,7 +2,7 @@
     Activates or deactivates anomaly fields based on player proximity and
     removes expired entries.
     STALKER_anomalyFields entries:
-        [center, radius, fn, count, objects, marker, site, expires, permanent]
+        [center, radius, fn, count, objects, marker, site, expires, stable]
 */
 ["manageAnomalyFields"] call VIC_fnc_debugLog;
 
@@ -11,7 +11,7 @@ if (isNil "STALKER_anomalyFields") exitWith {};
 
 for [{_i = (count STALKER_anomalyFields) - 1}, {_i >= 0}, {_i = _i - 1}] do {
     private _entry = STALKER_anomalyFields select _i;
-    _entry params ["_center","_radius","_fn","_count","_objs","_marker","_site","_exp","_perm"];
+    _entry params ["_center","_radius","_fn","_count","_objs","_marker","_site","_exp","_stable"];
 
     if (_exp >= 0 && {diag_tickTime > _exp}) then {
         { if (!isNull _x) then { deleteVehicle _x; } } forEach _objs;
@@ -47,7 +47,7 @@ for [{_i = (count STALKER_anomalyFields) - 1}, {_i >= 0}, {_i = _i - 1}] do {
         };
         if (_marker != "") then { _marker setMarkerAlpha 0.2; };
     };
-    STALKER_anomalyFields set [_i, [_center,_radius,_fn,_count,_objs,_marker,_site,_exp,_perm]];
+    STALKER_anomalyFields set [_i, [_center,_radius,_fn,_count,_objs,_marker,_site,_exp,_stable]];
 };
 
 true

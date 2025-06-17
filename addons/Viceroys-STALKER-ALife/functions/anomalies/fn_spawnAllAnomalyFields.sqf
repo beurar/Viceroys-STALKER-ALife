@@ -6,7 +6,7 @@
     Params:
         0: POSITION or OBJECT - (ignored) kept for backward compatibility
         1: NUMBER             - (ignored) kept for backward compatibility
-        2: NUMBER             - forces permanent (1) or temporary (0) fields
+        2: NUMBER             - forces stable (1) or unstable (0) fields
 */
 params ["_center","_radius", ["_type", -1]];
 
@@ -27,7 +27,7 @@ private _maxFields = ["VSA_maxAnomalyFields", 20] call VIC_fnc_getSetting;
 
 private _fieldCount = ["VSA_anomalyFieldCount", 3] call VIC_fnc_getSetting;
 private _spawnWeight = ["VSA_anomalySpawnWeight", 50] call VIC_fnc_getSetting;
-private _permChance  = ["VSA_permanentFieldChance", 50] call VIC_fnc_getSetting;
+private _stableChance  = ["VSA_stableFieldChance", 50] call VIC_fnc_getSetting;
 private _nightOnly   = ["VSA_anomalyNightOnly", false] call VIC_fnc_getSetting;
 
 if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {
@@ -83,7 +83,7 @@ for "_i" from 1 to _fieldCount do {
     };
 
     [format ["spawnAllAnomalyFields: attempting %1", _typeName]] call VIC_fnc_debugLog;
-    private _permanent = if (_type == -1) then { (random 100) < _permChance } else { _type == 1 };
+    private _stable = if (_type == -1) then { (random 100) < _stableChance } else { _type == 1 };
 
     private _spawned = [_pos, 75] call _fn;
     if (_spawned isEqualTo []) then {
@@ -95,14 +95,14 @@ for "_i" from 1 to _fieldCount do {
     private _site   = if (_marker isEqualTo "") then { getPosATL (_spawned select 0) } else { getMarkerPos _marker };
     if (_marker != "") then {
         _marker setMarkerAlpha 0.2;
-        if (_permanent) then {
+        if (_stable) then {
             _marker setMarkerText ([_typeName, _site] call VIC_fnc_generateFieldName);
         };
     };
 
     private _dur = missionNamespace getVariable ["STALKER_AnomalyFieldDuration", 30];
     private _exp = diag_tickTime + (_dur * 60);
-    STALKER_anomalyFields pushBack [_pos,75,_fn,count _spawned,_spawned,_marker,_site,_exp,_permanent];
+    STALKER_anomalyFields pushBack [_pos,75,_fn,count _spawned,_spawned,_marker,_site,_exp,_stable];
     [format ["spawnAllAnomalyFields: spawned %1 %2", count _spawned, _typeName]] call VIC_fnc_debugLog;
 };
 

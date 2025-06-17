@@ -18,10 +18,10 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Supports common anomaly types like burners, electras, fruit punches and springboards.
 * Relies on **Diwako’s Anomalies** for the core anomaly logic.
 * Fields are distributed randomly across the entire map but avoid towns by 500 meters.
-* Fields can be **Permanent** or **Temporary**. Permanent fields remain in place
-  and only reshuffle their anomalies during an emission. Temporary fields are
+* Fields can be **Stable** or **Unstable**. Stable fields remain in place
+  and only reshuffle their anomalies during an emission. Unstable fields are
   deleted after an emission and respawn at new random positions. The ratio of
-  permanent fields is controlled by `VSA_permanentFieldChance`. Permanent fields
+  stable fields is controlled by `VSA_stableFieldChance`. Stable fields
   also receive thematic names on their map markers. When no towns are nearby the
   names fall back to generic locations like the coast, a hill or a forest based
   on the surrounding terrain.
@@ -175,7 +175,7 @@ Drongo’s system adds creepy events such as ghostly whispers or sudden darkenin
 5. Enable **VSA_debugMode** to show on-screen debug messages and access testing actions.
    This option can now be toggled while a mission is running and the debug
    actions will appear automatically.
-6. When debug mode is active, your scroll menu includes options to trigger storms, spawn permanent or temporary anomaly fields, cycle existing fields, spawn spook zones, generate habitats, spawn ambient herds, place booby traps in town buildings, summon predator attacks, trigger AI panic or reset their behaviour, and other test helpers. All spawn actions run on the server so they work correctly in multiplayer. Permanent fields will show a randomly generated name on their marker for easy reference.
+6. When debug mode is active, your scroll menu includes options to trigger storms, spawn stable or unstable anomaly fields, cycle existing fields, spawn spook zones, generate habitats, spawn ambient herds, place booby traps in town buildings, summon predator attacks, trigger AI panic or reset their behaviour, and other test helpers. All spawn actions run on the server so they work correctly in multiplayer. Stable fields will show a randomly generated name on their marker for easy reference.
 7. Use the **Mark All Buildings** and **Mark Bridges** actions from this menu if you need to visualize these objects. Buildings are no longer marked automatically when debug mode is enabled.
 
 ## Usage
@@ -187,8 +187,8 @@ All functions are contained under the `functions` directory and follow the `TAG_
 * **VIC_fnc_spawnAllAnomalyFields** – Spawns anomaly fields at random positions
   across the map, marks them and tracks their lifetime. Missions must call this
   function (or use the provided `initServer.sqf`) to populate the world.
-* **VIC_fnc_cycleAnomalyFields** – Reshuffles permanent fields and relocates temporary ones. Useful for testing without a full emission.
-* **VIC_fnc_generateFieldName** – Produces themed names for permanent anomaly field markers using local town names when possible.
+* **VIC_fnc_cycleAnomalyFields** – Reshuffles stable fields and relocates unstable ones. Useful for testing without a full emission.
+* **VIC_fnc_generateFieldName** – Produces themed names for stable anomaly field markers using local town names when possible.
 
 Mission makers can tweak or remove individual systems as needed. Most features are script-only and do not require placing special modules in the editor, though some settings may be exposed through CBA.
 

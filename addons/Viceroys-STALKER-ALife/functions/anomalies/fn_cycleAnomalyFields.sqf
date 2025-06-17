@@ -1,5 +1,5 @@
 /*
-    Reshuffles permanent anomaly fields and relocates temporary ones.
+    Reshuffles stable anomaly fields and relocates unstable ones.
     Called when an emission ends or via debug action.
 */
 
@@ -9,7 +9,7 @@ if (isServer && !isNil "STALKER_anomalyFields") then {
     private _dur = missionNamespace getVariable ["STALKER_AnomalyFieldDuration", 30];
     for [{_i = 0}, {_i < count STALKER_anomalyFields}, {_i = _i + 1}] do {
         private _entry = STALKER_anomalyFields select _i;
-        _entry params ["_center","_radius","_fn","_count","_objs","_marker","_site","_exp","_perm"];
+        _entry params ["_center","_radius","_fn","_count","_objs","_marker","_site","_exp","_stable"];
         { if (!isNull _x) then { deleteVehicle _x; } } forEach _objs;
         if (_marker != "") then {
             deleteMarker _marker;
@@ -19,7 +19,7 @@ if (isServer && !isNil "STALKER_anomalyFields") then {
             };
         };
         _objs = [];
-        if (!_perm) then {
+        if (!_stable) then {
             _center = [random worldSize, random worldSize, 0];
             _site = [];
         };
@@ -28,7 +28,7 @@ if (isServer && !isNil "STALKER_anomalyFields") then {
             _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
             _site = getMarkerPos _marker;
             _objs = _spawned;
-            if (_perm && {_marker != ""}) then {
+            if (_stable && {_marker != ""}) then {
                 private _type = switch (_fn) do {
                     case VIC_fnc_createField_burner: {"burner"};
                     case VIC_fnc_createField_electra: {"electra"};
@@ -49,7 +49,7 @@ if (isServer && !isNil "STALKER_anomalyFields") then {
             };
         };
         _exp = diag_tickTime + (_dur * 60);
-        STALKER_anomalyFields set [_i, [_center,_radius,_fn,_count,_objs,_marker,_site,_exp,_perm]];
+        STALKER_anomalyFields set [_i, [_center,_radius,_fn,_count,_objs,_marker,_site,_exp,_stable]];
     };
 };
 

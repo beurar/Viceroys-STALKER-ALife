@@ -48,7 +48,7 @@ player addAction ["<t color='#ff0000'>Spawn Valley Chemicals</t>", {
         [getPos player, 200] remoteExec ["VIC_fnc_spawnValleyChemicalZones", 2];
     };
 }];
-player addAction ["<t color='#ff0000'>Spawn Permanent Fields</t>", {
+player addAction ["<t color='#ff0000'>Spawn Stable Fields</t>", {
     for "_i" from 1 to 100 do {
         private _pos = [random worldSize, random worldSize, 0];
         if (isServer) then {
@@ -58,7 +58,7 @@ player addAction ["<t color='#ff0000'>Spawn Permanent Fields</t>", {
         };
     };
 }];
-player addAction ["<t color='#ff0000'>Spawn Temporary Fields</t>", {
+player addAction ["<t color='#ff0000'>Spawn Unstable Fields</t>", {
     for "_i" from 1 to 100 do {
         private _pos = [random worldSize, random worldSize, 0];
         if (isServer) then {
