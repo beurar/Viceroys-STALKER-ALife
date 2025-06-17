@@ -192,86 +192,7 @@ All functions are contained under the `functions` directory and follow the `TAG_
 
 Mission makers can tweak or remove individual systems as needed. Most features are script-only and do not require placing special modules in the editor, though some settings may be exposed through CBA.
 
-## SQF Syntax
-
-The SQF language is intentionally minimal and relies heavily on built-in
-operators. An operator can be **nular** (no arguments), **unary** (one argument)
-or **binary** (two arguments). Understanding how these operators consume their
-arguments helps prevent subtle bugs.
-
-### Terminating an Expression
-
-Each statement must end with a semicolon (`;`) or a comma. Semicolons are the
-common convention and make intent clear.
-
-```sqf
-_num = 10;
-_num = _num + 20; systemChat str _num;
-```
-
-The above code contains three expressions separated by semicolons even though
-two share the same line.
-
-### Brackets
-
-* `()` override the default order of precedence or simply aid readability.
-* `[]` create arrays.
-* `{}` enclose code blocks and are used in control structures.
-
-### Whitespaces and Blank Lines
-
-Leading or trailing spaces and tabs are ignored by the engine. Lines containing
-only whitespace are skipped entirely.
-
-### Comments
-
-`//` starts a single-line comment while `/* */` encloses a block comment.
-Comments are removed during preprocessing and must not appear inside strings.
-Avoid using the legacy `comment` unary operator as it still executes without any
-benefit.
-
-### Operator Types
-
-**Nular operators** recompute a value each time they are accessed:
-
-```sqf
-_unitsArray = allUnits;
-systemChat str count _unitsArray;
-group player createUnit ["B_RangeMaster_F", getPosATL player, [], 0, "NONE"];
-systemChat str count _unitsArray;
-systemChat str count allUnits;
-```
-
-This prints `5`, `5`, then `6` because `allUnits` generates a fresh array on
-every call while `_unitsArray` stores a snapshot.
-
-**Unary operators** consume the expression on their right. Parentheses are often
-required when combining them with other operators:
-
-```sqf
-_arr = [[1,2,3,4,5],[1,2,3,4],[1,2]];
-count (_arr select 2); // evaluates to 2
-```
-
-**Binary operators** take a left and right argument and follow their precedence
-from left to right. Complex expressions benefit from parentheses for clarity:
-
-```sqf
-_arr = [[[[[1]]]]];
-_arr select 0 select 1 - 1 select 15 / 3 - 5 select 0 select 10 * 10 + 4 * 0 - 100;
-```
-
-Adding brackets to the above expression reveals the actual order of evaluation.
-
-### exitWith Usage
-
-In SQF, exitWith must be followed by a single expression that returns a value.
-
-A block enclosed in `{}` is valid only if it is treated as a single expression,
-like an array, a function call, or a single value.
-
-But writing `exitWith { statement1; statement2; }` is not valid if those
-statements are not themselves returning a final value. In your case, you have:
+For notes on SQF syntax see [SYNTAX.md](SYNTAX.md).
 
 ## Dependencies
 
@@ -287,12 +208,14 @@ These mods must be loaded for the scripts in this repository to function correct
 
 ## Antistasi Integration
 
-When Antistasi Ultimate is detected, several helper functions can create side missions:
+When Antistasi Ultimate is detected, the following helper functions become available:
 
-* **VIC_fnc_startMutantHunt** – awards money for each mutant killed during the hunt period.
-* **VIC_fnc_startArtefactHunt** – places an artefact in an existing anomaly field and tasks players to retrieve it.
-* **VIC_fnc_startChemSample** – chooses a chemical zone and requires players to stay inside for 90 seconds to collect samples.
-* The CBA setting **VSA_disableA3UWeather** stops Antistasi's `AU_persistentWeather` script when enabled.
+* **VIC_fnc_isAntistasiUltimate** – returns `true` when Antistasi Ultimate patches are loaded.
+* **VIC_fnc_startMutantHunt** – starts a timed hunt and awards money for each mutant killed.
+* **VIC_fnc_startArtefactHunt** – spawns an artefact in an existing anomaly field and assigns a task to retrieve it.
+* **VIC_fnc_startChemSample** – selects a chemical zone and tasks players to stay inside for the specified duration.
+* **VIC_fnc_completeArtefactHunt** and **VIC_fnc_completeChemSample** – finish the above missions and pay the rewards.
+* **VIC_fnc_disableA3UWeather** – stops Antistasi's `AU_persistentWeather` script when the CBA setting **VSA_disableA3UWeather** is enabled.
 
 These helpers do nothing if Antistasi Ultimate is not loaded.
 
