@@ -5,7 +5,7 @@
 */
 
 // --- CBA Settings -----------------------------------------------------------
-private _root = "\Viceroys-STALKER-ALife";
+private _root = "Viceroys-STALKER-ALife";
 private _settings = _root + "\cba_settings.sqf";
 
 // Wait briefly for CBA to become available so initialization doesn't hang
