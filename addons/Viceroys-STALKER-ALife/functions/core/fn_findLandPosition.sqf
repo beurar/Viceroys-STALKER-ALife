@@ -44,6 +44,7 @@ private _searchRadius = 0;
 
 private _found = [];
 
+scopeName "findLand";
 while {_searchRadius <= _maxRadius && {_found isEqualTo []}} do {
     for "_i" from 0 to _attempts do {
         private _candidate = if (_searchRadius == 0 && {_i == 0}) then {
@@ -86,7 +87,7 @@ while {_searchRadius <= _maxRadius && {_found isEqualTo []}} do {
                         STALKER_findLandMarkers pushBack _marker;
                     };
                     _found = ASLToAGL _surf;
-                    breakOut 2;
+                    breakOut "findLand";
                 };
             };
         };
