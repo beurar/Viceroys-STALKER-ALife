@@ -37,6 +37,7 @@ if (isServer && !isNil "STALKER_anomalyFields") then {
                     case VIC_fnc_createField_gravi: {"gravi"};
                     case VIC_fnc_createField_meatgrinder: {"meatgrinder"};
                     case VIC_fnc_createField_whirligig: {"whirligig"};
+                    case VIC_fnc_createField_comet: {"comet"};
                     case VIC_fnc_createField_clicker: {"clicker"};
                     case VIC_fnc_createField_launchpad: {"launchpad"};
                     case VIC_fnc_createField_leech: {"leech"};
