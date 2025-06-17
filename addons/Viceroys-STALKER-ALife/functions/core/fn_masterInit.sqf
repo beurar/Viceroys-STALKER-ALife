@@ -49,6 +49,7 @@ VIC_fnc_selectWeightedBuilding = compile preprocessFileLineNumbers (_root + "\fu
 VIC_fnc_findBridges            = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findBridges.sqf");
 VIC_fnc_markBridges            = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markBridges.sqf");
 VIC_fnc_findRoads             = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findRoads.sqf");
+VIC_fnc_findCrossroads        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findCrossroads.sqf");
 VIC_fnc_markRoads             = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markRoads.sqf");
 VIC_fnc_findHiddenPosition     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findHiddenPosition.sqf");
 VIC_fnc_markHiddenPosition     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markHiddenPosition.sqf");
