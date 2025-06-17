@@ -7,7 +7,16 @@
 // --- CBA Settings -----------------------------------------------------------
 private _root = "\Viceroys-STALKER-ALife";
 private _settings = _root + "\cba_settings.sqf";
-waitUntil {!isNil "CBA_fnc_addSetting"};
+
+// Wait briefly for CBA to become available so initialization doesn't hang
+private _start = diag_tickTime;
+waitUntil {
+    !isNil "CBA_fnc_addSetting" || {diag_tickTime - _start > 5}
+};
+if (isNil "CBA_fnc_addSetting") exitWith {
+    diag_log "STALKER ALife: CBA not found - skipping initialization";
+};
+
 call compile preprocessFileLineNumbers _settings;
 
 // Compile logging function first so it can be used immediately
