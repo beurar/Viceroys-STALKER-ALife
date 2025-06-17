@@ -17,6 +17,14 @@ if (_center isEqualTo [] && { !(_center isEqualType objNull) }) exitWith { [] };
 private _base = if (_center isEqualType objNull) then { getPos _center } else { _center };
 if !(_base isEqualType []) exitWith { [] };
 
+// debug marker setup
+private _debug = ["VSA_debugMode", false] call VIC_fnc_getSetting;
+if (_debug && {isServer}) then {
+    if (isNil "STALKER_findLandMarkers") then { STALKER_findLandMarkers = [] };
+    { if (_x != "") then { deleteMarker _x } } forEach STALKER_findLandMarkers;
+    STALKER_findLandMarkers = [];
+};
+
 // ensure we have a 3D position and sane defaults
 _base params [["_bx",0],["_by",0],["_bz",0]];
 _base = [_bx,_by,_bz];
@@ -38,13 +46,26 @@ while {_searchRadius <= _maxRadius} do {
             [_base, random _searchRadius, random 360] call BIS_fnc_relPos
         };
 
+        if (_debug && {isServer}) then {
+            private _name = format ["land_%1", diag_tickTime + random 1000];
+            private _marker = [_name, _candidate, "ICON", "mil_dot", "ColorOrange", 0.2] call VIC_fnc_createGlobalMarker;
+            STALKER_findLandMarkers pushBack _marker;
+        };
+
         private _from = AGLToASL (_candidate vectorAdd [0,0,1000]);
         private _to   = AGLToASL (_candidate vectorAdd [0,0,-1000]);
         private _hit  = lineIntersectsSurfaces [_from, _to, objNull, objNull, true, 1, "GEOM", "NONE"];
         if (!(_hit isEqualTo [])) then {
             private _surf = (_hit select 0) select 0;
             if (!((ASLToAGL _surf) call VIC_fnc_isWaterPosition)) then {
-                if (!_excludeTowns || {(nearestLocations [ASLToAGL _surf,["NameCity","NameVillage","NameCityCapital","NameLocal"],500]) isEqualTo []}) exitWith { ASLToAGL _surf };
+                if (!_excludeTowns || {(nearestLocations [ASLToAGL _surf,["NameCity","NameVillage","NameCityCapital","NameLocal"],500]) isEqualTo []}) exitWith {
+                    if (_debug && {isServer}) then {
+                        private _name = format ["land_result_%1", diag_tickTime + random 1000];
+                        private _marker = [_name, ASLToAGL _surf, "ICON", "mil_box", "ColorGreen", 1, "Land"] call VIC_fnc_createGlobalMarker;
+                        STALKER_findLandMarkers pushBack _marker;
+                    };
+                    ASLToAGL _surf
+                };
             };
         };
     };
