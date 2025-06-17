@@ -7,7 +7,8 @@ if (!hasInterface) exitWith {};
 if (missionNamespace getVariable ["VSA_debugActionsAdded", false]) exitWith {};
 missionNamespace setVariable ["VSA_debugActionsAdded", true];
 
-player addAction ["Spawn Psy-Storm", {
+// --- Spawning Actions ---
+player addAction ["<t color='#ff0000'>Spawn Psy-Storm</t>", {
     private _dur = ["VSA_stormDuration", 180] call VIC_fnc_getSetting;
     private _lStart = ["VSA_stormLightningStart", 6] call VIC_fnc_getSetting;
     private _lEnd   = ["VSA_stormLightningEnd", 12] call VIC_fnc_getSetting;
@@ -19,35 +20,35 @@ player addAction ["Spawn Psy-Storm", {
         [_dur, _lStart, _lEnd, _dStart, _dEnd] remoteExec ["VIC_fnc_triggerPsyStorm", 2];
     };
 }];
-player addAction ["Trigger Blowout", {
+player addAction ["<t color='#ff0000'>Trigger Blowout</t>", {
     if (isServer) then {
         [] call VIC_fnc_triggerBlowout;
     } else {
         [] remoteExec ["VIC_fnc_triggerBlowout", 2];
     };
 }];
-player addAction ["Spawn Chemical Zone", {
+player addAction ["<t color='#ff0000'>Spawn Chemical Zone</t>", {
     if (isServer) then {
         [getPos player, 100] call VIC_fnc_spawnChemicalZone;
     } else {
         [getPos player, 100] remoteExec ["VIC_fnc_spawnChemicalZone", 2];
     };
 }];
-player addAction ["Spawn Random Chemicals", {
+player addAction ["<t color='#ff0000'>Spawn Random Chemicals</t>", {
     if (isServer) then {
         [getPos player, 200] call VIC_fnc_spawnRandomChemicalZones;
     } else {
         [getPos player, 200] remoteExec ["VIC_fnc_spawnRandomChemicalZones", 2];
     };
 }];
-player addAction ["Spawn Valley Chemicals", {
+player addAction ["<t color='#ff0000'>Spawn Valley Chemicals</t>", {
     if (isServer) then {
         [getPos player, 200] call VIC_fnc_spawnValleyChemicalZones;
     } else {
         [getPos player, 200] remoteExec ["VIC_fnc_spawnValleyChemicalZones", 2];
     };
 }];
-player addAction ["Spawn Permanent Fields", {
+player addAction ["<t color='#ff0000'>Spawn Permanent Fields</t>", {
     for "_i" from 1 to 100 do {
         private _pos = [random worldSize, random worldSize, 0];
         if (isServer) then {
@@ -57,7 +58,7 @@ player addAction ["Spawn Permanent Fields", {
         };
     };
 }];
-player addAction ["Spawn Temporary Fields", {
+player addAction ["<t color='#ff0000'>Spawn Temporary Fields</t>", {
     for "_i" from 1 to 100 do {
         private _pos = [random worldSize, random worldSize, 0];
         if (isServer) then {
@@ -67,35 +68,36 @@ player addAction ["Spawn Temporary Fields", {
         };
     };
 }];
-player addAction ["Cycle Anomaly Fields", {
+// --- Cycle/Manager Actions ---
+player addAction ["<t color='#0000ff'>Cycle Anomaly Fields</t>", {
     if (isServer) then {
         [] call VIC_fnc_cycleAnomalyFields;
     } else {
         [] remoteExec ["VIC_fnc_cycleAnomalyFields", 2];
     };
 }];
-player addAction ["Spawn Mutant Group", {
+player addAction ["<t color='#ff0000'>Spawn Mutant Group</t>", {
     if (isServer) then {
         [getPos player] call VIC_fnc_spawnMutantGroup;
     } else {
         [getPos player] remoteExec ["VIC_fnc_spawnMutantGroup", 2];
     };
 }];
-player addAction ["Spawn Spook Zone", {
+player addAction ["<t color='#ff0000'>Spawn Spook Zone</t>", {
     if (isServer) then {
         [] call VIC_fnc_spawnSpookZone;
     } else {
         [] remoteExec ["VIC_fnc_spawnSpookZone", 2];
     };
 }];
-player addAction ["Spawn Zombies From Queue", {
+player addAction ["<t color='#ff0000'>Spawn Zombies From Queue</t>", {
     if (isServer) then {
         [] call VIC_fnc_spawnZombiesFromQueue;
     } else {
         [] remoteExec ["VIC_fnc_spawnZombiesFromQueue", 2];
     };
 }];
-player addAction ["Trigger Necroplague", {
+player addAction ["<t color='#ff0000'>Trigger Necroplague</t>", {
     private _z = ["VSA_necroZombies",5] call VIC_fnc_getSetting;
     private _h = ["VSA_necroHordes",2] call VIC_fnc_getSetting;
     if (isServer) then {
@@ -104,162 +106,163 @@ player addAction ["Trigger Necroplague", {
         [_z, _h, true] remoteExec ["VIC_fnc_triggerNecroplague", 2];
     };
 }];
-player addAction ["Spawn Ambient Herds", {
+player addAction ["<t color='#ff0000'>Spawn Ambient Herds</t>", {
     if (isServer) then {
         [] call VIC_fnc_spawnAmbientHerds;
     } else {
         [] remoteExec ["VIC_fnc_spawnAmbientHerds", 2];
     };
 }];
-player addAction ["Spawn Ambient Stalkers", {
+player addAction ["<t color='#ff0000'>Spawn Ambient Stalkers</t>", {
     if (isServer) then {
         [] call VIC_fnc_spawnAmbientStalkers;
     } else {
         [] remoteExec ["VIC_fnc_spawnAmbientStalkers", 2];
     };
 }];
-player addAction ["Spawn Stalker Camps", {
+player addAction ["<t color='#ff0000'>Spawn Stalker Camps</t>", {
     if (isServer) then {
         [getPos player, 300] call VIC_fnc_spawnStalkerCamps;
     } else {
         [getPos player, 300] remoteExec ["VIC_fnc_spawnStalkerCamps", 2];
     };
 }];
-player addAction ["Spawn Predator Attack", {
+player addAction ["<t color='#ff0000'>Spawn Predator Attack</t>", {
     if (isServer) then {
         [player] call VIC_fnc_spawnPredatorAttack;
     } else {
         [player] remoteExec ["VIC_fnc_spawnPredatorAttack", 2];
     };
 }];
-player addAction ["Spawn Minefields", {
+player addAction ["<t color='#ff0000'>Spawn Minefields</t>", {
     if (isServer) then {
         [getPos player, 300] call VIC_fnc_spawnMinefields;
     } else {
         [getPos player, 300] remoteExec ["VIC_fnc_spawnMinefields", 2];
     };
 }];
-player addAction ["Spawn Booby Traps", {
+player addAction ["<t color='#ff0000'>Spawn Booby Traps</t>", {
     if (isServer) then {
         [getPos player, 200] call VIC_fnc_spawnBoobyTraps;
     } else {
         [getPos player, 200] remoteExec ["VIC_fnc_spawnBoobyTraps", 2];
     };
 }];
-player addAction ["Start Minefield Logic", {
+player addAction ["<t color='#0000ff'>Start Minefield Logic</t>", {
     if (isServer) then {
         [] call VIC_fnc_startMinefieldManager;
     } else {
         [] remoteExec ["VIC_fnc_startMinefieldManager", 2];
     };
 }];
-player addAction ["Spawn Ambush", {
+player addAction ["<t color='#ff0000'>Spawn Ambush</t>", {
     if (isServer) then {
         [getPos player, 300] call VIC_fnc_spawnAmbushes;
     } else {
         [getPos player, 300] remoteExec ["VIC_fnc_spawnAmbushes", 2];
     };
 }];
-player addAction ["Start Ambush Logic", {
+player addAction ["<t color='#0000ff'>Start Ambush Logic</t>", {
     if (isServer) then {
         [] call VIC_fnc_startAmbushManager;
     } else {
         [] remoteExec ["VIC_fnc_startAmbushManager", 2];
     };
 }];
-player addAction ["Generate Mutant Habitats", {
+player addAction ["<t color='#0000ff'>Generate Mutant Habitats</t>", {
     if (isServer) then {
         [] call VIC_fnc_setupMutantHabitats;
     } else {
         [] remoteExec ["VIC_fnc_setupMutantHabitats", 2];
     };
 }];
-player addAction ["Cycle Habitats", {
+player addAction ["<t color='#0000ff'>Cycle Habitats</t>", {
     if (isServer) then {
         [] call VIC_fnc_manageHabitats;
     } else {
         [] remoteExec ["VIC_fnc_manageHabitats", 2];
     };
 }];
-player addAction ["Trigger AI Panic", {
+player addAction ["<t color='#0000ff'>Trigger AI Panic</t>", {
     if (isServer) then {
         [] call VIC_fnc_triggerAIPanic;
     } else {
         [] remoteExec ["VIC_fnc_triggerAIPanic", 2];
     };
 }];
-player addAction ["Reset AI Behaviour", {
+player addAction ["<t color='#0000ff'>Reset AI Behaviour</t>", {
     if (isServer) then {
         [] call VIC_fnc_resetAIBehavior;
     } else {
         [] remoteExec ["VIC_fnc_resetAIBehavior", 2];
     };
 }];
-player addAction ["Toggle Field Avoidance", {
+player addAction ["<t color='#0000ff'>Toggle Field Avoidance</t>", {
     if (isServer) then {
         [] call VIC_fnc_toggleFieldAvoid;
     } else {
         [] remoteExec ["VIC_fnc_toggleFieldAvoid", 2];
     };
 }];
-player addAction ["Mark All Buildings", {
+// --- Marking Actions ---
+player addAction ["<t color='#ffff00'>Mark All Buildings</t>", {
     if (isServer) then {
         [] call VIC_fnc_markAllBuildings;
     } else {
         [] remoteExec ["VIC_fnc_markAllBuildings", 2];
     };
 }];
-player addAction ["Mark Rock Clusters", {
+player addAction ["<t color='#ffff00'>Mark Rock Clusters</t>", {
     if (isServer) then {
         [] call VIC_fnc_markRockClusters;
     } else {
         [] remoteExec ["VIC_fnc_markRockClusters", 2];
     };
 }];
-player addAction ["Mark Sniper Spots", {
+player addAction ["<t color='#ffff00'>Mark Sniper Spots</t>", {
     if (isServer) then {
         [] call VIC_fnc_markSniperSpots;
     } else {
         [] remoteExec ["VIC_fnc_markSniperSpots", 2];
     };
 }];
-player addAction ["Mark Swamps", {
+player addAction ["<t color='#ffff00'>Mark Swamps</t>", {
     if (isServer) then {
         [] call VIC_fnc_markSwamps;
     } else {
         [] remoteExec ["VIC_fnc_markSwamps", 2];
     };
 }];
-player addAction ["Mark Beach Spots", { [] call VIC_fnc_markBeaches }];
-player addAction ["Mark Valleys", {
+player addAction ["<t color='#ffff00'>Mark Beach Spots</t>", { [] call VIC_fnc_markBeaches }];
+player addAction ["<t color='#ffff00'>Mark Valleys</t>", {
     if (isServer) then {
         [] call VIC_fnc_markValleys;
     } else {
         [] remoteExec ["VIC_fnc_markValleys", 2];
     };
 }];
-player addAction ["Mark Building Clusters", {
+player addAction ["<t color='#ffff00'>Mark Building Clusters</t>", {
     if (isServer) then {
         [] call VIC_fnc_markBuildingClusters;
     } else {
         [] remoteExec ["VIC_fnc_markBuildingClusters", 2];
     };
 }];
-player addAction ["Mark Hidden Spot", {
+player addAction ["<t color='#ffff00'>Mark Hidden Spot</t>", {
     if (isServer) then {
         [] call VIC_fnc_markHiddenPosition;
     } else {
         [] remoteExec ["VIC_fnc_markHiddenPosition", 2];
     };
 }];
-player addAction ["Mark Building Cover", {
+player addAction ["<t color='#ffff00'>Mark Building Cover</t>", {
     if (isServer) then {
         [] call VIC_fnc_markBuildingCoverSpot;
     } else {
         [] remoteExec ["VIC_fnc_markBuildingCoverSpot", 2];
     };
 }];
-player addAction ["Mark Bridges", {
+player addAction ["<t color='#ffff00'>Mark Bridges</t>", {
     if (isServer) then {
         [] call VIC_fnc_markBridges;
     } else {
