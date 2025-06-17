@@ -21,7 +21,6 @@ call compile preprocessFileLineNumbers _settings;
 
 // Compile logging function first so it can be used immediately
 VIC_fnc_debugLog                 = compile preprocessFileLineNumbers (_root + "\functions\core\fn_debugLog.sqf");
-VIC_fnc_getSetting               = compile preprocessFileLineNumbers (_root + "\functions\core\fn_getSetting.sqf");
 // Settings helper is required by the logger
 
 ["masterInit"] call VIC_fnc_debugLog;
