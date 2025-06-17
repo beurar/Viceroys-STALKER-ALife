@@ -105,3 +105,5 @@ for "_i" from 1 to _fieldCount do {
     STALKER_anomalyFields pushBack [_pos,75,_fn,count _spawned,_spawned,_marker,_site,_exp,_permanent];
     [format ["spawnAllAnomalyFields: spawned %1 %2", count _spawned, _typeName]] call VIC_fnc_debugLog;
 };
+
+true
