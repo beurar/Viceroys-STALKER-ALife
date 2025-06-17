@@ -173,6 +173,7 @@ VIC_fnc_findRandomRoadPosition  = compile preprocessFileLineNumbers (_root + "\f
 VIC_fnc_spawnAmbientStalkers   = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnAmbientStalkers.sqf");
 VIC_fnc_spawnStalkerCamp       = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnStalkerCamp.sqf");
 VIC_fnc_spawnStalkerCamps      = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnStalkerCamps.sqf");
+VIC_fnc_spawnSniper           = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnSniper.sqf");
 VIC_fnc_manageStalkerCamps     = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_manageStalkerCamps.sqf");
 
 VIC_fnc_isAntistasiUltimate  = compile preprocessFileLineNumbers (_root + "\functions\antistasi\fn_isAntistasiUltimate.sqf");

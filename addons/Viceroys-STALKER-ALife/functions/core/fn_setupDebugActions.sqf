@@ -127,6 +127,13 @@ player addAction ["<t color='#ff0000'>Spawn Stalker Camps</t>", {
         [getPos player, 300] remoteExec ["VIC_fnc_spawnStalkerCamps", 2];
     };
 }];
+player addAction ["<t color='#ff0000'>Spawn Sniper</t>", {
+    if (isServer) then {
+        [getPos player] call VIC_fnc_spawnSniper;
+    } else {
+        [getPos player] remoteExec ["VIC_fnc_spawnSniper", 2];
+    };
+}];
 player addAction ["<t color='#ff0000'>Spawn Predator Attack</t>", {
     if (isServer) then {
         [player] call VIC_fnc_spawnPredatorAttack;
