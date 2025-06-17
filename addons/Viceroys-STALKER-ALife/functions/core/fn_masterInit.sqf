@@ -200,11 +200,9 @@ VIC_fnc_completeChemSample   = compile preprocessFileLineNumbers (_root + "\func
   }] call CBA_fnc_addEventHandler;
 } else {
     ["postInit", {
-        if (hasInterface) then {
+        if (hasInterface && {["VSA_debugMode", false] call VIC_fnc_getSetting}) then {
+            [] call VIC_fnc_setupDebugActions;
             [] call VIC_fnc_markPlayerRanges;
-            if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
-                [] call VIC_fnc_setupDebugActions;
-            };
         };
     }] call CBA_fnc_addEventHandler;
 };
