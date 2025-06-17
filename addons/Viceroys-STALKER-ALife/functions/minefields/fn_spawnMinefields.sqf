@@ -26,32 +26,42 @@ private _size = ["VSA_minefieldSize",30] call VIC_fnc_getSetting;
 
 private _towns = nearestLocations [_center, ["NameVillage","NameCity","NameCityCapital","NameLocal"], _radius];
 
+private _useFallback = _towns isEqualTo [];
+if (_useFallback) then {
+    [format ["spawnMinefields: no towns found near %1 - using road fallback", _center]] call VIC_fnc_debugLog;
+};
+
 for "_i" from 1 to _fieldCount do {
-    if (_towns isEqualTo []) exitWith {
-        ["spawnMinefields: no towns found"] call VIC_fnc_debugLog;
+    private _pos = [];
+    if (_useFallback) then {
+        _pos = [_center, _radius, 20] call VIC_fnc_findRoadPosition;
+        if (isNil {_pos}) then { _pos = [_radius, 20] call VIC_fnc_findRandomRoadPosition; };
+    } else {
+        private _town = selectRandom _towns;
+        private _tPos = locationPosition _town;
+        _pos = _tPos getPos [150 + random 200, random 360];
+        _pos = [_pos] call VIC_fnc_findLandPosition;
     };
-    private _town = selectRandom _towns;
-    private _tPos = locationPosition _town;
-    private _pos = _tPos getPos [150 + random 200, random 360];
-    _pos = [_pos] call VIC_fnc_findLandPosition;
-    if (!(_pos isEqualTo [])) then {
-        private _marker = "";
-        if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
-            _marker = format ["mf_%1", diag_tickTime];
-            [_marker, _pos, "RECTANGLE", "", "ColorYellow", 0.2, "APERS Field"] call VIC_fnc_createGlobalMarker;
-            [_marker, [_size/2,_size/2]] remoteExec ["setMarkerSize", 0];
-        };
-        STALKER_minefields pushBack [_pos,"APERS",_size,[],_marker];
+    if (isNil {_pos} || { _pos isEqualTo [] }) then { continue; };
+    private _marker = "";
+    if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
+        _marker = format ["mf_%1", diag_tickTime];
+        [_marker, _pos, "RECTANGLE", "", "ColorYellow", 0.2, "APERS Field"] call VIC_fnc_createGlobalMarker;
+        [_marker, [_size/2,_size/2]] remoteExec ["setMarkerSize", 0];
     };
+    STALKER_minefields pushBack [_pos,"APERS",_size,[],_marker];
 };
 
 for "_i" from 1 to _iedCount do {
-    if (_towns isEqualTo []) exitWith {
-        ["spawnMinefields: no towns found"] call VIC_fnc_debugLog;
+    private _pos = [];
+    if (_useFallback) then {
+        _pos = [_center, _radius, 20] call VIC_fnc_findRoadPosition;
+        if (isNil {_pos}) then { _pos = [_radius, 20] call VIC_fnc_findRandomRoadPosition; };
+    } else {
+        private _town = selectRandom _towns;
+        private _tPos = locationPosition _town;
+        _pos = [_tPos, 200, 10] call VIC_fnc_findRoadPosition;
     };
-    private _town = selectRandom _towns;
-    private _tPos = locationPosition _town;
-    private _pos = [_tPos, 200, 10] call VIC_fnc_findRoadPosition;
     if (isNil {_pos}) then { continue; };
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
