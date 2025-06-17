@@ -25,6 +25,10 @@ if (_debug && {isServer}) then {
     STALKER_findLandMarkers = [];
 };
 
+private _townHysteresis = ["VSA_townHysteresis", 200] call VIC_fnc_getSetting;
+private _townRadius = ["VSA_townRadius", 500] call VIC_fnc_getSetting;
+private _worldSize = worldSize;
+
 // ensure we have a 3D position and sane defaults
 _base params [["_bx",0],["_by",0],["_bz",0]];
 _base = [_bx,_by,_bz];
@@ -46,9 +50,24 @@ while {_searchRadius <= _maxRadius} do {
             [_base, random _searchRadius, random 360] call BIS_fnc_relPos
         };
 
+        if (
+            (_candidate select 0 < 0) ||
+            { _candidate select 1 < 0 } ||
+            { _candidate select 0 > _worldSize } ||
+            { _candidate select 1 > _worldSize }
+        ) then { continue; };
+
         if (_debug && {isServer}) then {
+            private _towns = nearestLocations [_candidate, ["NameCity","NameVillage","NameCityCapital","NameLocal"], _townRadius + _townHysteresis];
+            private _dist = if (_towns isEqualTo []) then { 1e9 } else { _candidate distance (locationPosition (_towns select 0)) };
+            private _color = "ColorRed";
+            if (_dist <= _townRadius) then {
+                _color = "ColorBlue";
+            } else {
+                if (_dist <= (_townRadius + _townHysteresis)) then { _color = "ColorOrange"; };
+            };
             private _name = format ["land_%1", diag_tickTime + random 1000];
-            private _marker = [_name, _candidate, "ICON", "mil_dot", "ColorOrange", 0.2] call VIC_fnc_createGlobalMarker;
+            private _marker = [_name, _candidate, "ICON", "mil_dot", _color, 0.2] call VIC_fnc_createGlobalMarker;
             STALKER_findLandMarkers pushBack _marker;
         };
 
@@ -58,7 +77,7 @@ while {_searchRadius <= _maxRadius} do {
         if (!(_hit isEqualTo [])) then {
             private _surf = (_hit select 0) select 0;
             if (!((ASLToAGL _surf) call VIC_fnc_isWaterPosition)) then {
-                if (!_excludeTowns || {(nearestLocations [ASLToAGL _surf,["NameCity","NameVillage","NameCityCapital","NameLocal"],500]) isEqualTo []}) exitWith {
+                if (!_excludeTowns || {(nearestLocations [ASLToAGL _surf,["NameCity","NameVillage","NameCityCapital","NameLocal"],_townRadius]) isEqualTo []}) exitWith {
                     if (_debug && {isServer}) then {
                         private _name = format ["land_result_%1", diag_tickTime + random 1000];
                         private _marker = [_name, ASLToAGL _surf, "ICON", "mil_box", "ColorGreen", 1, "Land"] call VIC_fnc_createGlobalMarker;
