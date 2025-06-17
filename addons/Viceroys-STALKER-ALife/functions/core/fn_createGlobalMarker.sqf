@@ -24,6 +24,11 @@ params [
     ["_size", [1,1]]
 ];
 
+if (isNil {_name} || { isNil {_pos} }) exitWith {
+    ["createGlobalMarker: missing name or position"] call VIC_fnc_debugLog;
+    ""
+};
+
 [format ["createGlobalMarker %1 @ %2", _name, _pos]] call VIC_fnc_debugLog;
 
 if (!isServer) exitWith { _name };
