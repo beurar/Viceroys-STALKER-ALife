@@ -178,10 +178,14 @@ VIC_fnc_startArtefactHunt    = compile preprocessFileLineNumbers (_root + "\func
 VIC_fnc_startChemSample      = compile preprocessFileLineNumbers (_root + "\functions\antistasi\fn_startChemSample.sqf");
 VIC_fnc_completeArtefactHunt = compile preprocessFileLineNumbers (_root + "\functions\antistasi\fn_completeArtefactHunt.sqf");
 VIC_fnc_completeChemSample   = compile preprocessFileLineNumbers (_root + "\functions\antistasi\fn_completeChemSample.sqf");
+VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\functions\antistasi\fn_disableWeather.sqf");
 
 // --- PostInit ---------------------------------------------------------------
 ["postInit", {
     [] call VIC_fnc_registerEmissionHooks;
+    if (call VIC_fnc_isAntistasiUltimate && { ["VSA_disableA3UWeather", false] call VIC_fnc_getSetting }) then {
+        [] call VIC_fnc_disableA3UWeather;
+    };
     if (["VSA_autoInit", false] call VIC_fnc_getSetting) then {
     [
         {
