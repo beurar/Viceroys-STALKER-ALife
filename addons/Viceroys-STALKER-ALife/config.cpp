@@ -7,13 +7,7 @@ class CfgPatches
         requiredAddons[] = {
             "A3_Functions_F",
             "CBA_Extended_EventHandlers",
-            "cba_main",
-            "diwako_anomalies_main",
-            "WBK_Zombies",
-            "dsa_main",
-            "stalker_stuff",
-            "cbrn_main",
-            "necroplague"
+            "cba_main"
         };
     };
 };
