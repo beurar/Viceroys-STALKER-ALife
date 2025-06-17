@@ -99,6 +99,9 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Severe emission waves triggered via the included functions.
 * AI and players caught outside of shelter are lethal casualties by default.
 * Behaviour can be toggled through the `VSA_killAIEmission` CBA setting.
+* Emission timing and direction are now controlled entirely by
+  **Diwako's Anomalies** via the
+  `diwako_anomalies_main_startBlowout` server event.
 
 ### Zombification
 * Tracks dead units and may reanimate them as zombies after a delay.
