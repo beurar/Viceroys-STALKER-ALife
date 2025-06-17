@@ -31,6 +31,22 @@
     false
 ] call CBA_fnc_addSetting;
 
+[
+    "VSA_townRadius",
+    "SLIDER",
+    ["Town Radius", "Distance considered inside a town"],
+    "Viceroy's STALKER ALife - Core",
+    [0, 1500, 500, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_townHysteresis",
+    "SLIDER",
+    ["Town Hysteresis", "Extra distance beyond town radius for debug markers"],
+    "Viceroy's STALKER ALife - Core",
+    [0, 1000, 200, 0]
+] call CBA_fnc_addSetting;
+
 
 
 
