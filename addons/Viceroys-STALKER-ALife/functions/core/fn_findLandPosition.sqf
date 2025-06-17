@@ -19,6 +19,9 @@ if !(_base isEqualType []) exitWith { [] };
 _base params [["_bx",0],["_by",0],["_bz",0]];
 _base = [_bx,_by,_bz];
 
+// ensure radius is always positive so the search covers an area
+_radius = _radius max 1;
+
 for "_i" from 0 to _attempts do {
     private _candidate = if (_i == 0) then {
         _base
