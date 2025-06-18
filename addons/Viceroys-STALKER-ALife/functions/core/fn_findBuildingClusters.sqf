@@ -51,4 +51,6 @@ for "_px" from 0 to worldSize step _step do {
 if (isNil "STALKER_buildingClusters") then { STALKER_buildingClusters = [] };
 { if !(_x in STALKER_buildingClusters) then { STALKER_buildingClusters pushBack _x } } forEach _clusters;
 
+[] call VIC_fnc_markBuildingClusters;
+
 _clusters
