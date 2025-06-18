@@ -1,5 +1,5 @@
 /*
-    Spawns a single sniper at the nearest detected sniper spot to a position.
+    Spawns a single sniper at one of the nearest cached sniper spots.
     The unit garrisons that position using lambs_wp_fnc_taskGarrison.
 
     Params:
@@ -14,27 +14,36 @@ if (!isServer) exitWith {};
 
 if (isNil "STALKER_snipers") then { STALKER_snipers = [] };
 
-private _spots = [] call VIC_fnc_findSniperSpots;
-if (_spots isEqualTo []) exitWith {
-    ["spawnSniper: no sniper spots found"] call VIC_fnc_debugLog;
+if (isNil "STALKER_sniperSpots" || {STALKER_sniperSpots isEqualTo []}) exitWith {
+    ["spawnSniper: no cached sniper spots"] call VIC_fnc_debugLog;
 };
 
-private _spot = [_spots, _center] call BIS_fnc_nearestPosition;
+private _sorted = STALKER_sniperSpots apply { [_center distance2D _x, _x] };
+_sorted sort true;
+private _candidates = [];
+{
+    _candidates pushBack (_x select 1);
+    if (count _candidates >= 5) exitWith {};
+} forEach _sorted;
+
+private _spot = selectRandom _candidates;
 if (isNil {_spot}) exitWith {
     ["spawnSniper: unable to select position"] call VIC_fnc_debugLog;
 };
 
+private _spotAGL = ASLToAGL _spot;
+
 private _grp = createGroup east;
-_grp createUnit ["O_sniper_F", _spot, [], 0, "FORM"];
+_grp createUnit ["O_sniper_F", _spotAGL, [], 0, "FORM"];
 // Increase search radius and prioritize high vantage points
-[_grp, _spot, 100, [], true, true, 0, true] call lambs_wp_fnc_taskGarrison;
-[_spot, 25, 6] call VIC_fnc_spawnTripwirePerimeter;
+[_grp, _spotAGL, 100, [], true, true, 0, true] call lambs_wp_fnc_taskGarrison;
+[_spotAGL, 25, 6] call VIC_fnc_spawnTripwirePerimeter;
 
 private _marker = "";
 if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
     _marker = format ["snp_%1", diag_tickTime];
-    [_marker, _spot, "ICON", "mil_triangle", "ColorRed", 0.6, "Sniper"] call VIC_fnc_createGlobalMarker;
+    [_marker, _spotAGL, "ICON", "mil_triangle", "ColorRed", 0.6, "Sniper"] call VIC_fnc_createGlobalMarker;
 };
 
-STALKER_snipers pushBack [_grp, _spot, _marker];
+STALKER_snipers pushBack [_grp, _spotAGL, _marker];
 
