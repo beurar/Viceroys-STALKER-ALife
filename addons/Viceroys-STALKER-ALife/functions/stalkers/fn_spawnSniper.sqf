@@ -1,6 +1,6 @@
 /*
     Spawns a single sniper at the nearest detected sniper spot to a position.
-    The unit holds that position using BIS_fnc_taskDefend.
+    The unit garrisons that position using lambs_wp_fnc_taskGarrison.
 
     Params:
         0: POSITION - center position to search from (default: position of the caller)
@@ -26,7 +26,8 @@ if (isNil {_spot}) exitWith {
 
 private _grp = createGroup east;
 _grp createUnit ["O_sniper_F", _spot, [], 0, "FORM"];
-[_grp, _spot] call BIS_fnc_taskDefend;
+[_grp, _spot, 50, [], true, true, 0, false] call lambs_wp_fnc_taskGarrison;
+[_spot, 25, 6] call VIC_fnc_spawnTripwirePerimeter;
 
 private _marker = "";
 if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
