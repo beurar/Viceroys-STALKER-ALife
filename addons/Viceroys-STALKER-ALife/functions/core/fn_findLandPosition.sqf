@@ -22,7 +22,6 @@ params [
 ];
 
 private _base = if (_centerPos isEqualType objNull) then { getPos _centerPos } else { _centerPos };
-if !(_base isEqualType []) exitWith { nil };
 
 _radius = _radius max 1;
 if (_maxRadius < 0) then {

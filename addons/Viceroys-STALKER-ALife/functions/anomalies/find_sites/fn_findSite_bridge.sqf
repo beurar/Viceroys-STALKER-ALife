@@ -18,7 +18,7 @@ if (_bridges isEqualTo []) then {
 };
 
 private _candidates = _bridges select { _posCenter distance2D _x <= _radius };
-if (_candidates isEqualTo []) exitWith { [] };
+if (_candidates isEqualTo []) then { [] };
 
 private _bridge = selectRandom _candidates;
 private _pos = getPosATL _bridge;
