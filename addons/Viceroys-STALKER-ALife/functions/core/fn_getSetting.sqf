@@ -12,5 +12,5 @@
 params ["_name", "_default"];
 
 private _value = missionNamespace getVariable [_name, _default];
-[format ["getSetting: %1", _name]] call VIC_fnc_debugLog;
 _value
+
