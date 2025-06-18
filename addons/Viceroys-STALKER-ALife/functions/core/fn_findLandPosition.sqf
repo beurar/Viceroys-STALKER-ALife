@@ -64,4 +64,8 @@ while { _searchRadius <= _maxRadius && {_result isEqualTo []} } do {
     _searchRadius = _searchRadius + _radius;
 };
 
+if !(_result isEqualTo []) then {
+    [format ["findLandPosition: found %1", _result]] call VIC_fnc_debugLog;
+};
+
 if (_result isEqualTo []) then { nil } else { _result }
