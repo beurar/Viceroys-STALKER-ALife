@@ -42,5 +42,7 @@ private _crossroads = [];
 if (isNil "STALKER_crossroads") then { STALKER_crossroads = [] };
 { if !(_x in STALKER_crossroads) then { STALKER_crossroads pushBack _x } } forEach _crossroads;
 
+[] call VIC_fnc_markRoads;
+
 _crossroads
 
