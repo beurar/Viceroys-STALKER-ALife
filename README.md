@@ -176,9 +176,8 @@ Drongo’s system adds creepy events such as ghostly whispers or sudden darkenin
    This option can now be toggled while a mission is running and the debug
    actions will appear automatically.
 6. When debug mode is active, your scroll menu includes options to trigger storms, spawn stable or unstable anomaly fields, cycle existing fields, spawn spook zones, generate habitats, spawn ambient herds, place booby traps in town buildings, summon predator attacks, trigger AI panic or reset their behaviour, and other test helpers. All spawn actions run on the server so they work correctly in multiplayer. Stable fields will show a randomly generated name on their marker for easy reference.
-7. Use the **Mark All Buildings**, **Mark Bridges** and **Mark Roads** actions from this menu if you need to visualize these objects. Road markers now highlight crossroads as well. Buildings are no longer marked automatically when debug mode is enabled.
-8. **Cache Map Wrecks** to collect all wreck objects placed on the map. This action populates `STALKER_wrecks` for other functions.
-9. Additional **Cache** actions can store sniper spots, roads, crossroads, bridges, valleys, beach sites and swamps for quick access by other scripts.
+7. **Cache Map Wrecks** to collect all wreck objects placed on the map. This action populates `STALKER_wrecks` for other functions.
+8. Additional **Cache** actions can store sniper spots, roads, crossroads, bridges, valleys, beach sites and swamps for quick access by other scripts.
 
 ## Usage
 
