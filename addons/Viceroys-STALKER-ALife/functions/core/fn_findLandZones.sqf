@@ -1,6 +1,6 @@
 /*
     Finds mostly evenly distributed land positions across the map using a grid search.
-    Each grid cell tries to locate one valid land position using VIC_fnc_findLandPosition.
+    Each grid cell tries to locate one valid land position using VIC_fnc_findLandAGL.
 
     Params:
         0: NUMBER - grid step size in meters (default: 1000)
@@ -19,7 +19,7 @@ private _half = _step / 2;
 for "_x" from 0 to worldSize step _step do {
     for "_y" from 0 to worldSize step _step do {
         private _center = [_x + _half, _y + _half, 0];
-        private _pos = [_center, _half, 10, _excludeTowns, _half] call VIC_fnc_findLandPosition;
+        private _pos = [_center, _half, 10, _excludeTowns, _half] call VIC_fnc_findLandAGL;
         if (isNil {_pos}) then { _pos = [] };
         if !(_pos isEqualTo []) then {
             _zones pushBack _pos;

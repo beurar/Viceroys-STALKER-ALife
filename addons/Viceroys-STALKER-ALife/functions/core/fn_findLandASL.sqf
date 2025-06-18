@@ -7,7 +7,7 @@
         3: BOOL   - exclude towns from results (default false)
         4: NUMBER - maximum search radius (optional)
     Returns:
-        ARRAY - ground position or [] if none found
+        ARRAY - ground position ASL or [] if none found
 */
 params ["_center", ["_radius",50], ["_attempts",10], ["_excludeTowns", false], ["_maxRadius", -1]];
 
@@ -113,7 +113,7 @@ while {_searchRadius <= _maxRadius && {_found isEqualTo []}} do {
                         private _marker = [_name, ASLToAGL _surf, "ICON", "mil_box", "ColorGreen", 1, "Land"] call VIC_fnc_createGlobalMarker;
                         STALKER_findLandMarkers pushBack _marker;
                     };
-                    _found = ASLToAGL _surf;
+                    _found = _surf;
                     breakOut "findLand";
                 };
             };
@@ -122,5 +122,5 @@ while {_searchRadius <= _maxRadius && {_found isEqualTo []}} do {
     _searchRadius = _searchRadius + _step;
 };
 
-[format ["findLandPosition: %1found around %2 up to %3m", if (_found isEqualTo []) then {"failed "} else {""}, _base, _maxRadius]] call VIC_fnc_debugLog;
+[format ["findLandASL: %1found around %2 up to %3m", if (_found isEqualTo []) then {"failed "} else {""}, _base, _maxRadius]] call VIC_fnc_debugLog;
 _found
