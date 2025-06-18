@@ -26,7 +26,8 @@ if (isNil {_spot}) exitWith {
 
 private _grp = createGroup east;
 _grp createUnit ["O_sniper_F", _spot, [], 0, "FORM"];
-[_grp, _spot, 50, [], true, true, 0, false] call lambs_wp_fnc_taskGarrison;
+// Increase search radius and prioritize high vantage points
+[_grp, _spot, 100, [], true, true, 0, true] call lambs_wp_fnc_taskGarrison;
 [_spot, 25, 6] call VIC_fnc_spawnTripwirePerimeter;
 
 private _marker = "";
