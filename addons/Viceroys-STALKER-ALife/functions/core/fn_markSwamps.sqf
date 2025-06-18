@@ -15,7 +15,8 @@ if (isNil "STALKER_swampMarkers") then { STALKER_swampMarkers = [] };
 } forEach STALKER_swampMarkers;
 STALKER_swampMarkers = [];
 
-private _swamps = [] call VIC_fnc_findSwamps;
+if (isNil "STALKER_swamps") exitWith { false };
+private _swamps = STALKER_swamps;
 
 {
     private _pos = _x;

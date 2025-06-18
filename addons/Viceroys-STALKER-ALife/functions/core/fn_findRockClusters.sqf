@@ -58,4 +58,8 @@ while {count _remaining > 0} do {
     };
 };
 
+// Cache results for later use
+if (isNil "STALKER_rockClusters") then { STALKER_rockClusters = [] };
+{ if !(_x in STALKER_rockClusters) then { STALKER_rockClusters pushBack _x } } forEach _clusters;
+
 _clusters

@@ -47,4 +47,8 @@ for "_px" from 0 to worldSize step _step do {
     };
 };
 
+// Cache results for later use
+if (isNil "STALKER_buildingClusters") then { STALKER_buildingClusters = [] };
+{ if !(_x in STALKER_buildingClusters) then { STALKER_buildingClusters pushBack _x } } forEach _clusters;
+
 _clusters

@@ -15,7 +15,8 @@ if (isNil "STALKER_valleyMarkers") then { STALKER_valleyMarkers = [] };
 } forEach STALKER_valleyMarkers;
 STALKER_valleyMarkers = [];
 
-private _valleys = [] call VIC_fnc_findValleys;
+if (isNil "STALKER_valleys") exitWith { false };
+private _valleys = STALKER_valleys;
 [format ["markValleys: %1 valleys", count _valleys]] call VIC_fnc_debugLog;
 
 {

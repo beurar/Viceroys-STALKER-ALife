@@ -4,6 +4,7 @@
     Returns: BOOL
 */
 
+
 ["markRockClusters"] call VIC_fnc_debugLog;
 
 
@@ -15,7 +16,8 @@ if (isNil "STALKER_rockClusterMarkers") then { STALKER_rockClusterMarkers = [] }
 } forEach STALKER_rockClusterMarkers;
 STALKER_rockClusterMarkers = [];
 
-private _clusters = [] call VIC_fnc_findRockClusters;
+if (isNil "STALKER_rockClusters") exitWith { false };
+private _clusters = STALKER_rockClusters;
 
 {
     {
