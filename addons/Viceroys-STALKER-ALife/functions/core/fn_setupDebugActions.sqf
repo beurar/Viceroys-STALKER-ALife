@@ -310,7 +310,11 @@ player addAction ["<t color='#ffff00'>Cache Sniper Spots</t>", {
 }];
 player addAction ["<t color='#ffff00'>Cache Roads</t>", {
     if (isServer) then {
-        [] call VIC_fnc_findRoads;
+        private _data = ["STALKER_roads"] call VIC_fnc_loadCache;
+        if (isNil {_data}) then {
+            _data = [] call VIC_fnc_findRoads;
+            ["STALKER_roads", _data] call VIC_fnc_saveCache;
+        };
         [] call VIC_fnc_markRoads;
     } else {
         [] remoteExec ["VIC_fnc_findRoads", 2];
@@ -364,7 +368,11 @@ player addAction ["<t color='#ffff00'>Cache Swamps</t>", {
 }];
 player addAction ["<t color='#ffff00'>Cache Land Zones</t>", {
     if (isServer) then {
-        [] call VIC_fnc_findLandZones;
+        private _data = ["STALKER_landZones"] call VIC_fnc_loadCache;
+        if (isNil {_data}) then {
+            _data = [] call VIC_fnc_findLandZones;
+            ["STALKER_landZones", _data] call VIC_fnc_saveCache;
+        };
         [] call VIC_fnc_markLandZones;
     } else {
         [] remoteExec ["VIC_fnc_findLandZones", 2];
