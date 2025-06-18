@@ -32,7 +32,7 @@ if (isNil {_name} || { isNil {_pos} }) exitWith {
     ""
 };
 
-[format ["createGlobalMarker %1 @ %2", _name, _pos]] call VIC_fnc_debugLog;
+["createGlobalMarker"] call VIC_fnc_debugLog;
 
 if (!isServer) exitWith { _name };
 
@@ -40,6 +40,6 @@ private _target = if (_global) then { 0 } else { remoteExecutedOwner };
 
 [_name, _pos, _shape, _type, _color, _alpha, _text, _size] remoteExecCall ["VIC_fnc_createLocalMarker", _target, true];
 
-[format ["createGlobalMarker done %1", _name]] call VIC_fnc_debugLog;
+["createGlobalMarker done"] call VIC_fnc_debugLog;
 
 _name
