@@ -239,7 +239,10 @@ shows the mod's branding in the launcher and in-game menus.
 Engine commands like `createMarker` and `setMarkerType` cannot be executed via
 `remoteExecCall` directly. They must run inside a script that you remote execute.
 Functions such as `VIC_fnc_createGlobalMarker` handle this by calling a local
-helper on each machine.
+helper on each machine. To get a return value from the server, use
+`VIC_fnc_callServer`. This helper runs code on the server and sends the result
+back to the requesting client. `VIC_fnc_findLandAGLServer` demonstrates this
+pattern for finding land positions remotely.
 
 ## LAMBS Waypoints
 
