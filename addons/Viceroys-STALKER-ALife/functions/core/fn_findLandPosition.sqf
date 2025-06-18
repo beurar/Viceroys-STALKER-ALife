@@ -68,20 +68,37 @@ while {_searchRadius <= _maxRadius && {_found isEqualTo []}} do {
             { _candidate select 1 > _worldSize }
         ) then { continue; };
 
-        if (_debug && {isServer}) then {
-            if (_candidate isEqualType [] && {count _candidate >= 2}) then {
-                private _towns = nearestLocations [_candidate, ["NameCity","NameVillage","NameCityCapital","NameLocal"], _townRadius + _townHysteresis];
-                private _dist = if (_towns isEqualTo []) then { 1e9 } else { _candidate distance (locationPosition (_towns select 0)) };
-                private _color = "ColorRed";
-                if (_dist <= _townRadius) then {
-                    _color = "ColorBlue";
-                } else {
-                    if (_dist <= (_townRadius + _townHysteresis)) then { _color = "ColorOrange"; };
-                };
-                private _name = format ["land_%1", diag_tickTime + random 1000];
-                private _marker = [_name, _candidate, "ICON", "mil_dot", _color, 0.2] call VIC_fnc_createGlobalMarker;
-                STALKER_findLandMarkers pushBack _marker;
+        if (
+            _debug &&
+            {isServer} &&
+            {_candidate isEqualType [] && {count _candidate >= 2}}
+        ) then {
+            private _towns = nearestLocations [
+                _candidate,
+                ["NameCity","NameVillage","NameCityCapital","NameLocal"],
+                _townRadius + _townHysteresis
+            ];
+            private _dist = if (_towns isEqualTo []) then { 1e9 } else {
+                _candidate distance (locationPosition (_towns select 0))
             };
+            private _color = "ColorRed";
+            if (_dist <= _townRadius) then {
+                _color = "ColorBlue";
+            } else {
+                if (_dist <= (_townRadius + _townHysteresis)) then {
+                    _color = "ColorOrange";
+                };
+            };
+            private _name = format ["land_%1", diag_tickTime + random 1000];
+            private _marker = [
+                _name,
+                _candidate,
+                "ICON",
+                "mil_dot",
+                _color,
+                0.2
+            ] call VIC_fnc_createGlobalMarker;
+            STALKER_findLandMarkers pushBack _marker;
         };
 
         private _from = AGLToASL (_candidate vectorAdd [0,0,1000]);
