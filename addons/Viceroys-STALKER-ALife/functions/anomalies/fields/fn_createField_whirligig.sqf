@@ -19,7 +19,7 @@ if (isNil {_site} || {_site isEqualTo []}) then {
 } else {
     [format ["createField_whirligig: using site %1", _site]] call VIC_fnc_debugLog;
 };
-_site = [_site] call VIC_fnc_findLandPosition;
+_site = [_site] call VIC_fnc_findLandAGL;
 if (isNil {_site} || {_site isEqualTo []}) exitWith {
     ["createField_whirligig: land position failed"] call VIC_fnc_debugLog;
     []

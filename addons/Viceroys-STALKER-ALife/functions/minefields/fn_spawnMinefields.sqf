@@ -40,7 +40,7 @@ for "_i" from 1 to _fieldCount do {
         private _town = selectRandom _towns;
         private _tPos = locationPosition _town;
         _pos = _tPos getPos [150 + random 200, random 360];
-        _pos = [_pos] call VIC_fnc_findLandPosition;
+        _pos = [_pos] call VIC_fnc_findLandAGL;
     };
     if (isNil {_pos} || { _pos isEqualTo [] }) then { continue; };
     private _marker = "";

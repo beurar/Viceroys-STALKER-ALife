@@ -28,7 +28,7 @@ for "_i" from 1 to _groupCount do {
     private _center = selectRandom _players;
     private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
     private _pos = _center getPos [ random (_dist * 0.75), random 360 ];
-    _pos = [_pos] call VIC_fnc_findLandPosition;
+    _pos = [_pos] call VIC_fnc_findLandAGL;
     if (isNil {_pos} || {_pos isEqualTo []}) then { continue };
     if (!([_pos, _dist] call VIC_fnc_hasPlayersNearby)) then { continue };
 

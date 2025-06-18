@@ -22,7 +22,7 @@ if (isNil "STALKER_activePredators") then { STALKER_activePredators = []; };
 
 private _range = ["VSA_predatorRange", 1500] call VIC_fnc_getSetting;
 private _spawnPos = _player getPos [_range, random 360];
-_spawnPos = [_spawnPos] call VIC_fnc_findLandPosition;
+_spawnPos = [_spawnPos] call VIC_fnc_findLandAGL;
 if (isNil {_spawnPos} || {_spawnPos isEqualTo []}) exitWith {
     ["spawnPredatorAttack exit: invalid position"] call VIC_fnc_debugLog;
 };
