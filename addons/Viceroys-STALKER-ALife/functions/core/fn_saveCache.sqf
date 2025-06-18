@@ -9,9 +9,9 @@
 */
 params ["_name", ["_data", nil]];
 
-if (isNil "_name") exitWith { false };
-if (isNil "_data") then { _data = missionNamespace getVariable [_name, nil] };
-if (isNil "_data") exitWith { false };
+if (isNil {_name}) exitWith { false };
+if (isNil {_data}) then { _data = missionNamespace getVariable [_name, nil] };
+if (isNil {_data}) exitWith { false };
 
 profileNamespace setVariable [_name, _data];
 saveProfileNamespace;

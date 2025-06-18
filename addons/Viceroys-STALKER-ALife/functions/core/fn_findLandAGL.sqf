@@ -12,5 +12,5 @@
 params ["_center", ["_radius",50], ["_attempts",10], ["_excludeTowns", false], ["_maxRadius", -1]];
 
 private _posASL = [_center,_radius,_attempts,_excludeTowns,_maxRadius] call VIC_fnc_findLandASL;
-if (isNil "_posASL" || {_posASL isEqualTo []}) exitWith { [] };
+if (isNil {_posASL} || {_posASL isEqualTo []}) exitWith { [] };
 ASLToAGL _posASL;

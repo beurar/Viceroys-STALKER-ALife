@@ -55,7 +55,7 @@ while {_searchRadius <= _maxRadius && {_found isEqualTo []}} do {
         };
 
         if (
-            isNil "_candidate" ||
+            isNil {_candidate} ||
             {!(_candidate isEqualType [])} ||
             {count _candidate < 2}
         ) then { continue; };
