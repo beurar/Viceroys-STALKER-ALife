@@ -29,7 +29,7 @@ for "_x" from 0 to worldSize step _step do {
 
 // Cache results for later use
 if (isNil "STALKER_landZones") then { STALKER_landZones = [] };
-{ if !(_x in STALKER_landZones) then { STALKER_landZones pushBack _x } } forEach _zones;
+{ STALKER_landZones pushBackUnique _x } forEach _zones;
 
 // Mark cached zones when debugging
 [] call VIC_fnc_markLandZones;

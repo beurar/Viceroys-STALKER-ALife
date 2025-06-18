@@ -27,11 +27,9 @@ private _crossroads = [];
         private _connections = roadsConnectedTo _roadObj;
         if ((count _connections) >= 3) then {
             private _pos = getPosATL _roadObj;
-            private _dup = false;
-            {
-                if (_x distance _pos < 5) exitWith { _dup = true };
-            } forEach _crossroads;
-            if (!_dup) then { _crossroads pushBack _pos; };
+            if ((count (_crossroads select { _x distance _pos < 5 })) == 0) then {
+                _crossroads pushBack _pos;
+            };
         };
     };
 } forEach _roads;
@@ -40,7 +38,7 @@ private _crossroads = [];
 
 // Cache results for later use
 if (isNil "STALKER_crossroads") then { STALKER_crossroads = [] };
-{ if !(_x in STALKER_crossroads) then { STALKER_crossroads pushBack _x } } forEach _crossroads;
+{ STALKER_crossroads pushBackUnique _x } forEach _crossroads;
 
 [] call VIC_fnc_markRoads;
 

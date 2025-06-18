@@ -14,7 +14,7 @@ private _objs = nearestObjects [_center, ["AllVehicles","Static"], worldSize];
 private _found = _objs select { toLower typeOf _x find "wreck" > -1 };
 
 if (isNil "STALKER_wrecks") then { STALKER_wrecks = [] };
-{ if !(_x in STALKER_wrecks) then { STALKER_wrecks pushBack _x } } forEach _found;
+{ STALKER_wrecks pushBackUnique _x } forEach _found;
 
 [] call VIC_fnc_markWrecks;
 

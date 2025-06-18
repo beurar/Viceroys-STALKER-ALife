@@ -11,6 +11,7 @@
 */
 
 params [["_minRocks", 4], ["_radius", 20], ["_step", 500]];
+_step = _step; // parameter kept for backwards compatibility
 
 ["findRockClusters"] call VIC_fnc_debugLog;
 
@@ -60,7 +61,7 @@ while {count _remaining > 0} do {
 
 // Cache results for later use
 if (isNil "STALKER_rockClusters") then { STALKER_rockClusters = [] };
-{ if !(_x in STALKER_rockClusters) then { STALKER_rockClusters pushBack _x } } forEach _clusters;
+{ STALKER_rockClusters pushBackUnique _x } forEach _clusters;
 
 [] call VIC_fnc_markRockClusters;
 
