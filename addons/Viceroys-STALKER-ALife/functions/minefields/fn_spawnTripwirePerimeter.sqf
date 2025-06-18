@@ -14,13 +14,26 @@ params ["_center", ["_radius",25], ["_count",6]];
 if (!isServer) exitWith { [] };
 
 private _objs = [];
+private _positions = [];
+private _offset = random 360;
 
-for "_i" from 1 to _count do {
+// determine mine positions first
+for "_i" from 0 to (_count - 1) do {
     private _dist = _radius - random 5;
-    private _pos = _center getPos [_dist, random 360];
+    private _angle = _offset + (360 / _count) * _i;
+    private _pos = _center getPos [_dist, _angle];
     _pos = [_pos] call VIC_fnc_findLandPosition;
     if (_pos isEqualTo []) then { continue };
+    _positions pushBack _pos;
+};
+
+// spawn mines and orient them toward the next mine to form a perimeter
+for "_i" from 0 to ((count _positions) - 1) do {
+    private _pos = _positions select _i;
+    private _nextPos = _positions select ((_i + 1) mod (count _positions));
+
     private _mine = createMine ["APERSTripMine_Wire", _pos, [], 0];
+    _mine setDir ([_pos, _nextPos] call BIS_fnc_dirTo);
     _objs pushBack _mine;
 
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
