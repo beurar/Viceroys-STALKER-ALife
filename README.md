@@ -240,6 +240,45 @@ Engine commands like `createMarker` and `setMarkerType` cannot be executed via
 Functions such as `VIC_fnc_createGlobalMarker` handle this by calling a local
 helper on each machine.
 
+## LAMBS Waypoints
+
+LAMBS Danger AI exposes a collection of `taskX` functions that can be issued as
+waypoints. They must run on the machine that owns the group; disable dynamic
+load balancing if a headless client would otherwise take control of the units.
+
+### Advanced Parameters
+
+Some tasks accept an **area** argument when executed through a module. The value
+uses the standard Arma area syntax `[a, b, angle, isRectangle, c]` to further
+restrict the effective radius.
+
+### Tasks
+
+* **taskArtillery** – shell a target position.
+  `[cannonBob, getPos angryJoe, bob] spawn lambs_wp_fnc_taskArtillery;`
+* **taskArtilleryRegister** – register available artillery pieces.
+  `[group bob] call lambs_wp_fnc_taskArtilleryRegister;`
+* **taskAssault** – rush to a position or retreat under fire.
+  `[bob, getPos angryJoe] spawn lambs_wp_fnc_taskAssault;`
+* **taskCamp** – establish a camp with patrols and garrisoned turrets.
+  `[bob, getPos bob, 50] call lambs_wp_fnc_taskCamp;`
+* **taskCQB** – clear nearby buildings methodically.
+  `[bob, getPos angryJoe, 50] spawn lambs_wp_fnc_taskCQB;`
+* **taskGarrison** – occupy buildings and static weapons.
+  `[bob, bob, 50] call lambs_wp_fnc_taskGarrison;`
+* **taskPatrol** – set up a dynamic patrol route.
+  `[bob, bob, 500] call lambs_wp_fnc_taskPatrol;`
+* **taskDefend** – hold a position and cover nearby approaches.
+  `[bob, bob, 50] spawn lambs_wp_fnc_taskDefend;`
+* **taskReset** – cancel garrisons, waypoints and animations.
+  `[bob] call lambs_wp_fnc_taskReset;`
+* **taskRush** – aggressively move toward players.
+  `[bob, 500] spawn lambs_wp_fnc_taskRush;`
+* **taskHunt** – track the nearest player over time.
+  `[bob, 500] spawn lambs_wp_fnc_taskHunt;`
+* **taskCreep** – stalk the player before attacking from close range.
+  `[bob, 500] spawn lambs_wp_fnc_taskCreep;`
+
 ## License
 
 This project is licensed under the **Arma Public License Share Alike (APL-SA)**.
