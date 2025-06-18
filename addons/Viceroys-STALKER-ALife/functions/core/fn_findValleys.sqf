@@ -99,5 +99,7 @@ for "_gx" from 0 to worldSize step _step do {
 if (isNil "STALKER_valleys") then { STALKER_valleys = [] };
 { if !(_x in STALKER_valleys) then { STALKER_valleys pushBack _x } } forEach _valleys;
 
+[] call VIC_fnc_markValleys;
+
 _valleys
 
