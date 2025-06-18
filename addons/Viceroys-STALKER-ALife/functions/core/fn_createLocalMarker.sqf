@@ -29,13 +29,13 @@ if (isNil {_name} || { isNil {_pos} }) exitWith {
     ""
 };
 
-private _marker = createMarker [_name, _pos];
-_marker setMarkerShape _shape;
-_marker setMarkerSize _size;
-_marker setMarkerType _type;
-_marker setMarkerColor _color;
-_marker setMarkerAlpha _alpha;
+private _marker = createMarkerLocal [_name, _pos];
+_marker setMarkerShapeLocal _shape;
+_marker setMarkerSizeLocal _size;
+_marker setMarkerTypeLocal _type;
+_marker setMarkerColorLocal _color;
+_marker setMarkerAlphaLocal _alpha;
 if (_text != "") then {
-    _marker setMarkerText _text;
+    _marker setMarkerTextLocal _text;
 };
 _marker
