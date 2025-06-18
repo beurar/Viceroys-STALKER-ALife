@@ -10,9 +10,9 @@
 params ["_center","_radius", ["_count",5], ["_site", []]];
 ["fn_createField_meatgrinder"] call VIC_fnc_debugLog;
 
-if (isNil {_site} || {_site isEqualTo []}) then {
+if (isNil {_site} || {count _site == 0}) then {
     _site = [_center,_radius] call VIC_fnc_findSite_meatgrinder;
-    if (_site isEqualTo []) exitWith {
+    if (count _site == 0) then {
         ["createField_meatgrinder: no site"] call VIC_fnc_debugLog;
         []
     };
@@ -20,7 +20,7 @@ if (isNil {_site} || {_site isEqualTo []}) then {
     [format ["createField_meatgrinder: using site %1", _site]] call VIC_fnc_debugLog;
 };
 _site = [_site] call VIC_fnc_findLandPosition;
-if (isNil {_site} || {_site isEqualTo []}) exitWith {
+if (isNil {_site} || {count _site == 0}) then {
     ["createField_meatgrinder: land position failed"] call VIC_fnc_debugLog;
     []
 };
