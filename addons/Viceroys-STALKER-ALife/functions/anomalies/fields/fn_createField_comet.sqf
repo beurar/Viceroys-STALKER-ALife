@@ -4,13 +4,14 @@
         0: POSITION or OBJECT - search center
         1: NUMBER - search radius
         2: NUMBER (optional) - anomaly count (default 1)
+        3: ARRAY (optional) - site position to use (must be valid when provided)
     Returns: ARRAY - spawned anomaly triggers
 */
 params ["_center","_radius", ["_count",1], ["_site", []]];
 
 ["fn_createField_comet"] call VIC_fnc_debugLog;
 
-if (_site isEqualTo []) then {
+if (isNil {_site} || {_site isEqualTo []}) then {
     _site = [_center,_radius] call VIC_fnc_findSite_comet;
     if (_site isEqualTo []) exitWith {
         ["createField_comet: no site"] call VIC_fnc_debugLog;
