@@ -114,6 +114,7 @@ class CfgFunctions
             class spawnAPERSField{};
             class spawnIED{};
             class spawnBoobyTraps{};
+            class spawnTripwirePerimeter{};
             class manageMinefields{};
             class startMinefieldManager{};
         };
@@ -247,6 +248,7 @@ class CfgRemoteExec
         class VIC_fnc_spawnPredatorAttack { allowedTargets = 2; };
         class VIC_fnc_spawnMinefields     { allowedTargets = 2; };
         class VIC_fnc_spawnBoobyTraps     { allowedTargets = 2; };
+        class VIC_fnc_spawnTripwirePerimeter { allowedTargets = 2; };
         class VIC_fnc_startMinefieldManager { allowedTargets = 2; };
         class VIC_fnc_spawnAmbushes       { allowedTargets = 2; };
         class VIC_fnc_startAmbushManager  { allowedTargets = 2; };
