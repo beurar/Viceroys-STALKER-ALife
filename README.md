@@ -179,6 +179,7 @@ Drongo’s system adds creepy events such as ghostly whispers or sudden darkenin
 7. Use the **Mark All Buildings**, **Mark Bridges** and **Mark Roads** actions from this menu if you need to visualize these objects. Road markers now highlight crossroads as well. Buildings are no longer marked automatically when debug mode is enabled.
 8. **Cache Map Wrecks** to collect all wreck objects placed on the map, including models whose path contains "wrecks". This action populates `STALKER_wrecks` for other functions.
 9. Additional **Cache** actions can store sniper spots, roads, crossroads, bridges, valleys, beach sites and swamps for quick access by other scripts.
+10. **Regenerate Map Points** to forcibly rescan the entire map and update caches, ignoring any previously saved data.
 
 ### Debug Mode
 Debugging features are controlled by the `VSA_debugMode` setting. When enabled,
