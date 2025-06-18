@@ -51,6 +51,7 @@ VIC_fnc_markBridges            = compile preprocessFileLineNumbers (_root + "\fu
 VIC_fnc_findRoads             = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findRoads.sqf");
 VIC_fnc_findCrossroads        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findCrossroads.sqf");
 VIC_fnc_markRoads             = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markRoads.sqf");
+VIC_fnc_markWrecks            = compile preprocessFileLineNumbers (_root + "\functions\wrecks\fn_markWrecks.sqf");
 VIC_fnc_findHiddenPosition     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findHiddenPosition.sqf");
 VIC_fnc_markHiddenPosition     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markHiddenPosition.sqf");
 VIC_fnc_findBuildingCoverSpot  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findBuildingCoverSpot.sqf");
