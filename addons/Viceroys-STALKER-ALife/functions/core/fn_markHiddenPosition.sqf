@@ -4,6 +4,9 @@
     Returns: BOOL
 */
 
+
+params [["_global", false]];
+
 ["markHiddenPosition"] call VIC_fnc_debugLog;
 
 
@@ -19,7 +22,7 @@ private _pos = [] call VIC_fnc_findHiddenPosition;
 if (isNil {_pos}) exitWith { false };
 
 private _name = format ["hidden_%1", diag_tickTime + random 1000];
-private _marker = [_name, _pos, "ICON", "mil_dot", "ColorGreen"] call VIC_fnc_createGlobalMarker;
+private _marker = [_name, _pos, "ICON", "mil_dot", "ColorGreen", 1, "", [1,1], _global] call VIC_fnc_createGlobalMarker;
 STALKER_hiddenMarkers pushBack _marker;
 
 true

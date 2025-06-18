@@ -4,6 +4,9 @@
     Returns: BOOL
 */
 
+
+params [["_global", false]];
+
 ["markRoads"] call VIC_fnc_debugLog;
 
 if (isNil "STALKER_roadMarkers") then { STALKER_roadMarkers = [] };
@@ -24,13 +27,13 @@ if (!isNil "STALKER_crossroads") then { _crossroads = STALKER_crossroads; };
 
 {
     private _name = format ["road_%1_%2", diag_tickTime, _forEachIndex];
-    private _mkr = [_name, _x, "ICON", "mil_dot", "ColorOrange"] call VIC_fnc_createGlobalMarker;
+    private _mkr = [_name, _x, "ICON", "mil_dot", "ColorOrange", 1, "", [1,1], _global] call VIC_fnc_createGlobalMarker;
     STALKER_roadMarkers pushBack _mkr;
 } forEach _roads;
 
 {
     private _name = format ["crossroad_%1_%2", diag_tickTime, _forEachIndex];
-    private _mkr = [_name, _x, "ICON", "mil_triangle", "ColorRed"] call VIC_fnc_createGlobalMarker;
+    private _mkr = [_name, _x, "ICON", "mil_triangle", "ColorRed", 1, "", [1,1], _global] call VIC_fnc_createGlobalMarker;
     STALKER_crossroadMarkers pushBack _mkr;
 } forEach _crossroads;
 
