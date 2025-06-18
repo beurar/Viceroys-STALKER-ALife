@@ -283,6 +283,13 @@ player addAction ["<t color='#ffff00'>Mark Roads</t>", {
         [] remoteExec ["VIC_fnc_markRoads", 2];
     };
 }];
+player addAction ["<t color='#ffff00'>Cache Map Wrecks</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_findWrecks;
+    } else {
+        [] remoteExec ["VIC_fnc_findWrecks", 2];
+    };
+}];
 
 ["Debug actions added"] call VIC_fnc_debugLog;
 

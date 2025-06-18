@@ -121,6 +121,7 @@ class CfgFunctions
         {
             file = "Viceroys-STALKER-ALife\functions\wrecks";
             class spawnAbandonedVehicles{};
+            class findWrecks{};
         };
 
         class Ambushes
