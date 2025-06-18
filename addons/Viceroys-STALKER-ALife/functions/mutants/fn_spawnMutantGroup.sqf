@@ -32,7 +32,7 @@ if (!([_centerPos, _dist] call VIC_fnc_hasPlayersNearby)) exitWith {};
 for "_i" from 1 to _groupCount do {
     if (random 100 >= _spawnWeight) then { continue }; 
     private _spawnPos = _centerPos getPos [100 + random 100, random 360];
-    _spawnPos = [_spawnPos] call VIC_fnc_findLandAGL;
+    _spawnPos = [_spawnPos] call VIC_fnc_findLandPosition;
     if (isNil {_spawnPos} || {_spawnPos isEqualTo []}) then { continue };
     private _grp = createGroup east;
     for "_j" from 1 to _threat do {

@@ -23,7 +23,7 @@ private _classes = ["WBK_Zombie1","WBK_Zombie2","WBK_Zombie3"];
     for "_h" from 1 to _hordes do {
         private _angle = (_h - 1) * _angleStep;
         private _pos = _player getPos [600, _angle];
-        _pos = [_pos] call VIC_fnc_findLandAGL;
+        _pos = [_pos] call VIC_fnc_findLandPosition;
         if (isNil {_pos} || {_pos isEqualTo []}) then { continue };
         if (_mark) then {
             private _markerName = format ["necro_%1", diag_tickTime + random 1000];

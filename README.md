@@ -240,8 +240,8 @@ Engine commands like `createMarker` and `setMarkerType` cannot be executed via
 `remoteExecCall` directly. They must run inside a script that you remote
 execute. Functions such as `VIC_fnc_createGlobalMarker` handle this by calling a
 local helper on each machine. When a return value from the server is required,
-use `VIC_fnc_callServer`. Land position searches now run locally so
-`VIC_fnc_findLandAGLServer` is no longer needed.
+use `VIC_fnc_callServer`. Land position searches now run locally using
+`VIC_fnc_findLandPosition`.
 
 ## LAMBS Waypoints
 
