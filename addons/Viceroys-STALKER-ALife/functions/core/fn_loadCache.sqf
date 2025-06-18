@@ -8,10 +8,10 @@
 */
 params ["_name"];
 
-if (isNil "_name") exitWith { nil };
+if (isNil {_name}) exitWith { nil };
 
 private _data = profileNamespace getVariable [_name, nil];
-if (!isNil "_data") then {
+if (!isNil {_data}) then {
     missionNamespace setVariable [_name, _data];
     private _count = "";
     if (_data isEqualType []) then { _count = format [" (%1 items)", count _data]; };
