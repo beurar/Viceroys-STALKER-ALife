@@ -25,7 +25,7 @@ if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
 
 for "_i" from 1 to _herdCount do {
     private _pos = [random worldSize, random worldSize, 0];
-    _pos = [_pos] call VIC_fnc_findLandAGL;
+    _pos = [_pos] call VIC_fnc_findLandPosition;
     if (isNil {_pos} || {_pos isEqualTo []}) then { continue };
     private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
     if (!([_pos, _dist] call VIC_fnc_hasPlayersNearby)) then { continue };

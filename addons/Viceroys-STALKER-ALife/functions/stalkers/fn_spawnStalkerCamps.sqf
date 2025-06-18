@@ -27,7 +27,7 @@ for "_i" from 1 to _count do {
         { _centerPos = _centerPos vectorAdd getPosATL _x } forEach _cluster;
         _centerPos = _centerPos vectorMultiply (1 / (count _cluster));
         if (_center distance2D _centerPos <= _radius) then {
-            _campPos = [_centerPos, 30, 10, true] call VIC_fnc_findLandAGL;
+            _campPos = [_centerPos, 30, 10, true] call VIC_fnc_findLandPosition;
         };
         _attempts = _attempts + 1;
     };

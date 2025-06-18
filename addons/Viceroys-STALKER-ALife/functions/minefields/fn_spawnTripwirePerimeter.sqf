@@ -22,7 +22,7 @@ for "_i" from 0 to (_count - 1) do {
     private _dist = _radius - random 5;
     private _angle = _offset + (360 / _count) * _i;
     private _pos = _center getPos [_dist, _angle];
-    _pos = [_pos] call VIC_fnc_findLandAGL;
+    _pos = [_pos] call VIC_fnc_findLandPosition;
     if (isNil {_pos} || {_pos isEqualTo []}) then { continue };
     _positions pushBack _pos;
 };
