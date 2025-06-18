@@ -52,7 +52,7 @@ _buildings = _buildings arrayIntersect _buildings; // remove duplicates
 
 // Cache results for later use
 if (isNil "STALKER_sniperSpots") then { STALKER_sniperSpots = [] };
-{ if !(_x in STALKER_sniperSpots) then { STALKER_sniperSpots pushBack _x } } forEach _sniperSpots;
+{ STALKER_sniperSpots pushBackUnique _x } forEach _sniperSpots;
 
 [] call VIC_fnc_markSniperSpots;
 

@@ -58,7 +58,7 @@ for "_x" from 0 to _size step _step do {
 
 // Cache results for later use
 if (isNil "STALKER_beachSpots") then { STALKER_beachSpots = [] };
-{ if !(_x in STALKER_beachSpots) then { STALKER_beachSpots pushBack _x } } forEach _spots;
+{ STALKER_beachSpots pushBackUnique _x } forEach _spots;
 
 [] call VIC_fnc_markBeaches;
 
