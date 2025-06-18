@@ -24,7 +24,7 @@ private _classes = ["WBK_Zombie1","WBK_Zombie2","WBK_Zombie3"];
         private _angle = (_h - 1) * _angleStep;
         private _pos = _player getPos [600, _angle];
         _pos = [_pos] call VIC_fnc_findLandPosition;
-        if (_pos isEqualTo []) then { continue };
+        if (isNil {_pos} || {_pos isEqualTo []}) then { continue };
         if (_mark) then {
             private _markerName = format ["necro_%1", diag_tickTime + random 1000];
             [_markerName, _pos, "ICON", "mil_dot", "ColorRed", 1, "Necro Spawn"] call VIC_fnc_createGlobalMarker;
