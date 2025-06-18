@@ -20,8 +20,6 @@ private _found = _objs select {
 if (isNil "STALKER_wrecks") then { STALKER_wrecks = [] };
 { STALKER_wrecks pushBackUnique _x } forEach _found;
 
-[] call VIC_fnc_markWrecks;
-
 [format ["findWrecks: %1 wrecks cached", count _found]] call VIC_fnc_debugLog;
 
 _found

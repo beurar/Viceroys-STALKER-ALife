@@ -40,7 +40,5 @@ private _crossroads = [];
 if (isNil "STALKER_crossroads") then { STALKER_crossroads = [] };
 { STALKER_crossroads pushBackUnique _x } forEach _crossroads;
 
-[] call VIC_fnc_markRoads;
-
 _crossroads
 

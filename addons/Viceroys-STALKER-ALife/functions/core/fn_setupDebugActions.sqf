@@ -211,101 +211,19 @@ player addAction ["<t color='#0000ff'>Toggle Field Avoidance</t>", {
         [] remoteExec ["VIC_fnc_toggleFieldAvoid", 2];
     };
 }];
-// --- Marking Actions ---
-player addAction ["<t color='#ffff00'>Mark All Buildings</t>", {
-    if (isServer) then {
-        [] call VIC_fnc_markAllBuildings;
-    } else {
-        [] remoteExec ["VIC_fnc_markAllBuildings", 2];
-    };
-}];
-player addAction ["<t color='#ffff00'>Mark Rock Clusters</t>", {
-    if (isServer) then {
-        [] call VIC_fnc_markRockClusters;
-    } else {
-        [] remoteExec ["VIC_fnc_markRockClusters", 2];
-    };
-}];
-player addAction ["<t color='#ffff00'>Mark Sniper Spots</t>", {
-    if (isServer) then {
-        [] call VIC_fnc_markSniperSpots;
-    } else {
-        [] remoteExec ["VIC_fnc_markSniperSpots", 2];
-    };
-}];
-player addAction ["<t color='#ffff00'>Mark Swamps</t>", {
-    if (isServer) then {
-        [] call VIC_fnc_markSwamps;
-    } else {
-        [] remoteExec ["VIC_fnc_markSwamps", 2];
-    };
-}];
-player addAction ["<t color='#ffff00'>Mark Beach Spots</t>", { [] call VIC_fnc_markBeaches }];
-player addAction ["<t color='#ffff00'>Mark Valleys</t>", {
-    if (isServer) then {
-        [] call VIC_fnc_markValleys;
-    } else {
-        [] remoteExec ["VIC_fnc_markValleys", 2];
-    };
-}];
-player addAction ["<t color='#ffff00'>Mark Land Zones</t>", {
-    if (isServer) then {
-        [] call VIC_fnc_markLandZones;
-    } else {
-        [] remoteExec ["VIC_fnc_markLandZones", 2];
-    };
-}];
-player addAction ["<t color='#ffff00'>Mark Building Clusters</t>", {
-    if (isServer) then {
-        [] call VIC_fnc_markBuildingClusters;
-    } else {
-        [] remoteExec ["VIC_fnc_markBuildingClusters", 2];
-    };
-}];
-player addAction ["<t color='#ffff00'>Mark Hidden Spot</t>", {
-    if (isServer) then {
-        [] call VIC_fnc_markHiddenPosition;
-    } else {
-        [] remoteExec ["VIC_fnc_markHiddenPosition", 2];
-    };
-}];
-player addAction ["<t color='#ffff00'>Mark Building Cover</t>", {
-    if (isServer) then {
-        [] call VIC_fnc_markBuildingCoverSpot;
-    } else {
-        [] remoteExec ["VIC_fnc_markBuildingCoverSpot", 2];
-    };
-}];
-player addAction ["<t color='#ffff00'>Mark Bridges</t>", {
-    if (isServer) then {
-        [] call VIC_fnc_markBridges;
-    } else {
-        [] remoteExec ["VIC_fnc_markBridges", 2];
-    };
-}];
-player addAction ["<t color='#ffff00'>Mark Roads</t>", {
-    if (isServer) then {
-        [] call VIC_fnc_markRoads;
-    } else {
-        [] remoteExec ["VIC_fnc_markRoads", 2];
-    };
-}];
+// --- Cache Actions ---
 player addAction ["<t color='#ffff00'>Cache Map Wrecks</t>", {
     if (isServer) then {
         [] call VIC_fnc_findWrecks;
-        [] call VIC_fnc_markWrecks;
     } else {
         [] remoteExec ["VIC_fnc_findWrecks", 2];
-        [] remoteExec ["VIC_fnc_markWrecks", 2];
     };
 }];
 player addAction ["<t color='#ffff00'>Cache Sniper Spots</t>", {
     if (isServer) then {
         [] call VIC_fnc_findSniperSpots;
-        [] call VIC_fnc_markSniperSpots;
     } else {
         [] remoteExec ["VIC_fnc_findSniperSpots", 2];
-        [] remoteExec ["VIC_fnc_markSniperSpots", 2];
     };
 }];
 player addAction ["<t color='#ffff00'>Cache Roads</t>", {
@@ -315,55 +233,43 @@ player addAction ["<t color='#ffff00'>Cache Roads</t>", {
             _data = [] call VIC_fnc_findRoads;
             ["STALKER_roads", _data] call VIC_fnc_saveCache;
         };
-        [] call VIC_fnc_markRoads;
     } else {
         [] remoteExec ["VIC_fnc_findRoads", 2];
-        [] remoteExec ["VIC_fnc_markRoads", 2];
     };
 }];
 player addAction ["<t color='#ffff00'>Cache Crossroads</t>", {
     if (isServer) then {
         [] call VIC_fnc_findCrossroads;
-        [] call VIC_fnc_markRoads;
     } else {
         [] remoteExec ["VIC_fnc_findCrossroads", 2];
-        [] remoteExec ["VIC_fnc_markRoads", 2];
     };
 }];
 player addAction ["<t color='#ffff00'>Cache Bridges</t>", {
     if (isServer) then {
         [] call VIC_fnc_findBridges;
-        [] call VIC_fnc_markBridges;
     } else {
         [] remoteExec ["VIC_fnc_findBridges", 2];
-        [] remoteExec ["VIC_fnc_markBridges", 2];
     };
 }];
 player addAction ["<t color='#ffff00'>Cache Valleys</t>", {
     if (isServer) then {
         [] call VIC_fnc_findValleys;
-        [] call VIC_fnc_markValleys;
     } else {
         [] remoteExec ["VIC_fnc_findValleys", 2];
-        [] remoteExec ["VIC_fnc_markValleys", 2];
     };
 }];
 player addAction ["<t color='#ffff00'>Cache Beach Spots</t>", {
     if (isServer) then {
         [] call VIC_fnc_findBeachesInMap;
-        [] call VIC_fnc_markBeaches;
     } else {
         [] remoteExec ["VIC_fnc_findBeachesInMap", 2];
-        [] remoteExec ["VIC_fnc_markBeaches", 2];
     };
 }];
 player addAction ["<t color='#ffff00'>Cache Swamps</t>", {
     if (isServer) then {
         [] call VIC_fnc_findSwamps;
-        [] call VIC_fnc_markSwamps;
     } else {
         [] remoteExec ["VIC_fnc_findSwamps", 2];
-        [] remoteExec ["VIC_fnc_markSwamps", 2];
     };
 }];
 player addAction ["<t color='#ffff00'>Cache Land Zones</t>", {
@@ -373,10 +279,16 @@ player addAction ["<t color='#ffff00'>Cache Land Zones</t>", {
             _data = [] call VIC_fnc_findLandZones;
             ["STALKER_landZones", _data] call VIC_fnc_saveCache;
         };
-        [] call VIC_fnc_markLandZones;
     } else {
         [] remoteExec ["VIC_fnc_findLandZones", 2];
-        [] remoteExec ["VIC_fnc_markLandZones", 2];
+    };
+}];
+
+player addAction ["<t color='#ffff00'>Place Cached Markers</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_placeCachedMarkers;
+    } else {
+        [] remoteExec ["VIC_fnc_placeCachedMarkers", 2];
     };
 }];
 

@@ -27,4 +27,6 @@ if (isNil {_roads}) then {
 [] call VIC_fnc_findBuildingClusters;
 [] call VIC_fnc_findWrecks;
 
+"STALKER ALife initialization complete" remoteExec ["hint", 0];
+
 true

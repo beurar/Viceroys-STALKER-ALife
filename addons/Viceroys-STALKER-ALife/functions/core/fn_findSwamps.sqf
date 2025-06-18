@@ -58,7 +58,5 @@ for "_x" from 0 to worldSize step _step do {
 if (isNil "STALKER_swamps") then { STALKER_swamps = [] };
 { STALKER_swamps pushBackUnique _x } forEach _swamps;
 
-[] call VIC_fnc_markSwamps;
-
 _swamps
 
