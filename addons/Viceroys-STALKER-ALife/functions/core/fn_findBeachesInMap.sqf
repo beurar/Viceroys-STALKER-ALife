@@ -56,4 +56,9 @@ for "_x" from 0 to _size step _step do {
 
 ["fn_findBeachesInMap completed"] call VIC_fnc_debugLog;
 
+// Cache results for later use
+if (isNil "STALKER_beachSpots") then { STALKER_beachSpots = [] };
+{ if !(_x in STALKER_beachSpots) then { STALKER_beachSpots pushBack _x } } forEach _spots;
+
 _spots
+

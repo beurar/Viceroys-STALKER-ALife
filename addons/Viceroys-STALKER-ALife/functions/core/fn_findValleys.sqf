@@ -95,4 +95,9 @@ for "_gx" from 0 to worldSize step _step do {
 
 [format ["findValleys: found %1 valleys", count _valleys]] call VIC_fnc_debugLog;
 
+// Cache results for later use
+if (isNil "STALKER_valleys") then { STALKER_valleys = [] };
+{ if !(_x in STALKER_valleys) then { STALKER_valleys pushBack _x } } forEach _valleys;
+
 _valleys
+
