@@ -290,6 +290,55 @@ player addAction ["<t color='#ffff00'>Cache Map Wrecks</t>", {
         [] remoteExec ["VIC_fnc_findWrecks", 2];
     };
 }];
+player addAction ["<t color='#ffff00'>Cache Sniper Spots</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_findSniperSpots;
+    } else {
+        [] remoteExec ["VIC_fnc_findSniperSpots", 2];
+    };
+}];
+player addAction ["<t color='#ffff00'>Cache Roads</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_findRoads;
+    } else {
+        [] remoteExec ["VIC_fnc_findRoads", 2];
+    };
+}];
+player addAction ["<t color='#ffff00'>Cache Crossroads</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_findCrossroads;
+    } else {
+        [] remoteExec ["VIC_fnc_findCrossroads", 2];
+    };
+}];
+player addAction ["<t color='#ffff00'>Cache Bridges</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_findBridges;
+    } else {
+        [] remoteExec ["VIC_fnc_findBridges", 2];
+    };
+}];
+player addAction ["<t color='#ffff00'>Cache Valleys</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_findValleys;
+    } else {
+        [] remoteExec ["VIC_fnc_findValleys", 2];
+    };
+}];
+player addAction ["<t color='#ffff00'>Cache Beach Spots</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_findBeachesInMap;
+    } else {
+        [] remoteExec ["VIC_fnc_findBeachesInMap", 2];
+    };
+}];
+player addAction ["<t color='#ffff00'>Cache Swamps</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_findSwamps;
+    } else {
+        [] remoteExec ["VIC_fnc_findSwamps", 2];
+    };
+}];
 
 ["Debug actions added"] call VIC_fnc_debugLog;
 

@@ -25,4 +25,9 @@ for "_xCoord" from 0 to worldSize step _step do {
 
 ["findRoads completed"] call VIC_fnc_debugLog;
 
+// Cache results for later use
+if (isNil "STALKER_roads") then { STALKER_roads = [] };
+{ if !(_x in STALKER_roads) then { STALKER_roads pushBack _x } } forEach _roads;
+
 _roads
+

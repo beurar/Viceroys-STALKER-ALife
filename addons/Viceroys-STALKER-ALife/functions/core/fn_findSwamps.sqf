@@ -54,4 +54,9 @@ for "_x" from 0 to worldSize step _step do {
     };
 };
 
+// Cache results for later use
+if (isNil "STALKER_swamps") then { STALKER_swamps = [] };
+{ if !(_x in STALKER_swamps) then { STALKER_swamps pushBack _x } } forEach _swamps;
+
 _swamps
+

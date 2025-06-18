@@ -50,4 +50,9 @@ _buildings = _buildings arrayIntersect _buildings; // remove duplicates
     };
 } forEach _buildings;
 
+// Cache results for later use
+if (isNil "STALKER_sniperSpots") then { STALKER_sniperSpots = [] };
+{ if !(_x in STALKER_sniperSpots) then { STALKER_sniperSpots pushBack _x } } forEach _sniperSpots;
+
 _sniperSpots
+

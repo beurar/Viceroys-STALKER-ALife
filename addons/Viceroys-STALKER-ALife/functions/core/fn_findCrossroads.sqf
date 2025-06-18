@@ -38,4 +38,9 @@ private _crossroads = [];
 
 [format ["findCrossroads found %1 crossroads", count _crossroads]] call VIC_fnc_debugLog;
 
+// Cache results for later use
+if (isNil "STALKER_crossroads") then { STALKER_crossroads = [] };
+{ if !(_x in STALKER_crossroads) then { STALKER_crossroads pushBack _x } } forEach _crossroads;
+
 _crossroads
+
