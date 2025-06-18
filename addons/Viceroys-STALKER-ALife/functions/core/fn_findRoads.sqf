@@ -29,7 +29,5 @@ for "_xCoord" from 0 to worldSize step _step do {
 if (isNil "STALKER_roads") then { STALKER_roads = [] };
 { STALKER_roads pushBackUnique _x } forEach _roads;
 
-[] call VIC_fnc_markRoads;
-
 _roads
 

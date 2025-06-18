@@ -58,6 +58,4 @@ for "_x" from 0 to _size step _step do {
 if (isNil "STALKER_bridges") then { STALKER_bridges = [] };
 { STALKER_bridges pushBackUnique _x } forEach _found;
 
-[] call VIC_fnc_markBridges;
-
 _found

@@ -56,6 +56,7 @@ VIC_fnc_findRoads             = compile preprocessFileLineNumbers (_root + "\fun
 VIC_fnc_findCrossroads        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findCrossroads.sqf");
 VIC_fnc_markRoads             = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markRoads.sqf");
 VIC_fnc_markWrecks            = compile preprocessFileLineNumbers (_root + "\functions\wrecks\fn_markWrecks.sqf");
+VIC_fnc_placeCachedMarkers    = compile preprocessFileLineNumbers (_root + "\functions\core\fn_placeCachedMarkers.sqf");
 VIC_fnc_findHiddenPosition     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findHiddenPosition.sqf");
 VIC_fnc_markHiddenPosition     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markHiddenPosition.sqf");
 VIC_fnc_findBuildingCoverSpot  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findBuildingCoverSpot.sqf");
@@ -214,7 +215,6 @@ VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\func
     };
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         [] call VIC_fnc_setupDebugActions;
-        [] call VIC_fnc_markPlayerRanges;
     };
 }] call CBA_fnc_addEventHandler;
 
@@ -229,7 +229,6 @@ VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\func
     ["postInit", {
         if (hasInterface && {["VSA_debugMode", false] call VIC_fnc_getSetting}) then {
             [] call VIC_fnc_setupDebugActions;
-            [] call VIC_fnc_markPlayerRanges;
         };
     }] call CBA_fnc_addEventHandler;
 };
@@ -239,6 +238,5 @@ VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\func
     params ["_setting", "_value"];
     if (hasInterface && {_setting isEqualTo "VSA_debugMode" && {_value}}) then {
         [] call VIC_fnc_setupDebugActions;
-        [] call VIC_fnc_markPlayerRanges;
     };
 }] call CBA_fnc_addEventHandler;
