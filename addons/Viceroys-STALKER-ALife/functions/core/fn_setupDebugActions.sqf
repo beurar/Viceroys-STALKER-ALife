@@ -292,6 +292,14 @@ player addAction ["<t color='#ffff00'>Place Cached Markers</t>", {
     };
 }];
 
+player addAction ["<t color='#00ff00'>Regenerate Map Points</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_regenMapPoints;
+    } else {
+        [] remoteExec ["VIC_fnc_regenMapPoints", 2];
+    };
+}];
+
 player addAction ["<t color='#00ff00'>Init Map</t>", {
     if (isServer) then {
         [] call VIC_fnc_initMap;
