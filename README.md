@@ -179,6 +179,12 @@ Drongo’s system adds creepy events such as ghostly whispers or sudden darkenin
 7. Use the **Mark All Buildings**, **Mark Bridges** and **Mark Roads** actions from this menu if you need to visualize these objects. Road markers now highlight crossroads as well. Buildings are no longer marked automatically when debug mode is enabled.
 8. **Cache Map Wrecks** to collect all wreck objects placed on the map. This action populates `STALKER_wrecks` for other functions.
 
+### Debug Mode
+Debugging features are controlled by the `VSA_debugMode` setting. When enabled,
+additional actions appear in the scroll menu and extra markers help visualize
+anomaly placement. Toggle this option through the CBA settings menu or by
+setting the mission variable before initialization.
+
 ## Usage
 
 All functions are contained under the `functions` directory and follow the `TAG_fnc_functionName` convention. Key entry points include:
