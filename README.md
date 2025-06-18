@@ -180,6 +180,12 @@ Drongo’s system adds creepy events such as ghostly whispers or sudden darkenin
 8. **Cache Map Wrecks** to collect all wreck objects placed on the map. This action populates `STALKER_wrecks` for other functions.
 9. Additional **Cache** actions can store sniper spots, roads, crossroads, bridges, valleys, beach sites and swamps for quick access by other scripts.
 
+### Debug Mode
+Debugging features are controlled by the `VSA_debugMode` setting. When enabled,
+additional actions appear in the scroll menu and extra markers help visualize
+anomaly placement. Toggle this option through the CBA settings menu or by
+setting the mission variable before initialization.
+
 ## Usage
 
 All functions are contained under the `functions` directory and follow the `TAG_fnc_functionName` convention. Key entry points include:
