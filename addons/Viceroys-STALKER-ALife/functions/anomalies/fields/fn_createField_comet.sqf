@@ -21,7 +21,7 @@ if (isNil {_site} || {_site isEqualTo []}) then {
     [format ["createField_comet: using site %1", _site]] call VIC_fnc_debugLog;
 };
 _site = [_site] call VIC_fnc_findLandPosition;
-if (_site isEqualTo []) exitWith {
+if (isNil {_site} || {_site isEqualTo []}) exitWith {
     ["createField_comet: land position failed"] call VIC_fnc_debugLog;
     []
 };

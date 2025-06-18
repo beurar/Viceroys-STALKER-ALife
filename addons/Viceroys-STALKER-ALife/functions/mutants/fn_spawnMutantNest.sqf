@@ -8,7 +8,7 @@ params ["_pos", "_class"];
 ["spawnMutantNest"] call VIC_fnc_debugLog;
 
 _pos = [_pos] call VIC_fnc_findLandPosition;
-if (_pos isEqualTo []) exitWith {
+if (isNil {_pos} || {_pos isEqualTo []}) exitWith {
     ["spawnMutantNest exit: invalid position"] call VIC_fnc_debugLog;
 };
 

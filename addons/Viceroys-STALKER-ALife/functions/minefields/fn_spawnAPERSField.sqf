@@ -20,7 +20,7 @@ for "_xOff" from -_half to _half step _spacing do {
     for "_yOff" from -_half to _half step _spacing do {
         private _pos = [(_center select 0) + _xOff, (_center select 1) + _yOff, 0];
         _pos = [_pos] call VIC_fnc_findLandPosition;
-        if (_pos isEqualTo []) then { continue; };
+        if (isNil {_pos} || {_pos isEqualTo []}) then { continue; };
         private _mine = createMine ["APERSMine", _pos, [], 0];
         _objs pushBack _mine;
     };

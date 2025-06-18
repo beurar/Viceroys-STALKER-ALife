@@ -31,6 +31,6 @@ for "_i" from 1 to _count do {
         };
         _attempts = _attempts + 1;
     };
-    if (_campPos isEqualTo []) then { continue };
+    if (isNil {_campPos} || {_campPos isEqualTo []}) then { continue };
     [_campPos] call VIC_fnc_spawnStalkerCamp;
 };
