@@ -15,9 +15,9 @@ if (!isNil {_data}) then {
     missionNamespace setVariable [_name, _data];
     private _count = "";
     if (_data isEqualType []) then { _count = format [" (%1 items)", count _data]; };
-    [format ["loadCache: %1%2", _name, _count]] call VIC_fnc_debugLog;
+    ["loadCache: data found"] call VIC_fnc_debugLog;
 } else {
-    [format ["loadCache: no data for %1", _name]] call VIC_fnc_debugLog;
+    ["loadCache: no data"] call VIC_fnc_debugLog;
 };
 
 _data
