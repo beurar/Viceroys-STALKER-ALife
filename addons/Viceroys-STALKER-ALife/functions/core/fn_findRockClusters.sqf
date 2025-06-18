@@ -62,4 +62,6 @@ while {count _remaining > 0} do {
 if (isNil "STALKER_rockClusters") then { STALKER_rockClusters = [] };
 { if !(_x in STALKER_rockClusters) then { STALKER_rockClusters pushBack _x } } forEach _clusters;
 
+[] call VIC_fnc_markRockClusters;
+
 _clusters

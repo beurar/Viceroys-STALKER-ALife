@@ -248,6 +248,13 @@ player addAction ["<t color='#ffff00'>Mark Valleys</t>", {
         [] remoteExec ["VIC_fnc_markValleys", 2];
     };
 }];
+player addAction ["<t color='#ffff00'>Mark Land Zones</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_markLandZones;
+    } else {
+        [] remoteExec ["VIC_fnc_markLandZones", 2];
+    };
+}];
 player addAction ["<t color='#ffff00'>Mark Building Clusters</t>", {
     if (isServer) then {
         [] call VIC_fnc_markBuildingClusters;
@@ -353,6 +360,15 @@ player addAction ["<t color='#ffff00'>Cache Swamps</t>", {
     } else {
         [] remoteExec ["VIC_fnc_findSwamps", 2];
         [] remoteExec ["VIC_fnc_markSwamps", 2];
+    };
+}];
+player addAction ["<t color='#ffff00'>Cache Land Zones</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_findLandZones;
+        [] call VIC_fnc_markLandZones;
+    } else {
+        [] remoteExec ["VIC_fnc_findLandZones", 2];
+        [] remoteExec ["VIC_fnc_markLandZones", 2];
     };
 }];
 

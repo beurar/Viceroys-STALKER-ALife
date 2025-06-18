@@ -16,6 +16,8 @@ private _found = _objs select { toLower typeOf _x find "wreck" > -1 };
 if (isNil "STALKER_wrecks") then { STALKER_wrecks = [] };
 { if !(_x in STALKER_wrecks) then { STALKER_wrecks pushBack _x } } forEach _found;
 
+[] call VIC_fnc_markWrecks;
+
 [format ["findWrecks: %1 wrecks cached", count _found]] call VIC_fnc_debugLog;
 
 _found
