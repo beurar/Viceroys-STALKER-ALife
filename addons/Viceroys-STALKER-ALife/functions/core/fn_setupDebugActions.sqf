@@ -356,6 +356,21 @@ player addAction ["<t color='#ffff00'>Cache Swamps</t>", {
     };
 }];
 
+player addAction ["<t color='#00ff00'>Init Map</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_initMap;
+    } else {
+        [] remoteExec ["VIC_fnc_initMap", 2];
+    };
+}];
+player addAction ["<t color='#00ff00'>Init Managers</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_initManagers;
+    } else {
+        [] remoteExec ["VIC_fnc_initManagers", 2];
+    };
+}];
+
 ["Debug actions added"] call VIC_fnc_debugLog;
 
 true

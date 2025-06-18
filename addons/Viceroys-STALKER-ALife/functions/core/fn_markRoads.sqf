@@ -17,8 +17,10 @@ STALKER_roadMarkers = [];
 { if (_x != "") then { deleteMarker _x }; } forEach STALKER_crossroadMarkers;
 STALKER_crossroadMarkers = [];
 
-private _roads = [] call VIC_fnc_findRoads;
-private _crossroads = [_roads] call VIC_fnc_findCrossroads;
+if (isNil "STALKER_roads") exitWith { false };
+private _roads = STALKER_roads;
+private _crossroads = [];
+if (!isNil "STALKER_crossroads") then { _crossroads = STALKER_crossroads; };
 
 {
     private _name = format ["road_%1_%2", diag_tickTime, _forEachIndex];

@@ -16,7 +16,8 @@ if (isNil "STALKER_beachMarkers") then { STALKER_beachMarkers = [] };
 } forEach STALKER_beachMarkers;
 STALKER_beachMarkers = [];
 
-private _beachSpots = [] call compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\core\fn_findBeachesInMap.sqf";
+if (isNil "STALKER_beachSpots") exitWith { false };
+private _beachSpots = STALKER_beachSpots;
 
 {
     private _mkr = createMarkerLocal [format ["beach_%1", diag_tickTime], _x];

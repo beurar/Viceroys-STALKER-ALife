@@ -15,7 +15,8 @@ if (isNil "STALKER_sniperSpotMarkers") then { STALKER_sniperSpotMarkers = [] };
 } forEach STALKER_sniperSpotMarkers;
 STALKER_sniperSpotMarkers = [];
 
-private _spots = [] call VIC_fnc_findSniperSpots;
+if (isNil "STALKER_sniperSpots") exitWith { false };
+private _spots = STALKER_sniperSpots;
 
 {
     private _name = format ["sniper_%1_%2", diag_tickTime, _forEachIndex];

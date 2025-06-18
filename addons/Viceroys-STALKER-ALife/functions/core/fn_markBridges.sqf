@@ -14,7 +14,8 @@ if (isNil "STALKER_bridgeMarkers") then { STALKER_bridgeMarkers = [] };
 } forEach STALKER_bridgeMarkers;
 STALKER_bridgeMarkers = [];
 
-private _bridges = [] call VIC_fnc_findBridges;
+if (isNil "STALKER_bridges") exitWith { false };
+private _bridges = STALKER_bridges;
 
 {
     private _type = typeOf _x;

@@ -15,7 +15,8 @@ if (isNil "STALKER_buildingClusterMarkers") then { STALKER_buildingClusterMarker
 } forEach STALKER_buildingClusterMarkers;
 STALKER_buildingClusterMarkers = [];
 
-private _clusters = [] call VIC_fnc_findBuildingClusters;
+if (isNil "STALKER_buildingClusters") exitWith { false };
+private _clusters = STALKER_buildingClusters;
 
 {
     {
