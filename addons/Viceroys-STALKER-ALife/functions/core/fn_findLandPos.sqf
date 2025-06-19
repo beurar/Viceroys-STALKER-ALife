@@ -32,6 +32,12 @@ private _degToSlope = {
     90 - acos (_this vectorDotProduct [0,0,1])
 };
 
+private _isPosClear = {
+    /* simple fallback check when BIS_fnc_isPosEmpty isn't available */
+    params ["_posATL", "_radius"];
+    (nearestObjects [_posATL, [], _radius]) isEqualTo []
+};
+
 scopeName "findLand";
 private _result = [];
 for "_i" from 1 to _maxAttempts do {
@@ -53,10 +59,10 @@ for "_i" from 1 to _maxAttempts do {
     if (_nearWater) then { continue };
 
     /* ─ REJECT #3: slope too steep? ────────────────────────────── */
-    if ([surfaceNormal ASLToATL _surf] call _degToSlope > _maxSlope) then { continue };
+    if ((surfaceNormal ASLToATL _surf) call _degToSlope > _maxSlope) then { continue };
 
     /* ─ REJECT #4: inside map clutter or other objects? ───────── */
-    if !([ ASLToATL _surf, _clearanceRad, [], 0, "CAN_COLLIDE" ] call BIS_fnc_isPosEmpty) then { continue };
+    if !([ASLToATL _surf, _clearanceRad] call _isPosClear) then { continue };
 
     /* ─ REJECT #5: user black-list check (25 m radius) ────────── */
     private _nearBlk = {
