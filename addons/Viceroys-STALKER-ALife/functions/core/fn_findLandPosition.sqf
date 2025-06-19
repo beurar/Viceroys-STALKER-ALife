@@ -1,13 +1,13 @@
 /*
-    Attempts to locate a nearby land position. The search gradually expands
-    outwards until a valid spot is found or the maximum radius is reached.
+    Simplified wrapper that returns a land position using BIS_fnc_randomPos.
+    The old expanding search logic has been removed.
 
     Params:
         0: POSITION or OBJECT - center position
-        1: NUMBER            - initial search radius (default 50)
-        2: NUMBER            - attempts per radius step (default 10)
+        1: NUMBER            - search radius (default 50)
+        2: NUMBER            - attempts (unused, kept for compatibility)
         3: BOOL              - exclude towns from results (default false)
-        4: NUMBER            - maximum search radius (default: radius * 1.5)
+        4: NUMBER            - maximum search radius (unused)
 
     Returns:
         ARRAY - ground position AGL or nil if none found
@@ -23,50 +23,15 @@ params [
 
 private _base = if (_centerPos isEqualType objNull) then { getPos _centerPos } else { _centerPos };
 
-_radius = _radius max 1;
-if (_maxRadius < 0) then {
-    _maxRadius = if (_radius < 200) then { _radius * 1.5 } else { _radius };
-};
-
 private _townRadius = ["VSA_townRadius", 500] call VIC_fnc_getSetting;
-private _worldSize  = worldSize;
 
-private _searchRadius = 0;
-private _result = [];
-
-scopeName "findLand";
-while { _searchRadius <= _maxRadius && {_result isEqualTo []} } do {
-    for "_i" from 0 to (_maxTries - 1) do {
-        private _candidate = if (_searchRadius == 0 && {_i == 0}) then {
-            _base
-        } else {
-            [[[ _base, _searchRadius ]], ["water"]] call BIS_fnc_randomPos
-        };
-        if ((_candidate isEqualTo [0,0]) || { _candidate isEqualTo [0,0,0] }) then { continue; };
-
-        if (
-            (_candidate select 0 < 0) ||
-            (_candidate select 1 < 0) ||
-            (_candidate select 0 > _worldSize) ||
-            (_candidate select 1 > _worldSize)
-        ) then { continue; };
-
-        private _surf = [_candidate] call VIC_fnc_getLandSurfacePosition;
-        if (_surf isEqualTo []) then { continue; };
-
-        if (_excludeTowns) then {
-            private _towns = nearestLocations [ASLToAGL _surf, ["NameCity","NameVillage","NameCityCapital","NameLocal"], _townRadius];
-            if !(_towns isEqualTo []) then { continue; };
-        };
-
-        _result = ASLToAGL _surf;
-        breakOut "findLand";
-    };
-    _searchRadius = _searchRadius + _radius;
+private _condition = if (_excludeTowns) then {
+    {
+        nearestLocations [_this, ["NameCity","NameVillage","NameCityCapital","NameLocal"], _townRadius] isEqualTo []
+    }
+} else {
+    { true }
 };
 
-if !(_result isEqualTo []) then {
-    [format ["findLandPosition: found %1", _result]] call VIC_fnc_debugLog;
-};
-
-if (_result isEqualTo []) then { nil } else { _result }
+private _pos = [[[_base, _radius]], ["water"], _condition] call BIS_fnc_randomPos;
+if ((_pos isEqualTo [0,0]) || { _pos isEqualTo [0,0,0] }) then { nil } else { _pos }
