@@ -43,9 +43,9 @@ player addAction ["<t color='#ff0000'>Spawn Random Chemicals</t>", {
 }];
 player addAction ["<t color='#ff0000'>Spawn Valley Chemicals</t>", {
     if (isServer) then {
-        [getPos player, 200] call VIC_fnc_spawnValleyChemicalZones;
+        [] call VIC_fnc_spawnValleyChemicalFields;
     } else {
-        [getPos player, 200] remoteExec ["VIC_fnc_spawnValleyChemicalZones", 2];
+        [] remoteExec ["VIC_fnc_spawnValleyChemicalFields", 2];
     };
 }];
 player addAction ["<t color='#ff0000'>Spawn Stable Fields</t>", {

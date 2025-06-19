@@ -32,6 +32,12 @@ private _marker = [_markerName, _site, "ELLIPSE", "", "ColorGreen", 1, "Fruitpun
 _marker setMarkerSize [30,30];
 STALKER_anomalyMarkers pushBack _marker;
 
+// Surround fruitpunch anomalies with a chemical zone
+if (["VSA_enableChemicalZones", true] call VIC_fnc_getSetting) then {
+    private _zoneRad = ["VSA_chemicalZoneRadius", 50] call VIC_fnc_getSetting;
+    [_site, _zoneRad] call VIC_fnc_spawnChemicalZone;
+};
+
 private _spawned = [];
 for "_i" from 1 to _count do {
     private _off = [_site, random 30, random 360] call BIS_fnc_relPos;
