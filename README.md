@@ -242,7 +242,8 @@ execute. Functions such as `VIC_fnc_createGlobalMarker` handle this by calling a
 local helper on each machine. When a return value from the server is required,
 use `VIC_fnc_callServer`. Land position searches now run locally using
 `VIC_fnc_findLandPosition`. For more control you can call
-`VIC_fnc_findLandPos` which walks the map until it finds safe, dry land.
+`VIC_fnc_findLandPos` which walks the map until it finds safe, dry land. It
+leverages `BIS_fnc_randomPos` to generate land-safe candidate spots.
 
 ```sqf
 private _spot = [getPos player, 800] call VIC_fnc_findLandPos;
