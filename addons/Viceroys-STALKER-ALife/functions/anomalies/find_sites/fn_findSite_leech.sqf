@@ -11,6 +11,6 @@ params ["_center","_radius"];
 private _posCenter = if (_center isEqualType objNull) then { getPos _center } else { _center };
 
 // Pick a random land position within the search radius
-private _site = [_posCenter, _radius, 10, false] call VIC_fnc_findLandPosition;
+private _site = [_posCenter, _radius, 10, false] call VIC_fnc_findLandPos;
 if (isNil {_site} || {count _site == 0}) then { [] };
 _site
