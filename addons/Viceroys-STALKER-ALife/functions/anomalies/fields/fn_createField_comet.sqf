@@ -20,7 +20,7 @@ if (isNil {_site} || {count _site == 0}) then {
 } else {
     [format ["createField_comet: using site %1", _site]] call VIC_fnc_debugLog;
 };
-_site = [_site] call VIC_fnc_findLandPosition;
+_site = [_site] call VIC_fnc_findLandPos;
 if (isNil {_site} || {count _site == 0}) then {
     ["createField_comet: land position failed"] call VIC_fnc_debugLog;
     []

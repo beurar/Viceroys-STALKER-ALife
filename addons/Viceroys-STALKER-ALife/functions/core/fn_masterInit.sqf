@@ -181,6 +181,7 @@ VIC_fnc_registerEmissionHooks    = compile preprocessFileLineNumbers (_root + "\
 VIC_fnc_getSurfacePosition       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_getSurfacePosition.sqf");
 VIC_fnc_isWaterPosition         = compile preprocessFileLineNumbers (_root + "\functions\core\fn_isWaterPosition.sqf");
 VIC_fnc_findLandPosition       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findLandPosition.sqf");
+VIC_fnc_findLandPos = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findLandPos.sqf");
 VIC_fnc_getLandSurfacePosition  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_getLandSurfacePosition.sqf");
 VIC_fnc_findRoadPosition        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findRoadPosition.sqf");
 VIC_fnc_findRandomRoadPosition  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findRandomRoadPosition.sqf");

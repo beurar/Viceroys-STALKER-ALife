@@ -22,4 +22,4 @@ if (_candidates isEqualTo []) then { [] };
 
 private _bridge = selectRandom _candidates;
 private _pos = getPosATL _bridge;
-[_pos, 0, 10, false] call VIC_fnc_findLandPosition
+[_pos, 0, 10, false] call VIC_fnc_findLandPos
