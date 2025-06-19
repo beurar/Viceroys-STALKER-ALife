@@ -46,7 +46,15 @@ for "_i" from 1 to _count do {
         private _off = [_site, 20 + random 10, _j * 90] call BIS_fnc_relPos;
         private _surf = [_off] call VIC_fnc_getLandSurfacePosition;
         if (_surf isEqualTo []) then { continue };
-        _path pushBack _surf;
+
+        // Create an invisible logic object for the waypoint so the comet has
+        // an actual entity to follow.
+        private _name = format ["comet_%1_%2", _i, _j];
+        private _wp = createVehicle ["Logic", ASLToATL _surf, [], 0, "NONE"];
+        _wp setVehicleVarName _name;
+        missionNamespace setVariable [_name, _wp];
+
+        _path pushBack _wp;
     };
     if (_path isEqualTo []) then { continue };
     private _anom = [_path] call _create;
