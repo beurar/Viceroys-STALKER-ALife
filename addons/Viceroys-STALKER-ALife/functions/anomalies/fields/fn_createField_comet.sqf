@@ -13,7 +13,7 @@ params ["_center","_radius", ["_count",1], ["_site", []]];
 
 if (isNil {_site} || {count _site == 0}) then {
     _site = [_center,_radius] call VIC_fnc_findSite_comet;
-    if (count _site == 0) then {
+    if (count _site == 0) exitWith {
         ["createField_comet: no site"] call VIC_fnc_debugLog;
         []
     };
@@ -21,7 +21,7 @@ if (isNil {_site} || {count _site == 0}) then {
     [format ["createField_comet: using site %1", _site]] call VIC_fnc_debugLog;
 };
 _site = [_site] call VIC_fnc_findLandPos;
-if (isNil {_site} || {count _site == 0}) then {
+if (isNil {_site} || {count _site == 0}) exitWith {
     ["createField_comet: land position failed"] call VIC_fnc_debugLog;
     []
 };
