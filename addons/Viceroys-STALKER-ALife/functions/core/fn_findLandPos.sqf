@@ -38,30 +38,32 @@ for "_i" from 1 to _maxAttempts do {
 
     /* ─ generate a random candidate in the search circle ───────── */
     private _p = _centrePos getPos [random _radius, random 360];
+    private _surf = [_p] call VIC_fnc_getSurfacePosition;
 
-    /* ─ REJECT #1: water cell? ─────────────────────────────────── */
-    if (surfaceIsWater _p) then { continue };
+    /* ─ REJECT #1: below sea level implies water ──────────────── */
+    if ((ASLToAGL _surf select 2) <= 0) then { continue };
 
     /* ─ REJECT #2: coastline / lake edge too close? ────────────── */
     private _nearWater = false;
     for "_a" from 0 to 315 step 45 do {
-        if (surfaceIsWater (_p getPos [_minWaterDist, _a])) exitWith { _nearWater = true };
+        private _edgeSurf = [_p getPos [_minWaterDist, _a]] call VIC_fnc_getSurfacePosition;
+        if ((ASLToAGL _edgeSurf select 2) <= 0) exitWith { _nearWater = true };
     };
     if (_nearWater) then { continue };
 
     /* ─ REJECT #3: slope too steep? ────────────────────────────── */
-    if ([surfaceNormal _p] call _degToSlope > _maxSlope) then { continue };
+    if ([surfaceNormal ASLToATL _surf] call _degToSlope > _maxSlope) then { continue };
 
     /* ─ REJECT #4: inside map clutter or other objects? ───────── */
-    if !([ _p, _clearanceRad, [], 0, "CAN_COLLIDE" ] call BIS_fnc_isPosEmpty) then { continue };
+    if !([ ASLToATL _surf, _clearanceRad, [], 0, "CAN_COLLIDE" ] call BIS_fnc_isPosEmpty) then { continue };
 
     /* ─ REJECT #5: user black-list check (25 m radius) ────────── */
     private _nearBlk = {
-        _p distance2D _x < 25
+        _surf distance2D _x < 25
     } count _blacklist > 0;
     if (_nearBlk) then { continue };
 
-    _result = _p;
+    _result = ASLToATL _surf;
     breakOut "findLand";
 };
 
