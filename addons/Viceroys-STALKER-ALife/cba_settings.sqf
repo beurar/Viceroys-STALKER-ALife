@@ -629,7 +629,7 @@ true
 ["VSA_predatorRange","SLIDER",["Predator Range","Distance from players to spawn predators"],"Viceroy's STALKER ALife - Mutants",[0, 7500, 1500, 0]] call CBA_fnc_addSetting;
 ["VSA_predatorCheckIntervalDay","SLIDER",["Predator Check (Day)","Seconds between predator attack checks during daylight"],"Viceroy's STALKER ALife - Mutants",[60, 900, 600, 0]] call CBA_fnc_addSetting;
 ["VSA_predatorCheckIntervalNight","SLIDER",["Predator Check (Night)","Seconds between predator attack checks at night"],"Viceroy's STALKER ALife - Mutants",[60, 900, 300, 0]] call CBA_fnc_addSetting;
-["VSA_proximityCheckInterval","SLIDER",["Proximity Check Interval","Seconds between player distance checks"],"Viceroy's STALKER ALife - Mutants",[10, 300, 5, 0]] call CBA_fnc_addSetting;
+["VSA_proximityCheckInterval","SLIDER",["Proximity Check Interval","Seconds between player distance checks (0 for constant)"],"Viceroy's STALKER ALife - Mutants",[0, 300, 0, 0]] call CBA_fnc_addSetting;
 ["VSA_habitatCheckInterval","SLIDER",["Habitat Check Interval","Seconds between habitat updates"],"Viceroy's STALKER ALife - Mutants",[1, 60, 5, 0]] call CBA_fnc_addSetting;
 
 [

@@ -210,7 +210,7 @@ VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\func
         {
             while {true} do {
                 [] call VIC_fnc_updateProximity;
-                private _delay = ["VSA_proximityCheckInterval", 5] call VIC_fnc_getSetting;
+                private _delay = ["VSA_proximityCheckInterval", 0] call VIC_fnc_getSetting;
                 sleep _delay;
             };
         }, [], 8

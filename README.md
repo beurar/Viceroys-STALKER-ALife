@@ -46,7 +46,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Each habitat now uses an ellipse marker to show its bounds and a labeled icon displaying the current population (e.g. `Bloodsucker Habitat: 4/12`).
 * Systems rely on **fn_hasPlayersNearby.sqf** so habitats sleep and despawn when players are farther than the configured nearby range (default 1500m).
 * Habitats now spawn empty and gain one mutant each habitat cycle when no players are nearby.
-* Player proximity is checked every 5 seconds via `VSA_proximityCheckInterval`.
+* Player proximity is checked continuously by default via `VSA_proximityCheckInterval`.
 * Habitat updates run on their own timer via `VSA_habitatCheckInterval`.
 * Habitat and herd counts update immediately when mutants are killed.
 * Habitat placement now selects random buildings, forests and swamps with weighted preferences.
