@@ -12,7 +12,8 @@ if (!isServer) exitWith { false };
     {
         while { true } do {
             [] call VIC_fnc_updateProximity;
-            private _delay = ["VSA_proximityCheckInterval", 0] call VIC_fnc_getSetting;
+            [] call VIC_fnc_updateActivityGrid;
+            private _delay = if (["VSA_autoInit", false] call VIC_fnc_getSetting) then {5} else { ["VSA_proximityCheckInterval", 0] call VIC_fnc_getSetting };
             sleep _delay;
         };
     }, [], 8

@@ -163,6 +163,7 @@ VIC_fnc_manageHostiles           = compile preprocessFileLineNumbers (_root + "\
 VIC_fnc_manageNests              = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageNests.sqf");
 VIC_fnc_manageHabitats           = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageHabitats.sqf");
 VIC_fnc_updateProximity          = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_updateProximity.sqf");
+VIC_fnc_updateActivityGrid       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_updateActivityGrid.sqf");
 VIC_fnc_onMutantKilled           = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_onMutantKilled.sqf");
 VIC_fnc_initMutantUnit          = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_initMutantUnit.sqf");
 panic_fnc_onEmissionBuildUp  = compile preprocessFileLineNumbers (_root + "\functions\panic\fn_onEmissionBuildUp.sqf");
@@ -201,6 +202,7 @@ VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\func
 
 // --- PostInit ---------------------------------------------------------------
 ["postInit", {
+    missionNamespace setVariable ["STALKER_activityGridSize", 500];
     [] call VIC_fnc_registerEmissionHooks;
     if (call VIC_fnc_isAntistasiUltimate && { ["VSA_disableA3UWeather", false] call VIC_fnc_getSetting }) then {
         [] call VIC_fnc_disableA3UWeather;
@@ -210,7 +212,8 @@ VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\func
         {
             while {true} do {
                 [] call VIC_fnc_updateProximity;
-                private _delay = ["VSA_proximityCheckInterval", 0] call VIC_fnc_getSetting;
+                [] call VIC_fnc_updateActivityGrid;
+                private _delay = if (["VSA_autoInit", false] call VIC_fnc_getSetting) then {5} else { ["VSA_proximityCheckInterval", 0] call VIC_fnc_getSetting };
                 sleep _delay;
             };
         }, [], 8
