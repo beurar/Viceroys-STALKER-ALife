@@ -44,10 +44,10 @@ while { _searchRadius <= _maxRadius && {_result isEqualTo []} } do {
         };
 
         if (
-            (_candidate select 0 < 0) ||
-            { _candidate select 1 < 0 } ||
-            { _candidate select 0 > _worldSize } ||
-            { _candidate select 1 > _worldSize }
+            ((_candidate select 0) < 0) ||
+            ((_candidate select 1) < 0) ||
+            ((_candidate select 0) > _worldSize) ||
+            ((_candidate select 1) > _worldSize)
         ) then { continue; };
 
         private _surf = [_candidate] call VIC_fnc_getLandSurfacePosition;
