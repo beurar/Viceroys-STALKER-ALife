@@ -25,7 +25,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
   also receive thematic names on their map markers. When no towns are nearby the
   names fall back to generic locations like the coast, a hill or a forest based
   on the surrounding terrain.
-* Anomalies only activate when players are nearby and go dormant when no one is in range. The activity grid system now checks map squares around players to toggle fields efficiently.
+* Anomalies only activate when players are nearby and go dormant when no one is in range. The activity grid system now checks map squares around players to toggle fields efficiently. You can adjust how many grid cells are simulated around each player with `VSA_activityZoneDepth`.
 
 ### Mutants
 * Spawns roaming mutant packs and ambient herds.
@@ -73,7 +73,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Generates APERS minefields on town outskirts and single IEDs on roads.
 * Mines despawn when no players are nearby and respawn when someone approaches.
 * Enable debug mode to visualize fields and place test minefields via the action menu. Ambush sites can also be spawned this way.
-* When debug mode is enabled the activity grid is drawn on the map with yellow dashed blocks for active squares and black dashed blocks for inactive ones.
+* When debug mode is enabled the activity grid is drawn on the map with yellow dashed blocks for active squares and red dashed blocks for inactive ones.
 * Abandoned and damaged vehicles may appear on or near roads.
 * Tripwires and booby traps can spawn inside buildings around towns.
 * Fallen players leave a red X marker that vanishes once the body is removed.
@@ -172,7 +172,7 @@ Drongo’s system adds creepy events such as ghostly whispers or sudden darkenin
    * [Stalker Stuff](https://steamcommunity.com/sharedfiles/filedetails/?id=2781344095)
    * [Chemical Warfare Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3295358796)
    * [Necroplague](https://steamcommunity.com/workshop/filedetails/?id=2616555444)
-3. Review `cba_settings.sqf` for adjustable options such as the player nearby range used by many systems.
+3. Review `cba_settings.sqf` for adjustable options such as the player nearby range and activity zone depth used by many systems.
 4. Enable **VSA_autoInit** if you want the world to populate automatically on mission start. When disabled, use the debug actions to spawn systems manually.
 5. Enable **VSA_debugMode** to show on-screen debug messages and access testing actions.
    This option can now be toggled while a mission is running and the debug

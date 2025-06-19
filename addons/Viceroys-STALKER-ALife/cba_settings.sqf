@@ -24,6 +24,14 @@
 ] call CBA_fnc_addSetting;
 
 [
+    "VSA_activityZoneDepth",
+    "SLIDER",
+    ["Activity Zone Depth", "Grid cells around players kept active"],
+    "Viceroy's STALKER ALife - Core",
+    [1, 10, 4, 0]
+] call CBA_fnc_addSetting;
+
+[
     "VSA_autoInit",
     "CHECKBOX",
     ["Automatically Initialize", "Populate the world and start managers on mission start"],
