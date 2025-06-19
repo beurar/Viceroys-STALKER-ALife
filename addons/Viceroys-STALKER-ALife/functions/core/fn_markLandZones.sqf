@@ -17,7 +17,10 @@ if (isNil "STALKER_landZoneMarkers") then { STALKER_landZoneMarkers = [] };
 } forEach STALKER_landZoneMarkers;
 STALKER_landZoneMarkers = [];
 
-if (isNil "STALKER_landZones") exitWith { false };
+if (isNil "STALKER_landZones") then {
+    private _cached = ["STALKER_landZones"] call VIC_fnc_loadCache;
+    if (isNil {_cached}) exitWith { false };
+};
 private _zones = STALKER_landZones;
 
 {
@@ -25,5 +28,7 @@ private _zones = STALKER_landZones;
     private _mkr = [_name, _x, "ICON", "mil_triangle", "ColorYellow", 1, "", [1,1], _global] call VIC_fnc_createGlobalMarker;
     STALKER_landZoneMarkers pushBack _mkr;
 } forEach _zones;
+
+[format ["markLandZones: placed %1 markers", count _zones]] call VIC_fnc_debugLog;
 
 true
