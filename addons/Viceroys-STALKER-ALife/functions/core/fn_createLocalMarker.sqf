@@ -24,7 +24,10 @@ params [
     ["_size", [1,1]]
 ];
 
-if (isNil {_name} || { isNil {_pos} }) exitWith {
+if (
+    isNil {_name} || { isNil {_pos} } ||
+    { !(_pos isEqualType []) } || { (count _pos) < 2 }
+) exitWith {
     ["createLocalMarker: missing name or position"] call VIC_fnc_debugLog;
     ""
 };
