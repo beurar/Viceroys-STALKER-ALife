@@ -37,7 +37,8 @@ private _result = [];
 for "_i" from 1 to _maxAttempts do {
 
     /* ─ generate a random candidate in the search circle ───────── */
-    private _p = _centrePos getPos [random _radius, random 360];
+    private _p = [[[ _centrePos, _radius ]], ["water"]] call BIS_fnc_randomPos;
+    if ((_p isEqualTo [0,0]) || { _p isEqualTo [0,0,0] }) then { continue };
     private _surf = [_p] call VIC_fnc_getSurfacePosition;
 
     /* ─ REJECT #1: below sea level implies water ──────────────── */

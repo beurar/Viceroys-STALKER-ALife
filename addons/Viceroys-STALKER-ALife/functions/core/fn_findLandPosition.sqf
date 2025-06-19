@@ -40,8 +40,9 @@ while { _searchRadius <= _maxRadius && {_result isEqualTo []} } do {
         private _candidate = if (_searchRadius == 0 && {_i == 0}) then {
             _base
         } else {
-            [_base, random _searchRadius, random 360] call BIS_fnc_relPos
+            [[[ _base, _searchRadius ]], ["water"]] call BIS_fnc_randomPos
         };
+        if ((_candidate isEqualTo [0,0]) || { _candidate isEqualTo [0,0,0] }) then { continue; };
 
         if (
             (_candidate select 0 < 0) ||

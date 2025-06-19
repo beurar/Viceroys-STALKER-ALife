@@ -11,12 +11,13 @@
 params [["_radius", 300], ["_maxTries", 20]];
 
 private _attempt = 0;
-private _worldSize = worldSize;
 
 while { _attempt < _maxTries } do {
-    private _x = random _worldSize;
-    private _y = random _worldSize;
-    private _randomPos = [_x, _y, 0];
+    private _randomPos = [] call BIS_fnc_randomPos;
+    if ((_randomPos isEqualTo [0,0]) || { _randomPos isEqualTo [0,0,0] }) then {
+        _attempt = _attempt + 1;
+        continue;
+    };
 
     private _searchCenter = _randomPos;
     private _roadPos = _searchCenter findEmptyPosition [_radius, _radius, "ROAD"];
