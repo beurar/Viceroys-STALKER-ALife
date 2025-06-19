@@ -18,6 +18,12 @@ if (isNil "STALKER_valleyMarkers") then { STALKER_valleyMarkers = [] };
 } forEach STALKER_valleyMarkers;
 STALKER_valleyMarkers = [];
 
+if (isNil "STALKER_valleys") then {
+    private _cached = ["STALKER_valleys"] call VIC_fnc_loadCache;
+    if (isNil {_cached}) exitWith { false };
+    STALKER_valleys = _cached;
+};
+
 if (isNil "STALKER_valleys") exitWith { false };
 private _valleys = STALKER_valleys;
 [format ["markValleys: %1 valleys", count _valleys]] call VIC_fnc_debugLog;

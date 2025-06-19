@@ -99,5 +99,8 @@ for "_gx" from 0 to worldSize step _step do {
 if (isNil "STALKER_valleys") then { STALKER_valleys = [] };
 { STALKER_valleys pushBackUnique _x } forEach _valleys;
 
+// Persist the cached valleys for later sessions
+["STALKER_valleys", STALKER_valleys] call VIC_fnc_saveCache;
+
 _valleys
 
