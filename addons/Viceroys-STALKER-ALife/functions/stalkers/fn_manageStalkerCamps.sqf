@@ -1,6 +1,6 @@
 /*
     Activates or deactivates stalker camps based on player proximity.
-    STALKER_camps entries: [campfire, group, position, marker, side]
+    STALKER_camps entries: [campfire, group, position, marker, side, faction]
 */
 
 ["manageStalkerCamps"] call VIC_fnc_debugLog;
@@ -12,7 +12,7 @@ private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
 private _size = ["VSA_stalkerCampSize", 4] call VIC_fnc_getSetting;
 
 {
-    _x params ["_camp", "_grp", "_pos", "_marker", "_side"];
+    _x params ["_camp", "_grp", "_pos", "_marker", "_side", "_faction"];
     private _near = [_pos, _dist] call VIC_fnc_hasPlayersNearby;
     if (_near) then {
         if (isNull _camp) then { _camp = "Campfire_burning_F" createVehicle _pos; };
@@ -50,7 +50,7 @@ private _size = ["VSA_stalkerCampSize", 4] call VIC_fnc_getSetting;
     if (_marker != "") then {
         [_marker, (if (_near) then {1} else {0.2})] remoteExec ["setMarkerAlpha", 0];
     };
-    STALKER_camps set [_forEachIndex, [_camp, _grp, _pos, _marker, _side]];
+    STALKER_camps set [_forEachIndex, [_camp, _grp, _pos, _marker, _side, _faction]];
 } forEach STALKER_camps;
 
 true

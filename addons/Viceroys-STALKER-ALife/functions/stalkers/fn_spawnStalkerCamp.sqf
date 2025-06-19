@@ -19,6 +19,9 @@ private _wInd = ["VSA_stalkerCampINDChance", 33] call VIC_fnc_getSetting;
 
 private _side = selectRandomWeighted [blufor,_wBlu,opfor,_wOpf,independent,_wInd];
 
+private _factions = ["Bandits","ClearSky","Ecologists","Military","Duty","Freedom","Loners","Mercs"];
+private _faction  = selectRandom _factions;
+
 private _grp = createGroup _side;
 private _class = switch (_side) do {
     case blufor: { "B_Soldier_F" };
@@ -47,8 +50,18 @@ if (local _grp) then {
 private _marker = "";
 if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
     _marker = format ["camp_%1", diag_tickTime];
-    private _color = switch (_side) do { case blufor: {"ColorBlue"}; case opfor: {"ColorRed"}; default {"ColorGreen"}; };
-    [_marker, _pos, "ICON", "mil_box", _color, 0.2] call VIC_fnc_createGlobalMarker;
+    private _color = switch (_faction) do {
+        case "Bandits": {"ColorOrange"};
+        case "ClearSky": {"ColorCyan"};
+        case "Ecologists": {"ColorKhaki"};
+        case "Military": {"ColorGreen"};
+        case "Duty": {"ColorRed"};
+        case "Freedom": {"ColorBlue"};
+        case "Loners": {"ColorWhite"};
+        case "Mercs": {"ColorPink"};
+        default {"ColorWhite"};
+    };
+    [_marker, _pos, "ICON", "mil_box", _color, 0.2, _faction] call VIC_fnc_createGlobalMarker;
 };
 
-STALKER_camps pushBack [_campfire, _grp, _pos, _marker, _side];
+STALKER_camps pushBack [_campfire, _grp, _pos, _marker, _side, _faction];
