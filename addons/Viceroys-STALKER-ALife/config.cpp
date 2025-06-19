@@ -235,6 +235,7 @@ class CfgRemoteExec
         class VIC_fnc_spawnChemicalZone   { allowedTargets = 2; };
         class VIC_fnc_spawnRandomChemicalZones { allowedTargets = 2; };
         class VIC_fnc_spawnValleyChemicalZones { allowedTargets = 2; };
+        class VIC_fnc_spawnValleyChemicalFields { allowedTargets = 2; };
         class VIC_fnc_spawnAllAnomalyFields    { allowedTargets = 2; };
         class VIC_fnc_cycleAnomalyFields  { allowedTargets = 2; };
         class VIC_fnc_spawnMutantGroup    { allowedTargets = 2; };
