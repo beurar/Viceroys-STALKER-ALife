@@ -24,7 +24,19 @@ private _size = ["VSA_stalkerCampSize", 4] call VIC_fnc_getSetting;
             };
             private _new = createGroup _side;
             for "_i" from 1 to _size do { _new createUnit [_class, _pos, [], 0, "FORM"]; };
-            [_new, _pos] call BIS_fnc_taskDefend;
+            if (local _new) then {
+                if (isClass (configFile >> "CfgPatches" >> "lambs_danger")) then {
+                    [_new, _pos, 50] call lambs_wp_fnc_taskCamp;
+                } else {
+                    [_new, _pos] call BIS_fnc_taskDefend;
+                };
+            } else {
+                if (isClass (configFile >> "CfgPatches" >> "lambs_danger")) then {
+                    [_new, _pos, 50] remoteExecCall ["lambs_wp_fnc_taskCamp", groupOwner _new];
+                } else {
+                    [_new, _pos] remoteExecCall ["BIS_fnc_taskDefend", groupOwner _new];
+                };
+            };
             _grp = _new;
         };
     } else {

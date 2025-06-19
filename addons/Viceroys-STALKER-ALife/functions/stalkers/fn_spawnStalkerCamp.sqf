@@ -30,7 +30,19 @@ for "_i" from 1 to _size do {
 };
 
 private _campfire = "Campfire_burning_F" createVehicle _pos;
-[_grp, _pos] call BIS_fnc_taskDefend;
+if (local _grp) then {
+    if (isClass (configFile >> "CfgPatches" >> "lambs_danger")) then {
+        [_grp, _pos, 50] call lambs_wp_fnc_taskCamp;
+    } else {
+        [_grp, _pos] call BIS_fnc_taskDefend;
+    };
+} else {
+    if (isClass (configFile >> "CfgPatches" >> "lambs_danger")) then {
+        [_grp, _pos, 50] remoteExecCall ["lambs_wp_fnc_taskCamp", groupOwner _grp];
+    } else {
+        [_grp, _pos] remoteExecCall ["BIS_fnc_taskDefend", groupOwner _grp];
+    };
+};
 
 private _marker = "";
 if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
