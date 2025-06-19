@@ -24,7 +24,8 @@ private _cells = [];
     private _pos = getPos _x;
     private _gx = floor ((_pos select 0) / _size);
     private _gy = floor ((_pos select 1) / _size);
-    private _rad = ceil((_range + _diag) / _size);
+    private _depth = ["VSA_activityZoneDepth", 4] call VIC_fnc_getSetting;
+    private _rad = [_depth, ceil((_range + _diag) / _size)] call BIS_fnc_max;
     for "_ix" from (_gx - _rad) to (_gx + _rad) do {
         for "_iy" from (_gy - _rad) to (_gy + _rad) do {
             private _cx = _ix * _size + _half;
@@ -72,11 +73,11 @@ if (_debug) then {
             private _mx = (parseNumber (_parts select 0)) * _size + _half;
             private _my = (parseNumber (_parts select 1)) * _size + _half;
             private _name = format ["grid_%1", _key];
-            _marker = [_name, [_mx, _my, 0], "RECTANGLE", "", "ColorBlack", 0.1, "", [_size, _size], true] call VIC_fnc_createGlobalMarker;
+            _marker = [_name, [_mx, _my, 0], "RECTANGLE", "", "ColorRed", 0.1, "", [_size, _size], true] call VIC_fnc_createGlobalMarker;
             _marker setMarkerBrush "Border";
             STALKER_activityMarkers pushBack [_key, _marker];
         };
-        _marker setMarkerColor (if (_active) then {"ColorYellow"} else {"ColorBlack"});
+        _marker setMarkerColor (if (_active) then {"ColorYellow"} else {"ColorRed"});
         _marker setMarkerAlpha 0.1;
     } forEach STALKER_activityGrid;
 } else {
