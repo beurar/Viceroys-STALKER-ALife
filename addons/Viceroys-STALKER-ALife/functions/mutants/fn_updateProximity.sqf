@@ -1,7 +1,10 @@
 /*
     Periodically updates player proximity for mutant habitats and herds.
 */
+
 ["updateProximity"] call VIC_fnc_debugLog;
+
+[] call VIC_fnc_updateActivityGrid;
 
 if (!isServer) exitWith {};
 

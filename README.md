@@ -25,7 +25,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
   also receive thematic names on their map markers. When no towns are nearby the
   names fall back to generic locations like the coast, a hill or a forest based
   on the surrounding terrain.
-* Anomalies only activate when players are nearby and go dormant when no one is in range.
+* Anomalies only activate when players are nearby and go dormant when no one is in range. The activity grid system now checks map squares around players to toggle fields efficiently.
 
 ### Mutants
 * Spawns roaming mutant packs and ambient herds.
@@ -47,6 +47,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Systems rely on **fn_hasPlayersNearby.sqf** so habitats sleep and despawn when players are farther than the configured nearby range (default 1500m).
 * Habitats now spawn empty and gain one mutant each habitat cycle when no players are nearby.
 * Player proximity is checked continuously by default via `VSA_proximityCheckInterval`.
+* A grid-based proximity system activates habitats only when their map square is within range of any player.
 * Habitat updates run on their own timer via `VSA_habitatCheckInterval`.
 * Habitat and herd counts update immediately when mutants are killed.
 * Habitat placement now selects random buildings, forests and swamps with weighted preferences.
@@ -72,6 +73,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Generates APERS minefields on town outskirts and single IEDs on roads.
 * Mines despawn when no players are nearby and respawn when someone approaches.
 * Enable debug mode to visualize fields and place test minefields via the action menu. Ambush sites can also be spawned this way.
+* When debug mode is enabled the activity grid is drawn on the map with yellow dashed blocks for active squares and black dashed blocks for inactive ones.
 * Abandoned and damaged vehicles may appear on or near roads.
 * Tripwires and booby traps can spawn inside buildings around towns.
 * Fallen players leave a red X marker that vanishes once the body is removed.
