@@ -244,6 +244,16 @@ use `VIC_fnc_callServer`. Land position searches now run locally using
 `VIC_fnc_findLandPosition`. For more control you can call
 `VIC_fnc_findLandPos` which walks the map until it finds safe, dry land.
 
+Calling `VIC_fnc_findLandPos` (or any other function) with `remoteExecCall`
+will only return `true` or `false` because the command reports the remote
+execution status. To obtain the position returned by the function, wrap it with
+`VIC_fnc_callServer`:
+
+```sqf
+private _spot = [{ [getPos player, 800] call VIC_fnc_findLandPos }] call
+    VIC_fnc_callServer;
+```
+
 ```sqf
 private _spot = [getPos player, 800] call VIC_fnc_findLandPos;
 ```
