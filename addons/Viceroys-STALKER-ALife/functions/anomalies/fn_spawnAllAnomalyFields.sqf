@@ -60,7 +60,7 @@ for "_i" from 1 to _fieldCount do {
 
     if (random 100 >= _spawnWeight) then { continue };
 
-    private _pos = [[random worldSize, random worldSize, 0], 50, 10, false, worldSize] call VIC_fnc_findLandPos;
+    private _pos = [[random worldSize, random worldSize, 0], worldSize, 10] call VIC_fnc_findLandPos;
     if (isNil {_pos} || {_pos isEqualTo []}) then { continue };
 
     private _fn = selectRandom _types;
