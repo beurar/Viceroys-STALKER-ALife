@@ -111,6 +111,14 @@
 ] call CBA_fnc_addSetting;
 
 [
+    "VSA_anomalyFieldRadius",
+    "SLIDER",
+    ["Anomaly Field Radius", "Radius of each anomaly field"],
+    "Viceroy's STALKER ALife - Anomalies",
+    [0, 2000, 200, 0]
+] call CBA_fnc_addSetting;
+
+[
     "VSA_anomalyNightOnly",
     "CHECKBOX",
     ["Night Time Only", "Anomalies only spawn at night"],

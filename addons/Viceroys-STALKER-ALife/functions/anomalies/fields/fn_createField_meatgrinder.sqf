@@ -23,18 +23,19 @@ _site = [_site] call VIC_fnc_findLandPos;
 if (isNil {_site} || {count _site == 0}) exitWith {
     ["createField_meatgrinder: land position failed"] call VIC_fnc_debugLog;
     []
-};
+}; 
 
 // Create a marker for this anomaly field
 if (isNil "STALKER_anomalyMarkers") then { STALKER_anomalyMarkers = [] };
 private _markerName = format ["anom_meatgrinder_%1", diag_tickTime];
-private _marker = [_markerName, _site, "ELLIPSE", "", "ColorRed", 1, "Meatgrinder 30m"] call VIC_fnc_createGlobalMarker;
-_marker setMarkerSize [30,30];
+private _size = ["VSA_anomalyFieldRadius", 200] call VIC_fnc_getSetting;
+private _marker = [_markerName, _site, "ELLIPSE", "", "ColorRed", 1, format ["Meatgrinder %1m", _size]] call VIC_fnc_createGlobalMarker;
+_marker setMarkerSize [_size,_size];
 STALKER_anomalyMarkers pushBack _marker;
 
 private _spawned = [];
 for "_i" from 1 to _count do {
-    private _off = [_site, random 30, random 360] call BIS_fnc_relPos;
+    private _off = [_site, random _size, random 360] call BIS_fnc_relPos;
     private _surf = [_off] call VIC_fnc_getLandSurfacePosition;
     if (_surf isEqualTo []) then { continue };
     private _create = missionNamespace getVariable ["diwako_anomalies_main_fnc_createMeatgrinder", {}];
