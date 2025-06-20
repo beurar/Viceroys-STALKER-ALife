@@ -27,5 +27,16 @@ params [
     ["_maxAttempts",     200,   [0]   ]
 ];
 
+// suppress unused variable warnings
+private _dummy = [_minWaterDist, _maxSlope, _blacklist, _clearanceRad, _maxAttempts];
+_dummy;
+
 private _p = [[[ _centrePos, _radius ]], ["water"]] call BIS_fnc_randomPos;
-if ((_p isEqualTo [0,0]) || { _p isEqualTo [0,0,0] }) then { [] } else { _p }
+if ((_p isEqualTo [0,0]) || { _p isEqualTo [0,0,0] }) exitWith { [] };
+
+// ensure the position lies within map bounds
+private _px = _p select 0;
+private _py = _p select 1;
+if (_px < 0 || { _py < 0 } || { _px > worldSize } || { _py > worldSize }) exitWith { [] };
+
+_p
