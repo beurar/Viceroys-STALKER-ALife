@@ -103,6 +103,38 @@
     [0, 100, 50, 0]
 ] call CBA_fnc_addSetting;
 
+// Individual anomaly spawn weights
+["VSA_anomalyWeight_Burner","SLIDER",["Burner Weight","Relative spawn chance for Burner fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyWeight_Clicker","SLIDER",["Clicker Weight","Relative spawn chance for Clicker fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyWeight_Electra","SLIDER",["Electra Weight","Relative spawn chance for Electra fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyWeight_Fruitpunch","SLIDER",["Fruit Punch Weight","Relative spawn chance for Fruit Punch fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyWeight_Gravi","SLIDER",["Gravi Weight","Relative spawn chance for Gravi fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyWeight_Meatgrinder","SLIDER",["Meatgrinder Weight","Relative spawn chance for Meatgrinder fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyWeight_Springboard","SLIDER",["Springboard Weight","Relative spawn chance for Springboard fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyWeight_Whirligig","SLIDER",["Whirligig Weight","Relative spawn chance for Whirligig fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyWeight_Comet","SLIDER",["Comet Weight","Relative spawn chance for Comet fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyWeight_Launchpad","SLIDER",["Launchpad Weight","Relative spawn chance for Launchpad fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyWeight_Leech","SLIDER",["Leech Weight","Relative spawn chance for Leech fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyWeight_Trapdoor","SLIDER",["Trapdoor Weight","Relative spawn chance for Trapdoor fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyWeight_Zapper","SLIDER",["Zapper Weight","Relative spawn chance for Zapper fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyWeight_Bridge","SLIDER",["Bridge Electra Weight","Relative spawn chance for Bridge Electra fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
+
+// Individual anomaly density multipliers
+["VSA_anomalyDensity_Burner","SLIDER",["Burner Density","Multiplier for Burner anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyDensity_Clicker","SLIDER",["Clicker Density","Multiplier for Clicker anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyDensity_Electra","SLIDER",["Electra Density","Multiplier for Electra anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyDensity_Fruitpunch","SLIDER",["Fruit Punch Density","Multiplier for Fruit Punch anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyDensity_Gravi","SLIDER",["Gravi Density","Multiplier for Gravi anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyDensity_Meatgrinder","SLIDER",["Meatgrinder Density","Multiplier for Meatgrinder anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyDensity_Springboard","SLIDER",["Springboard Density","Multiplier for Springboard anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyDensity_Whirligig","SLIDER",["Whirligig Density","Multiplier for Whirligig anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyDensity_Comet","SLIDER",["Comet Density","Multiplier for Comet anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyDensity_Launchpad","SLIDER",["Launchpad Density","Multiplier for Launchpad anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyDensity_Leech","SLIDER",["Leech Density","Multiplier for Leech anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyDensity_Trapdoor","SLIDER",["Trapdoor Density","Multiplier for Trapdoor anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyDensity_Zapper","SLIDER",["Zapper Density","Multiplier for Zapper anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyDensity_Bridge","SLIDER",["Bridge Electra Density","Multiplier for Bridge Electra anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
+
 [
     "VSA_stableFieldChance",
     "SLIDER",

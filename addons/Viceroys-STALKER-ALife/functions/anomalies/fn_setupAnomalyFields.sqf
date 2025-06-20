@@ -53,21 +53,21 @@ private _createField = {
     true
 };
 
-private _types = [
-    VIC_fnc_createField_burner,
-    VIC_fnc_createField_clicker,
-    VIC_fnc_createField_electra,
-    VIC_fnc_createField_fruitpunch,
-    VIC_fnc_createField_gravi,
-    VIC_fnc_createField_meatgrinder,
-    VIC_fnc_createField_springboard,
-    VIC_fnc_createField_whirligig,
-    VIC_fnc_createField_comet,
-    VIC_fnc_createField_launchpad,
-    VIC_fnc_createField_leech,
-    VIC_fnc_createField_trapdoor,
-    VIC_fnc_createField_zapper,
-    VIC_fnc_createField_bridgeElectra
+private _weights = [
+    [VIC_fnc_createField_burner,      ["VSA_anomalyWeight_Burner",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_clicker,     ["VSA_anomalyWeight_Clicker",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_electra,     ["VSA_anomalyWeight_Electra",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_fruitpunch,  ["VSA_anomalyWeight_Fruitpunch",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_gravi,       ["VSA_anomalyWeight_Gravi",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_meatgrinder, ["VSA_anomalyWeight_Meatgrinder",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_springboard, ["VSA_anomalyWeight_Springboard",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_whirligig,   ["VSA_anomalyWeight_Whirligig",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_comet,       ["VSA_anomalyWeight_Comet",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_launchpad,   ["VSA_anomalyWeight_Launchpad",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_leech,       ["VSA_anomalyWeight_Leech",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_trapdoor,    ["VSA_anomalyWeight_Trapdoor",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_zapper,      ["VSA_anomalyWeight_Zapper",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_bridgeElectra,["VSA_anomalyWeight_Bridge",100] call VIC_fnc_getSetting]
 ];
 
 private _center = [worldSize/2, worldSize/2, 0];
@@ -81,7 +81,7 @@ _buildings = _buildings arrayIntersect _buildings; // remove duplicates
     _pos = [_pos, 0, 100, 5, 0, 0, 0] call BIS_fnc_findSafePos;
     if (random 1 > 0.5) then {
         if (!(_pos call VIC_fnc_isWaterPosition)) then {
-            private _fn = selectRandom _types;
+            private _fn = [_weights] call VIC_fnc_weightedPick;
             [_fn, _pos] call _createField;
         };
     };
@@ -93,7 +93,7 @@ for "_i" from 1 to 20 do {
     private _pos = getPosATL _b;
     _pos = [_pos, 0, 25, 5, 0, 0, 0] call BIS_fnc_findSafePos;
     if (!(_pos call VIC_fnc_isWaterPosition)) then {
-        private _fn = selectRandom _types;
+        private _fn = [_weights] call VIC_fnc_weightedPick;
         [_fn, _pos] call _createField;
     };
 };
@@ -103,7 +103,7 @@ private _forestSites = selectBestPlaces [_center, worldSize, "forest", 1, 50];
     private _pos = (_x select 0);
     _pos = [_pos, 0, 75, 5, 0, 0, 0] call BIS_fnc_findSafePos;
     if (!(_pos call VIC_fnc_isWaterPosition)) then {
-        private _fn = selectRandom _types;
+        private _fn = [_weights] call VIC_fnc_weightedPick;
         [_fn, _pos] call _createField;
     };
 } forEach (_forestSites select [0,10]);
@@ -113,7 +113,7 @@ private _swampSites = selectBestPlaces [_center, worldSize, "meadow", 1, 50];
     private _pos = (_x select 0);
     _pos = [_pos, 0, 75, 5, 0, 0, 0] call BIS_fnc_findSafePos;
     if (!(_pos call VIC_fnc_isWaterPosition)) then {
-        private _fn = selectRandom _types;
+        private _fn = [_weights] call VIC_fnc_weightedPick;
         [_fn, _pos] call _createField;
     };
 } forEach (_swampSites select [0,10]);
