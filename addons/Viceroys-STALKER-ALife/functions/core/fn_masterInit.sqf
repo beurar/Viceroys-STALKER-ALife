@@ -135,6 +135,7 @@ VIC_fnc_spawnIED               = compile preprocessFileLineNumbers (_root + "\fu
 VIC_fnc_spawnBoobyTraps        = compile preprocessFileLineNumbers (_root + "\functions\minefields\fn_spawnBoobyTraps.sqf");
 VIC_fnc_spawnTripwirePerimeter = compile preprocessFileLineNumbers (_root + "\functions\minefields\fn_spawnTripwirePerimeter.sqf");
 VIC_fnc_manageMinefields       = compile preprocessFileLineNumbers (_root + "\functions\minefields\fn_manageMinefields.sqf");
+VIC_fnc_manageBoobyTraps       = compile preprocessFileLineNumbers (_root + "\functions\minefields\fn_manageBoobyTraps.sqf");
 VIC_fnc_spawnAbandonedVehicles = compile preprocessFileLineNumbers (_root + "\functions\wrecks\fn_spawnAbandonedVehicles.sqf");
 VIC_fnc_findWrecks           = compile preprocessFileLineNumbers (_root + "\functions\wrecks\fn_findWrecks.sqf");
 VIC_fnc_startMinefieldManager  = compile preprocessFileLineNumbers (_root + "\functions\minefields\fn_startMinefieldManager.sqf");
@@ -166,6 +167,7 @@ VIC_fnc_manageHostiles           = compile preprocessFileLineNumbers (_root + "\
 VIC_fnc_manageNests              = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageNests.sqf");
 VIC_fnc_manageHabitats           = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageHabitats.sqf");
 VIC_fnc_updateProximity          = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_updateProximity.sqf");
+VIC_fnc_initActivityGrid       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_initActivityGrid.sqf");
 VIC_fnc_updateActivityGrid       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_updateActivityGrid.sqf");
 VIC_fnc_onMutantKilled           = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_onMutantKilled.sqf");
 VIC_fnc_initMutantUnit          = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_initMutantUnit.sqf");
@@ -194,6 +196,7 @@ VIC_fnc_spawnStalkerCamp       = compile preprocessFileLineNumbers (_root + "\fu
 VIC_fnc_spawnStalkerCamps      = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnStalkerCamps.sqf");
 VIC_fnc_spawnSniper           = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnSniper.sqf");
 VIC_fnc_manageStalkerCamps     = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_manageStalkerCamps.sqf");
+VIC_fnc_manageWanderers       = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_manageWanderers.sqf");
 VIC_fnc_manageSnipers        = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_manageSnipers.sqf");
 VIC_fnc_startSniperManager   = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_startSniperManager.sqf");
 
@@ -208,6 +211,7 @@ VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\func
 // --- PostInit ---------------------------------------------------------------
 ["postInit", {
     missionNamespace setVariable ["STALKER_activityGridSize", 500];
+    [] call VIC_fnc_initActivityGrid;
     [] call VIC_fnc_registerEmissionHooks;
     if (call VIC_fnc_isAntistasiUltimate && { ["VSA_disableA3UWeather", false] call VIC_fnc_getSetting }) then {
         [] call VIC_fnc_disableA3UWeather;

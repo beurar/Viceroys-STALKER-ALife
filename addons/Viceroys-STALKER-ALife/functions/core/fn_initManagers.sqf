@@ -9,6 +9,12 @@ if (!isServer) exitWith { false };
 [] call VIC_fnc_startMinefieldManager;
 [] call VIC_fnc_startAmbushManager;
 [] call VIC_fnc_startAnomalyManager;
+[] spawn {
+    while { true } do {
+        [] call VIC_fnc_manageWanderers;
+        sleep 60;
+    };
+};
 [] call VIC_fnc_startSniperManager;
 [
     {

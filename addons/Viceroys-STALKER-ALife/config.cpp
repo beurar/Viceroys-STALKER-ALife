@@ -88,6 +88,7 @@ class CfgFunctions
             class spawnStalkerCamps{};
             class spawnSniper{};
             class manageStalkerCamps{};
+            class manageWanderers{};
             class manageSnipers{};
             class startSniperManager{};
         };
@@ -118,6 +119,7 @@ class CfgFunctions
             class spawnBoobyTraps{};
             class spawnTripwirePerimeter{};
             class manageMinefields{};
+            class manageBoobyTraps{};
             class startMinefieldManager{};
         };
         class Wrecks
