@@ -225,6 +225,15 @@ VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\func
     };
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         [] call VIC_fnc_setupDebugActions;
+        if (isServer && {isNil "VIC_debugGridThread"}) then {
+            VIC_debugGridThread = [] spawn {
+                while { ["VSA_debugMode", false] call VIC_fnc_getSetting } do {
+                    [] call VIC_fnc_updateActivityGrid;
+                    sleep 5;
+                };
+                VIC_debugGridThread = nil;
+            };
+        };
     };
 }] call CBA_fnc_addEventHandler;
 
@@ -246,7 +255,28 @@ VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\func
 // Allow toggling debug mode mid-mission
 ["CBA_SettingChanged", {
     params ["_setting", "_value"];
-    if (hasInterface && {_setting isEqualTo "VSA_debugMode" && {_value}}) then {
-        [] call VIC_fnc_setupDebugActions;
+    if (_setting isEqualTo "VSA_debugMode") then {
+        if (hasInterface && {_value}) then {
+            [] call VIC_fnc_setupDebugActions;
+        };
+        if (isServer) then {
+            if (_value) then {
+                if (isNil "VIC_debugGridThread") then {
+                    VIC_debugGridThread = [] spawn {
+                        while { ["VSA_debugMode", false] call VIC_fnc_getSetting } do {
+                            [] call VIC_fnc_updateActivityGrid;
+                            sleep 5;
+                        };
+                        VIC_debugGridThread = nil;
+                    };
+                };
+            } else {
+                if (!isNil "VIC_debugGridThread") then {
+                    terminate VIC_debugGridThread;
+                    VIC_debugGridThread = nil;
+                    [] call VIC_fnc_updateActivityGrid;
+                };
+            };
+        };
     };
 }] call CBA_fnc_addEventHandler;

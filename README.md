@@ -74,7 +74,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Generates APERS minefields on town outskirts and single IEDs on roads.
 * Mines despawn when no players are nearby and respawn when someone approaches.
 * Enable debug mode to visualize fields and place test minefields via the action menu. Ambush sites can also be spawned this way.
-* When debug mode is enabled the activity grid is drawn on the map with yellow dashed blocks for active squares and red dashed blocks for inactive ones.
+* When debug mode is enabled the activity grid overlay automatically refreshes on the map, drawing yellow dashed blocks for active squares and red dashed blocks for inactive ones.
 * Abandoned and damaged vehicles may appear on or near roads.
 * Tripwires and booby traps can spawn inside buildings around towns.
 * Fallen players leave a red X marker that vanishes once the body is removed.
@@ -176,6 +176,7 @@ Drongo’s system adds creepy events such as ghostly whispers or sudden darkenin
 3. Review `cba_settings.sqf` for adjustable options such as the player nearby range and activity zone depth used by many systems.
 4. Enable **VSA_autoInit** if you want the world to populate automatically on mission start. When disabled, use the debug actions to spawn systems manually.
 5. Enable **VSA_debugMode** to show on-screen debug messages and access testing actions.
+   The activity grid overlay now refreshes automatically while this mode is active.
    This option can now be toggled while a mission is running and the debug
    actions will appear automatically.
 6. When debug mode is active, your scroll menu includes options to trigger storms, spawn stable or unstable anomaly fields, cycle existing fields, spawn spook zones, generate habitats, spawn ambient herds, place booby traps in town buildings, summon predator attacks, trigger AI panic or reset their behaviour, and other test helpers. All spawn actions run on the server so they work correctly in multiplayer. Stable fields will show a randomly generated name on their marker for easy reference.
