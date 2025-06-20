@@ -309,17 +309,12 @@ player addAction ["<t color='#00ff00'>Regenerate Map Points</t>", {
     };
 }];
 
-player addAction ["<t color='#00ff00'>Init Map</t>", {
+player addAction ["<t color='#00ff00'>Load Cache and Init Managers</t>", {
     if (isServer) then {
         [] call VIC_fnc_initMap;
-    } else {
-        [] remoteExec ["VIC_fnc_initMap", 2];
-    };
-}];
-player addAction ["<t color='#00ff00'>Init Managers</t>", {
-    if (isServer) then {
         [] call VIC_fnc_initManagers;
     } else {
+        [] remoteExec ["VIC_fnc_initMap", 2];
         [] remoteExec ["VIC_fnc_initManagers", 2];
     };
 }];
