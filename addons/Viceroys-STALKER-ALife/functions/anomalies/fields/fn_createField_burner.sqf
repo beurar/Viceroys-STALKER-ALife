@@ -19,23 +19,25 @@ if (isNil {_site} || {count _site == 0}) then {
     };
 } else {
     [format ["createField_burner: using site %1", _site]] call VIC_fnc_debugLog;
-};
+}; 
 _site = [_site] call VIC_fnc_findLandPos;
 if (isNil {_site} || {count _site == 0}) exitWith {
     ["createField_burner: land position failed"] call VIC_fnc_debugLog;
     []
 };
 
+private _size = ["VSA_anomalyFieldRadius", 200] call VIC_fnc_getSetting;
+
 // Create a marker for this anomaly field
 if (isNil "STALKER_anomalyMarkers") then { STALKER_anomalyMarkers = [] };
 private _markerName = format ["anom_burner_%1", diag_tickTime];
-private _marker = [_markerName, _site, "ELLIPSE", "", "ColorOrange", 1, "Burner 30m"] call VIC_fnc_createGlobalMarker;
-_marker setMarkerSize [30,30];
+private _marker = [_markerName, _site, "ELLIPSE", "", "ColorOrange", 1, format ["Burner %1m", _size]] call VIC_fnc_createGlobalMarker;
+_marker setMarkerSize [_size,_size];
 STALKER_anomalyMarkers pushBack _marker;
 
 private _spawned = [];
 for "_i" from 1 to _count do {
-    private _off = [_site, random 30, random 360] call BIS_fnc_relPos;
+    private _off = [_site, random _size, random 360] call BIS_fnc_relPos;
     private _surf = [_off] call VIC_fnc_getLandSurfacePosition;
     if (_surf isEqualTo []) then { continue };
     private _create = missionNamespace getVariable ["diwako_anomalies_main_fnc_createBurner", {}];

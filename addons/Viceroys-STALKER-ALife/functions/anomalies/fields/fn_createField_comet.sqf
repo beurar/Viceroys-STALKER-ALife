@@ -26,11 +26,13 @@ if (isNil {_site} || {count _site == 0}) exitWith {
     []
 };
 
+private _size = ["VSA_anomalyFieldRadius", 200] call VIC_fnc_getSetting;
+
 // Create a marker for this anomaly field
 if (isNil "STALKER_anomalyMarkers") then { STALKER_anomalyMarkers = [] };
 private _markerName = format ["anom_comet_%1", diag_tickTime];
 private _marker = [_markerName, _site, "ELLIPSE", "", "ColorOrange", 1, "Comet Path"] call VIC_fnc_createGlobalMarker;
-_marker setMarkerSize [30,30];
+_marker setMarkerSize [_size,_size];
 STALKER_anomalyMarkers pushBack _marker;
 
 private _create = missionNamespace getVariable ["diwako_anomalies_main_fnc_createComet", {}];
