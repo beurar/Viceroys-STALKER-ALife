@@ -73,12 +73,12 @@ if (_debug) then {
             private _mx = (parseNumber (_parts select 0)) * _size + _half;
             private _my = (parseNumber (_parts select 1)) * _size + _half;
             private _name = format ["grid_%1", _key];
-            _marker = [_name, [_mx, _my, 0], "RECTANGLE", "", "ColorRed", 0.1, "", [_size, _size], true] call VIC_fnc_createGlobalMarker;
-            _marker setMarkerBrush "Border";
+            _marker = [_name, [_mx, _my, 0], "RECTANGLE", "", "ColorRed", 1, "", [_size, _size], true] call VIC_fnc_createGlobalMarker;
+            _marker setMarkerBrush "SolidFull";
             STALKER_activityMarkers pushBack [_key, _marker];
         };
         _marker setMarkerColor (if (_active) then {"ColorYellow"} else {"ColorRed"});
-        _marker setMarkerAlpha 0.1;
+        _marker setMarkerAlpha 0.2;
     } forEach STALKER_activityGrid;
 } else {
     {

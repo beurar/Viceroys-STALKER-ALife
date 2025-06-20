@@ -39,13 +39,19 @@ for [{_i = (count STALKER_anomalyFields) - 1}, {_i >= 0}, {_i = _i - 1}] do {
                 _objs = _spawned;
             };
         };
-        if (_marker != "") then { _marker setMarkerAlpha 1; };
+        if (_marker != "") then {
+            _marker setMarkerBrush "Border";
+            _marker setMarkerAlpha 1;
+        };
     } else {
         if ((count _objs) > 0) then {
             { if (!isNull _x) then { deleteVehicle _x; } } forEach _objs;
             _objs = [];
         };
-        if (_marker != "") then { _marker setMarkerAlpha 0.2; };
+        if (_marker != "") then {
+            _marker setMarkerBrush "Border";
+            _marker setMarkerAlpha 1;
+        };
     };
     STALKER_anomalyFields set [_i, [_center,_radius,_fn,_count,_objs,_marker,_site,_exp,_stable]];
 };
