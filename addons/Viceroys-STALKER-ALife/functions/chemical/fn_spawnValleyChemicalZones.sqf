@@ -27,6 +27,11 @@ if (["VSA_enableChemicalZones", true] call VIC_fnc_getSetting isEqualTo false) e
 
 if (isNil "STALKER_chemicalZones") then { STALKER_chemicalZones = []; };
 
+if (isNil "STALKER_valleys") then {
+    private _cached = ["STALKER_valleys"] call VIC_fnc_loadCache;
+    if (!isNil {_cached}) then { STALKER_valleys = _cached; };
+};
+
 if (_count < 0) then { _count = ["VSA_chemicalZoneCount", 2] call VIC_fnc_getSetting; };
 private _nightOnly  = ["VSA_chemicalNightOnly", false] call VIC_fnc_getSetting;
 private _zoneRadius = ["VSA_chemicalZoneRadius", 50] call VIC_fnc_getSetting;
@@ -35,24 +40,28 @@ if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {
     ["spawnValleyChemicalZones: night only"] call VIC_fnc_debugLog;
 };
 
-for "_i" from 1 to _count do {
-    private _centerPos = if (_center isEqualType objNull) then { getPos _center } else { _center };
-    private _ang = random 360;
-    private _dist = random _radius;
-    private _base = [(_centerPos select 0) + _dist * sin _ang, (_centerPos select 1) + _dist * cos _ang, _centerPos select 2];
-    if (_debug && {isServer}) then {
-        private _name = format ["valleyBase_%1", diag_tickTime + random 1000];
-        private _m = [_name, _base, "ICON", "mil_dot", "ColorOrange"] call VIC_fnc_createGlobalMarker;
-        STALKER_valleyBaseMarkers pushBack _m;
-    };
-    private _pos = [_base, 30, 10] call VIC_fnc_findValleyPosition;
-    if (_debug && {isServer && { !(_pos isEqualTo []) }}) then {
-        private _name = format ["valleyAnchor_%1", diag_tickTime + random 1000];
-        private _m = [_name, ASLToAGL _pos, "ICON", "mil_triangle", "ColorYellow"] call VIC_fnc_createGlobalMarker;
-        STALKER_valleyBaseMarkers pushBack _m;
-    };
-    if (_pos isEqualTo []) then { continue };
+private _centerPos = if (_center isEqualType objNull) then { getPos _center } else { _center };
+private _availableValleys = [];
+if (!isNil "STALKER_valleys") then {
+    {
+        private _near = false;
+        {
+            if (_centerPos distance2D _x <= _radius) exitWith { _near = true };
+        } forEach _x;
+        if (_near) then { _availableValleys pushBack _x };
+    } forEach STALKER_valleys;
+};
+_availableValleys = [_availableValleys] call BIS_fnc_arrayShuffle;
 
+for "_i" from 0 to (_count - 1) do {
+    if (_i >= count _availableValleys) exitWith {};
+    private _valley = _availableValleys select _i;
+    private _pos = selectRandom _valley;
+    if (_debug && {isServer}) then {
+        private _name = format ["valleyAnchor_%1", diag_tickTime + random 1000];
+        private _m = [_name, _pos, "ICON", "mil_triangle", "ColorYellow"] call VIC_fnc_createGlobalMarker;
+        STALKER_valleyBaseMarkers pushBack _m;
+    };
     for "_j" from 1 to _clusterSize do {
         private _offAng = random 360;
         private _offDist = random (_zoneRadius / 2);
