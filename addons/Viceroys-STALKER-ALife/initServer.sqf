@@ -25,6 +25,7 @@ STALKER_anomalyFields = [];
 STALKER_minefields = [];
 STALKER_boobyTraps = [];
 STALKER_panicGroups = [];
+STALKER_wanderers = [];
 
 // Prepare spook zone locations via debug action when needed
 // [] call compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\spooks\fn_setupSpookZones.sqf";

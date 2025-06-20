@@ -196,6 +196,7 @@ VIC_fnc_spawnStalkerCamp       = compile preprocessFileLineNumbers (_root + "\fu
 VIC_fnc_spawnStalkerCamps      = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnStalkerCamps.sqf");
 VIC_fnc_spawnSniper           = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnSniper.sqf");
 VIC_fnc_manageStalkerCamps     = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_manageStalkerCamps.sqf");
+VIC_fnc_manageWanderers       = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_manageWanderers.sqf");
 
 VIC_fnc_isAntistasiUltimate  = compile preprocessFileLineNumbers (_root + "\functions\antistasi\fn_isAntistasiUltimate.sqf");
 VIC_fnc_startMutantHunt      = compile preprocessFileLineNumbers (_root + "\functions\antistasi\fn_startMutantHunt.sqf");
