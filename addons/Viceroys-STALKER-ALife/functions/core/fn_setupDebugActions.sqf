@@ -178,6 +178,13 @@ player addAction ["<t color='#0000ff'>Start Ambush Logic</t>", {
         [] remoteExec ["VIC_fnc_startAmbushManager", 2];
     };
 }];
+player addAction ["<t color='#0000ff'>Start Anomaly Logic</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_startAnomalyManager;
+    } else {
+        [] remoteExec ["VIC_fnc_startAnomalyManager", 2];
+    };
+}];
 player addAction ["<t color='#0000ff'>Generate Mutant Habitats</t>", {
     if (isServer) then {
         [] call VIC_fnc_setupMutantHabitats;
