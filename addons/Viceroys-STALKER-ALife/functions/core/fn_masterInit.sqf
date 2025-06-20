@@ -91,6 +91,7 @@ VIC_fnc_spawnAllAnomalyFields    = compile preprocessFileLineNumbers (_root + "\
 VIC_fnc_cycleAnomalyFields       = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_cycleAnomalyFields.sqf");
 VIC_fnc_cleanupAnomalyMarkers    = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_cleanupAnomalyMarkers.sqf");
 VIC_fnc_manageAnomalyFields     = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_manageAnomalyFields.sqf");
+VIC_fnc_startAnomalyManager     = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_startAnomalyManager.sqf");
 VIC_fnc_generateFieldName       = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_generateFieldName.sqf");
 VIC_fnc_findSite_electra         = compile preprocessFileLineNumbers (_root + "\functions\anomalies\find_sites\fn_findSite_electra.sqf");
 VIC_fnc_findSite_springboard     = compile preprocessFileLineNumbers (_root + "\functions\anomalies\find_sites\fn_findSite_springboard.sqf");
