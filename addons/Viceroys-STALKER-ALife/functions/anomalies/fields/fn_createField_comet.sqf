@@ -52,7 +52,7 @@ for "_i" from 1 to _count do {
         // Create an invisible logic object for the waypoint so the comet has
         // an actual entity to follow.
         private _name = format ["comet_%1_%2", _i, _j];
-        private _wp = createVehicle ["Logic", ASLToATL _surf, [], 0, "NONE"];
+        private _wp = "Logic" createVehicleLocal (ASLToATL _surf);
         _wp setVehicleVarName _name;
         missionNamespace setVariable [_name, _wp];
 
