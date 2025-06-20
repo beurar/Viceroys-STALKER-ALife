@@ -142,10 +142,12 @@ player addAction ["<t color='#ff0000'>Spawn Predator Attack</t>", {
     };
 }];
 player addAction ["<t color='#ff0000'>Spawn Minefields</t>", {
+    private _center = [worldSize / 2, worldSize / 2, 0];
+    private _radius = worldSize;
     if (isServer) then {
-        [getPos player, 300] call VIC_fnc_spawnMinefields;
+        [_center, _radius] call VIC_fnc_spawnMinefields;
     } else {
-        [getPos player, 300] remoteExec ["VIC_fnc_spawnMinefields", 2];
+        [_center, _radius] remoteExec ["VIC_fnc_spawnMinefields", 2];
     };
 }];
 player addAction ["<t color='#ff0000'>Spawn Booby Traps</t>", {
