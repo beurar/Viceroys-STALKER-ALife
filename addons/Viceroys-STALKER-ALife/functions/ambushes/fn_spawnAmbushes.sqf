@@ -1,5 +1,5 @@
 /*
-    Spawns ambush sites at road positions far from towns.
+    Spawns ambush sites at road positions just outside towns.
     Params:
         0: POSITION - center position
         1: NUMBER   - search radius (default 500)
@@ -21,7 +21,9 @@ if (isNil "STALKER_ambushes") then { STALKER_ambushes = []; };
 
 if (_count < 0) then { _count = ["VSA_ambushCount", 3] call VIC_fnc_getSetting; };
 
-private _townDist = ["VSA_ambushTownDistance", 700] call VIC_fnc_getSetting;
+private _townRadius = ["VSA_townRadius", 500] call VIC_fnc_getSetting;
+private _bandDist  = ["VSA_ambushTownDistance", 200] call VIC_fnc_getSetting;
+private _outerRadius = _townRadius + _bandDist;
 
 for "_i" from 1 to _count do {
     private _pos = nil;
@@ -33,9 +35,13 @@ for "_i" from 1 to _count do {
         private _locations = nearestLocations [
             _candidate,
             ["NameVillage","NameCity","NameCityCapital","NameLocal"],
-            _townDist
+            _outerRadius
         ];
-        if (_locations isEqualTo []) exitWith { _pos = _candidate };
+        if (_locations isEqualTo []) then { continue; };
+
+        private _loc = _locations select 0;
+        private _dist = _candidate distance2D (locationPosition _loc);
+        if (_dist > _townRadius && { _dist <= _outerRadius }) exitWith { _pos = _candidate };
     };
     if (isNil {_pos}) then { continue; };
 
