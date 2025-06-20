@@ -87,6 +87,8 @@ class CfgFunctions
             class spawnStalkerCamp{};
             class spawnStalkerCamps{};
             class spawnSniper{};
+            class manageSnipers{};
+            class startSniperManager{};
             class manageStalkerCamps{};
             class manageWanderers{};
         };
@@ -249,6 +251,7 @@ class CfgRemoteExec
         class VIC_fnc_spawnAmbientStalkers { allowedTargets = 2; };
         class VIC_fnc_spawnStalkerCamps   { allowedTargets = 2; };
         class VIC_fnc_spawnSniper         { allowedTargets = 2; };
+        class VIC_fnc_startSniperManager  { allowedTargets = 2; };
         class VIC_fnc_spawnPredatorAttack { allowedTargets = 2; };
         class VIC_fnc_spawnMinefields     { allowedTargets = 2; };
         class VIC_fnc_spawnBoobyTraps     { allowedTargets = 2; };
