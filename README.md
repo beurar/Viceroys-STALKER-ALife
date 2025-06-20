@@ -19,6 +19,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Relies on **Diwako’s Anomalies** for the core anomaly logic.
 * Fields are distributed randomly across the entire map but avoid towns by 500 meters.
 * Field radius is configurable via the `VSA_anomalyFieldRadius` CBA setting (default 200m, up to 2000m).
+* Each field spawns a random number of anomalies up to the `VSA_anomaliesPerField` CBA setting (default 40, min 5, max 200).
 * Fields can be **Stable** or **Unstable**. Stable fields remain in place
   and only reshuffle their anomalies during an emission. Unstable fields are
   deleted after an emission and respawn at new random positions. The ratio of

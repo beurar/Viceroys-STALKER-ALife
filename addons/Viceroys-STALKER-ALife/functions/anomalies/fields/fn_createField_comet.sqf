@@ -3,11 +3,11 @@
     Params:
         0: POSITION or OBJECT - search center
         1: NUMBER - search radius
-        2: NUMBER (optional) - anomaly count (default 1)
+        2: NUMBER (optional) - anomaly count (-1 = random)
         3: ARRAY (optional) - site position to use (must be valid when provided)
     Returns: ARRAY - spawned anomaly triggers
 */
-params ["_center","_radius", ["_count",1], ["_site", []]];
+params ["_center","_radius", ["_count",-1], ["_site", []]];
 
 ["fn_createField_comet"] call VIC_fnc_debugLog;
 
@@ -24,6 +24,12 @@ _site = [_site] call VIC_fnc_findLandPos;
 if (isNil {_site} || {count _site == 0}) exitWith {
     ["createField_comet: land position failed"] call VIC_fnc_debugLog;
     []
+};
+
+if (_count < 0) then {
+    private _max = ["VSA_anomaliesPerField", 40] call VIC_fnc_getSetting;
+    _max = _max max 5;
+    _count = floor (random (_max - 5 + 1)) + 5;
 };
 
 private _size = ["VSA_anomalyFieldRadius", 200] call VIC_fnc_getSetting;

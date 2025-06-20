@@ -12,6 +12,7 @@
     true
 ] call CBA_fnc_addSetting;
 
+
 // -----------------------------------------------------------------------------
 // Core
 // -----------------------------------------------------------------------------
@@ -116,6 +117,14 @@
     ["Anomaly Field Radius", "Radius of each anomaly field"],
     "Viceroy's STALKER ALife - Anomalies",
     [0, 2000, 200, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_anomaliesPerField",
+    "SLIDER",
+    ["Max Anomalies per Field", "Upper limit for anomalies spawned"],
+    "Viceroy's STALKER ALife - Anomalies",
+    [5, 200, 40, 0]
 ] call CBA_fnc_addSetting;
 
 [
