@@ -94,7 +94,8 @@ for "_i" from 1 to _fieldCount do {
     private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
     private _site   = if (_marker isEqualTo "") then { getPosATL (_spawned select 0) } else { getMarkerPos _marker };
     if (_marker != "") then {
-        _marker setMarkerAlpha 0.2;
+        _marker setMarkerBrush "Border";
+        _marker setMarkerAlpha 1;
         if (_stable) then {
             _marker setMarkerText ([_typeName, _site] call VIC_fnc_generateFieldName);
         };

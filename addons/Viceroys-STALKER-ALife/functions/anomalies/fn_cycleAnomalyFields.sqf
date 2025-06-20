@@ -28,6 +28,7 @@ if (isServer && !isNil "STALKER_anomalyFields") then {
             _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
             _site = getMarkerPos _marker;
             _objs = _spawned;
+            if (_marker != "") then { _marker setMarkerBrush "Border"; _marker setMarkerAlpha 1; };
             if (_stable && {_marker != ""}) then {
                 private _type = switch (_fn) do {
                     case VIC_fnc_createField_burner: {"burner"};

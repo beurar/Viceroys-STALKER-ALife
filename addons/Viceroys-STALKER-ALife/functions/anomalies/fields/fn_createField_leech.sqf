@@ -37,6 +37,7 @@ private _markerName = format ["anom_leech_%1", diag_tickTime];
 private _size = ["VSA_anomalyFieldRadius", 200] call VIC_fnc_getSetting;
 private _marker = [_markerName, _site, "ELLIPSE", "", "ColorBlack", 1, format ["Leech %1m", _size]] call VIC_fnc_createGlobalMarker;
 _marker setMarkerSize [_size,_size];
+_marker setMarkerBrush "Border";
 STALKER_anomalyMarkers pushBack _marker;
 
 private _spawned = [];

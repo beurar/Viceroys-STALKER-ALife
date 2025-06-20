@@ -76,7 +76,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Generates APERS minefields on town outskirts and single IEDs on roads.
 * Mines despawn when no players are nearby and respawn when someone approaches.
 * Enable debug mode to visualize fields and place test minefields via the action menu. Ambush sites can also be spawned this way.
-* When debug mode is enabled the activity grid overlay automatically refreshes on the map, drawing yellow dashed blocks for active squares and red dashed blocks for inactive ones.
+* When debug mode is enabled the activity grid overlay automatically refreshes on the map, filling each grid block with 20% opacity: yellow for active squares and red for inactive ones.
 * Abandoned and damaged vehicles may appear on or near roads.
 * Tripwires and booby traps can spawn inside buildings around towns.
 * Fallen players leave a red X marker that vanishes once the body is removed.

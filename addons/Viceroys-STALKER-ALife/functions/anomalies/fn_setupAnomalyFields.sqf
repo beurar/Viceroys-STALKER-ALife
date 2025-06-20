@@ -24,7 +24,28 @@ private _createField = {
     if (_spawned isEqualTo []) exitWith { false };
 
     private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
-    if (_marker != "") then { _marker setMarkerAlpha 0.2; };
+    if (_marker != "") then {
+        _marker setMarkerBrush "Border";
+        _marker setMarkerAlpha 1;
+        private _type = switch (_fn) do {
+            case VIC_fnc_createField_burner: {"burner"};
+            case VIC_fnc_createField_electra: {"electra"};
+            case VIC_fnc_createField_fruitpunch: {"fruitpunch"};
+            case VIC_fnc_createField_springboard: {"springboard"};
+            case VIC_fnc_createField_gravi: {"gravi"};
+            case VIC_fnc_createField_meatgrinder: {"meatgrinder"};
+            case VIC_fnc_createField_whirligig: {"whirligig"};
+            case VIC_fnc_createField_comet: {"comet"};
+            case VIC_fnc_createField_clicker: {"clicker"};
+            case VIC_fnc_createField_launchpad: {"launchpad"};
+            case VIC_fnc_createField_leech: {"leech"};
+            case VIC_fnc_createField_trapdoor: {"trapdoor"};
+            case VIC_fnc_createField_zapper: {"zapper"};
+            case VIC_fnc_createField_bridgeElectra: {"bridge"};
+            default {""};
+        };
+        _marker setMarkerText ([_type, _pos] call VIC_fnc_generateFieldName);
+    };
     private _dur = missionNamespace getVariable ["STALKER_AnomalyFieldDuration", 30];
     private _exp = diag_tickTime + (_dur * 60);
 
