@@ -73,7 +73,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 ### Minefields
 * Generates APERS minefields on town outskirts and single IEDs on roads.
 * Mines despawn when no players are nearby and respawn when someone approaches.
-* Enable debug mode to visualize fields and place test minefields via the action menu. Ambush sites can also be spawned this way.
+* Enable debug mode to visualize fields and place test minefields anywhere on the map via the action menu. Ambush sites can also be spawned this way.
 * When debug mode is enabled the activity grid is drawn on the map with yellow dashed blocks for active squares and red dashed blocks for inactive ones.
 * Abandoned and damaged vehicles may appear on or near roads.
 * Tripwires and booby traps can spawn inside buildings around towns.
