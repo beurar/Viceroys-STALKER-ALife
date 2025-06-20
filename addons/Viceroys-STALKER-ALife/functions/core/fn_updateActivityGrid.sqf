@@ -25,7 +25,7 @@ private _cells = [];
     private _gx = floor ((_pos select 0) / _size);
     private _gy = floor ((_pos select 1) / _size);
     private _depth = ["VSA_activityZoneDepth", 4] call VIC_fnc_getSetting;
-    private _rad = [_depth, ceil((_range + _diag) / _size)] call BIS_fnc_max;
+    private _rad = _depth max ceil((_range + _diag) / _size);
     for "_ix" from (_gx - _rad) to (_gx + _rad) do {
         for "_iy" from (_gy - _rad) to (_gy + _rad) do {
             private _cx = _ix * _size + _half;
@@ -39,7 +39,7 @@ private _cells = [];
 } forEach allPlayers;
 
 // Update grid states
-for [{_i=0},{_i < count STALKER_activityGrid},{_i=_i+1}] do {
+for "_i" from 0 to ((count STALKER_activityGrid) - 1) do {
     private _entry = STALKER_activityGrid select _i;
     private _key = _entry select 0;
     private _isActive = (_cells find _key) > -1;
@@ -50,7 +50,7 @@ for [{_i=0},{_i < count STALKER_activityGrid},{_i=_i+1}] do {
 {
     private _key = _x;
     private _exists = false;
-    for [{_i=0},{_i < count STALKER_activityGrid},{_i=_i+1}] do {
+    for "_i" from 0 to ((count STALKER_activityGrid) - 1) do {
         if ((STALKER_activityGrid select _i) select 0 == _key) exitWith { _exists = true; };
     };
     if (!_exists) then { STALKER_activityGrid pushBack [_key, true]; };
@@ -62,7 +62,7 @@ if (_debug) then {
     {
         _x params ["_key","_active"];
         private _idx = -1;
-        for [{_j=0},{_j < count STALKER_activityMarkers},{_j=_j+1}] do {
+        for "_j" from 0 to ((count STALKER_activityMarkers) - 1) do {
             if ((STALKER_activityMarkers select _j) select 0 == _key) exitWith { _idx = _j; };
         };
         private _marker = "";
@@ -82,7 +82,7 @@ if (_debug) then {
     } forEach STALKER_activityGrid;
 } else {
     {
-        _x params ["_key","_marker"];
+        private _marker = _x select 1;
         if (_marker != "") then { deleteMarker _marker; };
     } forEach STALKER_activityMarkers;
     STALKER_activityMarkers = [];
