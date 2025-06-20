@@ -109,6 +109,7 @@ class CfgFunctions
             file = "Viceroys-STALKER-ALife\functions\spooks";
             class setupSpookZones{};
             class spawnSpookZone{};
+            class manageSpookZones{};
         };
         class Minefields
         {

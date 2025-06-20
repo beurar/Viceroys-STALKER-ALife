@@ -13,6 +13,7 @@ if (!isServer) exitWith { false };
 [] spawn {
     while { true } do {
         [] call VIC_fnc_manageWanderers;
+        [] call VIC_fnc_manageSpookZones;
         sleep 60;
     };
 };
