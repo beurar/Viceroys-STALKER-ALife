@@ -88,6 +88,7 @@ class CfgFunctions
             class spawnStalkerCamps{};
             class spawnSniper{};
             class manageStalkerCamps{};
+            class manageWanderers{};
         };
 
 

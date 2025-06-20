@@ -14,6 +14,7 @@ if (!isServer) exitWith {};
 if (["VSA_enableAmbientStalkers", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
 
 if (isNil "STALKER_stalkerGroups") then { STALKER_stalkerGroups = []; };
+if (isNil "STALKER_wanderers") then { STALKER_wanderers = []; };
 
 private _groupCount = ["VSA_ambientStalkerGroups", 2] call VIC_fnc_getSetting;
 private _groupSize  = ["VSA_ambientStalkerSize", 4] call VIC_fnc_getSetting;
@@ -45,4 +46,5 @@ for "_i" from 1 to _groupCount do {
     };
 
     STALKER_stalkerGroups pushBack [_grp, _marker];
+    STALKER_wanderers pushBack [_grp, _pos, _marker];
 };
