@@ -138,6 +138,7 @@ VIC_fnc_manageMinefields       = compile preprocessFileLineNumbers (_root + "\fu
 VIC_fnc_manageBoobyTraps       = compile preprocessFileLineNumbers (_root + "\functions\minefields\fn_manageBoobyTraps.sqf");
 VIC_fnc_spawnAbandonedVehicles = compile preprocessFileLineNumbers (_root + "\functions\wrecks\fn_spawnAbandonedVehicles.sqf");
 VIC_fnc_findWrecks           = compile preprocessFileLineNumbers (_root + "\functions\wrecks\fn_findWrecks.sqf");
+VIC_fnc_manageWrecks         = compile preprocessFileLineNumbers (_root + "\functions\wrecks\fn_manageWrecks.sqf");
 VIC_fnc_startMinefieldManager  = compile preprocessFileLineNumbers (_root + "\functions\minefields\fn_startMinefieldManager.sqf");
 VIC_fnc_spawnAmbushes          = compile preprocessFileLineNumbers (_root + "\functions\ambushes\fn_spawnAmbushes.sqf");
 VIC_fnc_manageAmbushes         = compile preprocessFileLineNumbers (_root + "\functions\ambushes\fn_manageAmbushes.sqf");
