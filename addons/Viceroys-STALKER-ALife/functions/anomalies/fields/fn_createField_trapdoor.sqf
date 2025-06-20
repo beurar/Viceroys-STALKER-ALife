@@ -29,6 +29,8 @@ if (_count < 0) then {
     private _max = ["VSA_anomaliesPerField", 40] call VIC_fnc_getSetting;
     _max = _max max 5;
     _count = floor (random (_max - 5 + 1)) + 5;
+    private _dens = ["VSA_anomalyDensity_Trapdoor",100] call VIC_fnc_getSetting;
+    _count = round (_count * (_dens / 100));
 };
 
 // Create a marker for this anomaly field

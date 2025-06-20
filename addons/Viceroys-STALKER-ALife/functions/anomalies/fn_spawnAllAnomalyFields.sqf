@@ -36,21 +36,21 @@ if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {
 
 if (isNil "STALKER_anomalyFields") then { STALKER_anomalyFields = [] };
 
-private _types = [
-    VIC_fnc_createField_burner,
-    VIC_fnc_createField_clicker,
-    VIC_fnc_createField_electra,
-    VIC_fnc_createField_fruitpunch,
-    VIC_fnc_createField_gravi,
-    VIC_fnc_createField_meatgrinder,
-    VIC_fnc_createField_springboard,
-    VIC_fnc_createField_whirligig,
-    VIC_fnc_createField_comet,
-    VIC_fnc_createField_launchpad,
-    VIC_fnc_createField_leech,
-    VIC_fnc_createField_trapdoor,
-    VIC_fnc_createField_zapper,
-    VIC_fnc_createField_bridgeElectra
+private _weights = [
+    [VIC_fnc_createField_burner,      ["VSA_anomalyWeight_Burner",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_clicker,     ["VSA_anomalyWeight_Clicker",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_electra,     ["VSA_anomalyWeight_Electra",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_fruitpunch,  ["VSA_anomalyWeight_Fruitpunch",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_gravi,       ["VSA_anomalyWeight_Gravi",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_meatgrinder, ["VSA_anomalyWeight_Meatgrinder",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_springboard, ["VSA_anomalyWeight_Springboard",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_whirligig,   ["VSA_anomalyWeight_Whirligig",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_comet,       ["VSA_anomalyWeight_Comet",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_launchpad,   ["VSA_anomalyWeight_Launchpad",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_leech,       ["VSA_anomalyWeight_Leech",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_trapdoor,    ["VSA_anomalyWeight_Trapdoor",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_zapper,      ["VSA_anomalyWeight_Zapper",100] call VIC_fnc_getSetting],
+    [VIC_fnc_createField_bridgeElectra,["VSA_anomalyWeight_Bridge",100] call VIC_fnc_getSetting]
 ];
 
 for "_i" from 1 to _fieldCount do {
@@ -63,7 +63,7 @@ for "_i" from 1 to _fieldCount do {
     private _pos = [[random worldSize, random worldSize, 0], worldSize, 10] call VIC_fnc_findLandPos;
     if (isNil {_pos} || {_pos isEqualTo []}) then { continue };
 
-    private _fn = selectRandom _types;
+    private _fn = [_weights] call VIC_fnc_weightedPick;
     private _typeName = switch (_fn) do {
         case VIC_fnc_createField_burner: {"burner"};
         case VIC_fnc_createField_electra: {"electra"};
