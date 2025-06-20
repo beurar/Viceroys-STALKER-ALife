@@ -31,13 +31,17 @@ for [{_i = (count STALKER_anomalyFields) - 1}, {_i >= 0}, {_i = _i - 1}] do {
     private _near = [_pos,_dist] call VIC_fnc_hasPlayersNearby;
 
     if (_near) then {
-        if (_objs isEqualTo []) then {
+        if (_objs isEqualTo [] || {{isNull _x} count _objs == count _objs}) then {
             private _spawned = [_center,_radius,_count,_site] call _fn;
             if (!(_spawned isEqualTo [])) then {
                 _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
                 _site = getMarkerPos _marker;
                 _objs = _spawned;
+            } else {
+                _objs = [];
             };
+        } else {
+            _objs = _objs select { !isNull _x };
         };
         if (_marker != "") then {
             _marker setMarkerBrush "Border";
@@ -50,7 +54,7 @@ for [{_i = (count STALKER_anomalyFields) - 1}, {_i >= 0}, {_i = _i - 1}] do {
         };
         if (_marker != "") then {
             _marker setMarkerBrush "Border";
-            _marker setMarkerAlpha 1;
+            _marker setMarkerAlpha 0.2;
         };
     };
     STALKER_anomalyFields set [_i, [_center,_radius,_fn,_count,_objs,_marker,_site,_exp,_stable]];
