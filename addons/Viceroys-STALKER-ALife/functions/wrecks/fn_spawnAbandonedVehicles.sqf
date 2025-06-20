@@ -38,6 +38,7 @@ for "_i" from 1 to _count do {
             _veh setDamage (0.3 + random 0.7);
             _veh setFuel 0;
             _veh lock 2;
+            _veh setVariable ["VIC_wreckSite", ASLtoATL _pos];
             STALKER_wrecks pushBack _veh;
         };
     };

@@ -16,6 +16,12 @@ if (!isServer) exitWith { false };
         sleep 60;
     };
 };
+[] spawn {
+    while { true } do {
+        [] call VIC_fnc_manageWrecks;
+        sleep 60;
+    };
+};
 [
     {
         while { true } do {
