@@ -11,17 +11,18 @@
 params ["_pos", "_radius"];
 
 // Use the activity grid when available for quick lookups
-if (!isNil "STALKER_activityGrid") exitWith {
+if (!isNil "STALKER_activityGrid") then {
     private _size = missionNamespace getVariable ["STALKER_activityGridSize", 500];
     private _gx = floor ((_pos select 0) / _size);
     private _gy = floor ((_pos select 1) / _size);
     private _key = format ["%1_%2", _gx, _gy];
+    private _found = false;
     private _near = false;
     {
         _x params ["_cell","_state"];
-        if (_cell == _key) exitWith { _near = _state; };
+        if (_cell == _key) exitWith { _found = true; _near = _state; };
     } forEach STALKER_activityGrid;
-    _near
+    if (_found) exitWith { _near };
 };
 
 // Fallback radial search
