@@ -23,6 +23,7 @@ STALKER_activePredators = [];
 STALKER_mutantNests = [];
 STALKER_anomalyFields = [];
 STALKER_minefields = [];
+STALKER_boobyTraps = [];
 STALKER_panicGroups = [];
 
 // Prepare spook zone locations via debug action when needed

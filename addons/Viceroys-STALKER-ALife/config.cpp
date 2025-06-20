@@ -116,6 +116,7 @@ class CfgFunctions
             class spawnBoobyTraps{};
             class spawnTripwirePerimeter{};
             class manageMinefields{};
+            class manageBoobyTraps{};
             class startMinefieldManager{};
         };
         class Wrecks

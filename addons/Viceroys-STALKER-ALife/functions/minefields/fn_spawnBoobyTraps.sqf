@@ -5,22 +5,23 @@
         1: NUMBER   - search radius (default 500)
         2: NUMBER   - trap count (optional)
     Returns:
-        ARRAY - spawned trap objects
+        BOOL
 */
 params ["_center", ["_radius",500], ["_count",-1]];
 
 ["spawnBoobyTraps"] call VIC_fnc_debugLog;
 
-if (!isServer) exitWith { [] };
+if (!isServer) exitWith { false };
 
-if (["VSA_enableBoobyTraps", true] call VIC_fnc_getSetting isEqualTo false) exitWith { [] };
+if (["VSA_enableBoobyTraps", true] call VIC_fnc_getSetting isEqualTo false) exitWith { false };
 
 if (_count < 0) then { _count = ["VSA_boobyTrapCount",5] call VIC_fnc_getSetting; };
 
 private _towns = nearestLocations [_center, ["NameVillage","NameCity","NameCityCapital","NameLocal"], _radius];
-if (_towns isEqualTo []) exitWith { [] };
 
-private _spawned = [];
+if (_towns isEqualTo []) exitWith { false };
+
+if (isNil "STALKER_boobyTraps") then { STALKER_boobyTraps = [] };
 
 for "_i" from 1 to _count do {
     if (_towns isEqualTo []) exitWith {};
@@ -34,14 +35,13 @@ for "_i" from 1 to _count do {
     if (_positions isEqualTo []) then { continue; };
 
     private _pos = selectRandom _positions;
-    private _type = selectRandom ["APERSTripMine_Wire","IEDUrbanSmall_F"];
-    private _mine = createMine [_type, _pos, [], 0];
-    _spawned pushBack _mine;
-
+    private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
-        private _marker = format ["trap_%1", diag_tickTime + _i];
+        _marker = format ["trap_%1", diag_tickTime + _i];
         [_marker, _pos, "ICON", "mil_triangle", "ColorOrange", 0.2, "Trap"] call VIC_fnc_createGlobalMarker;
     };
+
+    STALKER_boobyTraps pushBack [_pos, [], _marker];
 };
 
-_spawned
+true
