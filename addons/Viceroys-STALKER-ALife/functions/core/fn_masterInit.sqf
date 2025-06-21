@@ -217,19 +217,20 @@ VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\func
     if (call VIC_fnc_isAntistasiUltimate && { ["VSA_disableA3UWeather", false] call VIC_fnc_getSetting }) then {
         [] call VIC_fnc_disableA3UWeather;
     };
-    if (["VSA_autoInit", false] call VIC_fnc_getSetting) then {
-    [
-        {
-            while {true} do {
-                [] call VIC_fnc_updateProximity;
-                [] call VIC_fnc_updateActivityGrid;
-                private _delay = if (["VSA_autoInit", false] call VIC_fnc_getSetting) then {5} else { ["VSA_proximityCheckInterval", 0] call VIC_fnc_getSetting };
-                sleep _delay;
-            };
-        }, [], 8
-    ] call CBA_fnc_waitAndExecute;
-    // Additional managers have been disabled for quicker startup and can be
-    // invoked via debug actions when needed.
+    if (isServer && {isNil "VIC_activityGridThread"}) then {
+        VIC_activityGridThread = [
+            {
+                while {true} do {
+                    [] call VIC_fnc_updateProximity;
+                    [] call VIC_fnc_updateActivityGrid;
+                    private _delay = ["VSA_proximityCheckInterval", 5] call VIC_fnc_getSetting;
+                    if (["VSA_autoInit", false] call VIC_fnc_getSetting) then { _delay = 5 };
+                    sleep _delay;
+                };
+            }, [], 8
+        ] call CBA_fnc_waitAndExecute;
+        // Additional managers have been disabled for quicker startup and can be
+        // invoked via debug actions when needed.
     };
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         [] call VIC_fnc_setupDebugActions;
