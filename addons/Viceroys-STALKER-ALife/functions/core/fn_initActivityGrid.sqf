@@ -21,4 +21,7 @@ for "_gx" from 0 to _max do {
     };
 };
 
+// Draw initial grid markers in debug mode
+[] call VIC_fnc_updateActivityGrid;
+
 true
