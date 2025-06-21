@@ -50,6 +50,12 @@ for "_i" from 1 to _fieldCount do {
         _marker setMarkerSize [_size/2, _size/2];
     };
     STALKER_minefields pushBack [_pos,"APERS",_size,[],_marker];
+    private _idx = (count STALKER_minefields) - 1;
+    private _gs = missionNamespace getVariable ["STALKER_activityGridSize", 500];
+    private _gx = floor ((_pos select 0) / _gs);
+    private _gy = floor ((_pos select 1) / _gs);
+    private _key = format ["%1_%2", _gx, _gy];
+    [_key, "minefield", _idx] call VIC_fnc_sitePlaced;
 };
 
 for "_i" from 1 to _iedCount do {
@@ -69,6 +75,12 @@ for "_i" from 1 to _iedCount do {
         [_marker, _pos, "ICON", "mil_triangle", "ColorRed", 0.2, "IED"] call VIC_fnc_createGlobalMarker;
     };
     STALKER_minefields pushBack [_pos,"IED",0,[],_marker];
+    private _idx = (count STALKER_minefields) - 1;
+    private _gs = missionNamespace getVariable ["STALKER_activityGridSize", 500];
+    private _gx = floor ((_pos select 0) / _gs);
+    private _gy = floor ((_pos select 1) / _gs);
+    private _key = format ["%1_%2", _gx, _gy];
+    [_key, "minefield", _idx] call VIC_fnc_sitePlaced;
 };
 
 if !(missionNamespace getVariable ["VIC_minefieldManagerRunning", false]) then {
