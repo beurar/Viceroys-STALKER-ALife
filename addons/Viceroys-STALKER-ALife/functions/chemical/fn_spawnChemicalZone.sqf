@@ -82,4 +82,11 @@ STALKER_chemicalZones pushBack [
     _expires
 ];
 
+private _idx = (count STALKER_chemicalZones) - 1;
+private _gs = missionNamespace getVariable ["STALKER_activityGridSize", 500];
+private _gx = floor ((_position select 0) / _gs);
+private _gy = floor ((_position select 1) / _gs);
+private _key = format ["%1_%2", _gx, _gy];
+[_key, "chemical", _idx] call VIC_fnc_sitePlaced;
+
 true;

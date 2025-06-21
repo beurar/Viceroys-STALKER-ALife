@@ -41,8 +41,19 @@ private _cells = [];
 // Update grid states
 for "_i" from 0 to ((count STALKER_activityGrid) - 1) do {
     private _entry = STALKER_activityGrid select _i;
-    private _key = _entry select 0;
+    _entry params ["_key","_prevActive"];
     private _isActive = (_cells find _key) > -1;
+    if (_isActive != _prevActive) then {
+        private _regIdx = STALKER_siteRegistry findIf { (_x select 0) isEqualTo _key };
+        if (_regIdx >= 0) then {
+            private _sites = STALKER_siteRegistry select _regIdx select 1;
+            {
+                _x params ["_type","_sIndex"];
+                if (_isActive) then { [_type,_sIndex] call VIC_fnc_activateSite; }
+                else { [_type,_sIndex] call VIC_fnc_deactivateSite; };
+            } forEach _sites;
+        };
+    };
     STALKER_activityGrid set [_i, [_key, _isActive]];
 };
 
@@ -53,7 +64,16 @@ for "_i" from 0 to ((count STALKER_activityGrid) - 1) do {
     for "_i" from 0 to ((count STALKER_activityGrid) - 1) do {
         if ((STALKER_activityGrid select _i) select 0 == _key) exitWith { _exists = true; };
     };
-    if (!_exists) then { STALKER_activityGrid pushBack [_key, true]; };
+    if (!_exists) then {
+        STALKER_activityGrid pushBack [_key, true];
+        private _regIdx = STALKER_siteRegistry findIf { (_x select 0) isEqualTo _key };
+        if (_regIdx >= 0) then {
+            {
+                _x params ["_type","_sIndex"];
+                [_type,_sIndex] call VIC_fnc_activateSite;
+            } forEach (STALKER_siteRegistry select _regIdx select 1);
+        };
+    };
 } forEach _cells;
 
 private _debug = ["VSA_debugMode", false] call VIC_fnc_getSetting;

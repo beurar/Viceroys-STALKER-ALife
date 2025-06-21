@@ -32,6 +32,9 @@ class CfgFunctions
             class selectWeightedBuilding{};
             class findBridges{};
             class radioMessage{};
+            class sitePlaced{};
+            class activateSite{};
+            class deactivateSite{};
         };
 
         class AI
@@ -100,6 +103,8 @@ class CfgFunctions
             class cleanupChemicalZones{};
             class spawnChemicalZone{};
             class spawnRandomChemicalZones{};
+            class activateSite{};
+            class deactivateSite{};
             class onEmissionStart{};
             class onEmissionEnd{};
         };
@@ -119,6 +124,8 @@ class CfgFunctions
             class spawnIED{};
             class spawnBoobyTraps{};
             class spawnTripwirePerimeter{};
+            class activateSite{};
+            class deactivateSite{};
             class manageMinefields{};
             class manageBoobyTraps{};
             class startMinefieldManager{};
@@ -174,6 +181,8 @@ class CfgFunctions
             class cleanupAnomalyMarkers{};
             class manageAnomalyFields{};
             class startAnomalyManager{};
+            class activateSite{};
+            class deactivateSite{};
             class onEmissionBuildUp{};
             class onEmissionStart{};
             class onEmissionEnd{};

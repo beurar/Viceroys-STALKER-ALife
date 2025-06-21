@@ -170,6 +170,13 @@ VIC_fnc_manageHabitats           = compile preprocessFileLineNumbers (_root + "\
 VIC_fnc_updateProximity          = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_updateProximity.sqf");
 VIC_fnc_initActivityGrid       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_initActivityGrid.sqf");
 VIC_fnc_updateActivityGrid       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_updateActivityGrid.sqf");
+call compile preprocessFileLineNumbers (_root + "\functions\core\fn_siteRegistry.sqf");
+minefields_fnc_activateSite   = compile preprocessFileLineNumbers (_root + "\functions\minefields\fn_activateSite.sqf");
+minefields_fnc_deactivateSite = compile preprocessFileLineNumbers (_root + "\functions\minefields\fn_deactivateSite.sqf");
+chemical_fnc_activateSite     = compile preprocessFileLineNumbers (_root + "\functions\chemical\fn_activateSite.sqf");
+chemical_fnc_deactivateSite   = compile preprocessFileLineNumbers (_root + "\functions\chemical\fn_deactivateSite.sqf");
+anomalies_fnc_activateSite    = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_activateSite.sqf");
+anomalies_fnc_deactivateSite  = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_deactivateSite.sqf");
 VIC_fnc_onMutantKilled           = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_onMutantKilled.sqf");
 VIC_fnc_initMutantUnit          = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_initMutantUnit.sqf");
 panic_fnc_onEmissionBuildUp  = compile preprocessFileLineNumbers (_root + "\functions\panic\fn_onEmissionBuildUp.sqf");
