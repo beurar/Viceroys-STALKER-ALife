@@ -202,7 +202,6 @@ class CfgFunctions
             class createField_meatgrinder{};
             class createField_springboard{};
             class createField_whirligig{};
-            class createField_comet{};
             class createField_launchpad{};
             class createField_leech{};
             class createField_trapdoor{};
@@ -221,7 +220,6 @@ class CfgFunctions
             class findSite_meatgrinder{};
             class findSite_springboard{};
             class findSite_whirligig{};
-            class findSite_comet{};
             class findSite_launchpad{};
             class findSite_leech{};
             class findSite_trapdoor{};

@@ -45,7 +45,6 @@ private _weights = [
     [VIC_fnc_createField_meatgrinder, ["VSA_anomalyWeight_Meatgrinder",100] call VIC_fnc_getSetting],
     [VIC_fnc_createField_springboard, ["VSA_anomalyWeight_Springboard",100] call VIC_fnc_getSetting],
     [VIC_fnc_createField_whirligig,   ["VSA_anomalyWeight_Whirligig",100] call VIC_fnc_getSetting],
-    [VIC_fnc_createField_comet,       ["VSA_anomalyWeight_Comet",100] call VIC_fnc_getSetting],
     [VIC_fnc_createField_launchpad,   ["VSA_anomalyWeight_Launchpad",100] call VIC_fnc_getSetting],
     [VIC_fnc_createField_leech,       ["VSA_anomalyWeight_Leech",100] call VIC_fnc_getSetting],
     [VIC_fnc_createField_trapdoor,    ["VSA_anomalyWeight_Trapdoor",100] call VIC_fnc_getSetting],
@@ -72,7 +71,6 @@ for "_i" from 1 to _fieldCount do {
         case VIC_fnc_createField_gravi: {"gravi"};
         case VIC_fnc_createField_meatgrinder: {"meatgrinder"};
         case VIC_fnc_createField_whirligig: {"whirligig"};
-        case VIC_fnc_createField_comet: {"comet"};
         case VIC_fnc_createField_clicker: {"clicker"};
         case VIC_fnc_createField_launchpad: {"launchpad"};
         case VIC_fnc_createField_leech: {"leech"};
