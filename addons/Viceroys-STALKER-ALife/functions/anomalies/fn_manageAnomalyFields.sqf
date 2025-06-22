@@ -2,7 +2,7 @@
     Activates or deactivates anomaly fields based on player proximity and
     removes expired entries.
     STALKER_anomalyFields entries:
-        [center, radius, fn, count, objects, marker, site, expires, stable]
+        [center, radius, fn, count, objects, marker, site, expires, stable, active]
 */
 ["manageAnomalyFields"] call VIC_fnc_debugLog;
 
@@ -11,7 +11,7 @@ if (isNil "STALKER_anomalyFields") exitWith {};
 
 for [{_i = (count STALKER_anomalyFields) - 1}, {_i >= 0}, {_i = _i - 1}] do {
     private _entry = STALKER_anomalyFields select _i;
-    _entry params ["_center","_radius","_fn","_count","_objs","_marker","_site","_exp","_stable"];
+    _entry params ["_center","_radius","_fn","_count","_objs","_marker","_site","_exp","_stable",["_active",false]];
 
     if (_exp >= 0 && {diag_tickTime > _exp}) then {
         { if (!isNull _x) then { deleteVehicle _x; } } forEach _objs;
@@ -28,10 +28,10 @@ for [{_i = (count STALKER_anomalyFields) - 1}, {_i >= 0}, {_i = _i - 1}] do {
 
     private _pos = if (_site isEqualTo []) then {_center} else {_site};
     private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
-    private _near = [_pos,_dist] call VIC_fnc_hasPlayersNearby;
+    private _newActive = [_pos,_dist,_active] call VIC_fnc_evalSiteProximity;
 
-    if (_near) then {
-        if (_objs isEqualTo [] || {{isNull _x} count _objs == count _objs}) then {
+    if (_newActive) then {
+        if (!_active || {_objs isEqualTo [] || {{isNull _x} count _objs == count _objs}}) then {
             private _spawned = [_center,_radius,_count,_site] call _fn;
             if (!(_spawned isEqualTo [])) then {
                 _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
@@ -48,7 +48,7 @@ for [{_i = (count STALKER_anomalyFields) - 1}, {_i >= 0}, {_i = _i - 1}] do {
             _marker setMarkerAlpha 1;
         };
     } else {
-        if ((count _objs) > 0) then {
+        if (_active && {(count _objs) > 0}) then {
             { if (!isNull _x) then { deleteVehicle _x; } } forEach _objs;
             _objs = [];
         };
@@ -57,7 +57,7 @@ for [{_i = (count STALKER_anomalyFields) - 1}, {_i >= 0}, {_i = _i - 1}] do {
             _marker setMarkerAlpha 0.2;
         };
     };
-    STALKER_anomalyFields set [_i, [_center,_radius,_fn,_count,_objs,_marker,_site,_exp,_stable]];
+    STALKER_anomalyFields set [_i, [_center,_radius,_fn,_count,_objs,_marker,_site,_exp,_stable,_newActive]];
 };
 
 true

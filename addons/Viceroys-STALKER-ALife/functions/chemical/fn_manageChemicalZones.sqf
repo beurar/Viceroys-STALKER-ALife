@@ -21,18 +21,18 @@ for [{_i = (count STALKER_chemicalZones) - 1}, {_i >= 0}, {_i = _i - 1}] do {
         continue;
     };
 
-    private _near = [_pos,_range] call VIC_fnc_hasPlayersNearby;
-    if (_near) then {
+    private _newActive = [_pos,_range,_active] call VIC_fnc_evalSiteProximity;
+    if (_newActive) then {
         if (!_active) then {
             private _dur = if (_expires < 0) then {-1} else {_expires - diag_tickTime};
             [_pos,_radius,_dur] call VIC_fnc_spawnChemicalZone;
-            _active = true;
         };
         if (_marker != "") then { _marker setMarkerAlpha 1; };
     } else {
         if (_active) then { _active = false; };
         if (_marker != "") then { _marker setMarkerAlpha 0.2; };
     };
+    _active = _newActive;
 
     STALKER_chemicalZones set [_i, [_pos,_radius,_active,_marker,_expires]];
 };

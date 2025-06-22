@@ -11,7 +11,7 @@ missionNamespace setVariable ["VIC_sniperManagerRunning", true];
 [] spawn {
     while { missionNamespace getVariable ["VIC_sniperManagerRunning", false] } do {
         [] call VIC_fnc_manageSnipers;
-        sleep 60;
+        sleep 6;
     };
 };
 

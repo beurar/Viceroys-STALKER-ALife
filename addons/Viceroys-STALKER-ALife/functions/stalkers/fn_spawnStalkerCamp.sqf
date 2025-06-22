@@ -64,4 +64,4 @@ if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
     [_marker, _pos, "ICON", "mil_box", _color, 0.2, _faction] call VIC_fnc_createGlobalMarker;
 };
 
-STALKER_camps pushBack [_campfire, _grp, _pos, _marker, _side, _faction];
+STALKER_camps pushBack [_campfire, _grp, _pos, _marker, _side, _faction, false];

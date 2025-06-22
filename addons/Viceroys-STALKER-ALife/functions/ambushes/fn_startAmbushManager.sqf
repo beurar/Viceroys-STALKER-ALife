@@ -11,7 +11,7 @@ missionNamespace setVariable ["VIC_ambushManagerRunning", true];
 [] spawn {
     while { missionNamespace getVariable ["VIC_ambushManagerRunning", false] } do {
         [] call VIC_fnc_manageAmbushes;
-        sleep 60;
+        sleep 6;
     };
 };
 

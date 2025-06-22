@@ -1,6 +1,6 @@
 /*
     Handles ambush activation and cleanup.
-    STALKER_ambushes entries: [position, vehicle, mines, groups, triggered, marker]
+    STALKER_ambushes entries: [position, vehicle, mines, groups, triggered, marker, active]
 */
 
 ["manageAmbushes"] call VIC_fnc_debugLog;
@@ -13,10 +13,10 @@ private _minUnits = ["VSA_ambushMinUnits", 3] call VIC_fnc_getSetting;
 private _maxUnits = ["VSA_ambushMaxUnits", 6] call VIC_fnc_getSetting;
 
 {
-    _x params ["_pos","_veh","_mines","_groups","_triggered","_marker"];
-    private _near = [_pos,_range] call VIC_fnc_hasPlayersNearby;
+    _x params ["_pos","_veh","_mines","_groups","_triggered","_marker",["_active",false]];
+    private _newActive = [_pos,_range,_active] call VIC_fnc_evalSiteProximity;
 
-    if (_near) then {
+    if (_newActive) then {
         if (isNull _veh) then {
             _veh = "C_Van_01_transport_F" createVehicle _pos;
             _veh allowDamage false;
@@ -87,8 +87,8 @@ private _maxUnits = ["VSA_ambushMaxUnits", 6] call VIC_fnc_getSetting;
         _triggered = false;
     };
 
-    if (_marker != "") then { _marker setMarkerAlpha (if (_near) then {1} else {0.2}); };
-    STALKER_ambushes set [_forEachIndex, [_pos,_veh,_mines,_groups,_triggered,_marker]];
+    if (_marker != "") then { _marker setMarkerAlpha (if (_newActive) then {1} else {0.2}); };
+    STALKER_ambushes set [_forEachIndex, [_pos,_veh,_mines,_groups,_triggered,_marker,_newActive]];
 } forEach STALKER_ambushes;
 
 true

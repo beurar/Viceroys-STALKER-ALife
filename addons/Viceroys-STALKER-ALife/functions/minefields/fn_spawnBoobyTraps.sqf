@@ -41,7 +41,7 @@ for "_i" from 1 to _count do {
         [_marker, _pos, "ICON", "mil_triangle", "ColorOrange", 0.2, "Trap"] call VIC_fnc_createGlobalMarker;
     };
 
-    STALKER_boobyTraps pushBack [_pos, [], _marker];
+    STALKER_boobyTraps pushBack [_pos, [], _marker, false];
 };
 
 true

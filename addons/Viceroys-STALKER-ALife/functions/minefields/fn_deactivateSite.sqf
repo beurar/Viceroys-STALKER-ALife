@@ -11,7 +11,7 @@ if (isNil "STALKER_minefields") exitWith {};
 if (_index < 0 || {_index >= count STALKER_minefields}) exitWith {};
 
 private _entry = STALKER_minefields select _index;
-_entry params ["_center","_type","_size","_objs","_marker"];
+_entry params ["_center","_type","_size","_objs","_marker",["_active",false]];
 
 if ((count _objs) > 0) then {
     { if (!isNull _x) then { deleteVehicle _x; } } forEach _objs;
@@ -19,6 +19,7 @@ if ((count _objs) > 0) then {
 };
 if (_marker != "") then { _marker setMarkerAlpha 0.2; };
 
-STALKER_minefields set [_index, [_center,_type,_size,_objs,_marker]];
+_active = false;
+STALKER_minefields set [_index, [_center,_type,_size,_objs,_marker,_active]];
 
 true

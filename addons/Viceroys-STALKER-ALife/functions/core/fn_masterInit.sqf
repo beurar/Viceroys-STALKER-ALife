@@ -199,6 +199,7 @@ VIC_fnc_findLandPos = compile preprocessFileLineNumbers (_root + "\functions\cor
 VIC_fnc_getLandSurfacePosition  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_getLandSurfacePosition.sqf");
 VIC_fnc_findRoadPosition        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findRoadPosition.sqf");
 VIC_fnc_findRandomRoadPosition  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findRandomRoadPosition.sqf");
+VIC_fnc_evalSiteProximity      = compile preprocessFileLineNumbers (_root + "\functions\core\fn_evalSiteProximity.sqf");
 VIC_fnc_spawnAmbientStalkers   = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnAmbientStalkers.sqf");
 VIC_fnc_spawnStalkerCamp       = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnStalkerCamp.sqf");
 VIC_fnc_spawnStalkerCamps      = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnStalkerCamps.sqf");
@@ -230,8 +231,7 @@ VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\func
                 while {true} do {
                     [] call VIC_fnc_updateProximity;
                     [] call VIC_fnc_updateActivityGrid;
-                    private _delay = ["VSA_proximityCheckInterval", 5] call VIC_fnc_getSetting;
-                    if (["VSA_autoInit", false] call VIC_fnc_getSetting) then { _delay = 5 };
+                    private _delay = 6;
                     sleep _delay;
                 };
             }, [], 8

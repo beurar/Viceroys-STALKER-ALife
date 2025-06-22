@@ -49,7 +49,7 @@ private _createField = {
     private _dur = missionNamespace getVariable ["STALKER_AnomalyFieldDuration", 30];
     private _exp = diag_tickTime + (_dur * 60);
 
-    STALKER_anomalyFields pushBack [_pos,75,_fn,count _spawned,_spawned,_marker,_pos,_exp,true];
+    STALKER_anomalyFields pushBack [_pos,75,_fn,count _spawned,_spawned,_marker,_pos,_exp,true,false];
     private _idx = (count STALKER_anomalyFields) - 1;
     private _gs = missionNamespace getVariable ["STALKER_activityGridSize", 500];
     private _gx = floor ((_pos select 0) / _gs);
