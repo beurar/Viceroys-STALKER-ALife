@@ -14,13 +14,13 @@ if (!isServer) exitWith { false };
     while { true } do {
         [] call VIC_fnc_manageWanderers;
         [] call VIC_fnc_manageSpookZones;
-        sleep 60;
+        sleep 6;
     };
 };
 [] spawn {
     while { true } do {
         [] call VIC_fnc_manageWrecks;
-        sleep 60;
+        sleep 6;
     };
 };
 [
@@ -28,7 +28,7 @@ if (!isServer) exitWith { false };
         while { true } do {
             [] call VIC_fnc_updateProximity;
             [] call VIC_fnc_updateActivityGrid;
-            private _delay = if (["VSA_autoInit", false] call VIC_fnc_getSetting) then {5} else { ["VSA_proximityCheckInterval", 0] call VIC_fnc_getSetting };
+            private _delay = 6;
             sleep _delay;
         };
     }, [], 8

@@ -1,6 +1,6 @@
 /*
     Activates or deactivates minefields based on player proximity.
-    STALKER_minefields entries: [center, type, size, objects, marker]
+    STALKER_minefields entries: [center, type, size, objects, marker, active]
 */
 ["manageMinefields"] call VIC_fnc_debugLog;
 
@@ -10,24 +10,25 @@ if (isNil "STALKER_minefields") exitWith {};
 private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
 
 {
-    _x params ["_center","_type","_size","_objs","_marker"];
-    private _near = [_center,_dist] call VIC_fnc_hasPlayersNearby;
-    if (_near) then {
-        if (_objs isEqualTo []) then {
+    _x params ["_center","_type","_size","_objs","_marker",["_active",false]];
+    private _newActive = [_center,_dist,_active] call VIC_fnc_evalSiteProximity;
+    if (_newActive) then {
+        if (!_active) then {
             _objs = switch (_type) do {
                 case "APERS": { [_center,_size] call VIC_fnc_spawnAPERSField };
-                case "IED": { [_center] call VIC_fnc_spawnIED };
+                case "IED":   { [_center] call VIC_fnc_spawnIED };
+                default { [] };
             };
         };
         if (_marker != "") then { _marker setMarkerAlpha 1; };
     } else {
-        if ((count _objs) > 0) then {
+        if (_active && {(count _objs) > 0}) then {
             { if (!isNull _x) then { deleteVehicle _x; } } forEach _objs;
             _objs = [];
         };
         if (_marker != "") then { _marker setMarkerAlpha 0.2; };
     };
-    STALKER_minefields set [_forEachIndex, [_center,_type,_size,_objs,_marker]];
+    STALKER_minefields set [_forEachIndex, [_center,_type,_size,_objs,_marker,_newActive]];
 } forEach STALKER_minefields;
 
 true

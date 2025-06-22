@@ -103,7 +103,7 @@ for "_i" from 1 to _fieldCount do {
 
     private _dur = missionNamespace getVariable ["STALKER_AnomalyFieldDuration", 30];
     private _exp = diag_tickTime + (_dur * 60);
-    STALKER_anomalyFields pushBack [_pos,75,_fn,count _spawned,_spawned,_marker,_site,_exp,_stable];
+    STALKER_anomalyFields pushBack [_pos,75,_fn,count _spawned,_spawned,_marker,_site,_exp,_stable,false];
     [format ["spawnAllAnomalyFields: spawned %1 %2", count _spawned, _typeName]] call VIC_fnc_debugLog;
 };
 

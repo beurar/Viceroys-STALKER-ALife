@@ -11,7 +11,7 @@ missionNamespace setVariable ["VIC_anomalyManagerRunning", true];
 [] spawn {
     while { missionNamespace getVariable ["VIC_anomalyManagerRunning", false] } do {
         [] call VIC_fnc_manageAnomalyFields;
-        sleep 60;
+        sleep 6;
     };
 };
 

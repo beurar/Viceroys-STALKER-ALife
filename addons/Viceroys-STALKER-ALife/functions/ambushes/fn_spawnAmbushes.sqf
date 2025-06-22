@@ -51,7 +51,7 @@ for "_i" from 1 to _count do {
         [_marker, _pos, "ICON", "mil_triangle", "ColorBlack", 0.2, "Ambush"] call VIC_fnc_createGlobalMarker;
     };
 
-    STALKER_ambushes pushBack [_pos, objNull, [], [], false, _marker];
+    STALKER_ambushes pushBack [_pos, objNull, [], [], false, _marker, false];
 };
 
 true;
