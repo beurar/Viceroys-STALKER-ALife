@@ -141,6 +141,13 @@ player addAction ["<t color='#ff0000'>Spawn Predator Attack</t>", {
         [player] remoteExec ["VIC_fnc_spawnPredatorAttack", 2];
     };
 }];
+player addAction ["<t color='#ff0000'>Spawn Habitat Hunters</t>", {
+    if (isServer) then {
+        [player] call VIC_fnc_spawnHabitatHunters;
+    } else {
+        [player] remoteExec ["VIC_fnc_spawnHabitatHunters", 2];
+    };
+}];
 player addAction ["<t color='#ff0000'>Spawn Minefields</t>", {
     private _center = [worldSize / 2, worldSize / 2, 0];
     private _radius = worldSize;
@@ -148,6 +155,13 @@ player addAction ["<t color='#ff0000'>Spawn Minefields</t>", {
         [_center, _radius] call VIC_fnc_spawnMinefields;
     } else {
         [_center, _radius] remoteExec ["VIC_fnc_spawnMinefields", 2];
+    };
+}];
+player addAction ["<t color='#ff0000'>Spawn IED Sites</t>", {
+    if (isServer) then {
+        [getPos player, 300] call VIC_fnc_spawnIEDSites;
+    } else {
+        [getPos player, 300] remoteExec ["VIC_fnc_spawnIEDSites", 2];
     };
 }];
 player addAction ["<t color='#ff0000'>Spawn Booby Traps</t>", {
@@ -162,6 +176,13 @@ player addAction ["<t color='#0000ff'>Start Minefield Logic</t>", {
         [] call VIC_fnc_startMinefieldManager;
     } else {
         [] remoteExec ["VIC_fnc_startMinefieldManager", 2];
+    };
+}];
+player addAction ["<t color='#0000ff'>Start IED Logic</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_startIEDManager;
+    } else {
+        [] remoteExec ["VIC_fnc_startIEDManager", 2];
     };
 }];
 player addAction ["<t color='#ff0000'>Spawn Ambush</t>", {

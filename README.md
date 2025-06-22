@@ -44,6 +44,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
   or crusher may strike.
 * Predator attack checks use separate day and night intervals via
   `VSA_predatorCheckIntervalDay` and `VSA_predatorCheckIntervalNight`.
+* New debug action spawns hunting parties from the five closest habitats to a player.
 
 ### Mutant Habitats
 * Defines territory areas via **fn_setupMutantHabitats.sqf**.
@@ -81,6 +82,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * When debug mode is enabled the activity grid overlay automatically refreshes on the map, filling each grid block with 20% opacity: yellow for active squares and red for inactive ones.
 * Abandoned and damaged vehicles may appear on or near roads.
 * Tripwires and booby traps can spawn inside buildings around towns.
+* An IED manager tracks up to 400 road bombs, respawning new sites when old ones are cleared.
 * Fallen players leave a red X marker that vanishes once the body is removed.
 
 ### Spooks

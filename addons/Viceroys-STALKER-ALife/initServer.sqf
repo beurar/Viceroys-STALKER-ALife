@@ -24,6 +24,7 @@ STALKER_mutantNests = [];
 STALKER_anomalyFields = [];
 STALKER_minefields = [];
 STALKER_boobyTraps = [];
+STALKER_iedSites = [];
 STALKER_panicGroups = [];
 STALKER_wanderers = [];
 

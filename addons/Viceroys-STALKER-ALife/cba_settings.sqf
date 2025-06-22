@@ -195,6 +195,14 @@
 ] call CBA_fnc_addSetting;
 
 [
+    "VSA_IEDSiteCount",
+    "SLIDER",
+    ["Total IED Sites", "Number of road IED locations maintained"],
+    "Viceroy's STALKER ALife - Minefields",
+    [0, 400, 10, 0]
+] call CBA_fnc_addSetting;
+
+[
     "VSA_chemicalSpawnWeight",
     "SLIDER",
     ["Chemical Spawn Weight", "Relative chance for chemical zone creation"],
@@ -757,7 +765,7 @@ true
     "SLIDER",
     ["APERS Fields per Area", "Number of APERS minefields generated"],
     "Viceroy's STALKER ALife - Minefields",
-    [0, 20, 2, 0]
+    [0, 400, 2, 0]
 ] call CBA_fnc_addSetting;
 
 [
