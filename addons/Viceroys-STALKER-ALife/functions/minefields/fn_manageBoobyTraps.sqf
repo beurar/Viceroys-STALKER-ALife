@@ -14,7 +14,8 @@ private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
     private _newActive = [_pos,_dist,_active] call VIC_fnc_evalSiteProximity;
     if (_newActive) then {
         if (!_active) then {
-            private _type = selectRandom ["APERSTripMine_Wire","IEDUrbanSmall_F"];
+            // Use ammo classes for tripwire mines when spawning
+            private _type = selectRandom ["APERSTripMine_Wire_Ammo", "IEDUrbanSmall_F"];
             private _mine = createMine [_type, _pos, [], 0];
             _objs = [_mine];
         };
