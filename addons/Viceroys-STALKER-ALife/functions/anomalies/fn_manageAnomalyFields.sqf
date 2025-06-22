@@ -27,7 +27,7 @@ for "_i" from ((count STALKER_anomalyFields) - 1) to 0 step -1 do {
     };
 
     private _pos = if (_site isEqualTo []) then {_center} else {_site};
-    private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+    private _dist = 400;
     private _newActive = [_pos,_dist,_active] call VIC_fnc_evalSiteProximity;
 
     if (_newActive) then {
