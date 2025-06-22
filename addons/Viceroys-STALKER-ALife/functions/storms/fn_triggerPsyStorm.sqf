@@ -74,12 +74,11 @@ for "_i" from 1 to _ticks do {
         private _center = getPos (selectRandom allPlayers);
         private _pos = [_center, random _range, random 360] call BIS_fnc_relPos;
         private _surf = [_pos] call VIC_fnc_getSurfacePosition;
-        private _module = "diwako_anomalies_main_modulePsyDischarge" createVehicleLocal _surf;
-        private _fncDischarge = missionNamespace getVariable ["diwako_anomalies_main_fnc_modulePsyDischarge", {}];
+        private _fncDischarge = missionNamespace getVariable ["diwako_anomalies_main_fnc_createPsyDischarge", {}];
         if (_fncDischarge isEqualTo {}) then {
             ["triggerPsyStorm: Diwako Anomalies missing"] call VIC_fnc_debugLog;
         } else {
-            ["init", _module] call _fncDischarge;
+            [_surf] remoteExec ["diwako_anomalies_main_fnc_createPsyDischarge", 0];
         };
         if (_gasEnabled) then {
             // Spawn a Nova mist after the discharge finishes using CBA settings
