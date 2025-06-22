@@ -134,7 +134,6 @@ Each anomaly behaves differently and creates unique hazards:
 * **Gravi** – Crushing gravitational wells that draw victims inward.
 * **Meatgrinder** – Shredding vortex of debris and metal.
 * **Whirligig** – Swirling force that pulls nearby objects to its centre.
-* **Comet** – Mobile anomaly that follows a looping path.
 * **Clicker** – Emits clicking sounds before discharging lethal energy.
 * **Launchpad** – Hurls victims a random distance away.
 * **Leech** – Drains stamina and may sap health.
