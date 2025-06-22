@@ -9,7 +9,7 @@
 if (!isServer) exitWith {};
 if (isNil "STALKER_anomalyFields") exitWith {};
 
-for [{_i = (count STALKER_anomalyFields) - 1}, {_i >= 0}, {_i = _i - 1}] do {
+for "_i" from ((count STALKER_anomalyFields) - 1) to 0 step -1 do {
     private _entry = STALKER_anomalyFields select _i;
     _entry params ["_center","_radius","_fn","_count","_objs","_marker","_site","_exp","_stable",["_active",false]];
 
@@ -48,7 +48,7 @@ for [{_i = (count STALKER_anomalyFields) - 1}, {_i >= 0}, {_i = _i - 1}] do {
             _marker setMarkerAlpha 1;
         };
     } else {
-        if (_active && {(count _objs) > 0}) then {
+        if ((count _objs) > 0) then {
             { if (!isNull _x) then { deleteVehicle _x; } } forEach _objs;
             _objs = [];
         };
