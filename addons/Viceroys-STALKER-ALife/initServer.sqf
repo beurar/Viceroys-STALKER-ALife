@@ -50,3 +50,15 @@ STALKER_wanderers = [];
 //     private _pos = [random worldSize, random worldSize, 0];
 //     [_pos, 1000] call VIC_fnc_spawnAmbushes;
 // };
+
+// Automatically initialize map caches and spawn core sites
+[] call VIC_fnc_initMap;
+
+private _center = [worldSize / 2, worldSize / 2, 0];
+[_center, worldSize] call VIC_fnc_spawnMinefields;
+[_center, worldSize] call VIC_fnc_spawnIEDSites;
+
+private _wreckCount = ["VSA_wreckCount", 10] call VIC_fnc_getSetting;
+[_wreckCount] call VIC_fnc_spawnAbandonedVehicles;
+
+[] call VIC_fnc_initManagers;
