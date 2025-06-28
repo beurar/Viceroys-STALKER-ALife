@@ -33,6 +33,27 @@ for "_i" from 1 to _size do {
 };
 
 private _campfire = "Campfire_burning_F" createVehicle _pos;
+
+// Random loot crate near the camp
+private _cratePos = _pos getPos [2, random 360];
+private _crate = "Box_NATO_Equip_F" createVehicle _cratePos;
+private _weapons = ["arifle_AK12_F","arifle_MX_F","SMG_02_F"];
+private _items   = ["FirstAidKit","NVGoggles_INDEP","binocular"];
+{ _crate addItemCargoGlobal [_x,1] } forEach (selectRandom _items);
+_crate addWeaponCargoGlobal [selectRandom _weapons,1];
+
+// Tripflare perimeter around camp
+[_pos, 12, 8] call VIC_fnc_spawnFlareTripwires;
+
+// Some units relax by the fire
+private _sitCount = (count units _grp) min 2;
+for "_i" from 0 to (_sitCount - 1) do {
+    private _unit = (units _grp) select _i;
+    private _p = _campfire getPos [1.5 + random 0.5, random 360];
+    _unit setPos _p;
+    _unit disableAI "PATH";
+    _unit playMove "Acts_SittingWounded_loop";
+};
 if (local _grp) then {
     if (isClass (configFile >> "CfgPatches" >> "lambs_danger")) then {
         [_grp, _pos, 50] call lambs_wp_fnc_taskCamp;

@@ -89,6 +89,8 @@ class CfgFunctions
             class spawnAmbientStalkers{};
             class spawnStalkerCamp{};
             class spawnStalkerCamps{};
+            class findCampBuilding{};
+            class spawnFlareTripwires{};
             class spawnSniper{};
             class manageSnipers{};
             class startSniperManager{};
