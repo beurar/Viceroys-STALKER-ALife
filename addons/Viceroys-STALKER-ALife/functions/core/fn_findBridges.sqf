@@ -58,4 +58,6 @@ for "_x" from 0 to _size step _step do {
 if (isNil "STALKER_bridges") then { STALKER_bridges = [] };
 { STALKER_bridges pushBackUnique _x } forEach _found;
 
+[format ["findBridges: %1 cached", count STALKER_bridges]] call VIC_fnc_debugLog;
+
 _found

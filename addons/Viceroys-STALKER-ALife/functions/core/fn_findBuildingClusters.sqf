@@ -51,4 +51,6 @@ for "_px" from 0 to worldSize step _step do {
 if (isNil "STALKER_buildingClusters") then { STALKER_buildingClusters = [] };
 { STALKER_buildingClusters pushBackUnique _x } forEach _clusters;
 
+[format ["findBuildingClusters: %1 cached", count STALKER_buildingClusters]] call VIC_fnc_debugLog;
+
 _clusters

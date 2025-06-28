@@ -29,5 +29,7 @@ for "_xCoord" from 0 to worldSize step _step do {
 if (isNil "STALKER_roads") then { STALKER_roads = [] };
 { STALKER_roads pushBackUnique _x } forEach _roads;
 
+[format ["findRoads: %1 cached", count STALKER_roads]] call VIC_fnc_debugLog;
+
 _roads
 
