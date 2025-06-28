@@ -8,7 +8,7 @@
 if (!isServer) exitWith {};
 if (isNil "STALKER_ambushes") exitWith {};
 
-private _range = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+private _range = missionNamespace getVariable ["STALKER_activityRadius", 1500];
 private _minUnits = ["VSA_ambushMinUnits", 3] call VIC_fnc_getSetting;
 private _maxUnits = ["VSA_ambushMaxUnits", 6] call VIC_fnc_getSetting;
 

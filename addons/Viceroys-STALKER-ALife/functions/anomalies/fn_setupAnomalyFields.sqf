@@ -49,12 +49,6 @@ private _createField = {
     private _exp = diag_tickTime + (_dur * 60);
 
     STALKER_anomalyFields pushBack [_pos,75,_fn,count _spawned,_spawned,_marker,_pos,_exp,true,false];
-    private _idx = (count STALKER_anomalyFields) - 1;
-    private _gs = missionNamespace getVariable ["STALKER_activityGridSize", 500];
-    private _gx = floor ((_pos select 0) / _gs);
-    private _gy = floor ((_pos select 1) / _gs);
-    private _key = format ["%1_%2", _gx, _gy];
-    [_key, "anomaly", _idx] call VIC_fnc_sitePlaced;
     true
 };
 

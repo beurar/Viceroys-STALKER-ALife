@@ -45,5 +45,5 @@ if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
     [_marker, _spotAGL, "ICON", "mil_triangle", "ColorRed", 0.6, "Sniper"] call VIC_fnc_createGlobalMarker;
 };
 
-STALKER_snipers pushBack [_grp, _spotAGL, _marker];
+STALKER_snipers pushBack [_grp, _spotAGL, _marker, true];
 

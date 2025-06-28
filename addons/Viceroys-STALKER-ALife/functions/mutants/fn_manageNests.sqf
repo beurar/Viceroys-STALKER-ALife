@@ -9,7 +9,7 @@ if (isNil "STALKER_mutantNests") exitWith {};
 
 {
     _x params ["_nest", "_grp", "_pos", "_class"];
-    private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+    private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
     private _near = [_pos, _dist] call VIC_fnc_hasPlayersNearby;
     if (_near) then {
         if (isNull _nest) then { _nest = "Land_Campfire_F" createVehicle _pos; };

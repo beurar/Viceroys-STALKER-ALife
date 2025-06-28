@@ -27,7 +27,7 @@ for "_i" from 1 to _herdCount do {
     private _pos = [random worldSize, random worldSize, 0];
     _pos = [_pos] call VIC_fnc_findLandPosition;
     if (isNil {_pos} || {_pos isEqualTo []}) then { continue };
-    private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+    private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
     if (!([_pos, _dist] call VIC_fnc_hasPlayersNearby)) then { continue };
     private _grp = createGroup civilian;
     private _leader = _grp createUnit ["C_ALF_Mutant", _pos, [], 0, "FORM"];

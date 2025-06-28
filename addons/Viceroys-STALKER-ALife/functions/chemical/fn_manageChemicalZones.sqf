@@ -9,7 +9,7 @@
 if (!isServer) exitWith {};
 if (isNil "STALKER_chemicalZones") exitWith {};
 
-private _range = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+private _range = missionNamespace getVariable ["STALKER_activityRadius", 1500];
 
 for [{_i = (count STALKER_chemicalZones) - 1}, {_i >= 0}, {_i = _i - 1}] do {
     private _entry = STALKER_chemicalZones select _i;

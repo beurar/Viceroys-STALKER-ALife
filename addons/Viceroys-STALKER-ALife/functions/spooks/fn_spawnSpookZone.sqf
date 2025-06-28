@@ -72,13 +72,14 @@ for "_i" from 1 to _count do {
         STALKER_activeSpooks pushBack _s;
     };
     _zone setVariable ["spawnedSpooks", _spawned];
+    _zone setVariable ["VIC_active", true];
 
     private _markerName = format ["spook_%1", diag_tickTime];
     private _marker = _markerName;
     [_marker, _pos, "ELLIPSE", "", "ColorBlack", 1, format ["%1 x%2", _class select [4], _num]] call VIC_fnc_createGlobalMarker;
     [_marker, [25,25]] remoteExec ["setMarkerSize", 0];
     _zone setVariable ["zoneMarker", _marker];
-    private _range = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+    private _range = missionNamespace getVariable ["STALKER_activityRadius", 1500];
 
     [_zone, _marker, _range] spawn {
         params ["_zone","_marker","_range"];

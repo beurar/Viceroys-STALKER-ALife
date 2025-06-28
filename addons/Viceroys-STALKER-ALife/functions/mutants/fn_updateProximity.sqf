@@ -4,11 +4,9 @@
 
 ["updateProximity"] call VIC_fnc_debugLog;
 
-[] call VIC_fnc_updateActivityGrid;
-
 if (!isServer) exitWith {};
 
-private _range = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+private _range = missionNamespace getVariable ["STALKER_activityRadius", 1500];
 
 if (!isNil "STALKER_mutantHabitats") then {
     {

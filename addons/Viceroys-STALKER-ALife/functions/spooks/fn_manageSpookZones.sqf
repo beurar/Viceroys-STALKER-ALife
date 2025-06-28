@@ -12,23 +12,16 @@
 if (!isServer) exitWith {};
 if (isNil "drg_activeSpookZones") exitWith {};
 
-private _cellSize = missionNamespace getVariable ["STALKER_activityGridSize", 500];
+private _range = missionNamespace getVariable ["STALKER_activityRadius", 1500];
 
 {
     private _zone = _x;
     if (isNull _zone) then { continue };
 
     private _pos = getPosATL _zone;
-    private _gx = floor ((_pos select 0) / _cellSize);
-    private _gy = floor ((_pos select 1) / _cellSize);
-    private _key = format ["%1_%2", _gx, _gy];
-    private _active = false;
-    if (!isNil "STALKER_activityGrid") then {
-        {
-            _x params ["_cell","_state"];
-            if (_cell == _key) exitWith { _active = _state }; 
-        } forEach STALKER_activityGrid;
-    };
+    private _active = _zone getVariable ["VIC_active", true];
+    private _newActive = [_pos,_range,_active] call VIC_fnc_evalSiteProximity;
+    _zone setVariable ["VIC_active", _newActive];
 
     private _spawned = _zone getVariable ["spawnedSpooks", []];
     private _marker  = _zone getVariable ["zoneMarker", ""];
@@ -40,7 +33,7 @@ private _cellSize = missionNamespace getVariable ["STALKER_activityGridSize", 50
     private _class = _zone getVariable ["spookClass", ""];
     private _count = _zone getVariable ["spookCount", 0];
 
-    if (_active) then {
+    if (_newActive) then {
         private _alive = false;
         { if (!isNull _x) exitWith { _alive = true }; } forEach _spawned;
         if (!_alive && {_class != "" && _count > 0}) then {

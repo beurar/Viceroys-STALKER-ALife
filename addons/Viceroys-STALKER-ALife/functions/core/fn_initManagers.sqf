@@ -28,9 +28,7 @@ if (!isServer) exitWith { false };
     {
         while { true } do {
             [] call VIC_fnc_updateProximity;
-            [] call VIC_fnc_updateActivityGrid;
-            private _delay = 6;
-            sleep _delay;
+            sleep 6;
         };
     }, [], 8
 ] call CBA_fnc_waitAndExecute;
