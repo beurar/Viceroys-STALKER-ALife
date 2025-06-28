@@ -10,6 +10,7 @@ if (!isServer) exitWith { false };
 [] call VIC_fnc_startIEDManager;
 [] call VIC_fnc_startAmbushManager;
 [] call VIC_fnc_startSniperManager;
+[] call VIC_fnc_startCampManager;
 [] call VIC_fnc_startAnomalyManager;
 [] spawn {
     while { true } do {

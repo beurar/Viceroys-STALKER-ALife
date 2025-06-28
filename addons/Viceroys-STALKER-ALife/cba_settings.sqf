@@ -365,6 +365,22 @@
     [0, 100, 33, 0]
 ] call CBA_fnc_addSetting;
 
+[
+    "VSA_minStalkerCamps",
+    "SLIDER",
+    ["Min Active Camps", "Minimum number of stalker camps"],
+    "Viceroy's STALKER ALife - Stalkers",
+    [0, 50, 1, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_maxStalkerCamps",
+    "SLIDER",
+    ["Max Active Camps", "Maximum number of stalker camps"],
+    "Viceroy's STALKER ALife - Stalkers",
+    [0, 50, 5, 0]
+] call CBA_fnc_addSetting;
+
 // -----------------------------------------------------------------------------
 // Spooks
 // -----------------------------------------------------------------------------
