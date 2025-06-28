@@ -2,7 +2,7 @@
     Activates or deactivates minefields based on player proximity.
     STALKER_minefields entries: [center, type, size, objects, marker, active]
 */
-["manageMinefields"] call VIC_fnc_debugLog;
+// ["manageMinefields"] call VIC_fnc_debugLog;
 
 if (!isServer) exitWith {};
 if (isNil "STALKER_minefields") exitWith {};

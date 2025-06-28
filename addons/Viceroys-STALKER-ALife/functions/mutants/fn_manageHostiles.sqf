@@ -2,7 +2,7 @@
     Handles despawn and respawn of hostile mutant groups.
 */
 
-["manageHostiles"] call VIC_fnc_debugLog;
+// ["manageHostiles"] call VIC_fnc_debugLog;
 
 if (!isServer) exitWith {};
 if (isNil "STALKER_activeHostiles") exitWith {};

@@ -7,7 +7,7 @@
         spookCount    - number of units to spawn
 */
 
-["manageSpookZones"] call VIC_fnc_debugLog;
+// ["manageSpookZones"] call VIC_fnc_debugLog;
 
 if (!isServer) exitWith {};
 if (isNil "drg_activeSpookZones") exitWith {};

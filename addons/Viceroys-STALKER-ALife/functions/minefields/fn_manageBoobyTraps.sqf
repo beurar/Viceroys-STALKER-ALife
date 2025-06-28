@@ -2,7 +2,7 @@
     Activates or deactivates booby traps based on player proximity.
     STALKER_boobyTraps entries: [position, objects, marker, active]
 */
-["manageBoobyTraps"] call VIC_fnc_debugLog;
+// ["manageBoobyTraps"] call VIC_fnc_debugLog;
 
 if (!isServer) exitWith {};
 if (isNil "STALKER_boobyTraps") exitWith {};

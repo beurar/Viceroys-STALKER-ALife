@@ -3,7 +3,7 @@
     STALKER_camps entries: [campfire, group, position, marker, side, faction, active]
 */
 
-["manageStalkerCamps"] call VIC_fnc_debugLog;
+// ["manageStalkerCamps"] call VIC_fnc_debugLog;
 
 if (!isServer) exitWith {};
 if (isNil "STALKER_camps") exitWith {};
