@@ -208,6 +208,7 @@ VIC_fnc_spawnFlareTripwires    = compile preprocessFileLineNumbers (_root + "\fu
 VIC_fnc_spawnSniper           = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnSniper.sqf");
 VIC_fnc_manageSnipers         = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_manageSnipers.sqf");
 VIC_fnc_startSniperManager    = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_startSniperManager.sqf");
+VIC_fnc_startCampManager     = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_startCampManager.sqf");
 VIC_fnc_manageStalkerCamps     = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_manageStalkerCamps.sqf");
 VIC_fnc_manageWanderers       = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_manageWanderers.sqf");
 
