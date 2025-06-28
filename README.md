@@ -139,6 +139,7 @@ Each anomaly behaves differently and creates unique hazards:
 * **Leech** – Drains stamina and may sap health.
 * **Trapdoor** – Teleports the unwary up to a kilometre.
 * **Zapper** – Strikes intruders with bolts of lightning.
+* **Razor** – Whirling blades that slice anything crossing the field.
 
 ## Mutant Creatures and Nests
 Every mutant type can establish a nest which spawns defenders when players are near:
