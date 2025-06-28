@@ -13,7 +13,7 @@
 if (!isServer) exitWith {};
 if (isNil "STALKER_wrecks") exitWith {};
 
-private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
 
 for [{_i = (count STALKER_wrecks) - 1}, {_i >= 0}, {_i = _i - 1}] do {
     private _veh = STALKER_wrecks select _i;

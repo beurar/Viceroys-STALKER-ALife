@@ -170,9 +170,7 @@ VIC_fnc_manageHostiles           = compile preprocessFileLineNumbers (_root + "\
 VIC_fnc_manageNests              = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageNests.sqf");
 VIC_fnc_manageHabitats           = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_manageHabitats.sqf");
 VIC_fnc_updateProximity          = compile preprocessFileLineNumbers (_root + "\functions\mutants\fn_updateProximity.sqf");
-VIC_fnc_initActivityGrid       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_initActivityGrid.sqf");
-VIC_fnc_updateActivityGrid       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_updateActivityGrid.sqf");
-call compile preprocessFileLineNumbers (_root + "\functions\core\fn_siteRegistry.sqf");
+// Activity grid removed - use simple radius checks instead
 minefields_fnc_activateSite   = compile preprocessFileLineNumbers (_root + "\functions\minefields\fn_activateSite.sqf");
 minefields_fnc_deactivateSite = compile preprocessFileLineNumbers (_root + "\functions\minefields\fn_deactivateSite.sqf");
 chemical_fnc_activateSite     = compile preprocessFileLineNumbers (_root + "\functions\chemical\fn_activateSite.sqf");
@@ -223,20 +221,17 @@ VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\func
 
 // --- PostInit ---------------------------------------------------------------
 ["postInit", {
-    missionNamespace setVariable ["STALKER_activityGridSize", 500];
-    [] call VIC_fnc_initActivityGrid;
+    missionNamespace setVariable ["STALKER_activityRadius", ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting];
     [] call VIC_fnc_registerEmissionHooks;
     if (call VIC_fnc_isAntistasiUltimate && { ["VSA_disableA3UWeather", false] call VIC_fnc_getSetting }) then {
         [] call VIC_fnc_disableA3UWeather;
     };
-    if (isServer && {isNil "VIC_activityGridThread"}) then {
-        VIC_activityGridThread = [
+    if (isServer && {isNil "VIC_activityThread"}) then {
+        VIC_activityThread = [
             {
                 while {true} do {
                     [] call VIC_fnc_updateProximity;
-                    [] call VIC_fnc_updateActivityGrid;
-                    private _delay = 6;
-                    sleep _delay;
+                    sleep 6;
                 };
             }, [], 8
         ] call CBA_fnc_waitAndExecute;
@@ -245,15 +240,7 @@ VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\func
     };
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         [] call VIC_fnc_setupDebugActions;
-        if (isServer && {isNil "VIC_debugGridThread"}) then {
-            VIC_debugGridThread = [] spawn {
-                while { ["VSA_debugMode", false] call VIC_fnc_getSetting } do {
-                    [] call VIC_fnc_updateActivityGrid;
-                    sleep 5;
-                };
-                VIC_debugGridThread = nil;
-            };
-        };
+        [] remoteExec ["VIC_fnc_markPlayerRanges", 0];
     };
 }] call CBA_fnc_addEventHandler;
 
@@ -278,25 +265,7 @@ VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\func
     if (_setting isEqualTo "VSA_debugMode") then {
         if (hasInterface && {_value}) then {
             [] call VIC_fnc_setupDebugActions;
-        };
-        if (isServer) then {
-            if (_value) then {
-                if (isNil "VIC_debugGridThread") then {
-                    VIC_debugGridThread = [] spawn {
-                        while { ["VSA_debugMode", false] call VIC_fnc_getSetting } do {
-                            [] call VIC_fnc_updateActivityGrid;
-                            sleep 5;
-                        };
-                        VIC_debugGridThread = nil;
-                    };
-                };
-            } else {
-                if (!isNil "VIC_debugGridThread") then {
-                    terminate VIC_debugGridThread;
-                    VIC_debugGridThread = nil;
-                    [] call VIC_fnc_updateActivityGrid;
-                };
-            };
+            [] call VIC_fnc_markPlayerRanges;
         };
     };
 }] call CBA_fnc_addEventHandler;

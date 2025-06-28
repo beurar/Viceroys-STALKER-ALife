@@ -11,7 +11,7 @@ private _size = ["VSA_mutantThreat", 3] call VIC_fnc_getSetting;
 
 {
     _x params ["_grp", "_type", "_pos", "_marker", "_near"];
-    private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+    private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
     _near = [_pos, _dist] call VIC_fnc_hasPlayersNearby;
     if (_near) then {
         if (isNull _grp || { count units _grp == 0 }) then {

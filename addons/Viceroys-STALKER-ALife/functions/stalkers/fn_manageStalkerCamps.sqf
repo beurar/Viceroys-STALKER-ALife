@@ -8,7 +8,7 @@
 if (!isServer) exitWith {};
 if (isNil "STALKER_camps") exitWith {};
 
-private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
 private _size = ["VSA_stalkerCampSize", 4] call VIC_fnc_getSetting;
 
 {

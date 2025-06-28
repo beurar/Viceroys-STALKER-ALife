@@ -7,7 +7,7 @@
 if (!isServer) exitWith {};
 if (isNil "STALKER_minefields") exitWith {};
 
-private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
 
 {
     _x params ["_center","_type","_size","_objs","_marker",["_active",false]];

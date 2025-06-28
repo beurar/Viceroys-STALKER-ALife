@@ -27,7 +27,7 @@ if (_players isEqualTo []) exitWith {};
 
 for "_i" from 1 to _groupCount do {
     private _center = selectRandom _players;
-    private _dist = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+    private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
     private _pos = _center getPos [ random (_dist * 0.75), random 360 ];
     _pos = [_pos] call VIC_fnc_findLandPosition;
     if (isNil {_pos} || {_pos isEqualTo []}) then { continue };
@@ -46,5 +46,5 @@ for "_i" from 1 to _groupCount do {
     };
 
     STALKER_stalkerGroups pushBack [_grp, _marker];
-    STALKER_wanderers pushBack [_grp, _pos, _marker];
-};
+    STALKER_wanderers pushBack [_grp, _pos, _marker, true];
+}; 

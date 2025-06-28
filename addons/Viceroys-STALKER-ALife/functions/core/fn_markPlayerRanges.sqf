@@ -15,7 +15,7 @@ if (isNil "STALKER_playerRangeMarker") then { STALKER_playerRangeMarker = "" };
 
 [] spawn {
     while { true } do {
-        private _range = ["VSA_playerNearbyRange", 1500] call VIC_fnc_getSetting;
+        private _range = missionNamespace getVariable ["STALKER_activityRadius", 1500];
         if (STALKER_playerRangeMarker isEqualTo "") then {
             private _name = format ["playerRange_%1", diag_tickTime];
             STALKER_playerRangeMarker = createMarkerLocal [_name, position player];
