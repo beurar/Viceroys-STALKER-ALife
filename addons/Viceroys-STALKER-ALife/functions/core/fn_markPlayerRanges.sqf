@@ -14,7 +14,7 @@ missionNamespace setVariable ["VSA_rangeMarkersActive", true];
 if (isNil "STALKER_playerRangeMarker") then { STALKER_playerRangeMarker = "" };
 
 [] spawn {
-    while { true } do {
+    while { missionNamespace getVariable ["VSA_debugMode", true] } do {
         private _range = missionNamespace getVariable ["STALKER_activityRadius", 1500];
         if (STALKER_playerRangeMarker isEqualTo "") then {
             private _name = format ["playerRange_%1", diag_tickTime];

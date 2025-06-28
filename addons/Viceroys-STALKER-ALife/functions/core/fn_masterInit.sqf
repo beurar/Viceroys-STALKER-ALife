@@ -264,9 +264,18 @@ VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\func
 ["CBA_SettingChanged", {
     params ["_setting", "_value"];
     if (_setting isEqualTo "VSA_debugMode") then {
-        if (hasInterface && {_value}) then {
-            [] call VIC_fnc_setupDebugActions;
-            [] call VIC_fnc_markPlayerRanges;
+        if (hasInterface) then {
+            if (_value) then {
+                [] call VIC_fnc_setupDebugActions;
+                [] call VIC_fnc_markPlayerRanges;
+            } else {
+                if (!isNil "STALKER_playerRangeMarker" &&
+                    {STALKER_playerRangeMarker != ""}) then {
+                    deleteMarkerLocal STALKER_playerRangeMarker;
+                };
+                STALKER_playerRangeMarker = "";
+                missionNamespace setVariable ["VSA_rangeMarkersActive", false];
+            };
         };
     };
 }] call CBA_fnc_addEventHandler;
