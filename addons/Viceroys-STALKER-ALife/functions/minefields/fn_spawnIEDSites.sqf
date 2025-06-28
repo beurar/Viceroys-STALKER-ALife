@@ -17,6 +17,8 @@ if (["VSA_enableMinefields", true] call VIC_fnc_getSetting isEqualTo false) exit
 
 if (isNil "STALKER_iedSites") then { STALKER_iedSites = [] };
 
+private _spawned = 0;
+
 if (_count < 0) then { _count = ["VSA_IEDSiteCount",10] call VIC_fnc_getSetting; };
 
 private _towns = nearestLocations [_center, ["NameVillage","NameCity","NameCityCapital","NameLocal"], _radius];
@@ -41,6 +43,9 @@ for "_i" from 1 to _count do {
     };
 
     STALKER_iedSites pushBack [_pos, objNull, _marker, false];
+    _spawned = _spawned + 1;
 };
+
+[format ["spawnIEDSites: placed %1 sites", _spawned]] call VIC_fnc_debugLog;
 
 true
