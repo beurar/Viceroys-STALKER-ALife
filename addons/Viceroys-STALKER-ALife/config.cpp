@@ -209,6 +209,7 @@ class CfgFunctions
             class createField_leech{};
             class createField_trapdoor{};
             class createField_zapper{};
+            class createField_razor{};
             class createField_bridgeElectra{};
         };
 
@@ -227,6 +228,7 @@ class CfgFunctions
             class findSite_leech{};
             class findSite_trapdoor{};
             class findSite_zapper{};
+            class findSite_razor{};
             class findSite_bridge{};
         };
 
