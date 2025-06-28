@@ -4,10 +4,16 @@
         0: POSITION - center position
         1: NUMBER   - radius of the perimeter (default 25)
         2: NUMBER   - number of mines to spawn (default 6)
+        3: NUMBER   - desired spacing between mines (optional)
     Returns:
         ARRAY - spawned mine objects
 */
-params ["_center", ["_radius",25], ["_count",6]];
+params ["_center", ["_radius",25], ["_count",6], ["_spacing",-1]];
+
+if (_spacing > 0) then {
+    _count = floor ((2 * pi * _radius) / _spacing);
+    if (_count < 1) then { _count = 1 }; 
+};
 
 ["spawnTripwirePerimeter"] call VIC_fnc_debugLog;
 

@@ -37,7 +37,7 @@ private _grp = createGroup east;
 _grp createUnit ["O_sniper_F", _spotAGL, [], 0, "FORM"];
 // Increase search radius and prioritize high vantage points
 [_grp, _spotAGL, 100, [], true, true, 0, true] call lambs_wp_fnc_taskGarrison;
-[_spotAGL, 25, 6] call VIC_fnc_spawnTripwirePerimeter;
+[_spotAGL, 6, 0, 4] call VIC_fnc_spawnTripwirePerimeter;
 
 private _marker = "";
 if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {

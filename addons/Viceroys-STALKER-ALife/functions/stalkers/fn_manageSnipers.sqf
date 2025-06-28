@@ -30,7 +30,7 @@ private _cellSize = missionNamespace getVariable ["STALKER_activityGridSize", 50
             _grp = createGroup east;
             _grp createUnit ["O_sniper_F", _pos, [], 0, "FORM"];
             [_grp, _pos, 100, [], true, true, 0, true] call lambs_wp_fnc_taskGarrison;
-            [_pos, 25, 6] call VIC_fnc_spawnTripwirePerimeter;
+            [_pos, 6, 0, 4] call VIC_fnc_spawnTripwirePerimeter;
         };
         if (_marker != "") then { _marker setMarkerAlpha 1; };
     } else {
