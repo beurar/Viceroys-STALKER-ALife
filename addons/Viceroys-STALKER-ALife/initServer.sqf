@@ -58,6 +58,9 @@ private _center = [worldSize / 2, worldSize / 2, 0];
 [_center, worldSize] call VIC_fnc_spawnMinefields;
 [_center, worldSize] call VIC_fnc_spawnIEDSites;
 
+[_center, worldSize] call VIC_fnc_spawnBoobyTraps;
+[format ["initServer: %1 traps placed", count STALKER_boobyTraps]] call VIC_fnc_debugLog;
+
 private _wreckCount = ["VSA_wreckCount", 10] call VIC_fnc_getSetting;
 [_wreckCount] call VIC_fnc_spawnAbandonedVehicles;
 
