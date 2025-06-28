@@ -40,5 +40,7 @@ private _crossroads = [];
 if (isNil "STALKER_crossroads") then { STALKER_crossroads = [] };
 { STALKER_crossroads pushBackUnique _x } forEach _crossroads;
 
+[format ["findCrossroads: %1 cached", count STALKER_crossroads]] call VIC_fnc_debugLog;
+
 _crossroads
 
