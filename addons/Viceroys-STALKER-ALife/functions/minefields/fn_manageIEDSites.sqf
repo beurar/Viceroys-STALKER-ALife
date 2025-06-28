@@ -2,7 +2,7 @@
     Activates or deactivates IED sites and handles cleanup.
     STALKER_iedSites entries: [position, object, marker, active]
 */
-["manageIEDSites"] call VIC_fnc_debugLog;
+// ["manageIEDSites"] call VIC_fnc_debugLog;
 
 if (!isServer) exitWith {};
 if (isNil "STALKER_iedSites") exitWith {};

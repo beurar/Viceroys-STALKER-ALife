@@ -4,7 +4,7 @@
     STALKER_anomalyFields entries:
         [center, radius, fn, count, objects, marker, site, expires, stable, active]
 */
-["manageAnomalyFields"] call VIC_fnc_debugLog;
+// ["manageAnomalyFields"] call VIC_fnc_debugLog;
 
 if (!isServer) exitWith {};
 if (isNil "STALKER_anomalyFields") exitWith {};

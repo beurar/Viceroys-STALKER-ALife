@@ -3,7 +3,7 @@
     STALKER_ambushes entries: [position, vehicle, mines, groups, triggered, marker, active]
 */
 
-["manageAmbushes"] call VIC_fnc_debugLog;
+// ["manageAmbushes"] call VIC_fnc_debugLog;
 
 if (!isServer) exitWith {};
 if (isNil "STALKER_ambushes") exitWith {};

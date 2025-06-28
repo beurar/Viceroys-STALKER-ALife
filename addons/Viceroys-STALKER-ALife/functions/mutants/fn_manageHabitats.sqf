@@ -5,7 +5,7 @@
     STALKER_mutantHabitats entries: [areaMarker, labelMarker, group, position, type, max, count, near]
 */
 
-["manageHabitats"] call VIC_fnc_debugLog;
+// ["manageHabitats"] call VIC_fnc_debugLog;
 
 if (!isServer) exitWith {};
 if (isNil "STALKER_mutantHabitats") exitWith {};

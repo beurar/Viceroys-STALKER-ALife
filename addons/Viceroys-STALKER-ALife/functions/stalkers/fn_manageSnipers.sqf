@@ -4,7 +4,7 @@
     STALKER_snipers entries: [group, position, marker, active]
 */
 
-["manageSnipers"] call VIC_fnc_debugLog;
+// ["manageSnipers"] call VIC_fnc_debugLog;
 
 if (!isServer) exitWith {};
 if (isNil "STALKER_snipers") exitWith {};
