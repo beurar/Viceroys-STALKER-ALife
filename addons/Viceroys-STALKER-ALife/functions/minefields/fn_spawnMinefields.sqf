@@ -24,6 +24,9 @@ if (_fieldCount < 0) then { _fieldCount = ["VSA_minefieldCount",2] call VIC_fnc_
 if (_iedCount < 0) then { _iedCount = ["VSA_IEDCount",2] call VIC_fnc_getSetting; };
 private _size = ["VSA_minefieldSize",30] call VIC_fnc_getSetting;
 
+private _fieldsSpawned = 0;
+private _iedsSpawned = 0;
+
 private _towns = nearestLocations [_center, ["NameVillage","NameCity","NameCityCapital","NameLocal"], _radius];
 
 private _useFallback = _towns isEqualTo [];
@@ -50,6 +53,7 @@ for "_i" from 1 to _fieldCount do {
         _marker setMarkerSize [_size/2, _size/2];
     };
     STALKER_minefields pushBack [_pos,"APERS",_size,[],_marker,false];
+    _fieldsSpawned = _fieldsSpawned + 1;
 };
 
 for "_i" from 1 to _iedCount do {
@@ -69,9 +73,12 @@ for "_i" from 1 to _iedCount do {
         [_marker, _pos, "ICON", "mil_triangle", "ColorRed", 0.2, "IED"] call VIC_fnc_createGlobalMarker;
     };
     STALKER_minefields pushBack [_pos,"IED",0,[],_marker,false];
+    _iedsSpawned = _iedsSpawned + 1;
 };
 
 if !(missionNamespace getVariable ["VIC_minefieldManagerRunning", false]) then {
     [] call VIC_fnc_startMinefieldManager;
 };
+
+[format ["spawnMinefields: placed %1 fields and %2 IEDs", _fieldsSpawned, _iedsSpawned]] call VIC_fnc_debugLog;
 

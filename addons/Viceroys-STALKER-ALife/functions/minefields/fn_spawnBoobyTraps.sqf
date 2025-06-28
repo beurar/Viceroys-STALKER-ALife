@@ -23,6 +23,8 @@ if (_towns isEqualTo []) exitWith { false };
 
 if (isNil "STALKER_boobyTraps") then { STALKER_boobyTraps = [] };
 
+private _spawned = 0;
+
 for "_i" from 1 to _count do {
     if (_towns isEqualTo []) exitWith {};
     private _town = selectRandom _towns;
@@ -42,6 +44,9 @@ for "_i" from 1 to _count do {
     };
 
     STALKER_boobyTraps pushBack [_pos, [], _marker, false];
+    _spawned = _spawned + 1;
 };
+
+[format ["spawnBoobyTraps: placed %1 traps", _spawned]] call VIC_fnc_debugLog;
 
 true
