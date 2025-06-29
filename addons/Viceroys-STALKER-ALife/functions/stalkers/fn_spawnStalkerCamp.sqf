@@ -39,7 +39,7 @@ private _cratePos = _pos getPos [2, random 360];
 private _crate = "Box_NATO_Equip_F" createVehicle _cratePos;
 private _weapons = ["arifle_AK12_F","arifle_MX_F","SMG_02_F"];
 private _items   = ["FirstAidKit","NVGoggles_INDEP","binocular"];
-{ _crate addItemCargoGlobal [_x,1] } forEach (selectRandom _items);
+_crate addItemCargoGlobal [selectRandom _items, 1];
 _crate addWeaponCargoGlobal [selectRandom _weapons,1];
 
 // Tripflare perimeter around camp
