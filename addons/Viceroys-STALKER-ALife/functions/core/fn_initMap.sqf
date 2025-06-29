@@ -9,23 +9,71 @@ if (!isServer) exitWith { false };
 
 // Load cached data when available to avoid expensive scans
 private _roads = ["STALKER_roads"] call VIC_fnc_loadCache;
-if (isNil {_roads}) then {
+if (isNil {_roads} || {_roads isEqualTo []}) then {
     _roads = [] call VIC_fnc_findRoads;
     ["STALKER_roads", _roads] call VIC_fnc_saveCache;
 };
 
 // Land zones are optional but load if present
-["STALKER_landZones"] call VIC_fnc_loadCache;
+private _zones = ["STALKER_landZones"] call VIC_fnc_loadCache;
+if (!isNil {_zones} && {_zones isEqualType [] && {count _zones == 0}}) then {
+    _zones = [] call VIC_fnc_findLandZones;
+    ["STALKER_landZones", _zones] call VIC_fnc_saveCache;
+};
 
-[] call VIC_fnc_findRockClusters;
-[] call VIC_fnc_findSniperSpots;
-[] call VIC_fnc_findSwamps;
-[] call VIC_fnc_findBeachesInMap;
-[] call VIC_fnc_findValleys;
-[] call VIC_fnc_findBridges;
-[] call VIC_fnc_findCrossroads;
-[] call VIC_fnc_findBuildingClusters;
-[] call VIC_fnc_findWrecks;
+private _rockClusters = ["STALKER_rockClusters"] call VIC_fnc_loadCache;
+if (isNil {_rockClusters} || {_rockClusters isEqualTo []}) then {
+    _rockClusters = [] call VIC_fnc_findRockClusters;
+    ["STALKER_rockClusters", _rockClusters] call VIC_fnc_saveCache;
+};
+
+private _sniperSpots = ["STALKER_sniperSpots"] call VIC_fnc_loadCache;
+if (isNil {_sniperSpots} || {_sniperSpots isEqualTo []}) then {
+    _sniperSpots = [] call VIC_fnc_findSniperSpots;
+    ["STALKER_sniperSpots", _sniperSpots] call VIC_fnc_saveCache;
+};
+
+private _swamps = ["STALKER_swamps"] call VIC_fnc_loadCache;
+if (isNil {_swamps} || {_swamps isEqualTo []}) then {
+    _swamps = [] call VIC_fnc_findSwamps;
+    ["STALKER_swamps", _swamps] call VIC_fnc_saveCache;
+};
+
+private _beaches = ["STALKER_beachSpots"] call VIC_fnc_loadCache;
+if (isNil {_beaches} || {_beaches isEqualTo []}) then {
+    _beaches = [] call VIC_fnc_findBeachesInMap;
+    ["STALKER_beachSpots", _beaches] call VIC_fnc_saveCache;
+};
+
+private _valleys = ["STALKER_valleys"] call VIC_fnc_loadCache;
+if (isNil {_valleys} || {_valleys isEqualTo []}) then {
+    _valleys = [] call VIC_fnc_findValleys;
+    ["STALKER_valleys", _valleys] call VIC_fnc_saveCache;
+};
+
+private _bridges = ["STALKER_bridges"] call VIC_fnc_loadCache;
+if (isNil {_bridges} || {_bridges isEqualTo []}) then {
+    _bridges = [] call VIC_fnc_findBridges;
+    ["STALKER_bridges", _bridges] call VIC_fnc_saveCache;
+};
+
+private _crossroads = ["STALKER_crossroads"] call VIC_fnc_loadCache;
+if (isNil {_crossroads} || {_crossroads isEqualTo []}) then {
+    _crossroads = [] call VIC_fnc_findCrossroads;
+    ["STALKER_crossroads", _crossroads] call VIC_fnc_saveCache;
+};
+
+private _bClusters = ["STALKER_buildingClusters"] call VIC_fnc_loadCache;
+if (isNil {_bClusters} || {_bClusters isEqualTo []}) then {
+    _bClusters = [] call VIC_fnc_findBuildingClusters;
+    ["STALKER_buildingClusters", _bClusters] call VIC_fnc_saveCache;
+};
+
+private _wrecks = ["STALKER_wrecks"] call VIC_fnc_loadCache;
+if (isNil {_wrecks} || {_wrecks isEqualTo []}) then {
+    _wrecks = [] call VIC_fnc_findWrecks;
+    ["STALKER_wrecks", _wrecks] call VIC_fnc_saveCache;
+};
 
 // Automatically display cached points when debug mode is active
 if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {

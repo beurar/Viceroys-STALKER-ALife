@@ -13,11 +13,12 @@ if (isNil {_name}) exitWith { false };
 if (isNil {_data}) then { _data = missionNamespace getVariable [_name, nil] };
 if (isNil {_data}) exitWith { false };
 
-profileNamespace setVariable [_name, _data];
+private _key = format ["%1_%2", worldName, _name];
+profileNamespace setVariable [_key, _data];
 saveProfileNamespace;
 
 private _count = "";
 if (_data isEqualType []) then { _count = format [" (%1 items)", count _data]; };
-[format ["saveCache %1%2", _name, _count]] call VIC_fnc_debugLog;
+[format ["saveCache %1%2", _key, _count]] call VIC_fnc_debugLog;
 
 true
