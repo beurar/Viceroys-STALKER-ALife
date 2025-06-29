@@ -29,7 +29,7 @@ for "_i" from 0 to (_count - 1) do {
     };
     private _mine = createVehicle [_mineType, _pos, [], 0, "CAN_COLLIDE"];
     _mine setDir ([_pos, _center] call BIS_fnc_dirTo);
-    _mine addEventHandler ["Explode", { "F_40mm_White" createVehicle getPosATL (_this select 0); }];
+    _mine addEventHandler ["Explosion", { "F_40mm_White" createVehicle getPosATL (_this select 0); }];
     _objs pushBack _mine;
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         private _marker = format ["flr_%1", diag_tickTime + _i];
