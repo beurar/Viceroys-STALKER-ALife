@@ -8,7 +8,8 @@
 */
 params ["_name"];
 
-if (isNil {_name}) exitWith { nil };
+private _data = nil;
+if (isNil {_name}) exitWith { _data };
 
 private _key = format ["%1_%2", worldName, _name];
 private _data = profileNamespace getVariable [_key, nil];
