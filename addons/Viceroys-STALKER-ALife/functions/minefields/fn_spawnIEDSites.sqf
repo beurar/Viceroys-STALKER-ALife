@@ -9,7 +9,8 @@
 */
 params ["_center", ["_radius",500], ["_count",-1]];
 
-["spawnIEDSites"] call VIC_fnc_debugLog;
+// Avoid spamming the console when the manager frequently polls this
+// function. Only log when we actually place at least one site.
 
 if (!isServer) exitWith { false };
 
@@ -46,6 +47,8 @@ for "_i" from 1 to _count do {
     _spawned = _spawned + 1;
 };
 
-[format ["spawnIEDSites: placed %1 sites", _spawned]] call VIC_fnc_debugLog;
+if (_spawned > 0) then {
+    [format ["spawnIEDSites: placed %1 sites", _spawned]] call VIC_fnc_debugLog;
+};
 
 true
