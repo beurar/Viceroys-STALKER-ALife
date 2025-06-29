@@ -306,3 +306,11 @@ class Extended_PreInit_EventHandlers
         init = "call compile preprocessFileLineNumbers 'Viceroys-STALKER-ALife\functions\core\fn_masterInit.sqf'";
     };
 };
+
+class Extended_PostInit_EventHandlers
+{
+    class VIC_StalkerALife_PostInit
+    {
+        init = "call compile preprocessFileLineNumbers 'Viceroys-STALKER-ALife\initServer.sqf'";
+    };
+};
