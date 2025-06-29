@@ -20,8 +20,14 @@ for "_i" from 0 to (_count - 1) do {
     private _angle = _offset + (360 / _count) * _i;
     private _pos = _center getPos [_dist, _angle];
     _pos = [_pos] call VIC_fnc_findLandPos;
-    if (isNil {_pos} || {_pos isEqualTo []}) then { continue }; 
-    private _mine = createMine ["APERSTripMine_Wire_Ammo", _pos, [], 0];
+    if (isNil {_pos} || {_pos isEqualTo []}) then { continue };
+
+    private _mineType = if (isClass (configFile >> "CfgVehicles" >> "APERSTripMine")) then {
+        "APERSTripMine"
+    } else {
+        "APERSMine"
+    };
+    private _mine = createVehicle [_mineType, _pos, [], 0, "CAN_COLLIDE"];
     _mine setDir ([_pos, _center] call BIS_fnc_dirTo);
     _mine addEventHandler ["Explode", { "F_40mm_White" createVehicle getPosATL (_this select 0); }];
     _objs pushBack _mine;

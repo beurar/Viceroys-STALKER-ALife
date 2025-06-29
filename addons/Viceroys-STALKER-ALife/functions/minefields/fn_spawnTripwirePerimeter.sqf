@@ -38,8 +38,13 @@ for "_i" from 0 to ((count _positions) - 1) do {
     private _pos = _positions select _i;
     private _nextPos = _positions select ((_i + 1) mod (count _positions));
 
-    // Tripwire mines require the ammo class when spawned
-    private _mine = createMine ["APERSTripMine_Wire_Ammo", _pos, [], 0];
+    // Spawn tripwire mine vehicles with a fallback APERS mine
+    private _mineType = if (isClass (configFile >> "CfgVehicles" >> "APERSTripMine")) then {
+        "APERSTripMine"
+    } else {
+        "APERSMine"
+    };
+    private _mine = createVehicle [_mineType, _pos, [], 0, "CAN_COLLIDE"];
     _mine setDir ([_pos, _nextPos] call BIS_fnc_dirTo);
     _objs pushBack _mine;
 
