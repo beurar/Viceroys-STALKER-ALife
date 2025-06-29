@@ -20,6 +20,7 @@ STALKER_landZoneMarkers = [];
 if (isNil "STALKER_landZones") then {
     private _cached = ["STALKER_landZones"] call VIC_fnc_loadCache;
     if (isNil {_cached}) exitWith { false };
+    STALKER_landZones = _cached;
 };
 private _zones = STALKER_landZones;
 
