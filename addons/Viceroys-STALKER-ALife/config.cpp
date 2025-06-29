@@ -80,6 +80,7 @@ class CfgFunctions
             class manageNests{};
             class manageHabitats{};
             class setupMutantHabitats{};
+            class spawnCachedHabitats{};
             class onEmissionStart{};
             class onEmissionEnd{};
         };
@@ -282,6 +283,7 @@ class CfgRemoteExec
         class VIC_fnc_startAmbushManager  { allowedTargets = 2; };
         class VIC_fnc_startAnomalyManager { allowedTargets = 2; };
         class VIC_fnc_setupMutantHabitats { allowedTargets = 2; };
+        class VIC_fnc_spawnCachedHabitats { allowedTargets = 2; };
         class VIC_fnc_manageHabitats      { allowedTargets = 2; };
         class VIC_fnc_triggerAIPanic      { allowedTargets = 2; };
         class VIC_fnc_resetAIBehavior     { allowedTargets = 2; };

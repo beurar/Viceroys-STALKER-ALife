@@ -75,6 +75,16 @@ if (isNil {_wrecks} || {_wrecks isEqualTo []}) then {
     ["STALKER_wrecks", _wrecks] call VIC_fnc_saveCache;
 };
 
+// Load or generate mutant habitats
+private _habData = ["STALKER_mutantHabitatData"] call VIC_fnc_loadCache;
+if (isNil {_habData} || {_habData isEqualTo []}) then {
+    [] call VIC_fnc_setupMutantHabitats;
+    _habData = missionNamespace getVariable ["STALKER_mutantHabitatData", []];
+    ["STALKER_mutantHabitatData", _habData] call VIC_fnc_saveCache;
+} else {
+    [_habData] call VIC_fnc_spawnCachedHabitats;
+};
+
 // Automatically display cached points when debug mode is active
 if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
     [] remoteExec ["VIC_fnc_markRockClusters", 0];
