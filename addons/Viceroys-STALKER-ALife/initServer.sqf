@@ -7,6 +7,11 @@ if (!isServer) exitWith {};
 // Ensure core functions are compiled when running script-only
 [] call compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\core\fn_masterInit.sqf";
 
+if !( ["VSA_autoInit", false] call VIC_fnc_getSetting ) exitWith {
+    ["initServer: auto init disabled"] call VIC_fnc_debugLog;
+    false
+};
+
 // Spook zone configuration
 STALKER_MinSpookFields = 2;      // minimum zones spawned per emission
 STALKER_MaxSpookFields = 5;      // maximum zones spawned per emission
