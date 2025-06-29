@@ -64,7 +64,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 
 ### Stalker Camps
 * Roaming stalker groups wander the wilderness providing ambient life.
-* Random camps appear in buildings or open terrain.
+* Random camps appear in buildings with interior positions or open terrain.
 * Camps may belong to BLUFOR, OPFOR or Independent factions based on configurable chances.
 * Group counts and sizes are fully adjustable through CBA settings.
 

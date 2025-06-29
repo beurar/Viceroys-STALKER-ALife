@@ -342,6 +342,14 @@
 ] call CBA_fnc_addSetting;
 
 [
+    "VSA_minCampPositions",
+    "SLIDER",
+    ["Min Building Positions", "Minimum number of positions inside camp buildings"],
+    "Viceroy's STALKER ALife - Stalkers",
+    [0, 20, 1, 0]
+] call CBA_fnc_addSetting;
+
+[
     "VSA_stalkerCampBLUChance",
     "SLIDER",
     ["BLUFOR Camp Chance", "Relative chance for BLUFOR camps"],
