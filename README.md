@@ -59,6 +59,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Swamp detection scans neighbouring grid cells for shallow water so habitats reliably appear in marshy areas.
   Locations are offset slightly each mission so nests appear in different spots every time.
 * Habitats will never overlap one another so each territory is distinct.
+* Habitat locations are cached in the profile so subsequent missions load faster.
 * CBA settings allow mission makers to customize these behaviors.
 
 ### Stalker Camps

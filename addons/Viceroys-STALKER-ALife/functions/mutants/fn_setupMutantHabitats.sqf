@@ -8,6 +8,7 @@
 if (!isServer) exitWith {};
 
 if (isNil "STALKER_mutantHabitats") then { STALKER_mutantHabitats = []; };
+STALKER_mutantHabitatData = [];
 
 private _createMarker = {
     params ["_type", "_pos"];
@@ -58,6 +59,7 @@ private _createMarker = {
 
     _label setMarkerText format ["%1 Habitat: 0/%2", _type, _max];
     STALKER_mutantHabitats pushBack [_area, _label, grpNull, _pos, _type, _max, 0, false];
+    STALKER_mutantHabitatData pushBack [_type, _pos, _max];
 };
 
 private _weightedPick = {
@@ -184,5 +186,8 @@ private _existing = STALKER_mutantHabitats apply { _x#4 };
         };
     };
 } forEach _allTypes;
+
+// Persist generated habitats for future sessions
+["STALKER_mutantHabitatData", STALKER_mutantHabitatData] call VIC_fnc_saveCache;
 
 true
