@@ -228,14 +228,13 @@ VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\func
         [] call VIC_fnc_disableA3UWeather;
     };
     if (isServer && {isNil "VIC_activityThread"}) then {
-        VIC_activityThread = [
-            {
-                while {true} do {
-                    [] call VIC_fnc_updateProximity;
-                    sleep 6;
-                };
-            }, [], 8
-        ] call CBA_fnc_waitAndExecute;
+        VIC_activityThread = [] spawn {
+            sleep 8;
+            while {true} do {
+                [] call VIC_fnc_updateProximity;
+                sleep 6;
+            };
+        };
         // Additional managers have been disabled for quicker startup and can be
         // invoked via debug actions when needed.
     };

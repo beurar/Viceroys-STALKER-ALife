@@ -35,13 +35,12 @@ if !( ["VSA_autoInit", false] call VIC_fnc_getSetting ) exitWith {
         sleep 6;
     };
 };
-[
-    {
-        while { true } do {
-            [] call VIC_fnc_updateProximity;
-            sleep 6;
-        };
-    }, [], 8
-] call CBA_fnc_waitAndExecute;
+[] spawn {
+    sleep 8;
+    while { true } do {
+        [] call VIC_fnc_updateProximity;
+        sleep 6;
+    };
+};
 
 true
