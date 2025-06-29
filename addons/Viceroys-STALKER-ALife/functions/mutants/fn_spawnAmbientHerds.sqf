@@ -39,7 +39,7 @@ for "_i" from 1 to _herdCount do {
     [_grp, _pos] call BIS_fnc_taskPatrol;
     private _markerName = format ["herd_%1_%2", count STALKER_activeHerds, diag_tickTime];
     private _marker = _markerName;
-    [_marker, _pos, "ICON", "mil_dot", "ColorOrange", 0.2] call VIC_fnc_createGlobalMarker;
+    [_marker, _pos, "ICON", "mil_dot", "ColorOrange", 0.2, "Ambient Herd"] call VIC_fnc_createGlobalMarker;
 
     STALKER_activeHerds pushBack [_leader, _grp, _herdSize, _herdSize, false, _marker];
 };
