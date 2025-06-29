@@ -10,6 +10,10 @@
 */
 params [["_radius", 300], ["_maxTries", 20]];
 
+if (isNil "STALKER_roads" || { STALKER_roads isEqualTo [] }) then {
+    STALKER_roads = [] call VIC_fnc_findRoads;
+};
+
 private _attempt = 0;
 
 while { _attempt < _maxTries } do {
@@ -19,12 +23,8 @@ while { _attempt < _maxTries } do {
         continue;
     };
 
-    private _searchCenter = _randomPos;
-    private _roadPos = _searchCenter findEmptyPosition [_radius, _radius, "ROAD"];
-
-    if (!(_roadPos isEqualTo []) && { isOnRoad _roadPos }) exitWith {
-        _roadPos
-    };
+    private _roads = STALKER_roads select { _x distance2D _randomPos < _radius };
+    if (!(_roads isEqualTo [])) exitWith { selectRandom _roads };
 
     _attempt = _attempt + 1;
 };

@@ -11,24 +11,19 @@
 */
 params ["_centerPos", ["_radius", 300], ["_maxTries", 20]];
 
+if (isNil "STALKER_roads" || { STALKER_roads isEqualTo [] }) then {
+    STALKER_roads = [] call VIC_fnc_findRoads;
+};
+
 private _attempt = 0;
 
 while { _attempt < _maxTries } do {
     private _angle = random 360;
-    private _dist = random _radius;
+    private _dist  = random _radius;
 
-    private _offset = [
-        (_dist * cos _angle),
-        (_dist * sin _angle),
-        0
-    ];
-    private _candidatePos = _centerPos vectorAdd _offset;
-
-    private _roadPos = _candidatePos findEmptyPosition [10, 50, "ROAD"];
-
-    if (!(_roadPos isEqualTo []) && { isOnRoad _roadPos }) exitWith {
-        _roadPos
-    };
+    private _candidatePos = _centerPos getPos [_dist, _angle];
+    private _roads = STALKER_roads select { _x distance2D _candidatePos < 50 };
+    if (!(_roads isEqualTo [])) exitWith { selectRandom _roads };
 
     _attempt = _attempt + 1;
 };
