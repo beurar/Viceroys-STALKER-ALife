@@ -17,7 +17,7 @@ private _near = [_pos, _range] call VIC_fnc_hasPlayersNearby;
 
 if (_active) then {
     if (!_near) then {
-        if (![_pos, _range + 200] call VIC_fnc_hasPlayersNearby) then {
+        if !([_pos, _range + 200] call VIC_fnc_hasPlayersNearby) then {
             _active = false;
         } else {
             _active = true;
