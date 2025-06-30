@@ -171,39 +171,11 @@ player addAction ["<t color='#ff0000'>Spawn Booby Traps</t>", {
         [getPos player, 200] remoteExec ["VIC_fnc_spawnBoobyTraps", 2];
     };
 }];
-player addAction ["<t color='#0000ff'>Start Minefield Logic</t>", {
-    if (isServer) then {
-        [] call VIC_fnc_startMinefieldManager;
-    } else {
-        [] remoteExec ["VIC_fnc_startMinefieldManager", 2];
-    };
-}];
-player addAction ["<t color='#0000ff'>Start IED Logic</t>", {
-    if (isServer) then {
-        [] call VIC_fnc_startIEDManager;
-    } else {
-        [] remoteExec ["VIC_fnc_startIEDManager", 2];
-    };
-}];
 player addAction ["<t color='#ff0000'>Spawn Ambush</t>", {
     if (isServer) then {
         [getPos player, 300] call VIC_fnc_spawnAmbushes;
     } else {
         [getPos player, 300] remoteExec ["VIC_fnc_spawnAmbushes", 2];
-    };
-}];
-player addAction ["<t color='#0000ff'>Start Ambush Logic</t>", {
-    if (isServer) then {
-        [] call VIC_fnc_startAmbushManager;
-    } else {
-        [] remoteExec ["VIC_fnc_startAmbushManager", 2];
-    };
-}];
-player addAction ["<t color='#0000ff'>Start Anomaly Logic</t>", {
-    if (isServer) then {
-        [] call VIC_fnc_startAnomalyManager;
-    } else {
-        [] remoteExec ["VIC_fnc_startAnomalyManager", 2];
     };
 }];
 player addAction ["<t color='#0000ff'>Generate Mutant Habitats</t>", {
