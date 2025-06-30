@@ -21,7 +21,7 @@ private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
                 private _idx = _mine getVariable ["VIC_iedIndex", -1];
                 if (_idx > -1 && {!isNil "STALKER_iedSites"}) then { STALKER_iedSites deleteAt _idx; };
             }];
-            _obj addEventHandler ["Killed", {
+            _obj addEventHandler ["Explosion", {
                 params ["_mine"];
                 private _idx = _mine getVariable ["VIC_iedIndex", -1];
                 if (_idx > -1 && {!isNil "STALKER_iedSites"}) then { STALKER_iedSites deleteAt _idx; };
