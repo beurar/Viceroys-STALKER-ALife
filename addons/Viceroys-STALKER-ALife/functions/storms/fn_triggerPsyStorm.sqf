@@ -65,7 +65,8 @@ for "_i" from 1 to _ticks do {
         private _center = getPos (selectRandom allPlayers);
         private _pos = [_center, random _range, random 360] call BIS_fnc_relPos;
         private _surf = [_pos] call VIC_fnc_getSurfacePosition;
-        private _logic = "Logic" createVehicleLocal _surf;
+        // createAgent is required for Logic objects as they have a brain
+        private _logic = createAgent ["Logic", _surf, [], 0, "CAN_COLLIDE"];
         [_logic, [], true] call BIS_fnc_moduleLightning;
         deleteVehicle _logic;
     };

@@ -10,7 +10,8 @@
 
 params ["_pos"];
 
-private _anchor = createVehicle ["Logic", _pos, [], 0, "CAN_COLLIDE"];
+// 'Logic' has an AI brain so it must be spawned with createAgent
+private _anchor = createAgent ["Logic", _pos, [], 0, "CAN_COLLIDE"];
 _anchor hideObjectGlobal true;
 _anchor enableSimulationGlobal false;
 
