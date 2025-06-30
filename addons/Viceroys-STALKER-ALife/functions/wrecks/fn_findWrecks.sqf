@@ -1,7 +1,8 @@
 /*
-    Scans the map for wreck objects and stores them in STALKER_wrecks
-    for use by other functions.
-    Returns: ARRAY of wreck objects found
+    Scans the map for wreck objects. Object references are stored in
+    STALKER_wrecks for runtime use while their positions are returned and
+    cached for persistence.
+    Returns: ARRAY of POSITIONs
 */
 
 ["findWrecks"] call VIC_fnc_debugLog;
@@ -18,8 +19,16 @@ private _found = _objs select {
 };
 
 if (isNil "STALKER_wrecks") then { STALKER_wrecks = [] };
-{ STALKER_wrecks pushBackUnique _x } forEach _found;
+if (isNil "STALKER_wreckPositions") then { STALKER_wreckPositions = [] };
 
-[format ["findWrecks: %1 wrecks cached", count _found]] call VIC_fnc_debugLog;
+private _positions = [];
+{
+    STALKER_wrecks pushBackUnique _x;
+    private _pos = getPosATL _x;
+    _positions pushBackUnique _pos;
+    STALKER_wreckPositions pushBackUnique _pos;
+} forEach _found;
 
-_found
+[format ["findWrecks: %1 wrecks cached", count _positions]] call VIC_fnc_debugLog;
+
+_positions

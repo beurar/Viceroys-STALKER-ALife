@@ -36,8 +36,8 @@ private _crossroads = [] call VIC_fnc_findCrossroads;
 private _bClusters = [] call VIC_fnc_findBuildingClusters;
 ["STALKER_buildingClusters", _bClusters] call VIC_fnc_saveCache;
 
-private _wrecks = [] call VIC_fnc_findWrecks;
-["STALKER_wrecks", _wrecks] call VIC_fnc_saveCache;
+private _wreckPositions = [] call VIC_fnc_findWrecks;
+["STALKER_wreckPositions", _wreckPositions] call VIC_fnc_saveCache;
 
 "Map points regenerated" remoteExec ["hint", 0];
 
