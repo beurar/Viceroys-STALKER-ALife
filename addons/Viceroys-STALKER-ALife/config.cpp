@@ -28,6 +28,7 @@ class CfgFunctions
             class hasPlayersNearby{};
             class createGlobalMarker{};
             class createLocalMarker{};
+            class createProximityAnchor{};
             class weightedPick{};
             class selectWeightedBuilding{};
             class findBridges{};
