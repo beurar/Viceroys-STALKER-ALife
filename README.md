@@ -78,7 +78,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Cleanup functions remove old zones to keep performance reasonable.
 
 ### Minefields
-* Generates APERS minefields on town outskirts and single IEDs on roads.
+* Generates APERS minefields on town outskirts and single IEDs on roads. Fields are now circular with a configurable radius.
 * Mines despawn when no players are nearby and respawn when someone approaches.
 * Enable debug mode to visualize fields and place test minefields via the action menu. Ambush sites can also be spawned this way.
 * When debug mode is enabled the activity grid overlay automatically refreshes on the map, filling each grid block with 20% opacity: yellow for active squares and red for inactive ones.
