@@ -14,7 +14,7 @@ private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
     private _newActive = [_pos,_dist,_active] call VIC_fnc_evalSiteProximity;
     if (_newActive) then {
         if (isNull _obj) then {
-            _obj = createMine ["IEDUrbanSmall_F", _pos, [], 0];
+            _obj = createMine [selectRandom ["IEDUrbanBig_F", "IEDLandBig_F", "IEDUrbanSmall_F", "IEDLandSmall_F"], _pos, [], 0];
             _obj setVariable ["VIC_iedIndex", _forEachIndex];
             _obj addEventHandler ["Deleted", {
                 params ["_mine"];
@@ -29,7 +29,7 @@ private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
             [_obj] spawn {
                 params ["_mine"];
                 while {alive _mine} do {
-                    private _near = allPlayers select { _x distance _mine < 3 };
+                    private _near = allPlayers select { _x distance _mine < 10 };
                     if ((count _near) > 0 && { !(_mine getVariable ["VIC_detonating",false]) }) then {
                         _mine setVariable ["VIC_detonating", true];
                         _mine say3D ["AlarmCar",50];
