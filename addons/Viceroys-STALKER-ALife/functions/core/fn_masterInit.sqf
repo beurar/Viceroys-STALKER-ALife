@@ -116,6 +116,7 @@ VIC_fnc_manageChemicalZones     = compile preprocessFileLineNumbers (_root + "\f
 VIC_fnc_spawnZombiesFromQueue    = compile preprocessFileLineNumbers (_root + "\functions\zombification\fn_spawnZombiesFromQueue.sqf");
 VIC_fnc_trackDeadForZombify      = compile preprocessFileLineNumbers (_root + "\functions\zombification\fn_trackDeadForZombify.sqf");
 VIC_fnc_spawnAllAnomalyFields    = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_spawnAllAnomalyFields.sqf");
+VIC_fnc_spawnBridgeAnomalyFields = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_spawnBridgeAnomalyFields.sqf");
 VIC_fnc_cycleAnomalyFields       = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_cycleAnomalyFields.sqf");
 VIC_fnc_cleanupAnomalyMarkers    = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_cleanupAnomalyMarkers.sqf");
 VIC_fnc_manageAnomalyFields     = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fn_manageAnomalyFields.sqf");

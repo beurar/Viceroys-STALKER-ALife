@@ -33,7 +33,7 @@ if (_count < 0) then {
     _count = round (_count * (_dens / 100));
 };
 
-private _size = ["VSA_anomalyFieldRadius", 200] call VIC_fnc_getSetting;
+private _size = ["VSA_bridgeFieldRadius", 200] call VIC_fnc_getSetting;
 
 if (isNil "STALKER_anomalyMarkers") then { STALKER_anomalyMarkers = [] };
 private _markerName = format ["anom_bridge_%1", diag_tickTime];

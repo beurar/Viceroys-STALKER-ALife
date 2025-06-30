@@ -109,36 +109,7 @@ for "_i" from 1 to _fieldCount do {
     [format ["spawnAllAnomalyFields: spawned %1 %2", count _spawned, _typeName]] call VIC_fnc_debugLog;
 }; 
 
-// Always place a bridge field on every detected bridge zone
-private _bridges = missionNamespace getVariable ["VIC_cachedBridges", []];
-if (_bridges isEqualTo []) then {
-    _bridges = [] call VIC_fnc_findBridges;
-    missionNamespace setVariable ["VIC_cachedBridges", _bridges];
-};
-{
-    private _pos = getPosATL _x;
-    // skip if field already exists at this bridge
-    private _exists = count (STALKER_anomalyFields select {
-        (_x select 2) == VIC_fnc_createField_bridgeElectra && { (_x select 6) distance2D _pos < 10 }
-    }) > 0;
-    if (_exists) then { continue };
-
-    private _stable = if (_type == -1) then { (random 100) < _stableChance } else { _type == 1 };
-    private _spawned = [_pos, 75, -1, _pos] call VIC_fnc_createField_bridgeElectra;
-    if (_spawned isEqualTo []) then { continue };
-
-    private _anchor = [_pos] call VIC_fnc_createProximityAnchor;
-    private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
-    private _site   = if (_marker isEqualTo "") then { getPosATL (_spawned select 0) } else { getMarkerPos _marker };
-    if (_marker != "") then {
-        _marker setMarkerBrush "Border";
-        _marker setMarkerAlpha 1;
-        if (_stable) then { _marker setMarkerText (["bridge", _site] call VIC_fnc_generateFieldName); };
-    };
-    private _dur = missionNamespace getVariable ["STALKER_AnomalyFieldDuration", 30];
-    private _exp = diag_tickTime + (_dur * 60);
-    STALKER_anomalyFields pushBack [_pos,_anchor,75,VIC_fnc_createField_bridgeElectra,count _spawned,_spawned,_marker,_site,_exp,_stable,false];
-    [format ["spawnAllAnomalyFields: spawned %1 bridge", count _spawned]] call VIC_fnc_debugLog;
-} forEach _bridges;
+// Bridges are now spawned via separate helper
+[_type] call VIC_fnc_spawnBridgeAnomalyFields;
 
 true
