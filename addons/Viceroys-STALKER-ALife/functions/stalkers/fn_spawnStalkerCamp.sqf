@@ -74,6 +74,9 @@ private _factionInfo = [
         "O_Bdz_Assaulter_01","O_Bdz_Conman_01","O_Bdz_Criminal_01",
         "O_Bdz_Exo_01","O_Bdz_Raider_01","O_Bdz_Robber_01",
         "O_Bdz_Thug_01","O_Bdz_Waster_01",
+        "O_sin_Apprentice_01","O_sin_Disciple_01","O_sin_Executor_01",
+        "O_sin_Healer_01","O_sin_High_Prosecutor_01","O_sin_Novice_01",
+        "O_sin_Sin_Enforcer_01",
         "SIL_STALKER_Bandit_Autorifleman_F","SIL_STALKER_Bandit_Rifleman_1_F",
         "SIL_STALKER_Bandit_Rifleman_2_F","SIL_STALKER_Bandit_Rifleman_Light_F",
         "SIL_STALKER_Bandit_Sharpshooter_F"
