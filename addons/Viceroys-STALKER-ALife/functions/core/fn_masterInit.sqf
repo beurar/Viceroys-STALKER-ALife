@@ -230,6 +230,7 @@ VIC_fnc_findLandPos = compile preprocessFileLineNumbers (_root + "\functions\cor
 VIC_fnc_getLandSurfacePosition  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_getLandSurfacePosition.sqf");
 VIC_fnc_findRoadPosition        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findRoadPosition.sqf");
 VIC_fnc_findRandomRoadPosition  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findRandomRoadPosition.sqf");
+VIC_fnc_getRandomRoad           = compile preprocessFileLineNumbers (_root + "\functions\core\fn_getRandomRoad.sqf");
 VIC_fnc_evalSiteProximity      = compile preprocessFileLineNumbers (_root + "\functions\core\fn_evalSiteProximity.sqf");
 VIC_fnc_createProximityAnchor  = compile preprocessFileLineNumbers (_root + "\functions\core\fn_createProximityAnchor.sqf");
 VIC_fnc_spawnAmbientStalkers   = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnAmbientStalkers.sqf");

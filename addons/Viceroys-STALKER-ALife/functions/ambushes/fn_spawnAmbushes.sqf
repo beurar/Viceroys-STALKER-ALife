@@ -30,7 +30,6 @@ for "_i" from 1 to _count do {
 
     for "_j" from 1 to 30 do {
         private _candidate = [_center, _radius, 5] call VIC_fnc_findRoadPosition;
-        if (isNil {_candidate}) then { continue; };
 
         private _locations = nearestLocations [
             _candidate,

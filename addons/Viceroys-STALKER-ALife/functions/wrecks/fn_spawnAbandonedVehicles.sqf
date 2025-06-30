@@ -20,28 +20,19 @@ private _classes = [
 ];
 
 for "_i" from 1 to _count do {
-    private _base = [random worldSize, random worldSize, 0];
-    private _road = roadAt _base;
-    if (isNull _road) then {
-        private _roads = _base nearRoads 50;
-        if ((count _roads) > 0) then { _road = _roads select 0; };
-    };
-
-    if (!isNull _road) then {
-        private _pos = getPos _road;
-        _pos = _pos getPos [2 + random 3, random 360];
-        _pos = [_pos] call VIC_fnc_getLandSurfacePosition;
-        if !(_pos isEqualTo []) then {
-            private _veh = createVehicle [selectRandom _classes, ASLtoATL _pos, [], 0, "CAN_COLLIDE"];
-            _veh setPosATL (ASLtoATL _pos);
-            _veh setVectorUp surfaceNormal (ASLtoATL _pos);
-            _veh setDamage (0.3 + random 0.7);
-            _veh setFuel 0;
-            _veh lock 2;
-            _veh setVariable ["VIC_wreckSite", ASLtoATL _pos];
-            private _anchor = [ASLtoATL _pos] call VIC_fnc_createProximityAnchor;
-            _veh setVariable ["VIC_anchor", _anchor];
-            STALKER_wrecks pushBack _veh;
-        };
+    private _roadPos = [] call VIC_fnc_getRandomRoad;
+    private _pos = _roadPos getPos [2 + random 3, random 360];
+    _pos = [_pos] call VIC_fnc_getLandSurfacePosition;
+    if !(_pos isEqualTo []) then {
+        private _veh = createVehicle [selectRandom _classes, ASLtoATL _pos, [], 0, "CAN_COLLIDE"];
+        _veh setPosATL (ASLtoATL _pos);
+        _veh setVectorUp surfaceNormal (ASLtoATL _pos);
+        _veh setDamage (0.3 + random 0.7);
+        _veh setFuel 0;
+        _veh lock 2;
+        _veh setVariable ["VIC_wreckSite", ASLtoATL _pos];
+        private _anchor = [ASLtoATL _pos] call VIC_fnc_createProximityAnchor;
+        _veh setVariable ["VIC_anchor", _anchor];
+        STALKER_wrecks pushBack _veh;
     };
 };
