@@ -178,13 +178,6 @@ player addAction ["<t color='#ff0000'>Spawn Ambush</t>", {
         [getPos player, 300] remoteExec ["VIC_fnc_spawnAmbushes", 2];
     };
 }];
-player addAction ["<t color='#0000ff'>Generate Mutant Habitats</t>", {
-    if (isServer) then {
-        [] call VIC_fnc_setupMutantHabitats;
-    } else {
-        [] remoteExec ["VIC_fnc_setupMutantHabitats", 2];
-    };
-}];
 player addAction ["<t color='#0000ff'>Cycle Habitats</t>", {
     if (isServer) then {
         [] call VIC_fnc_manageHabitats;
