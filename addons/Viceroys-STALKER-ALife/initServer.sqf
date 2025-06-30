@@ -69,4 +69,8 @@ private _center = [worldSize / 2, worldSize / 2, 0];
 private _wreckCount = ["VSA_wreckCount", 10] call VIC_fnc_getSetting;
 [_wreckCount] call VIC_fnc_spawnAbandonedVehicles;
 
+// Automatically place anomaly fields across the map
+[_center, worldSize, 1] call VIC_fnc_spawnAllAnomalyFields;
+[1] call VIC_fnc_spawnBridgeAnomalyFields;
+
 [] call VIC_fnc_initManagers;
