@@ -174,8 +174,8 @@ for "_i" from 1 to _groupCount do {
         [_marker, _pos, "ICON", "mil_dot", "ColorGreen", 0.2] call VIC_fnc_createGlobalMarker;
     };
 
-    [_pos] call VIC_fnc_createProximityAnchor;
+    private _anchor = [_pos] call VIC_fnc_createProximityAnchor;
 
     STALKER_stalkerGroups pushBack [_grp, _marker];
-    STALKER_wanderers pushBack [_grp, _pos, _marker, true];
+    STALKER_wanderers pushBack [_grp, _pos, _anchor, _marker, true];
 }; 

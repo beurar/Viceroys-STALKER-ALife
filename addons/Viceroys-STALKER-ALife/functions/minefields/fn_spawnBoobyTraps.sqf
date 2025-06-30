@@ -43,9 +43,9 @@ for "_i" from 1 to _count do {
         [_marker, _pos, "ICON", "mil_triangle", "ColorOrange", 0.2, "Trap"] call VIC_fnc_createGlobalMarker;
     };
 
-    [_pos] call VIC_fnc_createProximityAnchor;
+    private _anchor = [_pos] call VIC_fnc_createProximityAnchor;
 
-    STALKER_boobyTraps pushBack [_pos, [], _marker, false];
+    STALKER_boobyTraps pushBack [_pos, _anchor, [], _marker, false];
     _spawned = _spawned + 1;
 };
 

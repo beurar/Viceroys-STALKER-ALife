@@ -45,7 +45,7 @@ for "_i" from 1 to _count do {
     };
     if (isNil {_pos}) then { continue; };
 
-    [_pos] call VIC_fnc_createProximityAnchor;
+    private _anchor = [_pos] call VIC_fnc_createProximityAnchor;
 
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
@@ -53,7 +53,7 @@ for "_i" from 1 to _count do {
         [_marker, _pos, "ICON", "mil_triangle", "ColorBlack", 0.2, "Ambush"] call VIC_fnc_createGlobalMarker;
     };
 
-    STALKER_ambushes pushBack [_pos, objNull, [], [], false, _marker, false];
+    STALKER_ambushes pushBack [_pos, _anchor, objNull, [], [], false, _marker, false];
 };
 
 true;

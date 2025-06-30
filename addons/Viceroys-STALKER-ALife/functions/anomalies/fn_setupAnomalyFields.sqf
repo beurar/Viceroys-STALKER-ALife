@@ -15,15 +15,16 @@ private _createField = {
 
     // Skip this location if it overlaps an existing field
     private _overlap = false;
-    {
-        if (_pos distance2D (_x#6) < 300) exitWith { _overlap = true };
-    } forEach STALKER_anomalyFields;
+        {
+            private _site = _x select 7;
+            if (_pos distance2D _site < 300) exitWith { _overlap = true };
+        } forEach STALKER_anomalyFields;
     if (_overlap) exitWith { false };
 
     private _spawned = [_pos, 75] call _fn;
     if (_spawned isEqualTo []) exitWith { false };
 
-    [_pos] call VIC_fnc_createProximityAnchor;
+    private _anchor = [_pos] call VIC_fnc_createProximityAnchor;
 
     private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
     if (_marker != "") then {
@@ -50,7 +51,7 @@ private _createField = {
     private _dur = missionNamespace getVariable ["STALKER_AnomalyFieldDuration", 30];
     private _exp = diag_tickTime + (_dur * 60);
 
-    STALKER_anomalyFields pushBack [_pos,75,_fn,count _spawned,_spawned,_marker,_pos,_exp,true,false];
+    STALKER_anomalyFields pushBack [_pos,_anchor,75,_fn,count _spawned,_spawned,_marker,_pos,_exp,true,false];
     true
 };
 

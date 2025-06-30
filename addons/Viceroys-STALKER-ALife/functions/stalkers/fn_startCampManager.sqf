@@ -26,7 +26,7 @@ missionNamespace setVariable ["VIC_campManagerRunning", true];
                 if ((count STALKER_camps) == 0) exitWith {};
                 private _idx = floor random (count STALKER_camps);
                 private _camp = STALKER_camps select _idx;
-                _camp params ["_fire","_grp","_pos","_marker"];
+                _camp params ["_fire","_grp","_pos","_anchor","_marker"];
                 if (!isNull _grp) then { { deleteVehicle _x } forEach units _grp; deleteGroup _grp; };
                 if (!isNull _fire) then { deleteVehicle _fire; };
                 if (_marker != "") then { deleteMarker _marker; };

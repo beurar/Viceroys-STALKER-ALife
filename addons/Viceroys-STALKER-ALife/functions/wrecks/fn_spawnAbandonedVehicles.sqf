@@ -39,6 +39,8 @@ for "_i" from 1 to _count do {
             _veh setFuel 0;
             _veh lock 2;
             _veh setVariable ["VIC_wreckSite", ASLtoATL _pos];
+            private _anchor = [ASLtoATL _pos] call VIC_fnc_createProximityAnchor;
+            _veh setVariable ["VIC_anchor", _anchor];
             STALKER_wrecks pushBack _veh;
         };
     };

@@ -20,7 +20,7 @@ private _createMarker = {
     } forEach STALKER_mutantHabitats;
     if (!_overlap && {!isNil "STALKER_anomalyFields"}) then {
         {
-            if (_pos distance2D (_x#6) < 300) exitWith { _overlap = true };
+            if (_pos distance2D (_x#7) < 300) exitWith { _overlap = true };
         } forEach STALKER_anomalyFields;
     };
     if (_overlap) exitWith { false };
@@ -32,9 +32,9 @@ private _createMarker = {
     [_label, _pos, "ICON", "mil_dot", "ColorGreen", 1] call VIC_fnc_createGlobalMarker;
     _label setMarkerText format ["%1 Habitat: 0/%2", _type, _max];
 
-    [_pos] call VIC_fnc_createProximityAnchor;
+    private _anchor = [_pos] call VIC_fnc_createProximityAnchor;
 
-    STALKER_mutantHabitats pushBack [_area, _label, grpNull, _pos, _type, _max, 0, false];
+    STALKER_mutantHabitats pushBack [_area, _label, grpNull, _pos, _anchor, _type, _max, 0, false];
 };
 
 {

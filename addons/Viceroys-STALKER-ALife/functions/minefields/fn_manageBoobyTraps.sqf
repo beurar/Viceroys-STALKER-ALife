@@ -1,6 +1,6 @@
 /*
     Activates or deactivates booby traps based on player proximity.
-    STALKER_boobyTraps entries: [position, objects, marker, active]
+    STALKER_boobyTraps entries: [position, anchor, objects, marker, active]
 */
 // ["manageBoobyTraps"] call VIC_fnc_debugLog;
 
@@ -10,8 +10,8 @@ if (isNil "STALKER_boobyTraps") exitWith {};
 private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
 
 {
-    _x params ["_pos","_objs","_marker",["_active",false]];
-    private _newActive = [_pos,_dist,_active] call VIC_fnc_evalSiteProximity;
+    _x params ["_pos","_anchor","_objs","_marker",["_active",false]];
+    private _newActive = [_anchor,_dist,_active] call VIC_fnc_evalSiteProximity;
     if (_newActive) then {
         if (!_active) then {
             // Spawn tripwire or fallback APERS mine vehicles
@@ -32,7 +32,7 @@ private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
         };
         if (_marker != "") then { _marker setMarkerAlpha 0.2; };
     };
-    STALKER_boobyTraps set [_forEachIndex, [_pos,_objs,_marker,_newActive]];
+    STALKER_boobyTraps set [_forEachIndex, [_pos,_anchor,_objs,_marker,_newActive]];
 } forEach STALKER_boobyTraps;
 
 true

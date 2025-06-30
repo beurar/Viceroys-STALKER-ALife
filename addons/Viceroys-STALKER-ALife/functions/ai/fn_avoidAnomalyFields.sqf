@@ -28,7 +28,7 @@ if (isNil "STALKER_anomalyFields") exitWith {
 private _chance = ["VSA_aiAnomalyAvoidChance", 50] call VIC_fnc_getSetting;
 private _buffer = ["VSA_aiAnomalyAvoidRange", 20] call VIC_fnc_getSetting;
 
-private _fields = STALKER_anomalyFields apply { [ _x select 0, _x select 1 ] };
+private _fields = STALKER_anomalyFields apply { [ _x select 0, _x select 2 ] };
 if (_fields isEqualTo []) exitWith {
     ["fn_avoidAnomalyFields exit: no valid fields"] call VIC_fnc_debugLog;
 };

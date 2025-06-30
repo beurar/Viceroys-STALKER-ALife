@@ -21,13 +21,13 @@ if (_herdIndex > -1 && {!isNil "STALKER_activeHerds"}) then {
 private _habIndex = _unit getVariable ["VSA_habitatIndex", -1];
 if (_habIndex > -1 && {!isNil "STALKER_mutantHabitats"}) then {
     private _entry = STALKER_mutantHabitats select _habIndex;
-    _entry params ["_area","_label","_grp","_pos","_type","_max","_count","_near"];
+    _entry params ["_area","_label","_grp","_pos","_anchor","_type","_max","_count","_near"];
     _count = _count - 1;
     if (_count < 0) then {_count = 0;};
     _area setMarkerColor (if (_count > 0) then {"ColorRed"} else {"ColorGreen"});
     _label setMarkerColor (if (_count > 0) then {"ColorRed"} else {"ColorGreen"});
     _label setMarkerText format ["%1 Habitat: %2/%3", _type, _count, _max];
-    STALKER_mutantHabitats set [_habIndex, [_area,_label,_grp,_pos,_type,_max,_count,_near]];
+    STALKER_mutantHabitats set [_habIndex, [_area,_label,_grp,_pos,_anchor,_type,_max,_count,_near]];
 };
 
 if (missionNamespace getVariable ["STALKER_mutantHunt_active", false]) then {

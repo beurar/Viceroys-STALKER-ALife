@@ -91,7 +91,7 @@ for "_i" from 1 to _fieldCount do {
         continue;
     };
 
-    [_pos] call VIC_fnc_createProximityAnchor;
+    private _anchor = [_pos] call VIC_fnc_createProximityAnchor;
 
     private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
     private _site   = if (_marker isEqualTo "") then { getPosATL (_spawned select 0) } else { getMarkerPos _marker };
@@ -105,7 +105,7 @@ for "_i" from 1 to _fieldCount do {
 
     private _dur = missionNamespace getVariable ["STALKER_AnomalyFieldDuration", 30];
     private _exp = diag_tickTime + (_dur * 60);
-    STALKER_anomalyFields pushBack [_pos,75,_fn,count _spawned,_spawned,_marker,_site,_exp,_stable,false];
+    STALKER_anomalyFields pushBack [_pos,_anchor,75,_fn,count _spawned,_spawned,_marker,_site,_exp,_stable,false];
     [format ["spawnAllAnomalyFields: spawned %1 %2", count _spawned, _typeName]] call VIC_fnc_debugLog;
 }; 
 
@@ -127,7 +127,7 @@ if (_bridges isEqualTo []) then {
     private _spawned = [_pos, 75, -1, _pos] call VIC_fnc_createField_bridgeElectra;
     if (_spawned isEqualTo []) then { continue };
 
-    [_pos] call VIC_fnc_createProximityAnchor;
+    private _anchor = [_pos] call VIC_fnc_createProximityAnchor;
     private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
     private _site   = if (_marker isEqualTo "") then { getPosATL (_spawned select 0) } else { getMarkerPos _marker };
     if (_marker != "") then {
@@ -137,7 +137,7 @@ if (_bridges isEqualTo []) then {
     };
     private _dur = missionNamespace getVariable ["STALKER_AnomalyFieldDuration", 30];
     private _exp = diag_tickTime + (_dur * 60);
-    STALKER_anomalyFields pushBack [_pos,75,VIC_fnc_createField_bridgeElectra,count _spawned,_spawned,_marker,_site,_exp,_stable,false];
+    STALKER_anomalyFields pushBack [_pos,_anchor,75,VIC_fnc_createField_bridgeElectra,count _spawned,_spawned,_marker,_site,_exp,_stable,false];
     [format ["spawnAllAnomalyFields: spawned %1 bridge", count _spawned]] call VIC_fnc_debugLog;
 } forEach _bridges;
 

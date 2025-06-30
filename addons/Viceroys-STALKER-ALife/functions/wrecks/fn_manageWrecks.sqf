@@ -29,6 +29,11 @@ for [{_i = (count STALKER_wrecks) - 1}, {_i >= 0}, {_i = _i - 1}] do {
 
     private _site = _veh getVariable ["VIC_wreckSite", getPosATL _veh];
     _veh setVariable ["VIC_wreckSite", _site];
+    private _anchor = _veh getVariable ["VIC_anchor", objNull];
+    if (isNull _anchor) then {
+        _anchor = [_site] call VIC_fnc_createProximityAnchor;
+        _veh setVariable ["VIC_anchor", _anchor];
+    };
 
     if (_veh distance2D _site > 200) then {
         if (!isNil "STALKER_wreckMarkers") then {
@@ -40,7 +45,7 @@ for [{_i = (count STALKER_wrecks) - 1}, {_i >= 0}, {_i = _i - 1}] do {
         continue;
     };
 
-    private _near = [_site, _dist] call VIC_fnc_hasPlayersNearby;
+    private _near = [_anchor, _dist] call VIC_fnc_hasPlayersNearby;
     if (!_near) then {
         deleteVehicle _veh;
         if (!isNil "STALKER_wreckMarkers") then {
