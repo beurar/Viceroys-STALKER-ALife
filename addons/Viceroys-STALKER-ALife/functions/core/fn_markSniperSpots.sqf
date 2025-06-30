@@ -23,7 +23,7 @@ private _spots = STALKER_sniperSpots;
 
 {
     private _name = format ["sniper_%1_%2", diag_tickTime, _forEachIndex];
-    private _marker = [_name, _x, "ICON", "mil_dot", "ColorBlue", 1, "", [1,1], _global] call VIC_fnc_createGlobalMarker;
+    private _marker = [_name, _x, "ICON", "mil_ambush", "#(0,0,1,1)", 1, "", [1,1], _global] call VIC_fnc_createGlobalMarker;
     STALKER_sniperSpotMarkers pushBack _marker;
 } forEach _spots;
 

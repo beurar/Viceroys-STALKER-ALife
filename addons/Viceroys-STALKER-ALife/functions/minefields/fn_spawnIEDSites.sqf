@@ -42,7 +42,7 @@ for "_i" from 1 to _count do {
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         _marker = format ["ied_%1_%2", count STALKER_iedSites, diag_tickTime];
-        [_marker, _pos, "ICON", "mil_triangle", "ColorRed", 0.2, "IED"] call VIC_fnc_createGlobalMarker;
+        [_marker, _pos, "ICON", "mil_triangle", "#(0.9,0.2,0.2,1)", 0.2, "IED"] call VIC_fnc_createGlobalMarker;
     };
 
     STALKER_iedSites pushBack [_pos, objNull, _marker, false];

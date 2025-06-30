@@ -26,10 +26,10 @@ private _createMarker = {
     if (_overlap) exitWith { false };
     private _base = format ["hab_%1_%2", toLower _type, diag_tickTime + random 1000];
     private _area = _base + "_area";
-    [_area, _pos, "ELLIPSE", "", "ColorGreen", 1, format ["%1 Habitat Area", _type]] call VIC_fnc_createGlobalMarker;
+  [_area, _pos, "ELLIPSE", "", VIC_colorMutant, 1, format ["%1 Habitat Area", _type]] call VIC_fnc_createGlobalMarker;
     [_area, [150,150]] remoteExec ["setMarkerSize", 0];
     private _label = _base + "_label";
-    [_label, _pos, "ICON", "mil_dot", "ColorGreen", 1] call VIC_fnc_createGlobalMarker;
+  [_label, _pos, "ICON", "mil_dot", VIC_colorMutant, 1] call VIC_fnc_createGlobalMarker;
     _label setMarkerText format ["%1 Habitat: 0/%2", _type, _max];
 
     private _anchor = [_pos] call VIC_fnc_createProximityAnchor;

@@ -59,7 +59,7 @@ for "_i" from 0 to (_count - 1) do {
     private _pos = selectRandom _valley;
     if (_debug && {isServer}) then {
         private _name = format ["valleyAnchor_%1", diag_tickTime + random 1000];
-        private _m = [_name, _pos, "ICON", "mil_triangle", "ColorYellow"] call VIC_fnc_createGlobalMarker;
+        private _m = [_name, _pos, "ICON", "mil_warning", VIC_colorGasYellow] call VIC_fnc_createGlobalMarker;
         STALKER_valleyBaseMarkers pushBack _m;
     };
     for "_j" from 1 to _clusterSize do {

@@ -76,7 +76,7 @@ for "_i" from 1 to _count do {
 
     private _markerName = format ["spook_%1", diag_tickTime];
     private _marker = _markerName;
-    [_marker, _pos, "ELLIPSE", "", "ColorBlack", 1, format ["%1 x%2", _class select [4], _num]] call VIC_fnc_createGlobalMarker;
+    [_marker, _pos, "ELLIPSE", "", "#(0.2,0.2,0.2,1)", 1, format ["%1 x%2", _class select [4], _num]] call VIC_fnc_createGlobalMarker;
     [_marker, [25,25]] remoteExec ["setMarkerSize", 0];
     _zone setVariable ["zoneMarker", _marker];
     private _range = missionNamespace getVariable ["STALKER_activityRadius", 1500];

@@ -37,7 +37,7 @@ if (_count < 0) then {
 if (isNil "STALKER_anomalyMarkers") then { STALKER_anomalyMarkers = [] };
 private _markerName = format ["anom_launchpad_%1", diag_tickTime];
 private _size = ["VSA_anomalyFieldRadius", 200] call VIC_fnc_getSetting;
-private _marker = [_markerName, _site, "ELLIPSE", "", "ColorYellow", 1, format ["Launchpad %1m", _size]] call VIC_fnc_createGlobalMarker;
+private _marker = [_markerName, _site, "ELLIPSE", "", VIC_colorTeleport, 1, format ["Launchpad %1m", _size]] call VIC_fnc_createGlobalMarker;
 _marker setMarkerSize [_size,_size];
 _marker setMarkerBrush "Border";
 STALKER_anomalyMarkers pushBack _marker;

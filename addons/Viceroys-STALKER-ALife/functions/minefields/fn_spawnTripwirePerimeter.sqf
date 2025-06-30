@@ -50,7 +50,7 @@ for "_i" from 0 to ((count _positions) - 1) do {
 
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         private _marker = format ["tw_%1", diag_tickTime + _i];
-        [_marker, _pos, "ICON", "mil_triangle", "ColorOrange", 0.2, "Tripwire"] call VIC_fnc_createGlobalMarker;
+        [_marker, _pos, "ICON", "mil_triangle", "#(1,0.5,0,1)", 0.2, "Tripwire"] call VIC_fnc_createGlobalMarker;
     };
 };
 

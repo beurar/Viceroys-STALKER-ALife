@@ -19,7 +19,7 @@ private _ied = createMine ["IEDLandSmall_F", _pos, [], 0];
 
 if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
     private _marker = format ["ied_%1", diag_tickTime];
-    [_marker, _pos, "ICON", "mil_triangle", "ColorRed", 0.2, "IED"] call VIC_fnc_createGlobalMarker;
+    [_marker, _pos, "ICON", "mil_triangle", "#(0.9,0.2,0.2,1)", 0.2, "IED"] call VIC_fnc_createGlobalMarker;
 };
 
 [_ied];

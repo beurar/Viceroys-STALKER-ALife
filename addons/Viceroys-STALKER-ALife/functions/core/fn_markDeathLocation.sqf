@@ -14,7 +14,7 @@ if (isNull _unit || {!isPlayer _unit}) exitWith {};
 private _pos = getPosATL _unit;
 private _name = format ["death_%1", diag_tickTime];
 
-private _marker = [_name, _pos, "ICON", "hd_destroy", "ColorRed", 1, "", [1,1], _global] call VIC_fnc_createGlobalMarker;
+private _marker = [_name, _pos, "ICON", "mil_destroy", VIC_colorMeatRed, 1, "", [1,1], _global] call VIC_fnc_createGlobalMarker;
 
 if (isNil "STALKER_deathMarkers") then { STALKER_deathMarkers = [] };
 STALKER_deathMarkers pushBack [_unit, _marker];

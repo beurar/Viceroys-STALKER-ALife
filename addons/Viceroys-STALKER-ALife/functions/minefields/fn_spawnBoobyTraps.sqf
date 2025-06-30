@@ -40,7 +40,7 @@ for "_i" from 1 to _count do {
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         _marker = format ["trap_%1", diag_tickTime + _i];
-        [_marker, _pos, "ICON", "mil_triangle", "ColorOrange", 0.2, "Trap"] call VIC_fnc_createGlobalMarker;
+        [_marker, _pos, "ICON", "mil_triangle", "#(1,0.5,0,1)", 0.2, "Trap"] call VIC_fnc_createGlobalMarker;
     };
 
     private _anchor = [_pos] call VIC_fnc_createProximityAnchor;

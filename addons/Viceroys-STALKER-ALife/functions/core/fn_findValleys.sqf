@@ -86,7 +86,7 @@ for "_gx" from 0 to worldSize step _step do {
             _valleys pushBack _valley;
             if (_debug && {isServer}) then {
                 private _name = format ["valleySeed_%1", diag_tickTime + random 1000];
-                private _m = [_name, _lowestPos, "ICON", "mil_dot", "ColorBlue"] call VIC_fnc_createGlobalMarker;
+                private _m = [_name, _lowestPos, "ICON", "mil_dot", "#(0,0,1,1)"] call VIC_fnc_createGlobalMarker;
                 STALKER_valleySeedMarkers pushBack _m;
             };
         };

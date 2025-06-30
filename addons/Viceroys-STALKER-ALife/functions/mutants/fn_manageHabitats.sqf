@@ -78,8 +78,8 @@ private _getClass = {
         };
     };
 
-    _area setMarkerColor (if (_count > 0) then {"ColorRed"} else {"ColorGreen"});
-    _label setMarkerColor (if (_count > 0) then {"ColorRed"} else {"ColorGreen"});
+    _area setMarkerColor (if (_count > 0) then {VIC_colorMeatRed} else {VIC_colorMutant});
+    _label setMarkerColor (if (_count > 0) then {VIC_colorMeatRed} else {VIC_colorMutant});
     _label setMarkerText format ["%1 Habitat: %2/%3", _type, _count, _max];
 
     private _alpha = if (_near) then {1} else {0.2};
