@@ -36,11 +36,17 @@ missionNamespace setVariable ["VIC_campManagerRunning", true];
 
         if ((count STALKER_camps) < _min) then {
             private _needed = _min - (count STALKER_camps);
+            private _minDist = 300;
             for "_i" from 1 to _needed do {
-                private _building = [] call VIC_fnc_findCampBuilding;
-                if (isNull _building) exitWith {};
-                private _pos = getPosATL _building;
-                [_pos] call VIC_fnc_spawnStalkerCamp;
+                private _campPos = nil;
+                for "_j" from 1 to 30 do {
+                    private _building = [] call VIC_fnc_findCampBuilding;
+                    if (isNull _building) exitWith {};
+                    private _pos = getPosATL _building;
+                    if ([ _pos, _minDist ] call VIC_fnc_isCampLocationValid) exitWith { _campPos = _pos };
+                };
+                if (isNil {_campPos}) exitWith {};
+                [_campPos] call VIC_fnc_spawnStalkerCamp;
             };
         };
 

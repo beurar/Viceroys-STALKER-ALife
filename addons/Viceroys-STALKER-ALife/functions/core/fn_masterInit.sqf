@@ -206,6 +206,7 @@ VIC_fnc_spawnAmbientStalkers   = compile preprocessFileLineNumbers (_root + "\fu
 VIC_fnc_spawnStalkerCamp       = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnStalkerCamp.sqf");
 VIC_fnc_spawnStalkerCamps      = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnStalkerCamps.sqf");
 VIC_fnc_findCampBuilding       = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_findCampBuilding.sqf");
+VIC_fnc_isCampLocationValid    = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_isCampLocationValid.sqf");
 VIC_fnc_spawnFlareTripwires    = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnFlareTripwires.sqf");
 VIC_fnc_spawnSniper           = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_spawnSniper.sqf");
 VIC_fnc_manageSnipers         = compile preprocessFileLineNumbers (_root + "\functions\stalkers\fn_manageSnipers.sqf");

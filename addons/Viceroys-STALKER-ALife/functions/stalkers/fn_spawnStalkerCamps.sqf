@@ -16,9 +16,16 @@ if (["VSA_enableStalkerCamps", true] call VIC_fnc_getSetting isEqualTo false) ex
 
 if (_count < 0) then { _count = ["VSA_stalkerCampCount",1] call VIC_fnc_getSetting; };
 
+private _minDist = 300;
+
 for "_i" from 1 to _count do {
-    private _building = [] call VIC_fnc_findCampBuilding;
-    if (isNull _building) exitWith {};
-    private _campPos = getPosATL _building;
+    private _campPos = nil;
+    for "_j" from 1 to 30 do {
+        private _building = [] call VIC_fnc_findCampBuilding;
+        if (isNull _building) exitWith {};
+        private _pos = getPosATL _building;
+        if ([ _pos, _minDist ] call VIC_fnc_isCampLocationValid) exitWith { _campPos = _pos };
+    };
+    if (isNil {_campPos}) exitWith {};
     [_campPos] call VIC_fnc_spawnStalkerCamp;
 };
