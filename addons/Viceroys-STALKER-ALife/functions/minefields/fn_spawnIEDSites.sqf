@@ -37,6 +37,8 @@ for "_i" from 1 to _count do {
     };
     if (isNil {_pos}) then { continue };
 
+    [_pos] call VIC_fnc_createProximityAnchor;
+
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         _marker = format ["ied_%1_%2", count STALKER_iedSites, diag_tickTime];

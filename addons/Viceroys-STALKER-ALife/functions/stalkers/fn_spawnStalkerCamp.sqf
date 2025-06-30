@@ -9,6 +9,8 @@ params ["_pos"];
 
 ["spawnStalkerCamp"] call VIC_fnc_debugLog;
 
+[_pos] call VIC_fnc_createProximityAnchor;
+
 if (!isServer) exitWith {};
 
 if (isNil "STALKER_camps") then { STALKER_camps = []; };

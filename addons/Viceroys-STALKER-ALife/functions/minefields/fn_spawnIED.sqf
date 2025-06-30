@@ -13,6 +13,8 @@ if (!isServer) exitWith { [] };
 
 private _pos = [_center, 200, 20] call VIC_fnc_findRoadPosition;
 if (isNil {_pos}) exitWith { [] };
+
+[_pos] call VIC_fnc_createProximityAnchor;
 private _ied = createMine ["IEDLandSmall_F", _pos, [], 0];
 
 if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {

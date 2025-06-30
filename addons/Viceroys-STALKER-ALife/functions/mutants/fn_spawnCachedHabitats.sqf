@@ -31,6 +31,9 @@ private _createMarker = {
     private _label = _base + "_label";
     [_label, _pos, "ICON", "mil_dot", "ColorGreen", 1] call VIC_fnc_createGlobalMarker;
     _label setMarkerText format ["%1 Habitat: 0/%2", _type, _max];
+
+    [_pos] call VIC_fnc_createProximityAnchor;
+
     STALKER_mutantHabitats pushBack [_area, _label, grpNull, _pos, _type, _max, 0, false];
 };
 

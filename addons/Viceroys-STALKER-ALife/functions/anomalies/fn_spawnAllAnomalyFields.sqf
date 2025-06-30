@@ -91,6 +91,8 @@ for "_i" from 1 to _fieldCount do {
         continue;
     };
 
+    [_pos] call VIC_fnc_createProximityAnchor;
+
     private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
     private _site   = if (_marker isEqualTo "") then { getPosATL (_spawned select 0) } else { getMarkerPos _marker };
     if (_marker != "") then {
@@ -124,6 +126,8 @@ if (_bridges isEqualTo []) then {
     private _stable = if (_type == -1) then { (random 100) < _stableChance } else { _type == 1 };
     private _spawned = [_pos, 75, -1, _pos] call VIC_fnc_createField_bridgeElectra;
     if (_spawned isEqualTo []) then { continue };
+
+    [_pos] call VIC_fnc_createProximityAnchor;
     private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
     private _site   = if (_marker isEqualTo "") then { getPosATL (_spawned select 0) } else { getMarkerPos _marker };
     if (_marker != "") then {

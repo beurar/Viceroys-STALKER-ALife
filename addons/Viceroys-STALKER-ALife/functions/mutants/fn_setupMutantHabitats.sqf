@@ -58,6 +58,9 @@ private _createMarker = {
     };
 
     _label setMarkerText format ["%1 Habitat: 0/%2", _type, _max];
+
+    [_pos] call VIC_fnc_createProximityAnchor;
+
     STALKER_mutantHabitats pushBack [_area, _label, grpNull, _pos, _type, _max, 0, false];
     STALKER_mutantHabitatData pushBack [_type, _pos, _max];
 };

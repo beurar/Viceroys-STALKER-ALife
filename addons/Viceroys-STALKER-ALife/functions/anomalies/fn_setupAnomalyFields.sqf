@@ -23,6 +23,8 @@ private _createField = {
     private _spawned = [_pos, 75] call _fn;
     if (_spawned isEqualTo []) exitWith { false };
 
+    [_pos] call VIC_fnc_createProximityAnchor;
+
     private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
     if (_marker != "") then {
         _marker setMarkerBrush "Border";
