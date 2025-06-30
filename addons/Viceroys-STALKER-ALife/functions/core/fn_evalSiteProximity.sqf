@@ -4,9 +4,9 @@
     are beyond the activation range plus 200 meters.
 
     Params:
-        0: OBJECT   - proximity anchor for the site
-        1: NUMBER   - activation range in meters
-        2: BOOL     - current active state
+        0: OBJECT or POSITION - anchor object or site position
+        1: NUMBER            - activation range in meters
+        2: BOOL              - current active state
 
     Returns: BOOL - updated active state
 */
