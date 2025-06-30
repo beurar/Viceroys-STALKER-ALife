@@ -73,7 +73,7 @@ if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
     _marker = format ["camp_%1", diag_tickTime];
     private _color = switch (_faction) do {
         case "Bandits": {"ColorOrange"};
-        case "ClearSky": {"ColorCyan"};
+        case "ClearSky": {"ColorBlue"};
         case "Ecologists": {"ColorKhaki"};
         case "Military": {"ColorGreen"};
         case "Duty": {"ColorRed"};
