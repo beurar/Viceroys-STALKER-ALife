@@ -87,6 +87,26 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * An IED manager tracks up to 400 road bombs, respawning new sites when old ones are cleared.
 * Fallen players leave a red X marker that vanishes once the body is removed.
 
+### Sites
+Sites are persistent spawn locations managed by the script system. Each entry
+stores a position, a hidden anchor object and any units or objects spawned at
+that spot. Managers activate or deactivate sites when players come within range,
+letting hundreds of ambush, IED and anomaly locations exist without hurting
+performance.
+
+Sites include:
+* Habitats
+* Stalker Camps
+* Herds
+* Wandering Stalker groups
+* IEDs
+* Minefields
+* Boobytraps
+* Ambushes
+* Spook zones
+* Anomaly Fields
+* Abandoned Vehicles
+
 ### Spooks
 * Lightweight supernatural events to unsettle players.
 
