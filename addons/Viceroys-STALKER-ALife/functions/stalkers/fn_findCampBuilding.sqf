@@ -22,8 +22,9 @@ if (_clusters isEqualTo []) exitWith { objNull };
 private _candidates = [];
 {
     {
-        if (count (_x buildingPos -1) >= _minPos) then {
-            _candidates pushBack _x;
+        private _building = nearestObject [_x, "House"];
+        if (!isNull _building && {count (_building buildingPos -1) >= _minPos}) then {
+            _candidates pushBack _building;
         };
     } forEach _x;
 } forEach _clusters;

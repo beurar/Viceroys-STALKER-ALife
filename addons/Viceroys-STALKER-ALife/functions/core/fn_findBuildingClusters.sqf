@@ -8,7 +8,7 @@
         3: SCALAR - Grid step for scanning (default: 500m)
 
     Returns:
-        ARRAY of ARRAYs - Each subarray is a cluster of building OBJECTS
+        ARRAY of ARRAYs - Each subarray is a cluster of building POSITIONS
 */
 
 params [["_minBuildings", 3], ["_clusterRadius", 40], ["_townClearDist", 1000], ["_step", 500]];
@@ -42,7 +42,7 @@ for "_px" from 0 to worldSize step _step do {
         };
 
         if ((count _realBuildings) >= _minBuildings) then {
-            _clusters pushBack _realBuildings;
+            _clusters pushBack (_realBuildings apply { getPosATL _x });
         };
     };
 };

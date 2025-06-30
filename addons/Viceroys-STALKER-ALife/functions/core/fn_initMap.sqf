@@ -63,11 +63,12 @@ if (isNil {_crossroads} || {_crossroads isEqualTo []}) then {
     ["STALKER_crossroads", _crossroads] call VIC_fnc_saveCache;
 };
 
-private _bClusters = ["STALKER_buildingClusters"] call VIC_fnc_loadCache;
-if (isNil {_bClusters} || {_bClusters isEqualTo []}) then {
-    _bClusters = [] call VIC_fnc_findBuildingClusters;
-    ["STALKER_buildingClusters", _bClusters] call VIC_fnc_saveCache;
-};
+// Building clusters are cached as arrays of positions
+private _bClusterPositions = ["STALKER_buildingClusters"] call VIC_fnc_loadCache;
+if (isNil {_bClusterPositions} || {_bClusterPositions isEqualTo []}) then {
+    _bClusterPositions = [] call VIC_fnc_findBuildingClusters;
+    ["STALKER_buildingClusters", _bClusterPositions] call VIC_fnc_saveCache;
+}; 
 
 private _wrecks = ["STALKER_wrecks"] call VIC_fnc_loadCache;
 if (isNil {_wrecks} || {_wrecks isEqualTo []}) then {
