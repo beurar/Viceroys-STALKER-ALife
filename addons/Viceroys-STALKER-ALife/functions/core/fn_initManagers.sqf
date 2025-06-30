@@ -36,6 +36,22 @@ if !( ["VSA_autoInit", false] call VIC_fnc_getSetting ) exitWith {
     };
 };
 [] spawn {
+    while { true } do {
+        [] call VIC_fnc_manageChemicalZones;
+        sleep 6;
+    };
+};
+[] spawn {
+    while { true } do {
+        [] call VIC_fnc_manageHabitats;
+        [] call VIC_fnc_manageHerds;
+        [] call VIC_fnc_manageHostiles;
+        [] call VIC_fnc_manageNests;
+        [] call VIC_fnc_managePredators;
+        sleep 6;
+    };
+};
+[] spawn {
     sleep 8;
     while { true } do {
         [] call VIC_fnc_updateProximity;
