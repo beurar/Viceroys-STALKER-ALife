@@ -37,7 +37,7 @@
     "CHECKBOX",
     ["Automatically Initialize", "Populate the world and start managers on mission start"],
     "Viceroy's STALKER ALife - Core",
-    false
+    true
 ] call CBA_fnc_addSetting;
 
 [
