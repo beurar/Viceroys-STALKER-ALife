@@ -70,11 +70,22 @@ if (isNil {_bClusterPositions} || {_bClusterPositions isEqualTo []}) then {
     ["STALKER_buildingClusters", _bClusterPositions] call VIC_fnc_saveCache;
 }; 
 
-private _wrecks = ["STALKER_wrecks"] call VIC_fnc_loadCache;
-if (isNil {_wrecks} || {_wrecks isEqualTo []}) then {
-    _wrecks = [] call VIC_fnc_findWrecks;
-    ["STALKER_wrecks", _wrecks] call VIC_fnc_saveCache;
+private _wreckPositions = ["STALKER_wreckPositions"] call VIC_fnc_loadCache;
+if (isNil {_wreckPositions} || {_wreckPositions isEqualTo []}) then {
+    _wreckPositions = [] call VIC_fnc_findWrecks;
+    ["STALKER_wreckPositions", _wreckPositions] call VIC_fnc_saveCache;
 };
+if (isNil "STALKER_wrecks") then { STALKER_wrecks = []; };
+{
+    private _near = nearestObjects [_x, ["AllVehicles","Static"], 5];
+    {
+        private _type = toLower typeOf _x;
+        private _model = toLower ((getModelInfo _x) select 0);
+        if ((_type find "wreck" > -1) || { _model find "wrecks" > -1 }) exitWith {
+            STALKER_wrecks pushBackUnique _x;
+        };
+    } forEach _near;
+} forEach _wreckPositions;
 
 // Load or generate mutant habitats
 private _habData = ["STALKER_mutantHabitatData"] call VIC_fnc_loadCache;
