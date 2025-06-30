@@ -808,9 +808,9 @@ true
 [
     "VSA_minefieldSize",
     "SLIDER",
-    ["APERS Field Size", "Side length in meters for APERS minefields"],
+    ["APERS Field Radius", "Radius in meters for APERS minefields"],
     "Viceroy's STALKER ALife - Minefields",
-    [10, 100, 30, 0]
+    [10, 200, 30, 0]
 ] call CBA_fnc_addSetting;
 
 [

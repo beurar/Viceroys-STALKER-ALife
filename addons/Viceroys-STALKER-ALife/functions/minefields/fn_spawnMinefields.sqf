@@ -51,8 +51,8 @@ for "_i" from 1 to _fieldCount do {
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         _marker = format ["mf_%1", diag_tickTime];
-        [_marker, _pos, "RECTANGLE", "", "#(1,1,0,1)", 0.2, "APERS Field"] call VIC_fnc_createGlobalMarker;
-        _marker setMarkerSize [_size/2, _size/2];
+        [_marker, _pos, "ELLIPSE", "", "#(1,1,0,1)", 0.2, "APERS Field"] call VIC_fnc_createGlobalMarker;
+        _marker setMarkerSize [_size, _size];
     };
     STALKER_minefields pushBack [_pos,_anchor,"APERS",_size,[],_marker,false];
     _fieldsSpawned = _fieldsSpawned + 1;
