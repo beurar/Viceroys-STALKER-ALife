@@ -1,18 +1,16 @@
 /*
-    Returns true if any player is within a given radius of a position.
+    Returns true if any player is within a given radius of an anchor position.
 
     Params:
-        0: POSITION - location to check
+        0: OBJECT or POSITION - anchor to query
         1: NUMBER   - radius in meters
 
     Returns: BOOL
 */
 
-params ["_pos", "_radius"];
+params ["_anchor", "_radius"];
 
-// Simple radial search around the position
-private _nearby = false;
-{
-    if (alive _x && { _x distance2D _pos <= _radius }) exitWith { _nearby = true };
-} forEach allPlayers;
+// Use nearEntities on the supplied anchor for efficient lookups
+private _units = _anchor nearEntities ["CAManBase", _radius];
+private _nearby = count (_units select { isPlayer _x && alive _x }) > 0;
 _nearby;
