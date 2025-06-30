@@ -10,7 +10,9 @@
 
 params ["_anchor", "_radius"];
 
-// Use nearEntities on the supplied anchor for efficient lookups
-private _units = _anchor nearEntities ["CAManBase", _radius];
+// Resolve the anchor to a position for consistent checks
+private _pos = if (_anchor isEqualType objNull) then { getPosATL _anchor } else { _anchor };
+// Use nearEntities on the resolved position for efficient lookups
+private _units = _pos nearEntities ["CAManBase", _radius];
 private _nearby = count (_units select { isPlayer _x && alive _x }) > 0;
 _nearby;
