@@ -182,7 +182,7 @@ Drongo’s system adds creepy events such as ghostly whispers or sudden darkenin
    * [Chemical Warfare Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3295358796)
    * [Necroplague](https://steamcommunity.com/workshop/filedetails/?id=2616555444)
 3. Review `cba_settings.sqf` for adjustable options such as the player nearby range and activity zone depth used by many systems.
-4. **VSA_autoInit** is enabled by default so the world populates automatically on mission start. All managers (minefields, IEDs, ambushes, snipers, anomaly fields and camps) start on their own. Disable this option if you prefer to spawn systems manually via debug actions.
+4. **VSA_autoInit** is enabled by default so the world populates automatically on mission start. All managers (minefields, IEDs, ambushes, snipers, anomaly fields, camps, chemical zones and mutants) start on their own. Disable this option if you prefer to spawn systems manually via debug actions.
 5. Enable **VSA_debugMode** to show on-screen debug messages and access testing actions.
    The activity grid overlay now refreshes automatically while this mode is active.
    This option can now be toggled while a mission is running and the debug
