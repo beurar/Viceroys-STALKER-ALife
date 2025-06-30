@@ -158,7 +158,8 @@ for "_i" from 1 to _groupCount do {
         ]]
     ];
 
-    private _entry = selectRandom _factionInfo;
+    private _entry   = selectRandom _factionInfo;
+    private _faction = _entry select 0;
     private _side    = selectRandom (_entry select 1);
     private _class   = selectRandom (_entry select 2);
 
@@ -171,7 +172,21 @@ for "_i" from 1 to _groupCount do {
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         _marker = format ["stk_%1_%2", count STALKER_stalkerGroups, diag_tickTime];
-        [_marker, _pos, "ICON", "mil_dot", "ColorGreen", 0.2] call VIC_fnc_createGlobalMarker;
+        private _color = switch (_faction) do {
+            case "Bandits": {VIC_colorBandits};
+            case "ClearSky": {VIC_colorClearSky};
+            case "Ecologists": {VIC_colorEcologists};
+            case "Military": {VIC_colorMilitary};
+            case "Duty": {VIC_colorDuty};
+            case "Freedom": {VIC_colorFreedom};
+            case "Loners": {VIC_colorLoners};
+            case "Mercs": {VIC_colorMercs};
+            case "Ward": {VIC_colorWard};
+            case "IPSF": {VIC_colorIPSF};
+            case "Monolith": {VIC_colorMonolith};
+            default {"#(1,1,1,1)"};
+        };
+        [_marker, _pos, "ICON", "mil_dot", _color, 0.2] call VIC_fnc_createGlobalMarker;
     };
 
     private _anchor = [_pos] call VIC_fnc_createProximityAnchor;

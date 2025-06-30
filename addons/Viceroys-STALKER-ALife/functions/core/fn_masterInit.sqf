@@ -25,6 +25,34 @@ VIC_fnc_debugLog                 = compile preprocessFileLineNumbers (_root + "\
 
 ["masterInit"] call VIC_fnc_debugLog;
 
+// --- Custom marker colours -------------------------------------------------
+VIC_colorMutant      = "#(0.545,0.27,0.074,1)";   // Brown
+VIC_colorClearSky    = "#(0.529,0.808,0.922,1)";   // Sky blue
+VIC_colorDuty        = "#(0.502,0,0,1)";           // Maroon
+VIC_colorFreedom     = "#(0.565,0.933,0.565,1)";   // Light green
+VIC_colorEcologists  = "#(0.941,0.902,0.549,1)";   // Khaki
+VIC_colorBandits     = "#(0,0,0,1)";               // Black
+VIC_colorLoners      = "#(0.722,0.525,0.043,1)";   // Dark yellow
+VIC_colorMercs       = "#(0,0,0.545,1)";           // Dark blue
+VIC_colorWard        = "#(0.961,0.961,0.863,1)";   // Beige
+VIC_colorIPSF        = "#(0.804,0.498,0.196,1)";   // Bronze
+VIC_colorMilitary    = "#(0,0.392,0,1)";           // Dark green
+VIC_colorMonolith    = "#(0.294,0,0.510,1)";       // Dark purple
+VIC_colorCopper      = "#(0.72,0.45,0.20,1)";      // Copper
+VIC_colorSilver      = "#(0.75,0.75,0.75,1)";      // Silver
+VIC_colorFruitGreen  = "#(0,1,0,1)";               // Bright green
+VIC_colorGasYellow   = "#(0.8,0.8,0,1)";           // Sickly yellow
+VIC_colorPyroOrange  = "#(1,0.647,0,1)";           // Orange
+VIC_colorTeleport    = "#(0.5,0,0.5,1)";           // Purple
+VIC_colorElectroBlue = "#(0,0,1,1)";               // Blue
+VIC_colorMeatRed     = "#(1,0,0,1)";               // Red
+VIC_colorSpringYellow = "#(1,1,0,1)";              // Yellow
+VIC_colorLeechGrey   = "#(0.4,0.4,0.4,1)";         // Dark grey
+VIC_colorClickerMagenta = "#(1,0,1,1)";            // Magenta
+VIC_colorTrapdoorTurq = "#(0.251,0.878,0.816,1)";  // Turquoise
+VIC_colorZapperCyan  = "#(0,1,1,1)";               // Cyan
+VIC_colorBridgeCyan  = "#(0,0.6,0.6,1)";           // Dark cyan
+
 // Functions required on both server and client for debugging helpers
 VIC_fnc_setupDebugActions        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_setupDebugActions.sqf");
 VIC_fnc_markAllBuildings        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markAllBuildings.sqf");

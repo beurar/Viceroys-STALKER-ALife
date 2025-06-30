@@ -65,7 +65,7 @@ if (isNil "CBRN_fnc_spawnMist") then {
 private _markerName = format ["chem_%1", diag_tickTime];
 private _atl = ASLToATL (AGLToASL _agl);
 private _marker = _markerName;
-[_marker, _atl, "ELLIPSE", "", "ColorGreen", 1, format ["Chemical %1m", _radius]] call VIC_fnc_createGlobalMarker;
+[_marker, _atl, "ELLIPSE", "", VIC_colorGasYellow, 1, format ["Chemical %1m", _radius]] call VIC_fnc_createGlobalMarker;
 [_marker, [_radius, _radius]] remoteExec ["setMarkerSize", 0];
 
 // Record the zone and when it should be removed

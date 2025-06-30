@@ -33,7 +33,7 @@ private _valleys = STALKER_valleys;
     {
         private _pos = _x;
         private _name = format ["valley_%1", diag_tickTime + random 1000];
-        private _marker = [_name, _pos, "ICON", "mil_triangle", "ColorBlue", 1, "", [1,1], _global] call VIC_fnc_createGlobalMarker;
+        private _marker = [_name, _pos, "ICON", "mil_arrow", "#(0,0,1,1)", 1, "", [1,1], _global] call VIC_fnc_createGlobalMarker;
         STALKER_valleyMarkers pushBack _marker;
     } forEach _area;
 } forEach _valleys;

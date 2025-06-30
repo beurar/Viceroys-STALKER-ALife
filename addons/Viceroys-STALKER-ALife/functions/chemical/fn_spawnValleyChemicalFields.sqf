@@ -44,11 +44,11 @@ for "_gx" from 0 to worldSize step _step do {
 
         if (_debug && {isServer}) then {
             private _name = format ["valleyField_%1", diag_tickTime + random 1000];
-            private _marker = [_name, ASLToAGL _anchor, "ICON", "mil_triangle", "ColorOrange"] call VIC_fnc_createGlobalMarker;
+            private _marker = [_name, ASLToAGL _anchor, "ICON", "mil_warning", VIC_colorGasYellow] call VIC_fnc_createGlobalMarker;
             STALKER_valleyFieldMarkers pushBack _marker;
             {
                 private _n = format ["valleyPt_%1", diag_tickTime + random 1000];
-                private _m = [_n, _x, "ICON", "hd_dot", "ColorOrange", 0.5, "", [1,1], true] call VIC_fnc_createGlobalMarker;
+                private _m = [_n, _x, "ICON", "mil_dot", VIC_colorGasYellow, 0.5, "", [1,1], true] call VIC_fnc_createGlobalMarker;
                 STALKER_valleyFieldMarkers pushBack _m;
             } forEach _valley;
         };

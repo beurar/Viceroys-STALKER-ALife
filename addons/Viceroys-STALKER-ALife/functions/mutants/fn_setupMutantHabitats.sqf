@@ -27,11 +27,11 @@ private _createMarker = {
     private _base = format ["hab_%1_%2", toLower _type, diag_tickTime + random 1000];
 
     private _area = _base + "_area";
-    [_area, _pos, "ELLIPSE", "", "ColorGreen", 1, format ["%1 Habitat Area", _type]] call VIC_fnc_createGlobalMarker;
+    [_area, _pos, "ELLIPSE", "", VIC_colorMutant, 1, format ["%1 Habitat Area", _type]] call VIC_fnc_createGlobalMarker;
     [_area, [150,150]] remoteExec ["setMarkerSize", 0];
 
     private _label = _base + "_label";
-    [_label, _pos, "ICON", "mil_dot", "ColorGreen", 1] call VIC_fnc_createGlobalMarker;
+    [_label, _pos, "ICON", "mil_dot", VIC_colorMutant, 1] call VIC_fnc_createGlobalMarker;
     private _max = switch (_type) do {
         case "Bloodsucker": { ["VSA_habitatSize_Bloodsucker",12] call VIC_fnc_getSetting };
         case "Blind Dog": { ["VSA_habitatSize_Dog",50] call VIC_fnc_getSetting };

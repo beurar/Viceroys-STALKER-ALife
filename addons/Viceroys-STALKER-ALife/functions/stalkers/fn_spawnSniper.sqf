@@ -44,7 +44,7 @@ private _anchor = [_spotAGL] call VIC_fnc_createProximityAnchor;
 private _marker = "";
 if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
     _marker = format ["snp_%1", diag_tickTime];
-    [_marker, _spotAGL, "ICON", "mil_triangle", "ColorRed", 0.6, "Sniper"] call VIC_fnc_createGlobalMarker;
+    [_marker, _spotAGL, "ICON", "mil_ambush", "#(1,0,0,1)", 0.6, "Sniper"] call VIC_fnc_createGlobalMarker;
 };
 
 STALKER_snipers pushBack [_grp, _spotAGL, _anchor, _marker, true];

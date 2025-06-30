@@ -37,7 +37,7 @@ private _size = ["VSA_anomalyFieldRadius", 200] call VIC_fnc_getSetting;
 
 if (isNil "STALKER_anomalyMarkers") then { STALKER_anomalyMarkers = [] };
 private _markerName = format ["anom_bridge_%1", diag_tickTime];
-private _marker = [_markerName, _site, "ELLIPSE", "", "ColorBlue", 1, format ["Bridge Electra %1m", _size]] call VIC_fnc_createGlobalMarker;
+private _marker = [_markerName, _site, "ELLIPSE", "", VIC_colorBridgeCyan, 1, format ["Bridge Electra %1m", _size]] call VIC_fnc_createGlobalMarker;
 _marker setMarkerSize [_size,_size];
 _marker setMarkerBrush "Border";
 STALKER_anomalyMarkers pushBack _marker;

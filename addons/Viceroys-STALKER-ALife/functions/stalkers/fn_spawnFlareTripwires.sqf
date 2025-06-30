@@ -33,7 +33,7 @@ for "_i" from 0 to (_count - 1) do {
     _objs pushBack _mine;
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         private _marker = format ["flr_%1", diag_tickTime + _i];
-        [_marker, _pos, "ICON", "mil_triangle", "ColorYellow", 0.2, "Flare"] call VIC_fnc_createGlobalMarker;
+        [_marker, _pos, "ICON", "mil_warning", "#(1,1,0,1)", 0.2, "Flare"] call VIC_fnc_createGlobalMarker;
     };
 };
 _objs

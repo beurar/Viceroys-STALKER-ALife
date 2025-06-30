@@ -19,7 +19,7 @@ private _pos = [player] call VIC_fnc_findBuildingCoverSpot;
 if (isNil {_pos}) exitWith { false };
 
 private _name = format ["cover_%1", diag_tickTime + random 1000];
-private _marker = [_name, _pos, "ICON", "mil_dot", "ColorGreen", 1, "", [1,1], _global] call VIC_fnc_createGlobalMarker;
+private _marker = [_name, _pos, "ICON", "mil_objective", "#(0,1,0,1)", 1, "", [1,1], _global] call VIC_fnc_createGlobalMarker;
 STALKER_coverMarkers pushBack _marker;
 
 true
