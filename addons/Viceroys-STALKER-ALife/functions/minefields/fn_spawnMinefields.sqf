@@ -46,6 +46,8 @@ for "_i" from 1 to _fieldCount do {
         _pos = [_pos] call VIC_fnc_findLandPos;
     };
     if (isNil {_pos} || { _pos isEqualTo [] }) then { continue; };
+
+    [_pos] call VIC_fnc_createProximityAnchor;
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         _marker = format ["mf_%1", diag_tickTime];
@@ -67,6 +69,8 @@ for "_i" from 1 to _iedCount do {
         _pos = [_tPos, 200, 10] call VIC_fnc_findRoadPosition;
     };
     if (isNil {_pos}) then { continue; };
+
+    [_pos] call VIC_fnc_createProximityAnchor;
     private _marker = "";
     if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         _marker = format ["ied_%1", diag_tickTime];

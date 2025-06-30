@@ -39,6 +39,8 @@ for "_i" from 1 to 3 do {
 };
 private _nestObj = "Land_Campfire_F" createVehicle _pos;
 
+[_pos] call VIC_fnc_createProximityAnchor;
+
 STALKER_mutantNests pushBack [_nestObj, _grp, _pos, _class];
 
 [_grp, _pos] call BIS_fnc_taskDefend;
