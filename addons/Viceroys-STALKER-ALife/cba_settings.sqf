@@ -289,7 +289,7 @@
     "VSA_enableAmbientStalkers",
     "CHECKBOX",
     ["Enable Ambient Stalkers", "Toggle roaming stalker groups"],
-    "Viceroy's STALKER ALife - Stalkers",
+    "Viceroy's STALKER ALife - Wandering Stalkers",
     true
 ] call CBA_fnc_addSetting;
 
@@ -297,7 +297,7 @@
     "VSA_ambientStalkerGroups",
     "SLIDER",
     ["Stalker Groups per Area", "Number of roaming stalker groups"],
-    "Viceroy's STALKER ALife - Stalkers",
+    "Viceroy's STALKER ALife - Wandering Stalkers",
     [0, 20, 2, 0]
 ] call CBA_fnc_addSetting;
 
@@ -305,7 +305,7 @@
     "VSA_ambientStalkerSize",
     "SLIDER",
     ["Stalker Group Size", "Units per ambient group"],
-    "Viceroy's STALKER ALife - Stalkers",
+    "Viceroy's STALKER ALife - Wandering Stalkers",
     [1, 12, 4, 0]
 ] call CBA_fnc_addSetting;
 
@@ -313,7 +313,7 @@
     "VSA_ambientStalkerNightOnly",
     "CHECKBOX",
     ["Night Time Only", "Ambient stalkers spawn only at night"],
-    "Viceroy's STALKER ALife - Stalkers",
+    "Viceroy's STALKER ALife - Wandering Stalkers",
     false
 ] call CBA_fnc_addSetting;
 
@@ -321,7 +321,7 @@
     "VSA_enableStalkerCamps",
     "CHECKBOX",
     ["Enable Stalker Camps", "Toggle stalker camp spawning"],
-    "Viceroy's STALKER ALife - Stalkers",
+    "Viceroy's STALKER ALife - Stalker Camps",
     true
 ] call CBA_fnc_addSetting;
 
@@ -329,7 +329,7 @@
     "VSA_stalkerCampCount",
     "SLIDER",
     ["Stalker Camps per Area", "Number of stalker camps"],
-    "Viceroy's STALKER ALife - Stalkers",
+    "Viceroy's STALKER ALife - Stalker Camps",
     [0, 20, 1, 0]
 ] call CBA_fnc_addSetting;
 
@@ -337,7 +337,7 @@
     "VSA_stalkerCampSize",
     "SLIDER",
     ["Stalker Camp Size", "Units defending each camp"],
-    "Viceroy's STALKER ALife - Stalkers",
+    "Viceroy's STALKER ALife - Stalker Camps",
     [1, 12, 4, 0]
 ] call CBA_fnc_addSetting;
 
@@ -345,15 +345,23 @@
     "VSA_minCampPositions",
     "SLIDER",
     ["Min Building Positions", "Minimum number of positions inside camp buildings"],
-    "Viceroy's STALKER ALife - Stalkers",
+    "Viceroy's STALKER ALife - Stalker Camps",
     [0, 20, 1, 0]
+] call CBA_fnc_addSetting;
+
+[
+    "VSA_stalkerCampSpacing",
+    "SLIDER",
+    ["Camp Spacing", "Minimum distance between camps"],
+    "Viceroy's STALKER ALife - Stalker Camps",
+    [0, 1000, 300, 0]
 ] call CBA_fnc_addSetting;
 
 [
     "VSA_stalkerCampBLUChance",
     "SLIDER",
     ["BLUFOR Camp Chance", "Relative chance for BLUFOR camps"],
-    "Viceroy's STALKER ALife - Stalkers",
+    "Viceroy's STALKER ALife - Stalker Camps",
     [0, 100, 34, 0]
 ] call CBA_fnc_addSetting;
 
@@ -361,7 +369,7 @@
     "VSA_stalkerCampOPFChance",
     "SLIDER",
     ["OPFOR Camp Chance", "Relative chance for OPFOR camps"],
-    "Viceroy's STALKER ALife - Stalkers",
+    "Viceroy's STALKER ALife - Stalker Camps",
     [0, 100, 33, 0]
 ] call CBA_fnc_addSetting;
 
@@ -369,7 +377,7 @@
     "VSA_stalkerCampINDChance",
     "SLIDER",
     ["Independent Camp Chance", "Relative chance for independent camps"],
-    "Viceroy's STALKER ALife - Stalkers",
+    "Viceroy's STALKER ALife - Stalker Camps",
     [0, 100, 33, 0]
 ] call CBA_fnc_addSetting;
 
@@ -377,7 +385,7 @@
     "VSA_minStalkerCamps",
     "SLIDER",
     ["Min Active Camps", "Minimum number of stalker camps"],
-    "Viceroy's STALKER ALife - Stalkers",
+    "Viceroy's STALKER ALife - Stalker Camps",
     [0, 50, 1, 0]
 ] call CBA_fnc_addSetting;
 
@@ -385,7 +393,7 @@
     "VSA_maxStalkerCamps",
     "SLIDER",
     ["Max Active Camps", "Maximum number of stalker camps"],
-    "Viceroy's STALKER ALife - Stalkers",
+    "Viceroy's STALKER ALife - Stalker Camps",
     [0, 50, 5, 0]
 ] call CBA_fnc_addSetting;
 
