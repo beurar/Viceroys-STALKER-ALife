@@ -29,7 +29,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
   also receive thematic names on their map markers. When no towns are nearby the
   names fall back to generic locations like the coast, a hill or a forest based
   on the surrounding terrain.
-* Anomalies only activate when players are nearby and go dormant when no one is in range. The activity grid system now checks map squares around players to toggle fields efficiently. You can adjust how many grid cells are simulated around each player with `VSA_activityZoneDepth`.
+* Anomalies only activate when players are nearby and go dormant when no one is in range. Each field simply checks player distance and deactivates when nobody is close.
 
 ### Mutants
 * Spawns roaming mutant packs and ambient herds.
@@ -52,7 +52,6 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Systems rely on **fn_hasPlayersNearby.sqf** so habitats sleep and despawn when players are farther than the configured nearby range (default 1500m).
 * Habitats now spawn empty and gain one mutant each habitat cycle when no players are nearby.
 * Player proximity is checked continuously by default via `VSA_proximityCheckInterval`.
-* A grid-based proximity system activates habitats only when their map square is within range of any player.
 * Habitat updates run on their own timer via `VSA_habitatCheckInterval`.
 * Habitat and herd counts update immediately when mutants are killed.
 * Habitat placement now selects random buildings, forests and swamps with weighted preferences.
@@ -81,7 +80,6 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Generates APERS minefields on town outskirts and single IEDs on roads. Fields are now circular with a configurable radius.
 * Mines despawn when no players are nearby and respawn when someone approaches.
 * Enable debug mode to visualize fields and place test minefields via the action menu. Ambush sites can also be spawned this way.
-* When debug mode is enabled the activity grid overlay automatically refreshes on the map, filling each grid block with 20% opacity: yellow for active squares and red for inactive ones.
 * Abandoned and damaged vehicles may appear on or near roads.
 * Tripwires and booby traps can spawn inside buildings around towns.
 * An IED manager tracks up to 400 road bombs, respawning new sites when old ones are cleared.
@@ -201,12 +199,9 @@ Drongo’s system adds creepy events such as ghostly whispers or sudden darkenin
    * [Stalker Stuff](https://steamcommunity.com/sharedfiles/filedetails/?id=2781344095)
    * [Chemical Warfare Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3295358796)
    * [Necroplague](https://steamcommunity.com/workshop/filedetails/?id=2616555444)
-3. Review `cba_settings.sqf` for adjustable options such as the player nearby range and activity zone depth used by many systems.
+3. Review `cba_settings.sqf` for adjustable options such as the player nearby range used by various systems.
 4. **VSA_autoInit** is enabled by default so the world populates automatically on mission start. All managers (minefields, IEDs, ambushes, snipers, anomaly fields, camps, chemical zones and mutants) start on their own. Disable this option if you prefer to spawn systems manually via debug actions.
-5. Enable **VSA_debugMode** to show on-screen debug messages and access testing actions.
-   The activity grid overlay now refreshes automatically while this mode is active.
-   This option can now be toggled while a mission is running and the debug
-   actions will appear automatically.
+5. Enable **VSA_debugMode** to show on-screen debug messages and access testing actions. This option can now be toggled while a mission is running and the debug actions will appear automatically.
 6. When debug mode is active, your scroll menu includes options to trigger storms, spawn stable or unstable anomaly fields, cycle existing fields, spawn spook zones, spawn ambient herds, place booby traps in town buildings, summon predator attacks, trigger AI panic or reset their behaviour, and other test helpers. All spawn actions run on the server so they work correctly in multiplayer. Stable fields will show a randomly generated name on their marker for easy reference.
 7. Use the **Mark All Buildings**, **Mark Bridges** and **Mark Roads** actions from this menu if you need to visualize these objects. Road markers now highlight crossroads as well. Buildings are no longer marked automatically when debug mode is enabled.
 8. **Cache Map Wrecks** to record the positions of all map wrecks. These

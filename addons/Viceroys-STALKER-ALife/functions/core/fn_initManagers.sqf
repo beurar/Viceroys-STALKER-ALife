@@ -4,8 +4,6 @@
 
 
 // Starts background manager systems when auto init is enabled.
-// The old activity grid logic has been removed so managers rely on
-// simple proximity checks inside their own loops.
 ["initManagers"] call VIC_fnc_debugLog;
 
 if (!isServer) exitWith { false };
