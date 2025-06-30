@@ -14,7 +14,7 @@ private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
     private _newActive = [_pos,_dist,_active] call VIC_fnc_evalSiteProximity;
     if (_newActive) then {
         if (isNull _obj) then {
-            _obj = createVehicle ["IEDUrbanSmall_F", _pos, [], 0, "CAN_COLLIDE"];
+            _obj = createMine ["IEDUrbanSmall_F", _pos, [], 0];
             _obj setVariable ["VIC_iedIndex", _forEachIndex];
             _obj addEventHandler ["Deleted", {
                 params ["_mine"];
@@ -51,7 +51,7 @@ private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
 // Maintain site count
 private _target = ["VSA_IEDSiteCount",10] call VIC_fnc_getSetting;
 while { count STALKER_iedSites < _target } do {
-    private _c = [ [worldSize/2, worldSize/2, 0], worldSize, 1 ] call VIC_fnc_spawnIEDSites;
+    [ [worldSize/2, worldSize/2, 0], worldSize, 1 ] call VIC_fnc_spawnIEDSites;
 };
 
 true
