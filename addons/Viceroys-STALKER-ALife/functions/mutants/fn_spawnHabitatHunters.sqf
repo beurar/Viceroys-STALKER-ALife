@@ -11,7 +11,7 @@ if (!isServer) exitWith {};
 if (isNil "STALKER_mutantHabitats") exitWith {};
 
 private _habitats = STALKER_mutantHabitats apply {
-    _x params ["_area","_label","_grp","_pos","_type","_max","_count","_near"];
+    _x params ["_area","_label","_grp","_pos","_anchor","_type","_max","_count","_near"];
     [_player distance2D _pos, _pos, _type]
 };
 _habitats sort true;

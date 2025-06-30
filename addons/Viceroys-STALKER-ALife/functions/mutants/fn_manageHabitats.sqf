@@ -2,7 +2,7 @@
     Manages mutant habitats. Spawns units when players approach and
     replenishes cleared habitats over time.
 
-    STALKER_mutantHabitats entries: [areaMarker, labelMarker, group, position, type, max, count, near]
+    STALKER_mutantHabitats entries: [areaMarker, labelMarker, group, position, anchor, type, max, count, near]
 */
 
 // ["manageHabitats"] call VIC_fnc_debugLog;
@@ -41,7 +41,7 @@ private _getClass = {
 
 {
 
-    _x params ["_area","_label","_grp","_pos","_type","_max","_count","_near"];
+    _x params ["_area","_label","_grp","_pos","_anchor","_type","_max","_count","_near"];
 
     if (_near) then {
         if (isNull _grp && {_count > 0}) then {
@@ -86,6 +86,6 @@ private _getClass = {
     _area setMarkerAlpha _alpha;
     _label setMarkerAlpha _alpha;
 
-    STALKER_mutantHabitats set [_forEachIndex, [_area,_label,_grp,_pos,_type,_max,_count,_near]];
+    STALKER_mutantHabitats set [_forEachIndex, [_area,_label,_grp,_pos,_anchor,_type,_max,_count,_near]];
 } forEach STALKER_mutantHabitats;
 

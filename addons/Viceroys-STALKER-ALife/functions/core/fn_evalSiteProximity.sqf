@@ -4,20 +4,20 @@
     are beyond the activation range plus 200 meters.
 
     Params:
-        0: POSITION - position of the site
+        0: OBJECT   - proximity anchor for the site
         1: NUMBER   - activation range in meters
         2: BOOL     - current active state
 
     Returns: BOOL - updated active state
 */
 
-params ["_pos", "_range", "_active"];
+params ["_anchor", "_range", "_active"];
 
-private _near = [_pos, _range] call VIC_fnc_hasPlayersNearby;
+private _near = [_anchor, _range] call VIC_fnc_hasPlayersNearby;
 
 if (_active) then {
     if (!_near) then {
-        if !([_pos, _range + 200] call VIC_fnc_hasPlayersNearby) then {
+        if !([_anchor, _range + 200] call VIC_fnc_hasPlayersNearby) then {
             _active = false;
         } else {
             _active = true;

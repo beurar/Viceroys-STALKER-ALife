@@ -39,11 +39,13 @@ _grp createUnit ["O_sniper_F", _spotAGL, [], 0, "FORM"];
 [_grp, _spotAGL, 100, [], true, true, 0, true] call lambs_wp_fnc_taskGarrison;
 [_spotAGL, 6, 0, 4] call VIC_fnc_spawnTripwirePerimeter;
 
+private _anchor = [_spotAGL] call VIC_fnc_createProximityAnchor;
+
 private _marker = "";
 if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
     _marker = format ["snp_%1", diag_tickTime];
     [_marker, _spotAGL, "ICON", "mil_triangle", "ColorRed", 0.6, "Sniper"] call VIC_fnc_createGlobalMarker;
 };
 
-STALKER_snipers pushBack [_grp, _spotAGL, _marker, true];
+STALKER_snipers pushBack [_grp, _spotAGL, _anchor, _marker, true];
 

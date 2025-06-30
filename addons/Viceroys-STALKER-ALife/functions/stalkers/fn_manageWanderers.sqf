@@ -1,7 +1,7 @@
 /*
     Handles ambient stalker wanderer groups. Groups are removed when their
     patrol grid cell becomes inactive and respawned when the cell is active.
-    STALKER_wanderers entries: [group, position, marker, active]
+    STALKER_wanderers entries: [group, position, anchor, marker, active]
 */
 
 // ["manageWanderers"] call VIC_fnc_debugLog;
@@ -13,9 +13,9 @@ private _groupSize = ["VSA_ambientStalkerSize", 4] call VIC_fnc_getSetting;
 private _range = missionNamespace getVariable ["STALKER_activityRadius", 1500];
 
 {
-    _x params ["_grp","_pos","_marker","_active"];
+    _x params ["_grp","_pos","_anchor","_marker","_active"];
 
-    private _newActive = [_pos,_range,_active] call VIC_fnc_evalSiteProximity;
+    private _newActive = [_anchor,_range,_active] call VIC_fnc_evalSiteProximity;
 
     if (_newActive) then {
         if (isNull _grp || { count units _grp == 0 }) then {
@@ -162,7 +162,7 @@ private _range = missionNamespace getVariable ["STALKER_activityRadius", 1500];
         if (_marker != "") then { _marker setMarkerAlpha 0.2; };
     };
 
-    STALKER_wanderers set [_forEachIndex, [_grp, _pos, _marker, _newActive]];
+    STALKER_wanderers set [_forEachIndex, [_grp, _pos, _anchor, _marker, _newActive]];
 } forEach STALKER_wanderers;
 
 true

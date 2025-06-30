@@ -7,9 +7,9 @@
 
 if (isServer && !isNil "STALKER_anomalyFields") then {
     private _dur = missionNamespace getVariable ["STALKER_AnomalyFieldDuration", 30];
-    for [{_i = 0}, {_i < count STALKER_anomalyFields}, {_i = _i + 1}] do {
+    for "_i" from 0 to ((count STALKER_anomalyFields) - 1) do {
         private _entry = STALKER_anomalyFields select _i;
-        _entry params ["_center","_radius","_fn","_count","_objs","_marker","_site","_exp","_stable"];
+        _entry params ["_center","_anchor","_radius","_fn","_count","_objs","_marker","_site","_exp","_stable"];
         { if (!isNull _x) then { deleteVehicle _x; } } forEach _objs;
         if (_marker != "") then {
             deleteMarker _marker;
@@ -49,7 +49,7 @@ if (isServer && !isNil "STALKER_anomalyFields") then {
             };
         };
         _exp = diag_tickTime + (_dur * 60);
-        STALKER_anomalyFields set [_i, [_center,_radius,_fn,_count,_objs,_marker,_site,_exp,_stable]];
+        STALKER_anomalyFields set [_i, [_center,_anchor,_radius,_fn,_count,_objs,_marker,_site,_exp,_stable]];
     };
 };
 

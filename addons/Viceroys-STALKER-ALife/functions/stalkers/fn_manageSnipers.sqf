@@ -1,7 +1,7 @@
 /*
     Handles spawned sniper units. Snipers are removed when their
     spawns when players are nearby and despawns when they leave.
-    STALKER_snipers entries: [group, position, marker, active]
+    STALKER_snipers entries: [group, position, anchor, marker, active]
 */
 
 // ["manageSnipers"] call VIC_fnc_debugLog;
@@ -12,9 +12,9 @@ if (isNil "STALKER_snipers") exitWith {};
 private _range = missionNamespace getVariable ["STALKER_activityRadius", 1500];
 
 {
-    _x params ["_grp","_pos","_marker","_active"];
+    _x params ["_grp","_pos","_anchor","_marker","_active"];
 
-    private _newActive = [_pos,_range,_active] call VIC_fnc_evalSiteProximity;
+    private _newActive = [_anchor,_range,_active] call VIC_fnc_evalSiteProximity;
 
     if (_newActive) then {
         if (isNull _grp || { count units _grp == 0 }) then {
@@ -33,7 +33,7 @@ private _range = missionNamespace getVariable ["STALKER_activityRadius", 1500];
         if (_marker != "") then { _marker setMarkerAlpha 0.2; };
     };
 
-    STALKER_snipers set [_forEachIndex, [_grp, _pos, _marker, _newActive]];
+    STALKER_snipers set [_forEachIndex, [_grp, _pos, _anchor, _marker, _newActive]];
 } forEach STALKER_snipers;
 
 true
