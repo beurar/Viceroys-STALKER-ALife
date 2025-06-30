@@ -43,7 +43,7 @@ private _createField = {
             case VIC_fnc_createField_leech: {"leech"};
             case VIC_fnc_createField_trapdoor: {"trapdoor"};
             case VIC_fnc_createField_zapper: {"zapper"};
-            case VIC_fnc_createField_bridgeElectra: {"bridge"};
+            case VIC_fnc_createField_bridgeAnomaly: {"bridge"};
             default {""};
         };
         _marker setMarkerText ([_type, _pos] call VIC_fnc_generateFieldName);
@@ -68,7 +68,7 @@ private _weights = [
     [VIC_fnc_createField_leech,       ["VSA_anomalyWeight_Leech",100] call VIC_fnc_getSetting],
     [VIC_fnc_createField_trapdoor,    ["VSA_anomalyWeight_Trapdoor",100] call VIC_fnc_getSetting],
     [VIC_fnc_createField_zapper,      ["VSA_anomalyWeight_Zapper",100] call VIC_fnc_getSetting],
-    [VIC_fnc_createField_bridgeElectra,["VSA_anomalyWeight_Bridge",100] call VIC_fnc_getSetting]
+    [VIC_fnc_createField_bridgeAnomaly,["VSA_anomalyWeight_Bridge",100] call VIC_fnc_getSetting]
 ];
 
 private _center = [worldSize/2, worldSize/2, 0];

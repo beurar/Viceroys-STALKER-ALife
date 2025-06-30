@@ -50,7 +50,7 @@ private _weights = [
     [VIC_fnc_createField_trapdoor,    ["VSA_anomalyWeight_Trapdoor",100] call VIC_fnc_getSetting],
     [VIC_fnc_createField_zapper,      ["VSA_anomalyWeight_Zapper",100] call VIC_fnc_getSetting],
     [VIC_fnc_createField_razor,       ["VSA_anomalyWeight_Razor",100] call VIC_fnc_getSetting],
-    [VIC_fnc_createField_bridgeElectra,["VSA_anomalyWeight_Bridge",100] call VIC_fnc_getSetting]
+    [VIC_fnc_createField_bridgeAnomaly,["VSA_anomalyWeight_Bridge",100] call VIC_fnc_getSetting]
 ];
 
 for "_i" from 1 to _fieldCount do {
@@ -78,7 +78,7 @@ for "_i" from 1 to _fieldCount do {
         case VIC_fnc_createField_trapdoor: {"trapdoor"};
         case VIC_fnc_createField_zapper: {"zapper"};
         case VIC_fnc_createField_razor: {"razor"};
-        case VIC_fnc_createField_bridgeElectra: {"bridge"};
+        case VIC_fnc_createField_bridgeAnomaly: {"bridge"};
         default {""};
     };
 
