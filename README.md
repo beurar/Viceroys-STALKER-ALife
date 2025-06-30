@@ -67,6 +67,7 @@ The goal of this mod is to add atmosphere and unpredictable encounters to missio
 * Camps are distributed across building clusters all over the map and only activate when players come close.
 * Camps may belong to BLUFOR, OPFOR or Independent factions based on configurable chances.
 * Group counts and sizes are fully adjustable through CBA settings.
+* Cached building clusters now store positions so camp searches survive across sessions.
 
 ### Chemical Zones
 * Randomly creates chemical gas zones that damage unprotected units.
