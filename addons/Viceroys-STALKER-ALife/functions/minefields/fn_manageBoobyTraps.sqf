@@ -1,6 +1,8 @@
 /*
     Activates or deactivates booby traps based on player proximity.
     STALKER_boobyTraps entries: [position, anchor, objects, marker, active]
+    Proximity checks use the stored position so anchors are not required
+    after initial placement.
 */
 // ["manageBoobyTraps"] call VIC_fnc_debugLog;
 
@@ -11,7 +13,9 @@ private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
 
 {
     _x params ["_pos","_anchor","_objs","_marker",["_active",false]];
-    private _newActive = [_anchor,_dist,_active] call VIC_fnc_evalSiteProximity;
+    // Rely on the stored position instead of the anchor object so traps remain
+    // functional if the anchor is removed
+    private _newActive = [_pos,_dist,_active] call VIC_fnc_evalSiteProximity;
     if (_newActive) then {
         if (!_active) then {
             // Spawn tripwire or fallback APERS mine vehicles
