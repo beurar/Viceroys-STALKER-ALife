@@ -15,6 +15,15 @@ if (!isServer) exitWith {};
 
 if (isNil "STALKER_camps") then { STALKER_camps = []; };
 
+private _spacing = ["VSA_stalkerCampSpacing", 300] call VIC_fnc_getSetting;
+private _tooClose = false;
+{
+    if (_pos distance (_x select 2) < _spacing) exitWith { _tooClose = true; };
+} forEach STALKER_camps;
+if (_tooClose) exitWith {
+    ["spawnStalkerCamp: position too close to existing camp"] call VIC_fnc_debugLog;
+};
+
 private _size = ["VSA_stalkerCampSize", 4] call VIC_fnc_getSetting;
 
 // Available factions and their unit classes
