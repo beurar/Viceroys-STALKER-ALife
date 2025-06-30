@@ -12,7 +12,7 @@ private _data = nil;
 if (isNil {_name}) exitWith { _data };
 
 private _key = format ["%1_%2", worldName, _name];
-private _data = profileNamespace getVariable [_key, nil];
+_data = profileNamespace getVariable [_key, nil];
 if (!isNil {_data}) then {
     missionNamespace setVariable [_name, _data];
     private _count = "";
