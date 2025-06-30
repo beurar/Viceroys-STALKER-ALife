@@ -29,7 +29,6 @@ for "_i" from 1 to _count do {
     private _pos = [];
     if (_useFallback) then {
         _pos = [_center, _radius, 20] call VIC_fnc_findRoadPosition;
-        if (isNil {_pos}) then { _pos = [_radius,20] call VIC_fnc_findRandomRoadPosition; };
     } else {
         private _town = selectRandom _towns;
         private _tPos = locationPosition _town;
