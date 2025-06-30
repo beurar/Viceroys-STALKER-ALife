@@ -3,7 +3,7 @@
 
     Params:
         0: SCALAR - Min number of buildings to count as a cluster (default: 3)
-        1: SCALAR - Radius for detecting nearby buildings (default: 40m)
+        1: SCALAR - Radius for detecting nearby buildings (default: 500m)
         2: SCALAR - Distance to avoid from towns (default: 1000m)
         3: SCALAR - Grid step for scanning (default: 500m)
 
@@ -11,7 +11,14 @@
         ARRAY of ARRAYs - Each subarray is a cluster of building POSITIONS
 */
 
-params [["_minBuildings", 3], ["_clusterRadius", 40], ["_townClearDist", 1000], ["_step", 500]];
+params [
+    ["_minBuildings", 3],
+    // Ensure the cluster search radius is at least as large as the grid step so
+    // that neighbouring cells overlap when scanning.
+    ["_clusterRadius", 500],
+    ["_townClearDist", 1000],
+    ["_step", 500]
+];
 
 ["findBuildingClusters"] call VIC_fnc_debugLog;
 
@@ -34,7 +41,10 @@ for "_px" from 0 to worldSize step _step do {
         } forEach _locations;
         if (_nearTown) then { continue; };
 
-        private _nearBuildings = _scanCenter nearObjects ["House", _clusterRadius];
+        // Use whichever radius is larger to make sure adjacent grid cells
+        // overlap when checking for nearby buildings.
+        private _searchRadius = _clusterRadius max _step;
+        private _nearBuildings = _scanCenter nearObjects ["House", _searchRadius];
         private _realBuildings = _nearBuildings select {
             !isObjectHidden _x &&
             { getModelInfo _x select 0 != "" } &&
