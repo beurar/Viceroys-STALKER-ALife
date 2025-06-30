@@ -1,5 +1,5 @@
 /*
-    Spawns bridge electra anomaly fields on every detected bridge.
+    Spawns bridge anomaly fields on every detected bridge.
     Params:
         0: NUMBER - forces stable (1) or unstable (0) fields (optional, -1 uses setting)
 */
@@ -22,12 +22,12 @@ private _stableChance = ["VSA_stableFieldChance", 50] call VIC_fnc_getSetting;
     private _pos = getPosATL _x;
     // Skip if a field already exists for this bridge
     private _exists = count (STALKER_anomalyFields select {
-        (_x select 3) isEqualTo VIC_fnc_createField_bridgeElectra && { (_x select 7) distance2D _pos < 10 }
+        (_x select 3) isEqualTo VIC_fnc_createField_bridgeAnomaly && { (_x select 7) distance2D _pos < 10 }
     }) > 0;
     if (_exists) then { continue };
 
     private _stable = if (_type == -1) then { (random 100) < _stableChance } else { _type == 1 };
-    private _spawned = [_pos, 75, -1, _pos] call VIC_fnc_createField_bridgeElectra;
+    private _spawned = [_pos, 75, -1, _pos] call VIC_fnc_createField_bridgeAnomaly;
     if (_spawned isEqualTo []) then { continue };
 
     private _anchor = [_pos] call VIC_fnc_createProximityAnchor;
@@ -40,7 +40,7 @@ private _stableChance = ["VSA_stableFieldChance", 50] call VIC_fnc_getSetting;
     };
     private _dur = missionNamespace getVariable ["STALKER_AnomalyFieldDuration", 30];
     private _exp = diag_tickTime + (_dur * 60);
-    STALKER_anomalyFields pushBack [_pos,_anchor,75,VIC_fnc_createField_bridgeElectra,count _spawned,_spawned,_marker,_site,_exp,_stable,false];
+    STALKER_anomalyFields pushBack [_pos,_anchor,75,VIC_fnc_createField_bridgeAnomaly,count _spawned,_spawned,_marker,_site,_exp,_stable,false];
     [format ["spawnBridgeAnomalyFields: spawned %1 bridge", count _spawned]] call VIC_fnc_debugLog;
 } forEach _bridges;
 

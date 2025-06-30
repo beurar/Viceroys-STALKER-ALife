@@ -116,7 +116,7 @@
 ["VSA_anomalyWeight_Leech","SLIDER",["Leech Weight","Relative spawn chance for Leech fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
 ["VSA_anomalyWeight_Trapdoor","SLIDER",["Trapdoor Weight","Relative spawn chance for Trapdoor fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
 ["VSA_anomalyWeight_Zapper","SLIDER",["Zapper Weight","Relative spawn chance for Zapper fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
-["VSA_anomalyWeight_Bridge","SLIDER",["Bridge Electra Weight","Relative spawn chance for Bridge Electra fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyWeight_Bridge","SLIDER",["Bridge Anomaly Weight","Relative spawn chance for Bridge anomaly fields"],"Viceroy's STALKER ALife - Anomaly Weights",[0,100,100,0]] call CBA_fnc_addSetting;
 
 // Individual anomaly density multipliers
 ["VSA_anomalyDensity_Burner","SLIDER",["Burner Density","Multiplier for Burner anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
@@ -131,7 +131,7 @@
 ["VSA_anomalyDensity_Leech","SLIDER",["Leech Density","Multiplier for Leech anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
 ["VSA_anomalyDensity_Trapdoor","SLIDER",["Trapdoor Density","Multiplier for Trapdoor anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
 ["VSA_anomalyDensity_Zapper","SLIDER",["Zapper Density","Multiplier for Zapper anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
-["VSA_anomalyDensity_Bridge","SLIDER",["Bridge Electra Density","Multiplier for Bridge Electra anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
+["VSA_anomalyDensity_Bridge","SLIDER",["Bridge Anomaly Density","Multiplier for Bridge anomaly count"],"Viceroy's STALKER ALife - Anomaly Density",[0,300,100,0]] call CBA_fnc_addSetting;
 
 [
     "VSA_stableFieldChance",

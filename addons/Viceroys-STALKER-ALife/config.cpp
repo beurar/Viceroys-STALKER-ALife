@@ -213,7 +213,7 @@ class CfgFunctions
             class createField_trapdoor{};
             class createField_zapper{};
             class createField_razor{};
-            class createField_bridgeElectra{};
+            class createField_bridgeAnomaly{};
         };
 
         class AnomalyFindSites

@@ -146,6 +146,7 @@ VIC_fnc_createField_launchpad   = compile preprocessFileLineNumbers (_root + "\f
 VIC_fnc_createField_leech       = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fields\fn_createField_leech.sqf");
 VIC_fnc_createField_trapdoor    = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fields\fn_createField_trapdoor.sqf");
 VIC_fnc_createField_zapper      = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fields\fn_createField_zapper.sqf");
+VIC_fnc_createField_bridgeAnomaly = compile preprocessFileLineNumbers (_root + "\functions\anomalies\fields\fn_createField_bridgeAnomaly.sqf");
 VIC_fnc_schedulePsyStorms        = compile preprocessFileLineNumbers (_root + "\functions\storms\fn_schedulePsyStorms.sqf");
 VIC_fnc_triggerPsyStorm          = compile preprocessFileLineNumbers (_root + "\functions\storms\fn_triggerPsyStorm.sqf");
 VIC_fnc_scheduleBlowouts         = compile preprocessFileLineNumbers (_root + "\functions\blowouts\fn_scheduleBlowouts.sqf");
