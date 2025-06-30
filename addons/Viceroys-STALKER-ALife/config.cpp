@@ -186,6 +186,7 @@ class CfgFunctions
         {
             file = "Viceroys-STALKER-ALife\functions\anomalies";
             class spawnAllAnomalyFields{};
+            class spawnBridgeAnomalyFields{};
             class cleanupAnomalyMarkers{};
             class manageAnomalyFields{};
             class startAnomalyManager{};
@@ -261,6 +262,7 @@ class CfgRemoteExec
         class VIC_fnc_spawnValleyChemicalZones { allowedTargets = 2; };
         class VIC_fnc_spawnValleyChemicalFields { allowedTargets = 2; };
         class VIC_fnc_spawnAllAnomalyFields    { allowedTargets = 2; };
+        class VIC_fnc_spawnBridgeAnomalyFields { allowedTargets = 2; };
         class VIC_fnc_cycleAnomalyFields  { allowedTargets = 2; };
         class VIC_fnc_spawnMutantGroup    { allowedTargets = 2; };
         class VIC_fnc_spawnSpookZone      { allowedTargets = 2; };

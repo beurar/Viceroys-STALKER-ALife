@@ -149,6 +149,13 @@
     [0, 2000, 200, 0]
 ] call CBA_fnc_addSetting;
 
+["VSA_bridgeFieldRadius",
+ "SLIDER",
+ ["Bridge Field Radius", "Radius of bridge anomaly fields"],
+ "Viceroy's STALKER ALife - Anomalies",
+ [0, 2000, 200, 0]
+] call CBA_fnc_addSetting;
+
 [
     "VSA_anomaliesPerField",
     "SLIDER",

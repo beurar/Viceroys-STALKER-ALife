@@ -207,6 +207,8 @@ All functions are contained under the `functions` directory and follow the `TAG_
 * **VIC_fnc_spawnAllAnomalyFields** – Spawns anomaly fields at random positions
   across the map, marks them and tracks their lifetime. Missions must call this
   function (or use the provided `initServer.sqf`) to populate the world.
+* **VIC_fnc_spawnBridgeAnomalyFields** – Places bridge-specific anomaly fields on
+  every detected bridge object.
 * **VIC_fnc_cycleAnomalyFields** – Reshuffles stable fields and relocates unstable ones. Useful for testing without a full emission.
 * **VIC_fnc_generateFieldName** – Produces themed names for stable anomaly field markers using local town names when possible.
 
