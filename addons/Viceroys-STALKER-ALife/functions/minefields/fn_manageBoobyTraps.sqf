@@ -21,7 +21,7 @@ private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
                 "APERSMine"
             };
             private _type = selectRandom [_tripMine, "IEDUrbanSmall_F"];
-            private _mine = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
+            private _mine = createMine [_type, _pos, [], 0];
             _objs = [_mine];
         };
         if (_marker != "") then { _marker setMarkerAlpha 1; };
