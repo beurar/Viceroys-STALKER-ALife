@@ -27,7 +27,8 @@ for "_i" from 0 to (_count - 1) do {
     } else {
         "APERSMine"
     };
-    private _mine = createVehicle [_mineType, _pos, [], 0, "CAN_COLLIDE"];
+    // Use createMine so the Explosion event handler registers correctly
+    private _mine = createMine [_mineType, _pos, [], 0];
     _mine setDir ([_pos, _center] call BIS_fnc_dirTo);
     _mine addEventHandler ["Explosion", { "F_40mm_White" createVehicle getPosATL (_this select 0); }];
     _objs pushBack _mine;
