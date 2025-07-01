@@ -16,6 +16,9 @@ if (_minPos < 0) then {
 
 ["findCampBuilding"] call VIC_fnc_debugLog;
 
+if (isNil "STALKER_campCooldowns") then { STALKER_campCooldowns = [] };
+STALKER_campCooldowns = STALKER_campCooldowns select { diag_tickTime - (_x select 1) < 300 };
+
 private _clusters = missionNamespace getVariable ["STALKER_buildingClusters", []];
 if (_clusters isEqualTo []) exitWith { objNull };
 
@@ -24,7 +27,12 @@ private _candidates = [];
     {
         private _building = nearestObject [_x, "House"];
         if (!isNull _building && {count (_building buildingPos -1) >= _minPos}) then {
-            _candidates pushBack _building;
+            private _onCooldown = false;
+            {
+                _x params ["_p","_t"];
+                if (_p distance _building < 5 && {diag_tickTime - _t < 300}) exitWith { _onCooldown = true };
+            } forEach STALKER_campCooldowns;
+            if (!_onCooldown) then { _candidates pushBack _building; };
         };
     } forEach _x;
 } forEach _clusters;

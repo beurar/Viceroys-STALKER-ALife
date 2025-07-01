@@ -9,6 +9,10 @@ params ["_pos"];
 
 ["spawnStalkerCamp"] call VIC_fnc_debugLog;
 
+if (isNil "STALKER_campCooldowns") then { STALKER_campCooldowns = [] };
+// Remove expired cooldown entries (5 minute window)
+STALKER_campCooldowns = STALKER_campCooldowns select { diag_tickTime - (_x select 1) < 300 };
+
 private _anchor = [_pos] call VIC_fnc_createProximityAnchor;
 
 if (!isServer) exitWith {};
@@ -21,7 +25,7 @@ private _tooClose = false;
     if (_pos distance (_x select 2) < _spacing) exitWith { _tooClose = true; };
 } forEach STALKER_camps;
 if (_tooClose) exitWith {
-    ["spawnStalkerCamp: position too close to existing camp"] call VIC_fnc_debugLog;
+    // Silently skip spawning if too close to another camp
 };
 
 private _size = ["VSA_stalkerCampSize", 4] call VIC_fnc_getSetting;
@@ -157,11 +161,12 @@ private _factionInfo = [
 private _entry = selectRandom _factionInfo;
 private _side    = selectRandom (_entry select 1);
 private _faction = _entry select 0;
-private _class   = selectRandom (_entry select 2);
+private _classes = _entry select 2;
 
 private _grp = createGroup _side;
 for "_i" from 1 to _size do {
-    _grp createUnit [_class, _pos, [], 0, "FORM"];
+    private _cls = selectRandom _classes;
+    _grp createUnit [_cls, _pos, [], 0, "FORM"];
 };
 
 // Move the campfire slightly away from the building so it sits
@@ -224,3 +229,6 @@ if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
 };
 
 STALKER_camps pushBack [_campfire, _grp, _pos, _anchor, _marker, _side, _faction, false];
+
+// Record camp position for cooldown tracking
+STALKER_campCooldowns pushBack [_pos, diag_tickTime];
