@@ -282,6 +282,30 @@
     false
 ] call CBA_fnc_addSetting;
 
+// Individual mutant enable toggles
+["VSA_enableBloodsucker","CHECKBOX",["Enable Bloodsuckers","Allow bloodsucker spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableBoar","CHECKBOX",["Enable Boars","Allow boar spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableCat","CHECKBOX",["Enable Cats","Allow cat spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableFlesh","CHECKBOX",["Enable Flesh","Allow flesh spawns"],"Viceroy's STALKER ALife - Mutants",false] call CBA_fnc_addSetting;
+["VSA_enableBlindDog","CHECKBOX",["Enable Blind Dogs","Allow blind dog spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enablePseudodog","CHECKBOX",["Enable Pseudodogs","Allow pseudodog spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableSnork","CHECKBOX",["Enable Snorks","Allow snork spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableController","CHECKBOX",["Enable Controllers","Allow controller spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enablePseudogiant","CHECKBOX",["Enable Pseudogiants","Allow pseudogiant spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableIzlom","CHECKBOX",["Enable Izlom","Allow izlom spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableCorruptor","CHECKBOX",["Enable Corruptors","Allow corruptor spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableSmasher","CHECKBOX",["Enable Smashers","Allow smasher spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableAcidSmasher","CHECKBOX",["Enable Acid Smashers","Allow acid smasher spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableBehemoth","CHECKBOX",["Enable Behemoths","Allow behemoth spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableParasite","CHECKBOX",["Enable Parasites","Allow parasite spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableJumper","CHECKBOX",["Enable Jumpers","Allow jumper spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableSpitter","CHECKBOX",["Enable Spitters","Allow spitter spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableStalker","CHECKBOX",["Enable Stalkers","Allow stalker mutant spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableBully","CHECKBOX",["Enable Bullies","Allow bully spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableHivemind","CHECKBOX",["Enable Hiveminds","Allow hivemind spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableZombie","CHECKBOX",["Enable Zombies","Allow zombie spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+["VSA_enableChimera","CHECKBOX",["Enable Chimeras","Allow chimera spawns"],"Viceroy's STALKER ALife - Mutants",true] call CBA_fnc_addSetting;
+
 // -----------------------------------------------------------------------------
 // Stalkers
 // -----------------------------------------------------------------------------

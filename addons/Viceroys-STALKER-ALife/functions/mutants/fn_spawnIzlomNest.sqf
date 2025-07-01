@@ -7,4 +7,8 @@ params ["_pos"];
 
 ["spawnIzlomNest"] call VIC_fnc_debugLog;
 
+if !( ["Izlom"] call VIC_fnc_isMutantEnabled ) exitWith {
+    ["spawnIzlomNest exit: Izloms disabled"] call VIC_fnc_debugLog;
+};
+
 [_pos, "armst_izlom"] call VIC_fnc_spawnMutantNest;

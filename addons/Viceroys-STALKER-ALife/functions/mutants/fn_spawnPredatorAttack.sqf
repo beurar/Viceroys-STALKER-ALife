@@ -51,6 +51,22 @@ private _rareTypes  = ["goliath","crusher"];
 private _type = if (random 100 < 3) then { selectRandom _rareTypes } else {
     if (_isNight) then { selectRandom _nightTypes } else { selectRandom _dayTypes }
 };
+
+private _mapType = switch (_type) do {
+    case "dog": {"Blind Dog"};
+    case "boar": {"Boar"};
+    case "snork": {"Snork"};
+    case "pseudodog": {"Pseudodog"};
+    case "cat": {"Cat"};
+    case "chimera": {"Chimera"};
+    case "bloodsucker": {"Bloodsucker"};
+    case "goliath": {"Behemoth"};
+    case "crusher": {"Smasher"};
+    default {""};
+};
+if (_mapType != "" && { !( [_mapType] call VIC_fnc_isMutantEnabled ) }) exitWith {
+    [format ["spawnPredatorAttack exit: %1 disabled", _mapType]] call VIC_fnc_debugLog;
+};
 private _grp = createGroup east;
 
 switch (_type) do {

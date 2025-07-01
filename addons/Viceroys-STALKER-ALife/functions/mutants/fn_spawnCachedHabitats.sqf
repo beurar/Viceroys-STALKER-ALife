@@ -14,6 +14,8 @@ if (isNil "STALKER_mutantHabitats") then { STALKER_mutantHabitats = []; };
 
 private _createMarker = {
     params ["_type", "_pos", "_max"];
+
+    if !( [_type] call VIC_fnc_isMutantEnabled ) exitWith { false };
     private _overlap = false;
     {
         if (_pos distance2D (_x#3) < 300) exitWith { _overlap = true };
