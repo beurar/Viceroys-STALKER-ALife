@@ -16,4 +16,7 @@ if (isClass (configFile >> "CfgPatches" >> "lambs_danger")) then {
     _unit setVariable ["lambs_danger_disableAI", true];
 };
 
+// Log the spawn for troubleshooting
+[format ["initMutantUnit: spawned %1 at %2", typeOf _unit, getPosWorld _unit]] call VIC_fnc_debugLog;
+
 true
