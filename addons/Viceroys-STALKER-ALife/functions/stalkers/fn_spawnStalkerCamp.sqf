@@ -220,7 +220,7 @@ if (["VSA_debugMode", false] call VIC_fnc_getSetting) then {
         case "Monolith": {VIC_colorMonolith};
         default {"#(1,1,1,1)"};
     };
-    [_marker, _pos, "ICON", "mil_box", _color, 0.2, _faction] call VIC_fnc_createGlobalMarker;
+    [_marker, _pos, "ICON", "mil_box", _color, 0.2, _faction, [1,1], true] call VIC_fnc_createGlobalMarker;
 };
 
 STALKER_camps pushBack [_campfire, _grp, _pos, _anchor, _marker, _side, _faction, false];
