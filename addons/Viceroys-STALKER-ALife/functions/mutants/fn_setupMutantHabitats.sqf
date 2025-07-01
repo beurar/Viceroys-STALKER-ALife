@@ -13,6 +13,8 @@ STALKER_mutantHabitatData = [];
 private _createMarker = {
     params ["_type", "_pos"];
 
+    if !( [_type] call VIC_fnc_isMutantEnabled ) exitWith { false };
+
     // Skip this location if it overlaps an existing habitat or anomaly field
     private _overlap = false;
     {

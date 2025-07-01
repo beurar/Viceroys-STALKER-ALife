@@ -76,6 +76,7 @@ class CfgFunctions
             class spawnSmasherNest{};
             class spawnAcidSmasherNest{};
             class spawnBehemothNest{};
+            class isMutantEnabled{};
             class manageHerds{};
             class manageHostiles{};
             class manageNests{};

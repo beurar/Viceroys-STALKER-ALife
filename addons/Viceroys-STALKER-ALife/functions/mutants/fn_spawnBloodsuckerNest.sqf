@@ -7,5 +7,9 @@ params ["_pos"];
 
 ["spawnBloodsuckerNest"] call VIC_fnc_debugLog;
 
+if !( ["Bloodsucker"] call VIC_fnc_isMutantEnabled ) exitWith {
+    ["spawnBloodsuckerNest exit: Bloodsuckers disabled"] call VIC_fnc_debugLog;
+};
+
 private _classes = ["armst_krovosos", "armst_krovosos2"];
 [_pos, selectRandom _classes] call VIC_fnc_spawnMutantNest;

@@ -10,12 +10,13 @@ params ["_player"];
 if (!isServer) exitWith {};
 if (isNil "STALKER_mutantHabitats") exitWith {};
 
-private _habitats = STALKER_mutantHabitats apply {
-    _x params ["_area","_label","_grp","_pos","_anchor","_type","_max","_count","_near"];
-    [_player distance2D _pos, _pos, _type]
-};
-_habitats sort true;
-_habitats = _habitats select [0,5];
+    private _habitats = STALKER_mutantHabitats apply {
+        _x params ["_area","_label","_grp","_pos","_anchor","_type","_max","_count","_near"];
+        [_player distance2D _pos, _pos, _type]
+    };
+    _habitats sort true;
+    _habitats = _habitats select { ([_x#2] call VIC_fnc_isMutantEnabled) };
+    _habitats = _habitats select [0,5];
 
 private _getClass = {
     params ["_type"];

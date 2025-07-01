@@ -43,6 +43,10 @@ private _getClass = {
 
     _x params ["_area","_label","_grp","_pos","_anchor","_type","_max","_count","_near"];
 
+    if !( [_type] call VIC_fnc_isMutantEnabled ) then {
+        _max = 0; _count = 0;
+    };
+
     if (_near) then {
         if (isNull _grp && {_count > 0}) then {
             private _class = [_type] call _getClass;
