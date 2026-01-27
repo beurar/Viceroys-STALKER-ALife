@@ -1,15 +1,11 @@
 name = "Viceroy Environment"
-prefix = "VIC"
+prefix = "VICEROYS-STALKER-ALIFE"
 
 [files]
 include = [
-    "mod.cpp",        # These files are copied to the build directory by default
-    "meta.cpp",       # They do not need to be added to your list
+    "mod.cpp",
+    "meta.cpp",
     "LICENSE.md",
     "logo.paa",
     "icon.paa",
-]
-exclude = [
-    "*.psd",          # By default this list is empty
-    "addons/main/README.md",
 ]
