@@ -62,6 +62,13 @@ VIC_fnc_loadCache              = compile preprocessFileLineNumbers (_root + "\fu
 VIC_fnc_remoteReturn           = compile preprocessFileLineNumbers (_root + "\functions\core\fn_remoteReturn.sqf");
 VIC_fnc_callServerHelper       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_callServerHelper.sqf");
 VIC_fnc_callServer             = compile preprocessFileLineNumbers (_root + "\functions\core\fn_callServer.sqf");
+VIC_fnc_requestServerState     = compile preprocessFileLineNumbers (_root + "\functions\core\fn_requestServerState.sqf");
+VIC_fnc_sendServerState        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_sendServerState.sqf");
+VIC_fnc_applyServerState       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_applyServerState.sqf");
+VIC_fnc_getServerMetrics       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_getServerMetrics.sqf");
+VIC_fnc_markSitesOverlay       = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markSitesOverlay.sqf");
+VIC_fnc_toggleSiteOverlay      = compile preprocessFileLineNumbers (_root + "\functions\core\fn_toggleSiteOverlay.sqf");
+VIC_fnc_togglePerfMetrics      = compile preprocessFileLineNumbers (_root + "\functions\core\fn_togglePerfMetrics.sqf");
 VIC_fnc_findRockClusters        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findRockClusters.sqf");
 VIC_fnc_markRockClusters        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_markRockClusters.sqf");
 VIC_fnc_findSniperSpots        = compile preprocessFileLineNumbers (_root + "\functions\core\fn_findSniperSpots.sqf");
@@ -289,6 +296,8 @@ VIC_fnc_disableA3UWeather    = compile preprocessFileLineNumbers (_root + "\func
         if (hasInterface && {["VSA_debugMode", false] call VIC_fnc_getSetting}) then {
             [] call VIC_fnc_setupDebugActions;
         };
+        // Request full server state so late-join clients sync runtime arrays and markers
+        [] spawn VIC_fnc_requestServerState;
     }] call CBA_fnc_addEventHandler;
 };
 

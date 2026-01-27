@@ -1,0 +1,15 @@
+name = "Viceroy Environment"
+prefix = "VIC"
+
+[files]
+include = [
+    "mod.cpp",        # These files are copied to the build directory by default
+    "meta.cpp",       # They do not need to be added to your list
+    "LICENSE.md",
+    "logo.paa",
+    "icon.paa",
+]
+exclude = [
+    "*.psd",          # By default this list is empty
+    "addons/main/README.md",
+]

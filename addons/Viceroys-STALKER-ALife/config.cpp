@@ -36,6 +36,13 @@ class CfgFunctions
             class sitePlaced{};
             class activateSite{};
             class deactivateSite{};
+            class requestServerState{};
+            class sendServerState{};
+            class applyServerState{};
+            class getServerMetrics{};
+            class markSitesOverlay{};
+            class toggleSiteOverlay{};
+            class togglePerfMetrics{};
         };
 
         class AI
@@ -295,6 +302,9 @@ class CfgRemoteExec
         class VIC_fnc_radioMessage        { allowedTargets = 0; };
         class VIC_fnc_createLocalMarker   { allowedTargets = 0; };
         class CBRN_fnc_spawnMist          { allowedTargets = 0; };
+        class VIC_fnc_sendServerState    { allowedTargets = 2; };
+        class VIC_fnc_remoteReturn       { allowedTargets = 0; };
+        class VIC_fnc_getServerMetrics   { allowedTargets = 2; };
     };
 
     class Commands

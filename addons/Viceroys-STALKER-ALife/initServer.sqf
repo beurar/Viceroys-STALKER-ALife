@@ -13,10 +13,10 @@ if !( ["VSA_autoInit", false] call VIC_fnc_getSetting ) exitWith {
 };
 
 // Spook zone configuration
-STALKER_MinSpookFields = 2;      // minimum zones spawned per emission
-STALKER_MaxSpookFields = 5;      // maximum zones spawned per emission
-STALKER_SpookDuration  = 15;     // minutes zones remain active
-STALKER_AnomalyFieldDuration = 30; // minutes anomaly fields persist
+STALKER_MinSpookFields = 2;      	// minimum zones spawned per emission
+STALKER_MaxSpookFields = 5;      	// maximum zones spawned per emission
+STALKER_SpookDuration  = 15;     	// minutes zones remain active
+STALKER_AnomalyFieldDuration = 30; 	// minutes anomaly fields persist
 
 drg_activeSpookZones = [];
 STALKER_activeSpooks = [];
@@ -58,6 +58,7 @@ STALKER_wanderers = [];
 
 // Automatically initialize map caches and spawn core sites
 [] call VIC_fnc_initMap;
+[] spawn VIC_fnc_spawnWorker;
 
 private _center = [worldSize / 2, worldSize / 2, 0];
 [_center, worldSize] call VIC_fnc_spawnMinefields;

@@ -307,4 +307,27 @@ player addAction ["<t color='#00ff00'>Load Cache and Init Managers</t>", {
 
 ["Debug actions added"] call VIC_fnc_debugLog;
 
+// --- Diagnostic overlays ---
+player addAction ["<t color='#00ff0f'>Toggle Site Overlay</t>", {
+    if (isServer) then {
+        [] remoteExec ["VIC_fnc_toggleSiteOverlay", 2];
+    } else {
+        [] call VIC_fnc_toggleSiteOverlay;
+    };
+}];
+player addAction ["<t color='#00ff0f'>Toggle Perf Metrics (chat)</t>", {
+    if (isServer) then {
+        [] remoteExec ["VIC_fnc_togglePerfMetrics", 2];
+    } else {
+        [] call VIC_fnc_togglePerfMetrics;
+    };
+}];
+player addAction ["<t color='#00ff0f'>Resync Server State</t>", {
+    if (isServer) then {
+        [] call VIC_fnc_sendServerState;
+    } else {
+        [] call VIC_fnc_requestServerState;
+    };
+}];
+
 true
