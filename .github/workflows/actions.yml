@@ -24,4 +24,4 @@ jobs:
           pip install hemtt
 
       - name: Run hemtt check
-        run: hemtt check
+        run: hemtt launch
