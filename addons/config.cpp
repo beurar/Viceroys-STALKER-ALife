@@ -21,7 +21,7 @@ class CfgFunctions
 
         class Core
         {
-            file = "VIC\functions\core";
+            file = "vicstalker\core\functions\core";
             class masterInit{};
             class registerEmissionHooks{};
             class getSetting{};
@@ -48,7 +48,7 @@ class CfgFunctions
 
         class AI
         {
-            file = "VIC\functions\ai";
+            file = "vicstalker\ai\functions\ai";
             class resetAIBehavior{};
             class triggerAIPanic{};
             class avoidAnomalies{};
@@ -58,7 +58,7 @@ class CfgFunctions
 
         class Panic
         {
-            file = "VIC\functions\panic";
+            file = "vicstalker\panic\functions\panic";
             class onEmissionBuildUp{};
             class onEmissionStart{};
             class onEmissionEnd{};
@@ -66,7 +66,7 @@ class CfgFunctions
 
         class Mutants
         {
-            file = "VIC\functions\mutants";
+            file = "vicstalker\mutants\functions\mutants";
             class spawnAmbientHerds{};
             class spawnMutantGroup{};
             class spawnMutantNest{};
@@ -96,7 +96,7 @@ class CfgFunctions
         };
         class Stalkers
         {
-            file = "VIC\functions\stalkers";
+            file = "vicstalker\stalkers\functions\stalkers";
             class spawnAmbientStalkers{};
             class spawnStalkerCamp{};
             class spawnStalkerCamps{};
@@ -113,7 +113,7 @@ class CfgFunctions
 
         class Chemical
         {
-            file = "VIC\functions\chemical";
+            file = "vicstalker\chemical\functions\chemical";
             class cleanupChemicalZones{};
             class spawnChemicalZone{};
             class spawnRandomChemicalZones{};
@@ -125,14 +125,14 @@ class CfgFunctions
 
         class Spooks
         {
-            file = "VIC\functions\spooks";
+            file = "vicstalker\spooks\functions\spooks";
             class setupSpookZones{};
             class spawnSpookZone{};
             class manageSpookZones{};
         };
         class Minefields
         {
-            file = "VIC\functions\minefields";
+            file = "vicstalker\minefields\functions\minefields";
             class spawnMinefields{};
             class spawnAPERSField{};
             class spawnIED{};
@@ -149,7 +149,7 @@ class CfgFunctions
         };
         class Wrecks
         {
-            file = "VIC\functions\wrecks";
+            file = "vicstalker\wrecks\functions\wrecks";
             class spawnAbandonedVehicles{};
             class findWrecks{};
             class manageWrecks{};
@@ -157,14 +157,14 @@ class CfgFunctions
 
         class Ambushes
         {
-            file = "VIC\functions\ambushes";
+            file = "vicstalker\ambushes\functions\ambushes";
             class spawnAmbushes{};
             class manageAmbushes{};
             class startAmbushManager{};
         };
         class Blowouts
         {
-            file = "VIC\functions\blowouts";
+            file = "vicstalker\blowouts\functions\blowouts";
             class scheduleBlowouts{};
             class triggerBlowout{};
             class placeTownSirens{};
@@ -172,7 +172,7 @@ class CfgFunctions
 
         class Storms
         {
-            file = "VIC\functions\storms";
+            file = "vicstalker\storms\functions\storms";
             class schedulePsyStorms{};
             class triggerPsyStorm{};
         };
@@ -320,7 +320,7 @@ class Extended_PreInit_EventHandlers
 {
     class VIC_StalkerALife_PreInit
     {
-        init = "call compile preprocessFileLineNumbers 'VIC\functions\core\fn_masterInit.sqf'";
+        init = "call compile preprocessFileLineNumbers 'vic\initServer.sqf'";
     };
 };
 

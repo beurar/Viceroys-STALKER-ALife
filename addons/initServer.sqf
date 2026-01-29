@@ -5,7 +5,7 @@
 if (!isServer) exitWith {};
 
 // Ensure core functions are compiled when running script-only
-[] call compile preprocessFileLineNumbers "\VIC\functions\core\fn_masterInit.sqf";
+[] call compile preprocessFileLineNumbers "\VIC\initServer.sqf";
 
 if !( ["VSA_autoInit", false] call VIC_fnc_getSetting ) exitWith {
     ["initServer: auto init disabled"] call VIC_fnc_debugLog;

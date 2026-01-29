@@ -1,7 +1,8 @@
 name = "Viceroy's STALKER ALife"
 author = "Viceroy"
 description = "Dynamic ALife system for S.T.A.L.K.E.R.-style missions."
-prefix = "z\\vicstalker_alife"
+prefix = "vicstalker"
+mainprefix = "vic"
 repo = "https://github.com/Viceroy/Viceroys-STALKER-ALife"
 homepage = "https://steamcommunity.com/sharedfiles/filedetails/?id=3496635606"
 
@@ -65,4 +66,36 @@ files = [
     "SYNTAX.md",
     "LICENSE.md",
     "scripts"
+]
+
+# Launched with `hemtt launch`
+[hemtt.launch.default]
+workshop = [
+    "463939057",   # ACE
+    "767380317",   # Blastcore Edited (standalone)
+    "450814997",   # CBA_A3
+    "3295358796",  # Chemical Warfare PLUS
+    "1128256978",  # Chernarus Redux
+    "583496184",   # CUP Terrains - Core
+    "497661914",   # CUP Units
+    "541888371",   # CUP Vehicles
+    "497660133",   # CUP Weapons
+    "2616555444",  # Devourerking's Necroplague Mutants
+    "3351980695",  # Diwako's STALKER-like anomalies rework
+    "2262255106",  # Drongos Spooks and Anomalies
+    "3090861953",  # Healthy Stalker Vehicles
+    "2291129343",  # Improved Melee System
+    "1858075458",  # LAMBS_Danger.fsm
+    "1919291553",  # Livonian Lighting: C.Redux
+    "2831620900",  # Pyro's STALKER Factions STARMA Edition
+    "2797232351",  # Root's Effects - Zeus Module
+    "1996610193",  # S.T.A.L.K.E.R. + CBRN Equipment
+    "3382153986",  # STALKER Factions
+    "2781344095",  # Stalker stuff
+    "2782616297",  # Stalker Stuff Gear
+    "2572487482",  # WebKnight Flashlights and Headlamps
+    "3032643455",  # Webknight Units - LAMBS + ACE Compatibility Patch
+    "2789152015",  # WebKnight's Zombies and Creatures
+    "1779063631",  # Zeus Enhanced
+    "3020755032"   # Antistasi Ultimate
 ]
