@@ -24,8 +24,8 @@ if (_habIndex > -1 && {!isNil "STALKER_mutantHabitats"}) then {
     _entry params ["_area","_label","_grp","_pos","_anchor","_type","_max","_count","_near"];
     _count = _count - 1;
     if (_count < 0) then {_count = 0;};
-    _area setMarkerColor (if (_count > 0) then {VIC_colorMeatRed} else {VIC_colorMutant});
-    _label setMarkerColor (if (_count > 0) then {VIC_colorMeatRed} else {VIC_colorMutant});
+    _area setMarkerColor ([VIC_colorMutant, VIC_colorMeatRed] select (_count > 0));
+    _label setMarkerColorLocal ([VIC_colorMutant, VIC_colorMeatRed] select (_count > 0));
     _label setMarkerText format ["%1 Habitat: %2/%3", _type, _count, _max];
     STALKER_mutantHabitats set [_habIndex, [_area,_label,_grp,_pos,_anchor,_type,_max,_count,_near]];
 };

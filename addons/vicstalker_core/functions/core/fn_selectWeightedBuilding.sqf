@@ -14,9 +14,9 @@ private _options = [];
     private _subset = _all select {
         private _building = _x;
         private _type = toLower (typeOf _building);
-        ({ _type find _x > -1 } count _words > 0) && { [_building] call _cond };
+        ({ _type find _x > -1 } count _words) isNotEqualTo [] && { [_building] call _cond };
     };
-    if (!(_subset isEqualTo [])) then {
+    if ((_subset isNotEqualTo [])) then {
         _options pushBack [_subset,_weight];
     };
 } forEach _categories;

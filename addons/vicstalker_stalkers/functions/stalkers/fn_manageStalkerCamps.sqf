@@ -20,7 +20,7 @@ for "_i" from ((count STALKER_camps) - 1) to 0 step -1 do {
             private _firePos = _pos getPos [3 + random 3, random 360];
             _camp = "Campfire_burning_F" createVehicle _firePos;
         };
-        if (isNull _grp || { count units _grp == 0 }) then {
+        if (isNull _grp || { units _grp isEqualTo [] }) then {
             private _class = switch (_faction) do {
                 case "ClearSky": {
                     selectRandom [
@@ -199,7 +199,7 @@ for "_i" from ((count STALKER_camps) - 1) to 0 step -1 do {
         if (!isNull _camp) then { deleteVehicle _camp; _camp = objNull; };
     };
     if (_marker != "") then {
-        [_marker, (if (_newActive) then {1} else {0.2})] remoteExec ["setMarkerAlpha", 0];
+        [_marker, [0.2, 1] select (_newActive)] remoteExec ["setMarkerAlpha", 0];
     };
 
     if (!_newActive && { isNull _grp && { isNull _camp } }) then {

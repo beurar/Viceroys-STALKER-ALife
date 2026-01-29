@@ -184,7 +184,7 @@ private _allTypes = _weightsGeneric apply { _x#0 };
 private _existing = STALKER_mutantHabitats apply { _x#5 };
 {
     if (!(_x in _existing)) then {
-        if !(_buildings isEqualTo []) then {
+        if (_buildings isNotEqualTo []) then {
             private _p = getPosATL (selectRandom _buildings);
             _p = [_p, 0, 25, 5, 0, 0, 0] call BIS_fnc_findSafePos;
             if (!(_p call VIC_fnc_isWaterPosition)) then { [_x, _p] call _createMarker; };

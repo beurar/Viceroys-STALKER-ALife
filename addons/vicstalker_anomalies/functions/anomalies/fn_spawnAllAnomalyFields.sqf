@@ -30,7 +30,7 @@ private _spawnWeight = ["VSA_anomalySpawnWeight", 50] call VIC_fnc_getSetting;
 private _stableChance  = ["VSA_stableFieldChance", 50] call VIC_fnc_getSetting;
 private _nightOnly   = ["VSA_anomalyNightOnly", false] call VIC_fnc_getSetting;
 
-if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {
+if (_nightOnly && {dayTime > 5 && dayTime < 20}) exitWith {
     ["spawnAllAnomalyFields: night only"] call VIC_fnc_debugLog;
 };
 
@@ -96,7 +96,7 @@ for "_i" from 1 to _fieldCount do {
     private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
     private _site   = if (_marker isEqualTo "") then { getPosATL (_spawned select 0) } else { getMarkerPos _marker };
     if (_marker != "") then {
-        _marker setMarkerBrush "Border";
+        _marker setMarkerBrushLocal "Border";
         _marker setMarkerAlpha 1;
         if (_stable) then {
             _marker setMarkerText ([_typeName, _site] call VIC_fnc_generateFieldName);

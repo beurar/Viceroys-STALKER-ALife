@@ -36,7 +36,7 @@ for "_xOff" from -_radius to _radius step _step do {
     };
 };
 
-if (_debug && {isServer && { !(_bestPos isEqualTo []) }}) then {
+if (_debug && {isServer && { (_bestPos isNotEqualTo []) }}) then {
     private _name = format ["valleyPos_%1", diag_tickTime + random 1000];
     private _m = [_name, ASLToAGL _bestPos, "ICON", "mil_arrow", VIC_colorGasYellow] call VIC_fnc_createGlobalMarker;
     STALKER_valleySearchMarkers pushBack _m;

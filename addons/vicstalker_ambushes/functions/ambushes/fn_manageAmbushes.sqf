@@ -25,11 +25,11 @@ private _maxUnits = ["VSA_ambushMaxUnits", 6] call VIC_fnc_getSetting;
         if (_mines isEqualTo []) then {
             private _roadPos = [_pos, 50, 5] call VIC_fnc_findRoadPosition;
             private _dir = 0;
-            if (!isNil {_roadPos} && { !(_roadPos isEqualTo []) }) then {
+            if (!isNil {_roadPos} && { (_roadPos isNotEqualTo []) }) then {
                 private _road = roadAt _roadPos;
                 if (isNull _road) then {
                     private _roads = _roadPos nearRoads 50;
-                    if ((count _roads) > 0) then { _road = _roads select 0; };
+                    if (_roads isNotEqualTo []) then { _road = _roads select 0; };
                 };
                 if (!isNull _road) then { _dir = getDir _road; };
             };
@@ -49,11 +49,11 @@ private _maxUnits = ["VSA_ambushMaxUnits", 6] call VIC_fnc_getSetting;
             private _half = ceil(_count / 2);
             private _roadPos = [_pos, 50, 5] call VIC_fnc_findRoadPosition;
             private _dir = 0;
-            if (!isNil {_roadPos} && { !(_roadPos isEqualTo []) }) then {
+            if (!isNil {_roadPos} && { (_roadPos isNotEqualTo []) }) then {
             private _road = roadAt _roadPos;
             if (isNull _road) then {
                 private _roads = _roadPos nearRoads 50;
-                if ((count _roads) > 0) then { _road = _roads select 0; };
+                if (_roads isNotEqualTo []) then { _road = _roads select 0; };
             };
             if (!isNull _road) then { _dir = getDir _road; };
             };

@@ -19,7 +19,7 @@ if (isNil "STALKER_playerRangeMarker") then { STALKER_playerRangeMarker = "" };
         if (STALKER_playerRangeMarker isEqualTo "") then {
             private _name = format ["playerRange_%1", diag_tickTime];
             STALKER_playerRangeMarker = createMarkerLocal [_name, position player];
-            STALKER_playerRangeMarker setMarkerShape "ELLIPSE";
+            STALKER_playerRangeMarker setMarkerShapeLocal "ELLIPSE";
             STALKER_playerRangeMarker setMarkerColor "ColorBlue";
             STALKER_playerRangeMarker setMarkerAlphaLocal 0.15;
         };

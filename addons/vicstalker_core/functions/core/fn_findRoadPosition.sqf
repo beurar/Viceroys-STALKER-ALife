@@ -17,7 +17,7 @@ if (isNil "STALKER_roads" || { STALKER_roads isEqualTo [] }) then {
 };
 
 private _roads = STALKER_roads select { _x distance2D _centerPos <= _radius };
-if (!(_roads isEqualTo [])) exitWith { selectRandom _roads };
+if ((_roads isNotEqualTo [])) exitWith { selectRandom _roads };
 
 [] call VIC_fnc_getRandomRoad
 

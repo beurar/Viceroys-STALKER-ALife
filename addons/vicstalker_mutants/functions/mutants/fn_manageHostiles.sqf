@@ -14,7 +14,7 @@ private _size = ["VSA_mutantThreat", 3] call VIC_fnc_getSetting;
     private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
     _near = [_pos, _dist] call VIC_fnc_hasPlayersNearby;
     if (_near) then {
-        if (isNull _grp || { count units _grp == 0 }) then {
+        if (isNull _grp || { units _grp isEqualTo [] }) then {
             private _new = createGroup east;
             for "_i" from 1 to _size do {
                 private _u = _new createUnit ["O_ALF_Mutant", _pos, [], 0, "FORM"];
@@ -30,7 +30,7 @@ private _size = ["VSA_mutantThreat", 3] call VIC_fnc_getSetting;
             _grp = grpNull;
         };
     };
-    if (_marker != "") then { _marker setMarkerAlpha (if (_near) then {1} else {0.2}); };
+    if (_marker != "") then { _marker setMarkerAlpha ([0.2, 1] select (_near)); };
     STALKER_activeHostiles set [_forEachIndex, [_grp, _type, _pos, _marker, _near]];
 } forEach STALKER_activeHostiles;
 

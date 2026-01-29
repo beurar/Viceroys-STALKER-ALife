@@ -24,12 +24,12 @@ if (isServer && !isNil "STALKER_anomalyFields") then {
             _site = [];
         };
         private _spawned = [_center,_radius,_count,_site] call _fn;
-        if (!(_spawned isEqualTo [])) then {
+        if ((_spawned isNotEqualTo [])) then {
             _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
             _site = getMarkerPos _marker;
             _objs = _spawned;
             if (_marker != "") then { 
-                _marker setMarkerBrush "Border"; 
+                _marker setMarkerBrushLocal "Border"; 
                 _marker setMarkerAlpha 1; 
             };
             if (_stable && {_marker != ""}) then {

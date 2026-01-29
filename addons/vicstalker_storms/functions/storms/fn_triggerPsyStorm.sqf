@@ -49,7 +49,7 @@ if (_stepsOvercast > 0) then {
 };
 forceWeatherChange;
 
-if (count allPlayers == 0) exitWith {};
+if (allPlayers isEqualTo []) exitWith {};
 
 private _ticks = floor _duration;
 for "_i" from 1 to _ticks do {

@@ -21,9 +21,9 @@ private _stableChance = ["VSA_stableFieldChance", 50] call VIC_fnc_getSetting;
 {
     private _pos = getPosATL _x;
     // Skip if a field already exists for this bridge
-    private _exists = count (STALKER_anomalyFields select {
+    private _exists = (STALKER_anomalyFields select {
         (_x select 3) isEqualTo VIC_fnc_createField_bridgeAnomaly && { (_x select 7) distance2D _pos < 10 }
-    }) > 0;
+    }) isNotEqualTo [];
     if (_exists) then { continue };
 
     private _stable = if (_type == -1) then { (random 100) < _stableChance } else { _type == 1 };
@@ -34,7 +34,7 @@ private _stableChance = ["VSA_stableFieldChance", 50] call VIC_fnc_getSetting;
     private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
     private _site   = if (_marker isEqualTo "") then { getPosATL (_spawned select 0) } else { getMarkerPos _marker };
     if (_marker != "") then {
-        _marker setMarkerBrush "Border";
+        _marker setMarkerBrushLocal "Border";
         _marker setMarkerAlpha 1;
         if (_stable) then { _marker setMarkerText (["bridge", _site] call VIC_fnc_generateFieldName); };
     };

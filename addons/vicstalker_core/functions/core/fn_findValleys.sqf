@@ -63,7 +63,7 @@ for "_gx" from 0 to worldSize step _step do {
         private _visited = [];
         private _valley = [];
 
-        while {count _queue > 0} do {
+        while {_queue isNotEqualTo []} do {
             private _p = _queue deleteAt 0;
             if (_p in _visited) then { continue; };
             _visited pushBack _p;
@@ -82,7 +82,7 @@ for "_gx" from 0 to worldSize step _step do {
             };
         };
 
-        if (count _valley > 0) then {
+        if (_valley isNotEqualTo []) then {
             _valleys pushBack _valley;
             if (_debug && {isServer}) then {
                 private _name = format ["valleySeed_%1", diag_tickTime + random 1000];

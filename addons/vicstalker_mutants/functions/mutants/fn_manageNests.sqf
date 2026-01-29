@@ -13,7 +13,7 @@ if (isNil "STALKER_mutantNests") exitWith {};
     private _near = [_pos, _dist] call VIC_fnc_hasPlayersNearby;
     if (_near) then {
         if (isNull _nest) then { _nest = "Land_Campfire_F" createVehicle _pos; };
-        if (isNull _grp || { count units _grp == 0 }) then {
+        if (isNull _grp || { units _grp isEqualTo [] }) then {
             private _new = createGroup east;
             for "_i" from 1 to 3 do {
                 private _u = _new createUnit [_class, _pos, [], 0, "FORM"];

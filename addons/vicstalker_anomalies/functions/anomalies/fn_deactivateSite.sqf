@@ -18,7 +18,7 @@ if ((count _objs) > 0) then {
     _objs = [];
 };
 if (_marker != "") then {
-    _marker setMarkerBrush "Border";
+    _marker setMarkerBrushLocal "Border";
     _marker setMarkerAlpha 0.2;
 };
 

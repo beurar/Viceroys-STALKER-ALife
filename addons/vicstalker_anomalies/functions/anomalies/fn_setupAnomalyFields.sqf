@@ -28,8 +28,8 @@ private _createField = {
 
     private _marker = (_spawned select 0) getVariable ["zoneMarker", ""];
     if (_marker != "") then {
-        _marker setMarkerBrush "Border";
-        _marker setMarkerAlpha 1;
+        _marker setMarkerBrushLocal "Border";
+        _marker setMarkerAlphaLocal 1;
         private _type = switch (_fn) do {
             case VIC_fnc_createField_burner: {"burner"};
             case VIC_fnc_createField_electra: {"electra"};

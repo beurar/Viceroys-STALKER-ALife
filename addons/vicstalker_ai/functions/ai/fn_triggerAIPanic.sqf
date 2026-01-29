@@ -23,7 +23,7 @@ if (isNil "STALKER_panicGroups") then { STALKER_panicGroups = []; };
 // Exit if panic or AI behaviour tweaks are disabled
 if !(missionNamespace getVariable ["VSA_AIPanicEnabled", true]) exitWith {};
 if (["VSA_enableAIBehaviour", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
-if (["VSA_aiNightOnly", false] call VIC_fnc_getSetting && {daytime > 5 && daytime < 20}) exitWith {};
+if (["VSA_aiNightOnly", false] call VIC_fnc_getSetting && {dayTime > 5 && dayTime < 20}) exitWith {};
 
 private _threshold = ["VSA_panicThreshold", 50] call VIC_fnc_getSetting;
 private _groups = [];
@@ -65,7 +65,7 @@ private _groups = [];
     private _building = _buildings select 0;
 
     private _pos = getPosATL _building;
-    private _hasPlayers = count (allPlayers select { _x distance _building < 15 }) > 0;
+    private _hasPlayers = (allPlayers select { _x distance _building < 15 }) isNotEqualTo [];
 
     if (_hasPlayers) then {
         if (isClass (configFile >> "CfgPatches" >> "lambs_danger")) then {

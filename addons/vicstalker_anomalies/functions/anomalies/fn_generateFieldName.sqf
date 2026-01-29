@@ -24,9 +24,9 @@ private _stalkers = [
 ];
 
 private _places = [];
-if ((count _pos) > 0) then {
+if (_pos isNotEqualTo []) then {
     private _locs = nearestLocations [_pos, ["NameVillage","NameCity","NameCityCapital","NameLocal"], 3000];
-    if ((count _locs) > 0) then {
+    if (_locs isNotEqualTo []) then {
         _places = _locs apply { text _x };
     } else {
         private _feature = "";
@@ -36,7 +36,7 @@ if ((count _pos) > 0) then {
             private _road = roadAt _pos;
             if (isNull _road) then {
                 private _roads = _pos nearRoads 50;
-                if ((count _roads) > 0) then { _road = _roads select 0; };
+                if (_roads isNotEqualTo []) then { _road = _roads select 0; };
             };
             private _nearRoad = false;
             if (!isNull _road) then { _nearRoad = _pos distance (getPos _road) < 50; };
@@ -130,7 +130,7 @@ private _set = [];
 {
     if ((_x select 0) isEqualTo (toLower _type)) exitWith { _set = _x select 1; };
 } forEach _vocab;
-if ((count _set) > 0) then {
+if (_set isNotEqualTo []) then {
     _desc = _set select 0;
     _adjs = _set select 1;
     _nouns = _set select 2;

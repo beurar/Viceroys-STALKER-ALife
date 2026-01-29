@@ -47,7 +47,7 @@ if (_maxDelay < _minDelay) then { _maxDelay = _minDelay; };
     while {true} do {
         if (_var != "" && { missionNamespace getVariable [_var, false] }) then {
             missionNamespace setVariable [_var, false, true];
-            if (random 100 < _weight && { !(_night && daytime > 5 && daytime < 20) }) then {
+            if (random 100 < _weight && { !(_night && dayTime > 5 && dayTime < 20) }) then {
                 ["Increased psy activity has been detected. We're expecting a psystorm imminently boys."] remoteExec ["VIC_fnc_radioMessage", 0];
                 [_dur, _lStart, _lEnd, _dStart, _dEnd, _fEnd, _rEnd, _oEnd, _oTime] call VIC_fnc_triggerPsyStorm;
             };
@@ -55,7 +55,7 @@ if (_maxDelay < _minDelay) then { _maxDelay = _minDelay; };
         };
 
         if (time >= _nextStorm) then {
-            if (random 100 < _weight && { !(_night && daytime > 5 && daytime < 20) }) then {
+            if (random 100 < _weight && { !(_night && dayTime > 5 && dayTime < 20) }) then {
                 ["Increased psy activity has been detected. We're expecting a psystorm imminently boys."] remoteExec ["VIC_fnc_radioMessage", 0];
                 [_dur, _lStart, _lEnd, _dStart, _dEnd, _fEnd, _rEnd, _oEnd, _oTime] call VIC_fnc_triggerPsyStorm;
             };

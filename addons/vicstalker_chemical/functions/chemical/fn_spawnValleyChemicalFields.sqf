@@ -22,7 +22,7 @@ if (isNil "STALKER_chemicalZones") then { STALKER_chemicalZones = []; };
 private _nightOnly  = ["VSA_chemicalNightOnly", false] call VIC_fnc_getSetting;
 private _zoneRadius = ["VSA_chemicalZoneRadius", 50] call VIC_fnc_getSetting;
 
-if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {
+if (_nightOnly && {dayTime > 5 && dayTime < 20}) exitWith {
     ["spawnValleyChemicalFields: night only"] call VIC_fnc_debugLog;
 };
 

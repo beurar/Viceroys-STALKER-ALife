@@ -21,13 +21,13 @@ private _crossroads = [];
     private _roadObj = roadAt _x;
     if (isNull _roadObj) then {
         private _near = _x nearRoads 5;
-        if ((count _near) > 0) then { _roadObj = _near select 0; };
+        if (_near isNotEqualTo []) then { _roadObj = _near select 0; };
     };
     if (!isNull _roadObj) then {
         private _connections = roadsConnectedTo _roadObj;
         if ((count _connections) >= 3) then {
             private _pos = getPosATL _roadObj;
-            if ((count (_crossroads select { _x distance _pos < 5 })) == 0) then {
+            if ((_crossroads select { _x distance _pos < 5 }) isEqualTo []) then {
                 _crossroads pushBack _pos;
             };
         };

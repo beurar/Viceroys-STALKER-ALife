@@ -28,7 +28,7 @@ if ((count STALKER_mutantNests) >= _max) exitWith {
 };
 
 private _nightOnly = ["VSA_nestsNightOnly", true] call VIC_fnc_getSetting;
-if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {
+if (_nightOnly && {dayTime > 5 && dayTime < 20}) exitWith {
     ["spawnMutantNest exit: day time"] call VIC_fnc_debugLog;
 };
 

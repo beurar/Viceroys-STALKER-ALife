@@ -18,7 +18,7 @@ private _range = missionNamespace getVariable ["STALKER_activityRadius", 1500];
     private _newActive = [_anchor,_range,_active] call VIC_fnc_evalSiteProximity;
 
     if (_newActive) then {
-        if (isNull _grp || { count units _grp == 0 }) then {
+        if (isNull _grp || { units _grp isEqualTo [] }) then {
             private _factionInfo = [
                 ["ClearSky",   [blufor,opfor,independent,civilian], [
                     "B_CS_Artifact_Seeker_01","B_CS_Exo_01","B_CS_Experienced_01",

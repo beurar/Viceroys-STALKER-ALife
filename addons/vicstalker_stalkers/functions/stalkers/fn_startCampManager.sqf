@@ -24,7 +24,7 @@ missionNamespace setVariable ["VIC_campManagerRunning", true];
 
         if (_count > _max) then {
             for "_i" from 1 to (_count - _max) do {
-                if ((count STALKER_camps) == 0) exitWith {};
+                if ((STALKER_camps) isEqualTo []) exitWith {};
                 private _idx = floor random (count STALKER_camps);
                 private _camp = STALKER_camps select _idx;
                 _camp params ["_fire","_grp","_pos","_anchor","_marker"];

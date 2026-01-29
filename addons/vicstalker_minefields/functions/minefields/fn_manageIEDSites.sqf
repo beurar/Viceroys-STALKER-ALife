@@ -30,7 +30,7 @@ private _dist = missionNamespace getVariable ["STALKER_activityRadius", 1500];
                 params ["_mine"];
                 while {alive _mine} do {
                     private _near = allPlayers select { _x distance _mine < 10 };
-                    if ((count _near) > 0 && { !(_mine getVariable ["VIC_detonating",false]) }) then {
+                    if ((_near) isNotEqualTo [] && { !(_mine getVariable ["VIC_detonating",false]) }) then {
                         _mine setVariable ["VIC_detonating", true];
                         _mine say3D ["AlarmCar",50];
                         sleep 5;

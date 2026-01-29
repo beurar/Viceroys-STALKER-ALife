@@ -20,7 +20,7 @@ for "_x" from 0 to worldSize step _step do {
         private _center = [_x + _half, _y + _half, 0];
         private _pos = [_center, _half, 10] call VIC_fnc_findLandPos;
         if (isNil {_pos}) then { _pos = [] };
-        if !(_pos isEqualTo []) then {
+        if (_pos isNotEqualTo []) then {
             _zones pushBack _pos;
         };
     };

@@ -22,7 +22,7 @@ private _queue = [_start];
 private _visited = [];
 private _valley = [];
 
-while {count _queue > 0} do {
+while {_queue isNotEqualTo []} do {
     private _p = _queue deleteAt 0;
     if (_p in _visited) then { continue; };
     _visited pushBack _p;

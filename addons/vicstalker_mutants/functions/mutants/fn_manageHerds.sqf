@@ -62,7 +62,7 @@ private _chance = ["VSA_mutantSpawnWeight",50] call VIC_fnc_getSetting;
     };
 
     if (_marker != "") then {
-        _marker setMarkerAlpha (if (_near) then {1} else {0.2});
+        _marker setMarkerAlpha ([0.2, 1] select (_near));
     };
 
     STALKER_activeHerds set [_forEachIndex, [_leader, _grp, _max, _count, _near, _marker]];

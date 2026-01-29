@@ -20,7 +20,7 @@ private _groupCount = ["VSA_ambientStalkerGroups", 2] call VIC_fnc_getSetting;
 private _groupSize  = ["VSA_ambientStalkerSize", 4] call VIC_fnc_getSetting;
 private _nightOnly  = ["VSA_ambientStalkerNightOnly", false] call VIC_fnc_getSetting;
 
-if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
+if (_nightOnly && {dayTime > 5 && dayTime < 20}) exitWith {};
 
 private _players = allPlayers select { alive _x && {!isNull _x} };
 if (_players isEqualTo []) exitWith {};

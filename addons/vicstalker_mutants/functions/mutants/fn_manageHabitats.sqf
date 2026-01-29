@@ -82,9 +82,9 @@ private _getClass = {
         };
     };
 
-    _area setMarkerColor ([VIC_colorMutant, VIC_colorMeatRed] select (_count > 0));
-    _label setMarkerColor ([VIC_colorMutant, VIC_colorMeatRed] select (_count > 0));
-    _label setMarkerText format ["%1 Habitat: %2/%3", _type, _count, _max];
+    _area setMarkerColorLocal ([VIC_colorMutant, VIC_colorMeatRed] select (_count > 0));
+    _label setMarkerColorLocal ([VIC_colorMutant, VIC_colorMeatRed] select (_count > 0));
+    _label setMarkerTextLocal format ["%1 Habitat: %2/%3", _type, _count, _max];
 
     private _alpha = [0.2, 1] select _near;
     _area setMarkerAlpha _alpha;

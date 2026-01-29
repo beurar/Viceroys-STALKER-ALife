@@ -17,7 +17,7 @@ private _range = missionNamespace getVariable ["STALKER_activityRadius", 1500];
     private _newActive = [_anchor,_range,_active] call VIC_fnc_evalSiteProximity;
 
     if (_newActive) then {
-        if (isNull _grp || { count units _grp == 0 }) then {
+        if (isNull _grp || { units _grp isEqualTo [] }) then {
             _grp = createGroup east;
             _grp createUnit ["O_sniper_F", _pos, [], 0, "FORM"];
             [_grp, _pos, 100, [], true, true, 0, true] call lambs_wp_fnc_taskGarrison;

@@ -15,7 +15,7 @@ if (isNil "STALKER_anomalyFields" || {STALKER_anomalyFields isEqualTo []}) exitW
 
 private _entry = selectRandom STALKER_anomalyFields;
 _entry params ["_center","_radius","_fn","_count","_objs","_marker","_site"];
-private _pos = [_center, _site] select (!(_site isEqualTo []));
+private _pos = [_center, _site] select ((_site isNotEqualTo []));
 
 private _artifact = createVehicle ["GroundWeaponHolder_Single_F", _pos, [], 0, "CAN_COLLIDE"];
 _artifact addItemCargoGlobal ["ss_artifact_dummy",1];

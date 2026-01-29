@@ -15,7 +15,7 @@ private _objs = nearestObjects [_center, ["AllVehicles","Static"], worldSize];
 private _found = _objs select {
     private _type = toLower typeOf _x;
     private _model = toLower ((getModelInfo _x) select 0);
-    (_type find "wreck" > -1) || { _model find "wrecks" > -1 }
+     ("wreck" in _type) || { "wrecks" in _model }
 };
 
 if (isNil "STALKER_wrecks") then { STALKER_wrecks = [] };

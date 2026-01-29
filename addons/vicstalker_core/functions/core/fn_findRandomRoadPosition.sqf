@@ -24,7 +24,7 @@ while { _attempt < _maxTries } do {
     };
 
     private _roads = STALKER_roads select { _x distance2D _randomPos < _radius };
-    if (!(_roads isEqualTo [])) exitWith { selectRandom _roads };
+    if ((_roads isNotEqualTo [])) exitWith { selectRandom _roads };
 
     _attempt = _attempt + 1;
 };

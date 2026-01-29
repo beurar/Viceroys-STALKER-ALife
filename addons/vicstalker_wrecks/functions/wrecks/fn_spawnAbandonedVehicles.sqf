@@ -58,15 +58,15 @@ for "_i" from 1 to _count do {
     private _roadPos = [] call VIC_fnc_getRandomRoad;
     private _pos = _roadPos getPos [2 + random 3, random 360];
     _pos = [_pos] call VIC_fnc_getLandSurfacePosition;
-    if !(_pos isEqualTo []) then {
-        private _veh = createVehicle [selectRandom _classes, ASLtoATL _pos, [], 0, "CAN_COLLIDE"];
-        _veh setPosATL (ASLtoATL _pos);
-        _veh setVectorUp surfaceNormal (ASLtoATL _pos);
+    if (_pos isNotEqualTo []) then {
+        private _veh = createVehicle [selectRandom _classes, ASLToATL _pos, [], 0, "CAN_COLLIDE"];
+        _veh setPosATL (ASLToATL _pos);
+        _veh setVectorUp surfaceNormal (ASLToATL _pos);
         _veh setDamage (0.3 + random 0.7);
         _veh setFuel 0;
         _veh lock 2;
-        _veh setVariable ["VIC_wreckSite", ASLtoATL _pos];
-        private _anchor = [ASLtoATL _pos] call VIC_fnc_createProximityAnchor;
+        _veh setVariable ["VIC_wreckSite", ASLToATL _pos];
+        private _anchor = [ASLToATL _pos] call VIC_fnc_createProximityAnchor;
         _veh setVariable ["VIC_anchor", _anchor];
         STALKER_wrecks pushBack _veh;
     };

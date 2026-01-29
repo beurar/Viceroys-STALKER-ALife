@@ -18,7 +18,7 @@ if (["VSA_enableAIBehaviour", true] call VIC_fnc_getSetting isEqualTo false) exi
 if !(missionNamespace getVariable ["VSA_fieldAvoidEnabled", true]) exitWith {
     ["fn_avoidAnomalyFields exit: disabled"] call VIC_fnc_debugLog;
 };
-if (["VSA_aiNightOnly", false] call VIC_fnc_getSetting && { daytime > 5 && daytime < 20 }) exitWith {
+if (["VSA_aiNightOnly", false] call VIC_fnc_getSetting && { dayTime > 5 && dayTime < 20 }) exitWith {
     ["fn_avoidAnomalyFields exit: day time"] call VIC_fnc_debugLog;
 };
 if (isNil "STALKER_anomalyFields") exitWith {
@@ -44,7 +44,7 @@ if (_fields isEqualTo []) exitWith {
         if (_unit distance _c < (_r + _buffer)) exitWith { _field = [_c, _r] };
     } forEach _fields;
 
-    if !(_field isEqualTo []) then {
+    if (_field isNotEqualTo []) then {
         _field params ["_center","_radius"];
         private _dir = _unit getDir _center;
         private _dest = [getPosATL _unit, (_radius + _buffer) * 1.2, _dir + 180] call BIS_fnc_relPos;

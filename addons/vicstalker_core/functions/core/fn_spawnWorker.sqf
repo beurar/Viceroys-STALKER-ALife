@@ -1,7 +1,7 @@
 if (!isServer) exitWith {};
 
 while {true} do {
-    if (!isNil "STALKER_spawnQueue" && {count STALKER_spawnQueue > 0}) then {
+    if (!isNil "STALKER_spawnQueue" && {STALKER_spawnQueue isNotEqualTo []}) then {
 
         private _job = STALKER_spawnQueue deleteAt 0;
         _job params ["_type", "_positions"];
