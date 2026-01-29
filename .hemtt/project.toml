@@ -1,11 +1,68 @@
-name = "Viceroy Environment"
-prefix = "VICEROYS-STALKER-ALIFE"
+name = "Viceroy's STALKER ALife"
+author = "Viceroy"
+description = "Dynamic ALife system for S.T.A.L.K.E.R.-style missions."
+prefix = "z\\vicstalker_alife"
+repo = "https://github.com/Viceroy/Viceroys-STALKER-ALife"
+homepage = "https://steamcommunity.com/sharedfiles/filedetails/?id=3496635606"
 
-[files]
-include = [
-    "mod.cpp",
-    "meta.cpp",
+# Version information
+[version]
+major = 1
+minor = 0
+patch = 0
+build = 0
+
+# Versioning configuration
+[version.file_overrides]
+# Path to script_version.hpp which will be updated with version information
+script_version = "addons/main/script_version.hpp"
+
+# Publish settings
+[publishing]
+# Automatically increment patch version on release
+auto_increment_patch = true
+
+# Build settings
+[build]
+# All addons in the addons/ folder will be compiled as separate PBOs
+addons = [
+    "main",
+    "vicstalker_core",
+    "vicstalker_ai",
+    "vicstalker_ambushes",
+    "vicstalker_anomalies",
+    "vicstalker_antistasi",
+    "vicstalker_blowouts",
+    "vicstalker_chemical",
+    "vicstalker_minefields",
+    "vicstalker_mutants",
+    "vicstalker_necroplague",
+    "vicstalker_panic",
+    "vicstalker_spooks",
+    "vicstalker_stalkers",
+    "vicstalker_storms",
+    "vicstalker_wrecks",
+    "vicstalker_zombification"
+]
+
+# Mod information (mirrors mod.cpp)
+[mod]
+name = "Viceroy's STALKER ALife"
+author = "Viceroy"
+description = "Dynamic ALife system for S.T.A.L.K.E.R.-style missions."
+actionName = "Workshop"
+action = "https://steamcommunity.com/sharedfiles/filedetails/?id=3496635606"
+
+# Exclude patterns from PBO packaging
+[exclude]
+files = [
+    ".git",
+    ".github",
+    ".pre-commit-config.yaml",
+    ".hemtt",
+    ".hemttout",
+    "README.md",
+    "SYNTAX.md",
     "LICENSE.md",
-    "logo.paa",
-    "icon.paa",
+    "scripts"
 ]

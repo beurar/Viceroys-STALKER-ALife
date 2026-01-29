@@ -1,0 +1,317 @@
+2026-01-29T02:30:38.728893Z TRACE ThreadId(01) version: 1.18.1
+2026-01-29T02:30:38.728995Z TRACE ThreadId(01) platform: windows
+2026-01-29T02:30:38.729027Z TRACE ThreadId(01) args: [
+    "C:\\Users\\beura\\AppData\\Local\\Microsoft\\WinGet\\Packages\\BrettMayson.HEMTT_Microsoft.Winget.Source_8wekyb3d8bbwe\\hemtt.exe",
+    "check",
+]
+2026-01-29T02:30:38.729499Z TRACE ThreadId(01) using temporary folder: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife"
+2026-01-29T02:30:38.729515Z TRACE ThreadId(01) using project folder: "C:\\Source\\Viceroys-STALKER-ALife"
+2026-01-29T02:30:38.729564Z TRACE ThreadId(01) using out folder: "C:\\Source\\Viceroys-STALKER-ALife\\.hemttout"
+2026-01-29T02:30:38.729868Z TRACE ThreadId(01) using build folder: "C:\\Source\\Viceroys-STALKER-ALife\\.hemttout\\check"
+2026-01-29T02:30:38.732513Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.733226Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/vicstalker_anomalies/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.733338Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/vicstalker_anomalies/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.738841Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/vicstalker_zombification/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.739176Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/vicstalker_zombification/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.740324Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/vicstalker_storms/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.740477Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/vicstalker_storms/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.741722Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/vicstalker_stalkers/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.742112Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/vicstalker_stalkers/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.743843Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/vicstalker_minefields/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.744160Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/vicstalker_minefields/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.746290Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/vicstalker_core/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.746599Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/vicstalker_core/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.753785Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/vicstalker_chemical/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.753978Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/vicstalker_chemical/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.756036Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/vicstalker_ai/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.756213Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/vicstalker_ai/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.757674Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/vicstalker_necroplague/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.757781Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/vicstalker_necroplague/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.758938Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/vicstalker_mutants/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.759119Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/vicstalker_mutants/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.762792Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/vicstalker_ambushes/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.763096Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/vicstalker_ambushes/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.764179Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/vicstalker_panic/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.764356Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/vicstalker_panic/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.765608Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/main/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.765920Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/main/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.766347Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/vicstalker_spooks/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.766656Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/vicstalker_spooks/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.767729Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/vicstalker_blowouts/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.767827Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/vicstalker_blowouts/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.769244Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/vicstalker_wrecks/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.769563Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/vicstalker_wrecks/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.770653Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/vicstalker_antistasi/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.771042Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/vicstalker_antistasi/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroys-STALKER-ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroys-STALKER-ALife" } } } } } }] } } }
+2026-01-29T02:30:38.772135Z TRACE ThreadId(01) reading version from project.toml
+2026-01-29T02:30:38.779409Z  INFO ThreadId(01) Config loaded for Viceroy's STALKER ALife 1.0.0.0-615a9a31
+2026-01-29T02:30:38.779477Z TRACE ThreadId(01) Scanning C:\Source\Viceroys-STALKER-ALife\addons for addons
+2026-01-29T02:30:38.784491Z DEBUG ThreadId(01) using global config directory: "C:\\Users\\beura\\AppData\\Roaming\\hemtt"
+2026-01-29T02:30:38.784597Z  INFO ThreadId(01) Running checks
+2026-01-29T02:30:38.784612Z TRACE ThreadId(01) phase: init (BOM Check) (start)
+2026-01-29T02:30:38.784622Z TRACE ThreadId(01) phase: init (BOM Check) (done)
+2026-01-29T02:30:38.784627Z TRACE ThreadId(01) phase: init (Final New Line Check) (start)
+2026-01-29T02:30:38.784631Z TRACE ThreadId(01) phase: init (Final New Line Check) (done)
+2026-01-29T02:30:38.784635Z TRACE ThreadId(01) phase: init (git) (start)
+2026-01-29T02:30:38.784639Z TRACE ThreadId(01) phase: init (git) (done)
+2026-01-29T02:30:38.784643Z TRACE ThreadId(01) phase: init (Hooks) (start)
+2026-01-29T02:30:38.784678Z TRACE ThreadId(01) no hooks folder
+2026-01-29T02:30:38.784683Z TRACE ThreadId(01) phase: init (Hooks) (done)
+2026-01-29T02:30:38.784688Z TRACE ThreadId(01) phase: init (Binarize) (start)
+2026-01-29T02:30:38.784694Z TRACE ThreadId(01) phase: init (Binarize) (done)
+2026-01-29T02:30:38.784698Z TRACE ThreadId(01) phase: init (Rapifier) (start)
+2026-01-29T02:30:38.784702Z TRACE ThreadId(01) phase: init (Rapifier) (done)
+2026-01-29T02:30:38.784706Z TRACE ThreadId(01) phase: init (SQF) (start)
+2026-01-29T02:30:39.322981Z TRACE ThreadId(01) phase: init (SQF) (done)
+2026-01-29T02:30:39.323003Z TRACE ThreadId(01) phase: init (Stringtables) (start)
+2026-01-29T02:30:39.323011Z TRACE ThreadId(01) phase: init (Stringtables) (done)
+2026-01-29T02:30:39.323018Z TRACE ThreadId(01) phase: check (BOM Check) (start)
+2026-01-29T02:30:39.334399Z TRACE ThreadId(01) phase: check (BOM Check) (done)
+2026-01-29T02:30:39.334414Z TRACE ThreadId(01) phase: check (Final New Line Check) (start)
+2026-01-29T02:30:39.346380Z TRACE ThreadId(01) phase: check (Final New Line Check) (done)
+2026-01-29T02:30:39.346390Z TRACE ThreadId(01) phase: check (git) (start)
+2026-01-29T02:30:39.379420Z TRACE ThreadId(01) phase: check (git) (done)
+2026-01-29T02:30:39.379438Z TRACE ThreadId(01) phase: check (Hooks) (start)
+2026-01-29T02:30:39.379443Z TRACE ThreadId(01) phase: check (Hooks) (done)
+2026-01-29T02:30:39.379447Z TRACE ThreadId(01) phase: check (Binarize) (start)
+2026-01-29T02:30:39.441058Z  INFO ThreadId(01) Validated 0 files for binarization
+2026-01-29T02:30:39.441075Z TRACE ThreadId(01) phase: check (Binarize) (done)
+2026-01-29T02:30:39.441080Z TRACE ThreadId(01) phase: check (Rapifier) (start)
+2026-01-29T02:30:39.441135Z TRACE ThreadId(01) phase: check (Rapifier) (done)
+2026-01-29T02:30:39.441140Z TRACE ThreadId(01) phase: check (SQF) (start)
+2026-01-29T02:30:39.441199Z TRACE ThreadId(01) phase: check (SQF) (done)
+2026-01-29T02:30:39.441203Z TRACE ThreadId(01) phase: check (Stringtables) (start)
+2026-01-29T02:30:39.441230Z TRACE ThreadId(01) phase: check (Stringtables) (done)
+2026-01-29T02:30:39.441239Z TRACE ThreadId(01) phase: pre_build (BOM Check) (start)
+2026-01-29T02:30:39.441245Z TRACE ThreadId(01) phase: pre_build (BOM Check) (done)
+2026-01-29T02:30:39.441249Z TRACE ThreadId(01) phase: pre_build (Final New Line Check) (start)
+2026-01-29T02:30:39.441253Z TRACE ThreadId(01) phase: pre_build (Final New Line Check) (done)
+2026-01-29T02:30:39.441257Z TRACE ThreadId(01) phase: pre_build (git) (start)
+2026-01-29T02:30:39.441261Z TRACE ThreadId(01) phase: pre_build (git) (done)
+2026-01-29T02:30:39.441265Z TRACE ThreadId(01) phase: pre_build (Hooks) (start)
+2026-01-29T02:30:39.441271Z TRACE ThreadId(01) phase: pre_build (Hooks) (done)
+2026-01-29T02:30:39.441274Z TRACE ThreadId(01) phase: pre_build (Binarize) (start)
+2026-01-29T02:30:39.441281Z TRACE ThreadId(01) phase: pre_build (Binarize) (done)
+2026-01-29T02:30:39.441285Z TRACE ThreadId(01) phase: pre_build (Rapifier) (start)
+2026-01-29T02:30:39.511130Z  INFO ThreadId(01) Rapified 17 addon configs
+2026-01-29T02:30:39.511203Z TRACE ThreadId(01) phase: pre_build (Rapifier) (done)
+2026-01-29T02:30:39.511211Z TRACE ThreadId(01) phase: pre_build (SQF) (start)
+2026-01-29T02:30:39.599197Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_callServer.sqf
+2026-01-29T02:30:39.599197Z TRACE ThreadId(07) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fn_spawnAllAnomalyFields.sqf
+2026-01-29T02:30:39.599197Z TRACE ThreadId(13) sqf compiling /addons/vicstalker_core/functions/core/fn_regenMapPoints.sqf
+2026-01-29T02:30:39.599194Z TRACE ThreadId(03) sqf compiling /addons/vicstalker_ai/functions/ai/fn_avoidAnomalyFields.sqf
+2026-01-29T02:30:39.599194Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_ambushes/functions/ambushes/fn_manageAmbushes.sqf
+2026-01-29T02:30:39.599197Z TRACE ThreadId(11) sqf compiling /addons/vicstalker_chemical/functions/chemical/fn_deactivateSite.sqf
+2026-01-29T02:30:39.599197Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/find_sites/fn_findSite_launchpad.sqf
+2026-01-29T02:30:39.599194Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_core/functions/core/fn_findSniperSpots.sqf
+2026-01-29T02:30:39.599197Z TRACE ThreadId(14) sqf compiling /addons/vicstalker_chemical/functions/chemical/fn_spawnRandomChemicalZones.sqf
+2026-01-29T02:30:39.599194Z TRACE ThreadId(06) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fields/fn_createField_whirligig.sqf
+2026-01-29T02:30:39.599194Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_antistasi/functions/antistasi/fn_completeChemSample.sqf
+2026-01-29T02:30:39.599194Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_ai/functions/ai/fn_avoidAnomalies.sqf
+2026-01-29T02:30:39.606790Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/find_sites/fn_findSite_razor.sqf
+2026-01-29T02:30:39.606801Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_antistasi/functions/antistasi/fn_isAntistasiUltimate.sqf
+2026-01-29T02:30:39.607737Z TRACE ThreadId(11) sqf compiling /addons/vicstalker_chemical/functions/chemical/fn_expandValley.sqf
+2026-01-29T02:30:39.609273Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_debugLog.sqf
+2026-01-29T02:30:39.610356Z TRACE ThreadId(13) sqf compiling /addons/vicstalker_core/functions/core/fn_spawnWorker.sqf
+2026-01-29T02:30:39.611654Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_antistasi/functions/antistasi/fn_startChemSample.sqf
+2026-01-29T02:30:39.612164Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/find_sites/fn_findSite_springboard.sqf
+2026-01-29T02:30:39.614214Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_getSetting.sqf
+2026-01-29T02:30:39.614451Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_core/functions/core/fn_findRandomRoadPosition.sqf
+2026-01-29T02:30:39.614772Z TRACE ThreadId(14) sqf compiling /addons/vicstalker_chemical/functions/chemical/fn_spawnValleyChemicalZones.sqf
+2026-01-29T02:30:39.616378Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_findLandPos.sqf
+2026-01-29T02:30:39.616804Z TRACE ThreadId(13) sqf compiling /addons/vicstalker_core/functions/core/fn_weightedPick.sqf
+2026-01-29T02:30:39.616849Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/find_sites/fn_findSite_trapdoor.sqf
+2026-01-29T02:30:39.620900Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_ai/functions/ai/fn_toggleFieldAvoid.sqf
+2026-01-29T02:30:39.621074Z TRACE ThreadId(03) sqf compiling /addons/vicstalker_ai/functions/ai/fn_triggerAIPanic.sqf
+2026-01-29T02:30:39.621674Z TRACE ThreadId(11) sqf compiling /addons/vicstalker_chemical/functions/chemical/fn_manageChemicalZones.sqf
+2026-01-29T02:30:39.621817Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/find_sites/fn_findSite_whirligig.sqf
+2026-01-29T02:30:39.622151Z TRACE ThreadId(13) sqf compiling /addons/vicstalker_core/functions/core/fn_findLandPosition.sqf
+2026-01-29T02:30:39.623545Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_core/functions/core/fn_getRandomRoad.sqf
+2026-01-29T02:30:39.624034Z TRACE ThreadId(06) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fields/fn_createField_springboard.sqf
+2026-01-29T02:30:39.626360Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_ambushes/functions/ambushes/fn_startAmbushManager.sqf
+2026-01-29T02:30:39.627129Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/find_sites/fn_findSite_zapper.sqf
+2026-01-29T02:30:39.627641Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_blowouts/functions/blowouts/fn_scheduleBlowouts.sqf
+2026-01-29T02:30:39.628327Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_traceFunction.sqf
+2026-01-29T02:30:39.631431Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_core/functions/core/fn_markAllBuildings.sqf
+2026-01-29T02:30:39.635996Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/find_sites/fn_findSite_clicker.sqf
+2026-01-29T02:30:39.636014Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_markBuildingCoverSpot.sqf
+2026-01-29T02:30:39.636178Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/find_sites/fn_findSite_burner.sqf
+2026-01-29T02:30:39.640781Z TRACE ThreadId(13) sqf compiling /addons/vicstalker_core/functions/core/fn_findLandZones.sqf
+2026-01-29T02:30:39.643277Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_core/functions/core/fn_createProximityAnchor.sqf
+2026-01-29T02:30:39.644706Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/find_sites/fn_findSite_gravi.sqf
+2026-01-29T02:30:39.646076Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_markSniperSpots.sqf
+2026-01-29T02:30:39.647297Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_core/functions/core/fn_isWaterPosition.sqf
+2026-01-29T02:30:39.647667Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_core/functions/core/fn_findBuildingClusters.sqf
+2026-01-29T02:30:39.649102Z TRACE ThreadId(11) sqf compiling /addons/vicstalker_core/functions/core/fn_markRockClusters.sqf
+2026-01-29T02:30:39.653216Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/find_sites/fn_findSite_leech.sqf
+2026-01-29T02:30:39.653517Z TRACE ThreadId(14) sqf compiling /addons/vicstalker_core/cba_settings.sqf
+2026-01-29T02:30:39.655995Z TRACE ThreadId(07) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fn_cleanupAnomalyMarkers.sqf
+2026-01-29T02:30:39.656749Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_core/functions/core/fn_findSwamps.sqf
+2026-01-29T02:30:39.663516Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_blowouts/functions/blowouts/fn_triggerBlowout.sqf
+2026-01-29T02:30:39.664323Z TRACE ThreadId(13) sqf compiling /addons/vicstalker_core/functions/core/fn_getActiveCellsNearPlayers.sqf
+2026-01-29T02:30:39.664460Z TRACE ThreadId(11) sqf compiling /addons/vicstalker_core/functions/core/fn_findRoadPosition.sqf
+2026-01-29T02:30:39.667134Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_antistasi/functions/antistasi/fn_completeArtefactHunt.sqf
+2026-01-29T02:30:39.668387Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_toggleSiteOverlay.sqf
+2026-01-29T02:30:39.670194Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_blowouts/functions/blowouts/fn_placeTownSirens.sqf
+2026-01-29T02:30:39.670444Z TRACE ThreadId(03) sqf compiling /addons/vicstalker_ai/functions/ai/fn_resetAIBehavior.sqf
+2026-01-29T02:30:39.676069Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_ambushes/functions/ambushes/fn_spawnAmbushes.sqf
+2026-01-29T02:30:39.676134Z TRACE ThreadId(11) sqf compiling /addons/vicstalker_core/functions/core/fn_masterInit.sqf
+2026-01-29T02:30:39.676360Z TRACE ThreadId(07) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fn_manageAnomalyFields.sqf
+2026-01-29T02:30:39.676547Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_antistasi/functions/antistasi/fn_startArtefactHunt.sqf
+2026-01-29T02:30:39.678873Z TRACE ThreadId(13) sqf compiling /addons/vicstalker_core/functions/core/fn_setupDebugActions.sqf
+2026-01-29T02:30:39.683803Z TRACE ThreadId(06) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fields/fn_createField_electra.sqf
+2026-01-29T02:30:39.688536Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_chemical/functions/chemical/fn_onEmissionEnd.sqf
+2026-01-29T02:30:39.689789Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_hasPlayersNearby.sqf
+2026-01-29T02:30:39.695612Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_chemical/functions/chemical/fn_onEmissionStart.sqf
+2026-01-29T02:30:39.699660Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_core/functions/core/fn_markLandZones.sqf
+2026-01-29T02:30:39.707465Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_core/functions/core/fn_markSwamps.sqf
+2026-01-29T02:30:39.708822Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_remoteReturn.sqf
+2026-01-29T02:30:39.709217Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_chemical/functions/chemical/fn_findValleyPosition.sqf
+2026-01-29T02:30:39.714727Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_markDeathLocation.sqf
+2026-01-29T02:30:39.715468Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_antistasi/functions/antistasi/fn_startMutantHunt.sqf
+2026-01-29T02:30:39.729822Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fn_cycleAnomalyFields.sqf
+2026-01-29T02:30:39.733326Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_antistasi/functions/antistasi/fn_disableWeather.sqf
+2026-01-29T02:30:39.740383Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_core/functions/core/fn_togglePerfMetrics.sqf
+2026-01-29T02:30:39.745123Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_core/functions/core/fn_markSitesOverlay.sqf
+2026-01-29T02:30:39.746560Z TRACE ThreadId(03) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fn_deactivateSite.sqf
+2026-01-29T02:30:39.749011Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_findValleys.sqf
+2026-01-29T02:30:39.774138Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_core/initServer.sqf
+2026-01-29T02:30:39.775063Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_core/functions/core/fn_getLandSurfacePosition.sqf
+2026-01-29T02:30:39.778526Z TRACE ThreadId(07) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fn_spawnBridgeAnomalyFields.sqf
+2026-01-29T02:30:39.779264Z TRACE ThreadId(03) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fn_generateFieldName.sqf
+2026-01-29T02:30:39.783147Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_chemical/functions/chemical/fn_spawnValleyChemicalFields.sqf
+2026-01-29T02:30:39.785360Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_core/functions/core/fn_selectWeightedBuilding.sqf
+2026-01-29T02:30:39.805762Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_core/functions/core/fn_createGlobalMarker.sqf
+2026-01-29T02:30:39.815669Z TRACE ThreadId(06) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fields/fn_createField_burner.sqf
+2026-01-29T02:30:39.817347Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_core/functions/core/fn_findHiddenPosition.sqf
+2026-01-29T02:30:39.833733Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_core/functions/core/fn_markBeaches.sqf
+2026-01-29T02:30:39.836351Z TRACE ThreadId(07) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fn_startAnomalyManager.sqf
+2026-01-29T02:30:39.844172Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnPredatorAttack.sqf
+2026-01-29T02:30:39.846467Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_findBuildingCoverSpot.sqf
+2026-01-29T02:30:39.852478Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_core/functions/core/fn_initManagers.sqf
+2026-01-29T02:30:39.855540Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_core/functions/core/fn_findBeachesInMap.sqf
+2026-01-29T02:30:39.855712Z TRACE ThreadId(07) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fn_activateSite.sqf
+2026-01-29T02:30:39.857602Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fn_onEmissionStart.sqf
+2026-01-29T02:30:39.861043Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fn_onEmissionEnd.sqf
+2026-01-29T02:30:39.864249Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_markPlayerRanges.sqf
+2026-01-29T02:30:39.865096Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_core/functions/core/fn_markHiddenPosition.sqf
+2026-01-29T02:30:39.867242Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_chemical/functions/chemical/fn_spawnChemicalZone.sqf
+2026-01-29T02:30:39.886435Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_core/functions/core/fn_getServerMetrics.sqf
+2026-01-29T02:30:39.887124Z TRACE ThreadId(07) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fn_onEmissionBuildUp.sqf
+2026-01-29T02:30:39.890458Z TRACE ThreadId(07) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fn_setupAnomalyFields.sqf
+2026-01-29T02:30:39.891180Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_placeCachedMarkers.sqf
+2026-01-29T02:30:39.893173Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_core/functions/core/fn_applyServerState.sqf
+2026-01-29T02:30:39.900046Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_saveCache.sqf
+2026-01-29T02:30:39.903145Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_chemical/functions/chemical/fn_cleanupChemicalZones.sqf
+2026-01-29T02:30:39.903731Z TRACE ThreadId(06) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fields/fn_createField_razor.sqf
+2026-01-29T02:30:39.910488Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_core/functions/core/fn_sendServerState.sqf
+2026-01-29T02:30:39.914136Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_core/functions/core/fn_createLocalMarker.sqf
+2026-01-29T02:30:39.917249Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_initMap.sqf
+2026-01-29T02:30:39.930168Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_chemical/functions/chemical/fn_activateSite.sqf
+2026-01-29T02:30:39.933756Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_core/functions/core/fn_evalSiteProximity.sqf
+2026-01-29T02:30:39.943754Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_core/functions/core/fn_findCrossroads.sqf
+2026-01-29T02:30:39.946367Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_core/functions/core/fn_loadCache.sqf
+2026-01-29T02:30:39.950920Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fields/fn_createField_fruitpunch.sqf
+2026-01-29T02:30:39.964404Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_core/functions/core/fn_markRoads.sqf
+2026-01-29T02:30:39.964904Z TRACE ThreadId(06) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fields/fn_createField_zapper.sqf
+2026-01-29T02:30:39.977097Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_core/functions/core/fn_findBridges.sqf
+2026-01-29T02:30:39.996184Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_core/functions/core/fn_requestServerState.sqf
+2026-01-29T02:30:40.009386Z TRACE ThreadId(03) sqf compiling /addons/vicstalker_core/functions/core/fn_findRockClusters.sqf
+2026-01-29T02:30:40.018123Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_initMutantUnit.sqf
+2026-01-29T02:30:40.023464Z TRACE ThreadId(06) sqf compiling /addons/vicstalker_minefields/functions/minefields/fn_spawnMinefields.sqf
+2026-01-29T02:30:40.023492Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_core/functions/core/fn_callServerHelper.sqf
+2026-01-29T02:30:40.026808Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_markBuildingClusters.sqf
+2026-01-29T02:30:40.030538Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fields/fn_createField_meatgrinder.sqf
+2026-01-29T02:30:40.031000Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnControllerNest.sqf
+2026-01-29T02:30:40.037131Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_core/functions/core/fn_radioMessage.sqf
+2026-01-29T02:30:40.039021Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_updateProximity.sqf
+2026-01-29T02:30:40.044409Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_minefields/functions/minefields/fn_spawnAPERSField.sqf
+2026-01-29T02:30:40.045039Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_core/functions/core/fn_markValleys.sqf
+2026-01-29T02:30:40.051374Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_core/functions/core/fn_registerEmissionHooks.sqf
+2026-01-29T02:30:40.052506Z TRACE ThreadId(03) sqf compiling /addons/vicstalker_core/functions/core/fn_markBridges.sqf
+2026-01-29T02:30:40.060208Z TRACE ThreadId(13) sqf compiling /addons/vicstalker_core/functions/core/fn_getSurfacePosition.sqf
+2026-01-29T02:30:40.068705Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_minefields/functions/minefields/fn_startIEDManager.sqf
+2026-01-29T02:30:40.070105Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_manageHabitats.sqf
+2026-01-29T02:30:40.071085Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_minefields/functions/minefields/fn_registerMinefield.sqf
+2026-01-29T02:30:40.073306Z TRACE ThreadId(13) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/find_sites/fn_findSite_bridge.sqf
+2026-01-29T02:30:40.073968Z TRACE ThreadId(03) sqf compiling /addons/vicstalker_minefields/functions/minefields/fn_manageMinefields.sqf
+2026-01-29T02:30:40.080492Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_minefields/functions/minefields/fn_spawnBoobyTraps.sqf
+2026-01-29T02:30:40.081430Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fields/fn_createField_leech.sqf
+2026-01-29T02:30:40.086906Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_onEmissionEnd.sqf
+2026-01-29T02:30:40.088378Z TRACE ThreadId(07) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fields/fn_createField_clicker.sqf
+2026-01-29T02:30:40.090255Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnPseudogiantNest.sqf
+2026-01-29T02:30:40.094409Z TRACE ThreadId(13) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/find_sites/fn_findSite_fruitpunch.sqf
+2026-01-29T02:30:40.096506Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fields/fn_createField_gravi.sqf
+2026-01-29T02:30:40.099385Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_onMutantKilled.sqf
+2026-01-29T02:30:40.105388Z TRACE ThreadId(13) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/find_sites/fn_findSite_electra.sqf
+2026-01-29T02:30:40.108489Z TRACE ThreadId(03) sqf compiling /addons/vicstalker_minefields/functions/minefields/fn_startMinefieldManager.sqf
+2026-01-29T02:30:40.116034Z TRACE ThreadId(13) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/find_sites/fn_findSite_meatgrinder.sqf
+2026-01-29T02:30:40.119638Z TRACE ThreadId(03) sqf compiling /addons/vicstalker_minefields/functions/minefields/fn_spawnIED.sqf
+2026-01-29T02:30:40.123251Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_necroplague/functions/necroplague/fn_scheduleNecroplague.sqf
+2026-01-29T02:30:40.133046Z TRACE ThreadId(13) sqf compiling /addons/vicstalker_minefields/functions/minefields/fn_manageBoobyTraps.sqf
+2026-01-29T02:30:40.140917Z TRACE ThreadId(07) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_managePredators.sqf
+2026-01-29T02:30:40.142034Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_core/functions/core/fn_findRoads.sqf
+2026-01-29T02:30:40.142496Z TRACE ThreadId(06) sqf compiling /addons/vicstalker_minefields/functions/minefields/fn_deactivateSite.sqf
+2026-01-29T02:30:40.142544Z TRACE ThreadId(03) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnPseudodogNest.sqf
+2026-01-29T02:30:40.148630Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_panic/functions/panic/fn_onEmissionStart.sqf
+2026-01-29T02:30:40.150431Z TRACE ThreadId(03) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fields/fn_createField_bridgeAnomaly.sqf
+2026-01-29T02:30:40.154277Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_panic/functions/panic/fn_onEmissionBuildUp.sqf
+2026-01-29T02:30:40.158892Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_panic/functions/panic/fn_onEmissionEnd.sqf
+2026-01-29T02:30:40.159111Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnCorruptorNest.sqf
+2026-01-29T02:30:40.160207Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fields/fn_createField_launchpad.sqf
+2026-01-29T02:30:40.163668Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_spooks/functions/spooks/fn_setupSpookZones.sqf
+2026-01-29T02:30:40.164296Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnBoarNest.sqf
+2026-01-29T02:30:40.166260Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_manageHostiles.sqf
+2026-01-29T02:30:40.170564Z TRACE ThreadId(13) sqf compiling /addons/vicstalker_stalkers/functions/stalkers/fn_spawnStalkerCamp.sqf
+2026-01-29T02:30:40.171612Z TRACE ThreadId(06) sqf compiling /addons/vicstalker_minefields/functions/minefields/fn_spawnIEDSites.sqf
+2026-01-29T02:30:40.174669Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_anomalies/functions/anomalies/fields/fn_createField_trapdoor.sqf
+2026-01-29T02:30:40.177080Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_spooks/functions/spooks/fn_spawnSpookZone.sqf
+2026-01-29T02:30:40.182329Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnIzlomNest.sqf
+2026-01-29T02:30:40.189345Z TRACE ThreadId(07) sqf compiling /addons/vicstalker_spooks/functions/spooks/fn_manageSpookZones.sqf
+2026-01-29T02:30:40.190112Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnBloodsuckerNest.sqf
+2026-01-29T02:30:40.194488Z TRACE ThreadId(11) sqf compiling /addons/vicstalker_minefields/functions/minefields/fn_spawnMinefieldQueued.sqf
+2026-01-29T02:30:40.194517Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_onEmissionStart.sqf
+2026-01-29T02:30:40.198068Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnCachedHabitats.sqf
+2026-01-29T02:30:40.201115Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnMutantGroup.sqf
+2026-01-29T02:30:40.211946Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnBlindDogNest.sqf
+2026-01-29T02:30:40.215046Z TRACE ThreadId(11) sqf compiling /addons/vicstalker_minefields/functions/minefields/fn_manageIEDSites.sqf
+2026-01-29T02:30:40.224295Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnMutantNest.sqf
+2026-01-29T02:30:40.231584Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnAmbientHerds.sqf
+2026-01-29T02:30:40.238528Z TRACE ThreadId(06) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnFleshNest.sqf
+2026-01-29T02:30:40.243510Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnHabitatHunters.sqf
+2026-01-29T02:30:40.246631Z TRACE ThreadId(06) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnSmasherNest.sqf
+2026-01-29T02:30:40.248245Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnAcidSmasherNest.sqf
+2026-01-29T02:30:40.253506Z TRACE ThreadId(06) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_manageNests.sqf
+2026-01-29T02:30:40.257150Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_isMutantEnabled.sqf
+2026-01-29T02:30:40.257676Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnSnorkNest.sqf
+2026-01-29T02:30:40.264637Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnCatNest.sqf
+2026-01-29T02:30:40.276015Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_minefields/functions/minefields/fn_spawnTripwirePerimeter.sqf
+2026-01-29T02:30:40.276689Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_spawnBehemothNest.sqf
+2026-01-29T02:30:40.276970Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_minefields/functions/minefields/fn_activateSite.sqf
+2026-01-29T02:30:40.278438Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_manageHerds.sqf
+2026-01-29T02:30:40.282223Z TRACE ThreadId(07) sqf compiling /addons/vicstalker_stalkers/functions/stalkers/fn_manageStalkerCamps.sqf
+2026-01-29T02:30:40.284404Z TRACE ThreadId(11) sqf compiling /addons/vicstalker_mutants/functions/mutants/fn_setupMutantHabitats.sqf
+2026-01-29T02:30:40.284743Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_necroplague/functions/necroplague/fn_triggerNecroplague.sqf
+2026-01-29T02:30:40.296759Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_stalkers/functions/stalkers/fn_spawnStalkerCamps.sqf
+2026-01-29T02:30:40.304423Z TRACE ThreadId(06) sqf compiling /addons/vicstalker_stalkers/functions/stalkers/fn_spawnFlareTripwires.sqf
+2026-01-29T02:30:40.306860Z TRACE ThreadId(14) sqf compiling /addons/vicstalker_stalkers/functions/stalkers/fn_spawnAmbientStalkers.sqf
+2026-01-29T02:30:40.310766Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_wrecks/functions/wrecks/fn_spawnAbandonedVehicles.sqf
+2026-01-29T02:30:40.314431Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_stalkers/functions/stalkers/fn_spawnSniper.sqf
+2026-01-29T02:30:40.322640Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_stalkers/functions/stalkers/fn_manageSnipers.sqf
+2026-01-29T02:30:40.323284Z TRACE ThreadId(08) sqf compiling /addons/vicstalker_storms/functions/storms/fn_schedulePsyStorms.sqf
+2026-01-29T02:30:40.323978Z TRACE ThreadId(10) sqf compiling /addons/vicstalker_storms/functions/storms/fn_triggerPsyStorm.sqf
+2026-01-29T02:30:40.340405Z TRACE ThreadId(06) sqf compiling /addons/vicstalker_stalkers/functions/stalkers/fn_findCampBuilding.sqf
+2026-01-29T02:30:40.349056Z TRACE ThreadId(03) sqf compiling /addons/vicstalker_stalkers/functions/stalkers/fn_manageWanderers.sqf
+2026-01-29T02:30:40.361602Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_stalkers/functions/stalkers/fn_startSniperManager.sqf
+2026-01-29T02:30:40.361964Z TRACE ThreadId(09) sqf compiling /addons/vicstalker_stalkers/functions/stalkers/fn_startCampManager.sqf
+2026-01-29T02:30:40.363895Z TRACE ThreadId(13) sqf compiling /addons/vicstalker_wrecks/functions/wrecks/fn_findWrecks.sqf
+2026-01-29T02:30:40.365431Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_wrecks/functions/wrecks/fn_markWrecks.sqf
+2026-01-29T02:30:40.366474Z TRACE ThreadId(12) sqf compiling /addons/vicstalker_zombification/functions/zombification/fn_trackDeadForZombify.sqf
+2026-01-29T02:30:40.374337Z TRACE ThreadId(05) sqf compiling /addons/vicstalker_zombification/functions/zombification/fn_spawnZombiesFromQueue.sqf
+2026-01-29T02:30:40.386523Z TRACE ThreadId(04) sqf compiling /addons/vicstalker_wrecks/functions/wrecks/fn_manageWrecks.sqf
+2026-01-29T02:30:40.386670Z TRACE ThreadId(13) sqf compiling /addons/vicstalker_zombification/functions/zombification/fn_onEmissionEnd.sqf
+2026-01-29T02:30:40.487801Z  INFO ThreadId(01) Compiled 214 sqf files
+2026-01-29T02:30:40.488023Z TRACE ThreadId(01) phase: pre_build (SQF) (done)
+2026-01-29T02:30:40.488032Z TRACE ThreadId(01) phase: pre_build (Stringtables) (start)
+2026-01-29T02:30:40.525630Z  INFO ThreadId(01) Checked 0 stringtables
+2026-01-29T02:30:40.525658Z TRACE ThreadId(01) phase: pre_build (Stringtables) (done)

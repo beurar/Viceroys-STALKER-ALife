@@ -1,0 +1,17 @@
+# HEMTT Configuration
+# Build configuration for Viceroy's STALKER ALife
+
+# Signing configuration (if needed)
+[signing]
+# Sign PBOs during build (optional)
+# key = ""
+
+# Packing configuration
+[packing]
+# Use the latest version of BinarizeFile
+compression = true
+
+# Rapify configuration
+[rapify]
+# Rapify .sqf files (optional, only if you want byte-compiled scripts)
+# enabled = true
