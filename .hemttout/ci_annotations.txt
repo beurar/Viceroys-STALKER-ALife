@@ -1,55 +1,13 @@
-48||48||6||28||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/core/fn_findHiddenPosition.sqf
-38||38||8||28||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/core/fn_findRockClusters.sqf
-42||42||12||28||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/core/fn_findRockClusters.sqf
-27||27||9||10||notice||Unneeded Not||unneeded not||/addons/main/functions/core/fn_findRandomRoadPosition.sqf
-17||17||19||72||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/core/fn_hasPlayersNearby.sqf
-19||19||9||10||notice||Unneeded Not||unneeded not||/addons/main/functions/core/fn_selectWeightedBuilding.sqf
-23||23||12||13||notice||Unneeded Not||unneeded not||/addons/main/functions/core/fn_findLandZones.sqf
-66||66||16||32||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/core/fn_findValleys.sqf
-85||85||13||30||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/core/fn_findValleys.sqf
-20||20||5||6||notice||Unneeded Not||unneeded not||/addons/main/functions/core/fn_findRoadPosition.sqf
-24||24||14||30||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/core/fn_findCrossroads.sqf
-30||30||18||75||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/core/fn_findCrossroads.sqf
-31||31||20||27||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/spooks/fn_spawnSpookZone.sqf
-31||31||35||42||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/spooks/fn_spawnSpookZone.sqf
-42||42||23||30||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/spooks/fn_spawnSpookZone.sqf
-42||42||38||45||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/spooks/fn_spawnSpookZone.sqf
-17||17||30||51||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/mutants/fn_manageHostiles.sqf
-16||16||30||51||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/mutants/fn_manageNests.sqf
-31||31||20||27||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/mutants/fn_spawnMutantNest.sqf
-31||31||35||42||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/mutants/fn_spawnMutantNest.sqf
-24||24||20||27||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/mutants/fn_spawnAmbientHerds.sqf
-24||24||35||42||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/mutants/fn_spawnAmbientHerds.sqf
-187||187||12||13||notice||Unneeded Not||unneeded not||/addons/main/functions/mutants/fn_setupMutantHabitats.sqf
-15||15||6||27||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/mutants/fn_managePredators.sqf
-27||27||20||27||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/mutants/fn_spawnMutantGroup.sqf
-27||27||35||42||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/mutants/fn_spawnMutantGroup.sqf
-45||45||22||29||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/mutants/fn_spawnPredatorAttack.sqf
-45||45||37||44||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/mutants/fn_spawnPredatorAttack.sqf
-17||17||61||68||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/ai/fn_avoidAnomalies.sqf
-17||17||76||83||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/ai/fn_avoidAnomalies.sqf
-18||18||60||67||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/ai/fn_resetAIBehavior.sqf
-18||18||75||82||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/ai/fn_resetAIBehavior.sqf
-68||68||27||87||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/ai/fn_triggerAIPanic.sqf
-26||26||60||67||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/ai/fn_triggerAIPanic.sqf
-26||26||75||82||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/ai/fn_triggerAIPanic.sqf
-21||21||61||68||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/ai/fn_avoidAnomalyFields.sqf
-21||21||76||83||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/ai/fn_avoidAnomalyFields.sqf
-47||47||8||9||notice||Unneeded Not||unneeded not||/addons/main/functions/ai/fn_avoidAnomalyFields.sqf
-21||21||30||51||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/stalkers/fn_manageWanderers.sqf
-23||23||20||27||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/stalkers/fn_spawnAmbientStalkers.sqf
-23||23||35||42||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/stalkers/fn_spawnAmbientStalkers.sqf
-23||23||30||51||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/stalkers/fn_manageStalkerCamps.sqf
-27||27||22||47||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/stalkers/fn_startCampManager.sqf
-20||20||30||51||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/stalkers/fn_manageSnipers.sqf
-35||35||17||18||notice||Unneeded Not||unneeded not||/addons/main/functions/anomalies/fn_manageAnomalyFields.sqf
+9||9||65||72||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/zombification/fn_trackDeadForZombify.sqf
+9||9||80||87||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/zombification/fn_trackDeadForZombify.sqf
+33||33||20||27||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/anomalies/fn_spawnAllAnomalyFields.sqf
+33||33||35||42||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/anomalies/fn_spawnAllAnomalyFields.sqf
 18||18||8||9||notice||Unneeded Not||unneeded not||/addons/main/functions/anomalies/fn_activateSite.sqf
+35||35||17||18||notice||Unneeded Not||unneeded not||/addons/main/functions/anomalies/fn_manageAnomalyFields.sqf
 29||29||10||26||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/anomalies/fn_generateFieldName.sqf
 39||39||22||39||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/anomalies/fn_generateFieldName.sqf
 27||27||13||14||notice||Unneeded Not||unneeded not||/addons/main/functions/anomalies/fn_cycleAnomalyFields.sqf
 24||26||23||11||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/anomalies/fn_spawnBridgeAnomalyFields.sqf
-33||33||20||27||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/anomalies/fn_spawnAllAnomalyFields.sqf
-33||33||35||42||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/anomalies/fn_spawnAllAnomalyFields.sqf
 71||71||16||17||notice||Unneeded Not||unneeded not||/addons/main/functions/anomalies/fields/fn_createField_bridgeAnomaly.sqf
 75||75||16||17||notice||Unneeded Not||unneeded not||/addons/main/functions/anomalies/fields/fn_createField_bridgeAnomaly.sqf
 79||79||16||17||notice||Unneeded Not||unneeded not||/addons/main/functions/anomalies/fields/fn_createField_bridgeAnomaly.sqf
@@ -58,22 +16,16 @@
 91||91||16||17||notice||Unneeded Not||unneeded not||/addons/main/functions/anomalies/fields/fn_createField_bridgeAnomaly.sqf
 95||95||16||17||notice||Unneeded Not||unneeded not||/addons/main/functions/anomalies/fields/fn_createField_bridgeAnomaly.sqf
 99||99||16||17||notice||Unneeded Not||unneeded not||/addons/main/functions/anomalies/fields/fn_createField_bridgeAnomaly.sqf
-52||52||5||26||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/storms/fn_triggerPsyStorm.sqf
-50||50||55||62||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/storms/fn_schedulePsyStorms.sqf
-50||50||70||77||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/storms/fn_schedulePsyStorms.sqf
-58||58||55||62||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/storms/fn_schedulePsyStorms.sqf
-58||58||70||77||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/storms/fn_schedulePsyStorms.sqf
-9||9||65||72||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/zombification/fn_trackDeadForZombify.sqf
-9||9||80||87||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/zombification/fn_trackDeadForZombify.sqf
-33||33||26||42||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/minefields/fn_manageIEDSites.sqf
-25||25||20||27||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/chemical/fn_spawnValleyChemicalFields.sqf
-25||25||35||42||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/chemical/fn_spawnValleyChemicalFields.sqf
-39||39||20||27||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/chemical/fn_spawnValleyChemicalZones.sqf
-39||39||35||42||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/chemical/fn_spawnValleyChemicalZones.sqf
-39||39||30||31||notice||Unneeded Not||unneeded not||/addons/main/functions/chemical/fn_findValleyPosition.sqf
-25||25||8||24||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/chemical/fn_expandValley.sqf
-24||24||20||27||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/chemical/fn_spawnRandomChemicalZones.sqf
-24||24||35||42||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/chemical/fn_spawnRandomChemicalZones.sqf
+21||21||61||68||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/ai/fn_avoidAnomalyFields.sqf
+21||21||76||83||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/ai/fn_avoidAnomalyFields.sqf
+47||47||8||9||notice||Unneeded Not||unneeded not||/addons/main/functions/ai/fn_avoidAnomalyFields.sqf
+18||18||60||67||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/ai/fn_resetAIBehavior.sqf
+18||18||75||82||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/ai/fn_resetAIBehavior.sqf
+68||68||27||87||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/ai/fn_triggerAIPanic.sqf
+26||26||60||67||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/ai/fn_triggerAIPanic.sqf
+26||26||75||82||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/ai/fn_triggerAIPanic.sqf
+17||17||61||68||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/ai/fn_avoidAnomalies.sqf
+17||17||76||83||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/ai/fn_avoidAnomalies.sqf
 32||32||26||43||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/ambushes/fn_manageAmbushes.sqf
 56||56||22||39||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/ambushes/fn_manageAmbushes.sqf
 28||28||40||41||notice||Unneeded Not||unneeded not||/addons/main/functions/ambushes/fn_manageAmbushes.sqf
@@ -84,58 +36,111 @@
 64||64||41||49||notice||`ASLtoATL` does not match the wiki's case||non-standard command case||/addons/main/functions/wrecks/fn_spawnAbandonedVehicles.sqf
 68||68||44||52||notice||`ASLtoATL` does not match the wiki's case||non-standard command case||/addons/main/functions/wrecks/fn_spawnAbandonedVehicles.sqf
 69||69||28||36||notice||`ASLtoATL` does not match the wiki's case||non-standard command case||/addons/main/functions/wrecks/fn_spawnAbandonedVehicles.sqf
-49||49||18||43||warning||string search using `in` is faster than `find`||using `find` with -1||/addons/main/functions/core/fn_findBridges.sqf
-49||49||47||70||warning||string search using `in` is faster than `find`||using `find` with -1||/addons/main/functions/core/fn_findBridges.sqf
-7||7||19||26||warning||Invalid argument type for `[U:getText]`||type not expected||/addons/main/functions/core/fn_getServerMetrics.sqf
-84||84||14||37||warning||string search using `in` is faster than `find`||using `find` with -1||/addons/main/functions/core/fn_initMap.sqf
-84||84||44||69||warning||string search using `in` is faster than `find`||using `find` with -1||/addons/main/functions/core/fn_initMap.sqf
-22||22||39||53||warning||Repeated calls to global marker updates||use setMarkerShapeLocal||/addons/main/functions/core/fn_markPlayerRanges.sqf
-59||59||29||34||warning||Invalid argument type for `[B:then]`||type not expected||/addons/main/functions/core/fn_sendServerState.sqf
-130||130||32||37||warning||Invalid argument type for `[B:then]`||type not expected||/addons/main/functions/core/fn_sendServerState.sqf
-88||88||37||67||warning||assignment to if can be replaced with select||use select||/addons/main/functions/spooks/fn_spawnSpookZone.sqf
+17||17||30||51||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/mutants/fn_manageHostiles.sqf
+16||16||30||51||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/mutants/fn_manageNests.sqf
+187||187||12||13||notice||Unneeded Not||unneeded not||/addons/main/functions/mutants/fn_setupMutantHabitats.sqf
+45||45||22||29||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/mutants/fn_spawnPredatorAttack.sqf
+45||45||37||44||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/mutants/fn_spawnPredatorAttack.sqf
+15||15||6||27||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/mutants/fn_managePredators.sqf
+24||24||20||27||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/mutants/fn_spawnAmbientHerds.sqf
+24||24||35||42||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/mutants/fn_spawnAmbientHerds.sqf
+27||27||20||27||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/mutants/fn_spawnMutantGroup.sqf
+27||27||35||42||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/mutants/fn_spawnMutantGroup.sqf
+31||31||20||27||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/mutants/fn_spawnMutantNest.sqf
+31||31||35||42||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/mutants/fn_spawnMutantNest.sqf
+33||33||26||42||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/minefields/fn_manageIEDSites.sqf
+19||19||9||10||notice||Unneeded Not||unneeded not||/addons/main/functions/core/fn_selectWeightedBuilding.sqf
+48||48||6||28||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/core/fn_findHiddenPosition.sqf
+20||20||5||6||notice||Unneeded Not||unneeded not||/addons/main/functions/core/fn_findRoadPosition.sqf
+24||24||14||30||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/core/fn_findCrossroads.sqf
+30||30||18||75||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/core/fn_findCrossroads.sqf
+38||38||8||28||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/core/fn_findRockClusters.sqf
+42||42||12||28||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/core/fn_findRockClusters.sqf
+17||17||19||72||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/core/fn_hasPlayersNearby.sqf
+23||23||12||13||notice||Unneeded Not||unneeded not||/addons/main/functions/core/fn_findLandZones.sqf
+66||66||16||32||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/core/fn_findValleys.sqf
+85||85||13||30||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/core/fn_findValleys.sqf
+15||15||8||9||notice||Unneeded Not||unneeded not||/addons/main/functions/core/fn_applyServerState.sqf
+19||19||8||9||notice||Unneeded Not||unneeded not||/addons/main/functions/core/fn_applyServerState.sqf
+23||23||8||9||notice||Unneeded Not||unneeded not||/addons/main/functions/core/fn_applyServerState.sqf
+27||27||8||9||notice||Unneeded Not||unneeded not||/addons/main/functions/core/fn_applyServerState.sqf
+31||31||8||9||notice||Unneeded Not||unneeded not||/addons/main/functions/core/fn_applyServerState.sqf
+35||35||8||9||notice||Unneeded Not||unneeded not||/addons/main/functions/core/fn_applyServerState.sqf
+39||39||8||9||notice||Unneeded Not||unneeded not||/addons/main/functions/core/fn_applyServerState.sqf
+43||43||8||9||notice||Unneeded Not||unneeded not||/addons/main/functions/core/fn_applyServerState.sqf
+49||49||8||9||notice||Unneeded Not||unneeded not||/addons/main/functions/core/fn_applyServerState.sqf
+27||27||9||10||notice||Unneeded Not||unneeded not||/addons/main/functions/core/fn_findRandomRoadPosition.sqf
+21||21||30||51||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/stalkers/fn_manageWanderers.sqf
+23||23||30||51||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/stalkers/fn_manageStalkerCamps.sqf
+27||27||22||47||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/stalkers/fn_startCampManager.sqf
+20||20||30||51||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/stalkers/fn_manageSnipers.sqf
+50||50||55||62||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/storms/fn_schedulePsyStorms.sqf
+50||50||70||77||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/storms/fn_schedulePsyStorms.sqf
+58||58||55||62||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/storms/fn_schedulePsyStorms.sqf
+58||58||70||77||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/storms/fn_schedulePsyStorms.sqf
+52||52||5||26||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/storms/fn_triggerPsyStorm.sqf
+25||25||8||24||notice||Unoptimized `count` array comparison||unoptimized comparison||/addons/main/functions/chemical/fn_expandValley.sqf
+24||24||20||27||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/chemical/fn_spawnRandomChemicalZones.sqf
+24||24||35||42||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/chemical/fn_spawnRandomChemicalZones.sqf
+39||39||20||27||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/chemical/fn_spawnValleyChemicalZones.sqf
+39||39||35||42||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/chemical/fn_spawnValleyChemicalZones.sqf
+25||25||20||27||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/chemical/fn_spawnValleyChemicalFields.sqf
+25||25||35||42||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/chemical/fn_spawnValleyChemicalFields.sqf
+39||39||30||31||notice||Unneeded Not||unneeded not||/addons/main/functions/chemical/fn_findValleyPosition.sqf
+31||31||20||27||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/spooks/fn_spawnSpookZone.sqf
+31||31||35||42||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/spooks/fn_spawnSpookZone.sqf
+42||42||23||30||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/spooks/fn_spawnSpookZone.sqf
+42||42||38||45||notice||`daytime` does not match the wiki's case||non-standard command case||/addons/main/functions/spooks/fn_spawnSpookZone.sqf
+99||99||17||31||warning||Repeated calls to global marker updates||use setMarkerBrushLocal||/addons/main/functions/anomalies/fn_spawnAllAnomalyFields.sqf
+29||29||13||27||warning||Repeated calls to global marker updates||use setMarkerBrushLocal||/addons/main/functions/anomalies/fn_activateSite.sqf
+46||46||21||35||warning||Repeated calls to global marker updates||use setMarkerBrushLocal||/addons/main/functions/anomalies/fn_manageAnomalyFields.sqf
+55||55||21||35||warning||Repeated calls to global marker updates||use setMarkerBrushLocal||/addons/main/functions/anomalies/fn_manageAnomalyFields.sqf
+21||21||13||27||warning||Repeated calls to global marker updates||use setMarkerBrushLocal||/addons/main/functions/anomalies/fn_deactivateSite.sqf
+32||32||17||31||warning||Repeated calls to global marker updates||use setMarkerAlphaLocal||/addons/main/functions/anomalies/fn_setupAnomalyFields.sqf
+31||31||17||31||warning||Repeated calls to global marker updates||use setMarkerBrushLocal||/addons/main/functions/anomalies/fn_setupAnomalyFields.sqf
+31||31||47||61||warning||Repeated calls to global marker updates||use setMarkerBrushLocal||/addons/main/functions/anomalies/fn_cycleAnomalyFields.sqf
+37||37||17||31||warning||Repeated calls to global marker updates||use setMarkerBrushLocal||/addons/main/functions/anomalies/fn_spawnBridgeAnomalyFields.sqf
+43||43||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_burner.sqf
+42||42||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_clicker.sqf
+41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_electra.sqf
+41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_fruitpunch.sqf
+41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_gravi.sqf
+41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_bridgeAnomaly.sqf
+41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_meatgrinder.sqf
+42||42||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_razor.sqf
+41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_springboard.sqf
+41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_trapdoor.sqf
+41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_whirligig.sqf
+41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_leech.sqf
+41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_zapper.sqf
+41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_launchpad.sqf
+17||17||32||78||warning||assignment to if can be replaced with select||use select||/addons/main/functions/ai/fn_toggleFieldAvoid.sqf
+102||102||55||90||warning||assignment to if can be replaced with select||use select||/addons/main/functions/ambushes/fn_manageAmbushes.sqf
+18||18||6||29||warning||string search using `in` is faster than `find`||using `find` with -1||/addons/main/functions/wrecks/fn_findWrecks.sqf
+18||18||36||61||warning||string search using `in` is faster than `find`||using `find` with -1||/addons/main/functions/wrecks/fn_findWrecks.sqf
+33||33||55||85||warning||assignment to if can be replaced with select||use select||/addons/main/functions/mutants/fn_manageHostiles.sqf
 87||87||12||25||warning||Repeated calls to global marker updates||use setMarkerTextLocal||/addons/main/functions/mutants/fn_manageHabitats.sqf
 86||86||12||26||warning||Repeated calls to global marker updates||use setMarkerColorLocal||/addons/main/functions/mutants/fn_manageHabitats.sqf
 85||85||11||25||warning||Repeated calls to global marker updates||use setMarkerColorLocal||/addons/main/functions/mutants/fn_manageHabitats.sqf
 85||85||27||89||warning||assignment to if can be replaced with select||use select||/addons/main/functions/mutants/fn_manageHabitats.sqf
 86||86||28||90||warning||assignment to if can be replaced with select||use select||/addons/main/functions/mutants/fn_manageHabitats.sqf
 89||89||22||52||warning||assignment to if can be replaced with select||use select||/addons/main/functions/mutants/fn_manageHabitats.sqf
-33||33||55||85||warning||assignment to if can be replaced with select||use select||/addons/main/functions/mutants/fn_manageHostiles.sqf
+65||65||33||63||warning||assignment to if can be replaced with select||use select||/addons/main/functions/mutants/fn_manageHerds.sqf
+35||35||20||64||warning||assignment to if can be replaced with select||use select||/addons/main/functions/mutants/fn_managePredators.sqf
 28||28||12||26||warning||Repeated calls to global marker updates||use setMarkerColorLocal||/addons/main/functions/mutants/fn_onMutantKilled.sqf
 27||27||27||89||warning||assignment to if can be replaced with select||use select||/addons/main/functions/mutants/fn_onMutantKilled.sqf
 28||28||28||90||warning||assignment to if can be replaced with select||use select||/addons/main/functions/mutants/fn_onMutantKilled.sqf
-65||65||33||63||warning||assignment to if can be replaced with select||use select||/addons/main/functions/mutants/fn_manageHerds.sqf
-35||35||20||64||warning||assignment to if can be replaced with select||use select||/addons/main/functions/mutants/fn_managePredators.sqf
-17||17||32||78||warning||assignment to if can be replaced with select||use select||/addons/main/functions/ai/fn_toggleFieldAvoid.sqf
-25||29||25||6||warning||assignment to if can be replaced with select||use select||/addons/main/functions/stalkers/fn_spawnFlareTripwires.sqf
-202||202||20||55||warning||assignment to if can be replaced with select||use select||/addons/main/functions/stalkers/fn_manageStalkerCamps.sqf
-46||46||21||35||warning||Repeated calls to global marker updates||use setMarkerBrushLocal||/addons/main/functions/anomalies/fn_manageAnomalyFields.sqf
-55||55||21||35||warning||Repeated calls to global marker updates||use setMarkerBrushLocal||/addons/main/functions/anomalies/fn_manageAnomalyFields.sqf
-32||32||17||31||warning||Repeated calls to global marker updates||use setMarkerAlphaLocal||/addons/main/functions/anomalies/fn_setupAnomalyFields.sqf
-31||31||17||31||warning||Repeated calls to global marker updates||use setMarkerBrushLocal||/addons/main/functions/anomalies/fn_setupAnomalyFields.sqf
-21||21||13||27||warning||Repeated calls to global marker updates||use setMarkerBrushLocal||/addons/main/functions/anomalies/fn_deactivateSite.sqf
-29||29||13||27||warning||Repeated calls to global marker updates||use setMarkerBrushLocal||/addons/main/functions/anomalies/fn_activateSite.sqf
-31||31||47||61||warning||Repeated calls to global marker updates||use setMarkerBrushLocal||/addons/main/functions/anomalies/fn_cycleAnomalyFields.sqf
-37||37||17||31||warning||Repeated calls to global marker updates||use setMarkerBrushLocal||/addons/main/functions/anomalies/fn_spawnBridgeAnomalyFields.sqf
-99||99||17||31||warning||Repeated calls to global marker updates||use setMarkerBrushLocal||/addons/main/functions/anomalies/fn_spawnAllAnomalyFields.sqf
-41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_trapdoor.sqf
-41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_electra.sqf
-41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_whirligig.sqf
-41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_zapper.sqf
-41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_bridgeAnomaly.sqf
-41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_leech.sqf
-43||43||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_burner.sqf
-41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_meatgrinder.sqf
-41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_launchpad.sqf
-41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_fruitpunch.sqf
-42||42||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_clicker.sqf
-41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_gravi.sqf
-42||42||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_razor.sqf
-41||41||9||22||warning||Repeated calls to global marker updates||use setMarkerSizeLocal||/addons/main/functions/anomalies/fields/fn_createField_springboard.sqf
-42||46||25||6||warning||assignment to if can be replaced with select||use select||/addons/main/functions/minefields/fn_spawnTripwirePerimeter.sqf
 22||26||33||14||warning||assignment to if can be replaced with select||use select||/addons/main/functions/minefields/fn_manageBoobyTraps.sqf
+42||46||25||6||warning||assignment to if can be replaced with select||use select||/addons/main/functions/minefields/fn_spawnTripwirePerimeter.sqf
+22||22||39||53||warning||Repeated calls to global marker updates||use setMarkerShapeLocal||/addons/main/functions/core/fn_markPlayerRanges.sqf
+7||7||19||26||warning||Invalid argument type for `[U:getText]`||type not expected||/addons/main/functions/core/fn_getServerMetrics.sqf
+84||84||14||37||warning||string search using `in` is faster than `find`||using `find` with -1||/addons/main/functions/core/fn_initMap.sqf
+84||84||44||69||warning||string search using `in` is faster than `find`||using `find` with -1||/addons/main/functions/core/fn_initMap.sqf
+59||59||29||34||warning||Invalid argument type for `[B:then]`||type not expected||/addons/main/functions/core/fn_sendServerState.sqf
+130||130||32||37||warning||Invalid argument type for `[B:then]`||type not expected||/addons/main/functions/core/fn_sendServerState.sqf
+49||49||18||43||warning||string search using `in` is faster than `find`||using `find` with -1||/addons/main/functions/core/fn_findBridges.sqf
+49||49||47||70||warning||string search using `in` is faster than `find`||using `find` with -1||/addons/main/functions/core/fn_findBridges.sqf
+202||202||20||55||warning||assignment to if can be replaced with select||use select||/addons/main/functions/stalkers/fn_manageStalkerCamps.sqf
+25||29||25||6||warning||assignment to if can be replaced with select||use select||/addons/main/functions/stalkers/fn_spawnFlareTripwires.sqf
 18||18||16||67||warning||assignment to if can be replaced with select||use select||/addons/main/functions/antistasi/fn_startArtefactHunt.sqf
-102||102||55||90||warning||assignment to if can be replaced with select||use select||/addons/main/functions/ambushes/fn_manageAmbushes.sqf
-18||18||6||29||warning||string search using `in` is faster than `find`||using `find` with -1||/addons/main/functions/wrecks/fn_findWrecks.sqf
-18||18||36||61||warning||string search using `in` is faster than `find`||using `find` with -1||/addons/main/functions/wrecks/fn_findWrecks.sqf
-28||28||12||12||error||Use of an invalid token||invalid token||/addons/main/functions/core/fn_traceFunction.sqf
-53||53||16||44||error||SQF Syntax could not be parsed||unparseable syntax||/addons/main/functions/core/fn_applyServerState.sqf
+88||88||37||67||warning||assignment to if can be replaced with select||use select||/addons/main/functions/spooks/fn_spawnSpookZone.sqf

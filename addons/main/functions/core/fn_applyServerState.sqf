@@ -50,6 +50,8 @@ if (count _state > 8) then {
 };
 
 // Place cached markers and other helpful debug visuals locally
-if (isFunction "VIC_fnc_placeCachedMarkers") then { [] call VIC_fnc_placeCachedMarkers };
+if (!isNil "VIC_fnc_placeCachedMarkers") then {
+    [] call VIC_fnc_placeCachedMarkers;
+};
 
 true

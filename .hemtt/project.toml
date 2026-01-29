@@ -1,6 +1,6 @@
 name = "Viceroy STALKER A-Life"
 mainprefix = "z"
-prefix = "viceroy_stalker-alife"
+prefix = "viceroy_stalker_alife"
 
 [files]
 include = [
