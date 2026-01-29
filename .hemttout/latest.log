@@ -1,0 +1,283 @@
+2026-01-29T16:16:40.457317Z TRACE ThreadId(01) version: 1.18.1
+2026-01-29T16:16:40.457440Z TRACE ThreadId(01) platform: windows
+2026-01-29T16:16:40.457480Z TRACE ThreadId(01) args: [
+    "C:\\Users\\beura\\AppData\\Local\\Microsoft\\WinGet\\Packages\\BrettMayson.HEMTT_Microsoft.Winget.Source_8wekyb3d8bbwe\\hemtt.exe",
+    "check",
+]
+2026-01-29T16:16:40.457951Z TRACE ThreadId(01) using temporary folder: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroy_STALKER_ALife"
+2026-01-29T16:16:40.457966Z TRACE ThreadId(01) using project folder: "C:\\Source\\Viceroy_STALKER_ALife"
+2026-01-29T16:16:40.458003Z TRACE ThreadId(01) using out folder: "C:\\Source\\Viceroy_STALKER_ALife\\.hemttout"
+2026-01-29T16:16:40.458270Z TRACE ThreadId(01) using build folder: "C:\\Source\\Viceroy_STALKER_ALife\\.hemttout\\check"
+2026-01-29T16:16:40.459506Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/main/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroy_STALKER_ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroy_STALKER_ALife" } } } } } }] } } }
+2026-01-29T16:16:40.459983Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/main/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroy_STALKER_ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroy_STALKER_ALife" } } } } } }] } } }
+2026-01-29T16:16:40.481679Z TRACE ThreadId(01) checking for version macro in VfsPath { path: "/addons/main/script_version.hpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\beura\\AppData\\Local\\Temp\\hemtt\\Source_Viceroy_STALKER_ALife\\hemtt_binarize_output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Source\\Viceroy_STALKER_ALife" } } } } } }] } } }
+2026-01-29T16:16:40.482098Z  INFO ThreadId(01) Config loaded for Viceroy STALKER A-Life 2.0.0.0
+2026-01-29T16:16:40.482165Z TRACE ThreadId(01) Scanning C:\Source\Viceroy_STALKER_ALife\addons for addons
+2026-01-29T16:16:40.484003Z DEBUG ThreadId(01) using global config directory: "C:\\Users\\beura\\AppData\\Roaming\\hemtt"
+2026-01-29T16:16:40.484305Z  INFO ThreadId(01) Running checks
+2026-01-29T16:16:40.484341Z TRACE ThreadId(01) phase: init (BOM Check) (start)
+2026-01-29T16:16:40.484354Z TRACE ThreadId(01) phase: init (BOM Check) (done)
+2026-01-29T16:16:40.484359Z TRACE ThreadId(01) phase: init (Final New Line Check) (start)
+2026-01-29T16:16:40.484364Z TRACE ThreadId(01) phase: init (Final New Line Check) (done)
+2026-01-29T16:16:40.484369Z TRACE ThreadId(01) phase: init (git) (start)
+2026-01-29T16:16:40.484374Z TRACE ThreadId(01) phase: init (git) (done)
+2026-01-29T16:16:40.484378Z TRACE ThreadId(01) phase: init (Hooks) (start)
+2026-01-29T16:16:40.484430Z TRACE ThreadId(01) no hooks folder
+2026-01-29T16:16:40.484437Z TRACE ThreadId(01) phase: init (Hooks) (done)
+2026-01-29T16:16:40.484442Z TRACE ThreadId(01) phase: init (Binarize) (start)
+2026-01-29T16:16:40.484450Z TRACE ThreadId(01) phase: init (Binarize) (done)
+2026-01-29T16:16:40.484455Z TRACE ThreadId(01) phase: init (Rapifier) (start)
+2026-01-29T16:16:40.484460Z TRACE ThreadId(01) phase: init (Rapifier) (done)
+2026-01-29T16:16:40.484465Z TRACE ThreadId(01) phase: init (SQF) (start)
+2026-01-29T16:16:41.015474Z TRACE ThreadId(01) phase: init (SQF) (done)
+2026-01-29T16:16:41.015541Z TRACE ThreadId(01) phase: init (Stringtables) (start)
+2026-01-29T16:16:41.015547Z TRACE ThreadId(01) phase: init (Stringtables) (done)
+2026-01-29T16:16:41.015552Z TRACE ThreadId(01) phase: check (BOM Check) (start)
+2026-01-29T16:16:41.035282Z TRACE ThreadId(01) phase: check (BOM Check) (done)
+2026-01-29T16:16:41.035301Z TRACE ThreadId(01) phase: check (Final New Line Check) (start)
+2026-01-29T16:16:41.043233Z TRACE ThreadId(01) phase: check (Final New Line Check) (done)
+2026-01-29T16:16:41.043242Z TRACE ThreadId(01) phase: check (git) (start)
+2026-01-29T16:16:41.074803Z TRACE ThreadId(01) phase: check (git) (done)
+2026-01-29T16:16:41.074825Z TRACE ThreadId(01) phase: check (Hooks) (start)
+2026-01-29T16:16:41.074829Z TRACE ThreadId(01) phase: check (Hooks) (done)
+2026-01-29T16:16:41.074834Z TRACE ThreadId(01) phase: check (Binarize) (start)
+2026-01-29T16:16:41.115545Z  INFO ThreadId(01) Validated 0 files for binarization
+2026-01-29T16:16:41.115565Z TRACE ThreadId(01) phase: check (Binarize) (done)
+2026-01-29T16:16:41.115570Z TRACE ThreadId(01) phase: check (Rapifier) (start)
+2026-01-29T16:16:41.115623Z TRACE ThreadId(01) phase: check (Rapifier) (done)
+2026-01-29T16:16:41.115628Z TRACE ThreadId(01) phase: check (SQF) (start)
+2026-01-29T16:16:41.115691Z TRACE ThreadId(01) phase: check (SQF) (done)
+2026-01-29T16:16:41.115695Z TRACE ThreadId(01) phase: check (Stringtables) (start)
+2026-01-29T16:16:41.115722Z TRACE ThreadId(01) phase: check (Stringtables) (done)
+2026-01-29T16:16:41.115727Z TRACE ThreadId(01) phase: pre_build (BOM Check) (start)
+2026-01-29T16:16:41.115732Z TRACE ThreadId(01) phase: pre_build (BOM Check) (done)
+2026-01-29T16:16:41.115736Z TRACE ThreadId(01) phase: pre_build (Final New Line Check) (start)
+2026-01-29T16:16:41.115740Z TRACE ThreadId(01) phase: pre_build (Final New Line Check) (done)
+2026-01-29T16:16:41.115744Z TRACE ThreadId(01) phase: pre_build (git) (start)
+2026-01-29T16:16:41.115747Z TRACE ThreadId(01) phase: pre_build (git) (done)
+2026-01-29T16:16:41.115751Z TRACE ThreadId(01) phase: pre_build (Hooks) (start)
+2026-01-29T16:16:41.115757Z TRACE ThreadId(01) phase: pre_build (Hooks) (done)
+2026-01-29T16:16:41.115761Z TRACE ThreadId(01) phase: pre_build (Binarize) (start)
+2026-01-29T16:16:41.115766Z TRACE ThreadId(01) phase: pre_build (Binarize) (done)
+2026-01-29T16:16:41.115770Z TRACE ThreadId(01) phase: pre_build (Rapifier) (start)
+2026-01-29T16:16:41.183681Z  INFO ThreadId(01) Rapified 1 addon configs
+2026-01-29T16:16:41.183732Z TRACE ThreadId(01) phase: pre_build (Rapifier) (done)
+2026-01-29T16:16:41.183739Z TRACE ThreadId(01) phase: pre_build (SQF) (start)
+2026-01-29T16:16:41.243248Z TRACE ThreadId(11) sqf compiling /addons/main/functions/core/fn_markBuildingCoverSpot.sqf
+2026-01-29T16:16:41.243248Z TRACE ThreadId(13) sqf compiling /addons/main/functions/core/fn_initMap.sqf
+2026-01-29T16:16:41.243266Z TRACE ThreadId(12) sqf compiling /addons/main/functions/anomalies/fn_spawnAllAnomalyFields.sqf
+2026-01-29T16:16:41.243269Z TRACE ThreadId(05) sqf compiling /addons/main/functions/ai/fn_resetAIBehavior.sqf
+2026-01-29T16:16:41.243273Z TRACE ThreadId(06) sqf compiling /addons/main/functions/core/fn_selectWeightedBuilding.sqf
+2026-01-29T16:16:41.243261Z TRACE ThreadId(03) sqf compiling /addons/main/initServer.sqf
+2026-01-29T16:16:41.243248Z TRACE ThreadId(07) sqf compiling /addons/main/functions/mutants/fn_isMutantEnabled.sqf
+2026-01-29T16:16:41.243248Z TRACE ThreadId(08) sqf compiling /addons/main/functions/core/fn_markDeathLocation.sqf
+2026-01-29T16:16:41.243285Z TRACE ThreadId(14) sqf compiling /addons/main/functions/antistasi/fn_startChemSample.sqf
+2026-01-29T16:16:41.243247Z TRACE ThreadId(10) sqf compiling /addons/main/functions/core/fn_markHiddenPosition.sqf
+2026-01-29T16:16:41.243294Z TRACE ThreadId(09) sqf compiling /addons/main/functions/anomalies/fields/fn_createField_razor.sqf
+2026-01-29T16:16:41.243294Z TRACE ThreadId(04) sqf compiling /addons/main/functions/core/fn_markSwamps.sqf
+2026-01-29T16:16:41.252302Z TRACE ThreadId(10) sqf compiling /addons/main/functions/core/fn_findLandPosition.sqf
+2026-01-29T16:16:41.252669Z TRACE ThreadId(11) sqf compiling /addons/main/functions/core/fn_requestServerState.sqf
+2026-01-29T16:16:41.252975Z TRACE ThreadId(06) sqf compiling /addons/main/functions/core/fn_markValleys.sqf
+2026-01-29T16:16:41.253266Z TRACE ThreadId(08) sqf compiling /addons/main/functions/core/fn_findBuildingCoverSpot.sqf
+2026-01-29T16:16:41.253476Z TRACE ThreadId(04) sqf compiling /addons/main/functions/core/fn_spawnWorker.sqf
+2026-01-29T16:16:41.254997Z TRACE ThreadId(03) sqf compiling /addons/main/cba_settings.sqf
+2026-01-29T16:16:41.256090Z TRACE ThreadId(14) sqf compiling /addons/main/functions/antistasi/fn_startMutantHunt.sqf
+2026-01-29T16:16:41.256577Z TRACE ThreadId(07) sqf compiling /addons/main/functions/mutants/fn_onEmissionStart.sqf
+2026-01-29T16:16:41.259321Z TRACE ThreadId(07) sqf compiling /addons/main/functions/mutants/fn_spawnAcidSmasherNest.sqf
+2026-01-29T16:16:41.262426Z TRACE ThreadId(08) sqf compiling /addons/main/functions/spooks/fn_setupSpookZones.sqf
+2026-01-29T16:16:41.262894Z TRACE ThreadId(05) sqf compiling /addons/main/functions/ai/fn_triggerAIPanic.sqf
+2026-01-29T16:16:41.263007Z TRACE ThreadId(04) sqf compiling /addons/main/functions/core/fn_findCrossroads.sqf
+2026-01-29T16:16:41.263480Z TRACE ThreadId(09) sqf compiling /addons/main/functions/anomalies/fields/fn_createField_springboard.sqf
+2026-01-29T16:16:41.263737Z TRACE ThreadId(14) sqf compiling /addons/main/functions/panic/fn_onEmissionBuildUp.sqf
+2026-01-29T16:16:41.264106Z TRACE ThreadId(10) sqf compiling /addons/main/functions/core/fn_markPlayerRanges.sqf
+2026-01-29T16:16:41.264729Z TRACE ThreadId(06) sqf compiling /addons/main/functions/core/fn_findSwamps.sqf
+2026-01-29T16:16:41.268407Z TRACE ThreadId(14) sqf compiling /addons/main/functions/panic/fn_onEmissionStart.sqf
+2026-01-29T16:16:41.268794Z TRACE ThreadId(07) sqf compiling /addons/main/functions/mutants/fn_spawnIzlomNest.sqf
+2026-01-29T16:16:41.269247Z TRACE ThreadId(11) sqf compiling /addons/main/functions/core/fn_markBeaches.sqf
+2026-01-29T16:16:41.269503Z TRACE ThreadId(08) sqf compiling /addons/main/functions/spooks/fn_spawnSpookZone.sqf
+2026-01-29T16:16:41.270026Z TRACE ThreadId(14) sqf compiling /addons/main/functions/panic/fn_onEmissionEnd.sqf
+2026-01-29T16:16:41.271769Z TRACE ThreadId(14) sqf compiling /addons/main/functions/chemical/fn_manageChemicalZones.sqf
+2026-01-29T16:16:41.272186Z TRACE ThreadId(07) sqf compiling /addons/main/functions/mutants/fn_initMutantUnit.sqf
+2026-01-29T16:16:41.277326Z TRACE ThreadId(10) sqf compiling /addons/main/functions/core/fn_createGlobalMarker.sqf
+2026-01-29T16:16:41.277335Z TRACE ThreadId(11) sqf compiling /addons/main/functions/anomalies/find_sites/fn_findSite_zapper.sqf
+2026-01-29T16:16:41.277552Z TRACE ThreadId(07) sqf compiling /addons/main/functions/mutants/fn_spawnAmbientHerds.sqf
+2026-01-29T16:16:41.277818Z TRACE ThreadId(04) sqf compiling /addons/main/functions/anomalies/find_sites/fn_findSite_launchpad.sqf
+2026-01-29T16:16:41.282326Z TRACE ThreadId(13) sqf compiling /addons/main/functions/core/fn_isWaterPosition.sqf
+2026-01-29T16:16:41.283307Z TRACE ThreadId(11) sqf compiling /addons/main/functions/anomalies/find_sites/fn_findSite_meatgrinder.sqf
+2026-01-29T16:16:41.283351Z TRACE ThreadId(04) sqf compiling /addons/main/functions/anomalies/find_sites/fn_findSite_burner.sqf
+2026-01-29T16:16:41.283452Z TRACE ThreadId(06) sqf compiling /addons/main/functions/core/fn_loadCache.sqf
+2026-01-29T16:16:41.286811Z TRACE ThreadId(10) sqf compiling /addons/main/functions/core/fn_callServer.sqf
+2026-01-29T16:16:41.288984Z TRACE ThreadId(09) sqf compiling /addons/main/functions/storms/fn_triggerPsyStorm.sqf
+2026-01-29T16:16:41.289006Z TRACE ThreadId(11) sqf compiling /addons/main/functions/anomalies/fields/fn_createField_trapdoor.sqf
+2026-01-29T16:16:41.289321Z TRACE ThreadId(13) sqf compiling /addons/main/functions/core/fn_findLandPos.sqf
+2026-01-29T16:16:41.289542Z TRACE ThreadId(04) sqf compiling /addons/main/functions/anomalies/find_sites/fn_findSite_leech.sqf
+2026-01-29T16:16:41.290959Z TRACE ThreadId(14) sqf compiling /addons/main/functions/chemical/fn_spawnValleyChemicalFields.sqf
+2026-01-29T16:16:41.292697Z TRACE ThreadId(06) sqf compiling /addons/main/functions/core/fn_traceFunction.sqf
+2026-01-29T16:16:41.296990Z TRACE ThreadId(06) sqf compiling /addons/main/functions/core/fn_findLandZones.sqf
+2026-01-29T16:16:41.299202Z TRACE ThreadId(05) sqf compiling /addons/main/functions/ai/fn_avoidAnomalyFields.sqf
+2026-01-29T16:16:41.299840Z TRACE ThreadId(12) sqf compiling /addons/main/functions/anomalies/find_sites/fn_findSite_electra.sqf
+2026-01-29T16:16:41.299871Z TRACE ThreadId(10) sqf compiling /addons/main/functions/core/fn_sendServerState.sqf
+2026-01-29T16:16:41.300209Z TRACE ThreadId(04) sqf compiling /addons/main/functions/anomalies/find_sites/fn_findSite_trapdoor.sqf
+2026-01-29T16:16:41.304107Z TRACE ThreadId(07) sqf compiling /addons/main/functions/mutants/fn_spawnCorruptorNest.sqf
+2026-01-29T16:16:41.304423Z TRACE ThreadId(13) sqf compiling /addons/main/functions/core/fn_findBeachesInMap.sqf
+2026-01-29T16:16:41.308027Z TRACE ThreadId(12) sqf compiling /addons/main/functions/anomalies/find_sites/fn_findSite_clicker.sqf
+2026-01-29T16:16:41.308109Z TRACE ThreadId(04) sqf compiling /addons/main/functions/anomalies/find_sites/fn_findSite_razor.sqf
+2026-01-29T16:16:41.309632Z TRACE ThreadId(07) sqf compiling /addons/main/functions/mutants/fn_spawnSmasherNest.sqf
+2026-01-29T16:16:41.312186Z TRACE ThreadId(06) sqf compiling /addons/main/functions/core/fn_markRoads.sqf
+2026-01-29T16:16:41.315876Z TRACE ThreadId(07) sqf compiling /addons/main/functions/mutants/fn_spawnSnorkNest.sqf
+2026-01-29T16:16:41.316616Z TRACE ThreadId(12) sqf compiling /addons/main/functions/anomalies/find_sites/fn_findSite_bridge.sqf
+2026-01-29T16:16:41.317403Z TRACE ThreadId(04) sqf compiling /addons/main/functions/anomalies/find_sites/fn_findSite_springboard.sqf
+2026-01-29T16:16:41.327772Z TRACE ThreadId(11) sqf compiling /addons/main/functions/anomalies/fields/fn_createField_electra.sqf
+2026-01-29T16:16:41.328388Z TRACE ThreadId(04) sqf compiling /addons/main/functions/anomalies/find_sites/fn_findSite_whirligig.sqf
+2026-01-29T16:16:41.334747Z TRACE ThreadId(12) sqf compiling /addons/main/functions/anomalies/find_sites/fn_findSite_fruitpunch.sqf
+2026-01-29T16:16:41.338589Z TRACE ThreadId(07) sqf compiling /addons/main/functions/mutants/fn_spawnBlindDogNest.sqf
+2026-01-29T16:16:41.341907Z TRACE ThreadId(04) sqf compiling /addons/main/functions/mutants/fn_spawnBoarNest.sqf
+2026-01-29T16:16:41.354194Z TRACE ThreadId(12) sqf compiling /addons/main/functions/anomalies/find_sites/fn_findSite_gravi.sqf
+2026-01-29T16:16:41.354603Z TRACE ThreadId(06) sqf compiling /addons/main/functions/core/fn_findRoads.sqf
+2026-01-29T16:16:41.356006Z TRACE ThreadId(08) sqf compiling /addons/main/functions/spooks/fn_manageSpookZones.sqf
+2026-01-29T16:16:41.356091Z TRACE ThreadId(14) sqf compiling /addons/main/functions/chemical/fn_deactivateSite.sqf
+2026-01-29T16:16:41.357300Z TRACE ThreadId(07) sqf compiling /addons/main/functions/mutants/fn_manageHerds.sqf
+2026-01-29T16:16:41.360268Z TRACE ThreadId(04) sqf compiling /addons/main/functions/mutants/fn_spawnPseudogiantNest.sqf
+2026-01-29T16:16:41.360403Z TRACE ThreadId(05) sqf compiling /addons/main/functions/stalkers/fn_spawnFlareTripwires.sqf
+2026-01-29T16:16:41.369866Z TRACE ThreadId(12) sqf compiling /addons/main/functions/chemical/fn_onEmissionEnd.sqf
+2026-01-29T16:16:41.374735Z TRACE ThreadId(12) sqf compiling /addons/main/functions/chemical/fn_onEmissionStart.sqf
+2026-01-29T16:16:41.378221Z TRACE ThreadId(13) sqf compiling /addons/main/functions/core/fn_markAllBuildings.sqf
+2026-01-29T16:16:41.380188Z TRACE ThreadId(12) sqf compiling /addons/main/functions/chemical/fn_spawnRandomChemicalZones.sqf
+2026-01-29T16:16:41.382739Z TRACE ThreadId(06) sqf compiling /addons/main/functions/core/fn_togglePerfMetrics.sqf
+2026-01-29T16:16:41.384044Z TRACE ThreadId(14) sqf compiling /addons/main/functions/chemical/fn_cleanupChemicalZones.sqf
+2026-01-29T16:16:41.387256Z TRACE ThreadId(09) sqf compiling /addons/main/functions/storms/fn_schedulePsyStorms.sqf
+2026-01-29T16:16:41.390173Z TRACE ThreadId(04) sqf compiling /addons/main/functions/mutants/fn_spawnMutantGroup.sqf
+2026-01-29T16:16:41.414054Z TRACE ThreadId(14) sqf compiling /addons/main/functions/chemical/fn_activateSite.sqf
+2026-01-29T16:16:41.414290Z TRACE ThreadId(11) sqf compiling /addons/main/functions/anomalies/fields/fn_createField_whirligig.sqf
+2026-01-29T16:16:41.414403Z TRACE ThreadId(13) sqf compiling /addons/main/functions/core/fn_findValleys.sqf
+2026-01-29T16:16:41.417147Z TRACE ThreadId(06) sqf compiling /addons/main/functions/core/fn_getServerMetrics.sqf
+2026-01-29T16:16:41.419664Z TRACE ThreadId(05) sqf compiling /addons/main/functions/stalkers/fn_manageWanderers.sqf
+2026-01-29T16:16:41.438881Z TRACE ThreadId(14) sqf compiling /addons/main/functions/chemical/fn_spawnValleyChemicalZones.sqf
+2026-01-29T16:16:41.439707Z TRACE ThreadId(08) sqf compiling /addons/main/functions/mutants/fn_manageHabitats.sqf
+2026-01-29T16:16:41.454188Z TRACE ThreadId(06) sqf compiling /addons/main/functions/core/fn_findSniperSpots.sqf
+2026-01-29T16:16:41.454287Z TRACE ThreadId(04) sqf compiling /addons/main/functions/mutants/fn_spawnPredatorAttack.sqf
+2026-01-29T16:16:41.454210Z TRACE ThreadId(12) sqf compiling /addons/main/functions/chemical/fn_spawnChemicalZone.sqf
+2026-01-29T16:16:41.466806Z TRACE ThreadId(09) sqf compiling /addons/main/functions/zombification/fn_spawnZombiesFromQueue.sqf
+2026-01-29T16:16:41.484101Z TRACE ThreadId(07) sqf compiling /addons/main/functions/mutants/fn_setupMutantHabitats.sqf
+2026-01-29T16:16:41.488355Z TRACE ThreadId(09) sqf compiling /addons/main/functions/zombification/fn_trackDeadForZombify.sqf
+2026-01-29T16:16:41.508460Z TRACE ThreadId(12) sqf compiling /addons/main/functions/blowouts/fn_placeTownSirens.sqf
+2026-01-29T16:16:41.508803Z TRACE ThreadId(06) sqf compiling /addons/main/functions/core/fn_setupDebugActions.sqf
+2026-01-29T16:16:41.508846Z TRACE ThreadId(11) sqf compiling /addons/main/functions/anomalies/fields/fn_createField_zapper.sqf
+2026-01-29T16:16:41.509431Z TRACE ThreadId(09) sqf compiling /addons/main/functions/zombification/fn_onEmissionEnd.sqf
+2026-01-29T16:16:41.511071Z TRACE ThreadId(13) sqf compiling /addons/main/functions/core/fn_findBuildingClusters.sqf
+2026-01-29T16:16:41.512954Z TRACE ThreadId(14) sqf compiling /addons/main/functions/chemical/fn_findValleyPosition.sqf
+2026-01-29T16:16:41.514274Z TRACE ThreadId(09) sqf compiling /addons/main/functions/minefields/fn_activateSite.sqf
+2026-01-29T16:16:41.529673Z TRACE ThreadId(12) sqf compiling /addons/main/functions/blowouts/fn_scheduleBlowouts.sqf
+2026-01-29T16:16:41.538529Z TRACE ThreadId(09) sqf compiling /addons/main/functions/minefields/fn_spawnIED.sqf
+2026-01-29T16:16:41.539588Z TRACE ThreadId(10) sqf compiling /addons/main/functions/core/fn_markBridges.sqf
+2026-01-29T16:16:41.554385Z TRACE ThreadId(12) sqf compiling /addons/main/functions/blowouts/fn_triggerBlowout.sqf
+2026-01-29T16:16:41.554447Z TRACE ThreadId(14) sqf compiling /addons/main/functions/chemical/fn_expandValley.sqf
+2026-01-29T16:16:41.557511Z TRACE ThreadId(13) sqf compiling /addons/main/functions/core/fn_markSniperSpots.sqf
+2026-01-29T16:16:41.560767Z TRACE ThreadId(10) sqf compiling /addons/main/functions/core/fn_toggleSiteOverlay.sqf
+2026-01-29T16:16:41.562329Z TRACE ThreadId(12) sqf compiling /addons/main/functions/ambushes/fn_spawnAmbushes.sqf
+2026-01-29T16:16:41.563758Z TRACE ThreadId(09) sqf compiling /addons/main/functions/minefields/fn_spawnMinefieldQueued.sqf
+2026-01-29T16:16:41.569864Z TRACE ThreadId(05) sqf compiling /addons/main/functions/stalkers/fn_spawnAmbientStalkers.sqf
+2026-01-29T16:16:41.575290Z TRACE ThreadId(13) sqf compiling /addons/main/functions/core/fn_applyServerState.sqf
+2026-01-29T16:16:41.575434Z TRACE ThreadId(11) sqf compiling /addons/main/functions/anomalies/fields/fn_createField_bridgeAnomaly.sqf
+2026-01-29T16:16:41.577175Z TRACE ThreadId(09) sqf compiling /addons/main/functions/minefields/fn_spawnMinefields.sqf
+2026-01-29T16:16:41.578662Z TRACE ThreadId(10) sqf compiling /addons/main/functions/core/fn_markSitesOverlay.sqf
+2026-01-29T16:16:41.584642Z TRACE ThreadId(08) sqf compiling /addons/main/functions/mutants/fn_updateProximity.sqf
+2026-01-29T16:16:41.586675Z TRACE ThreadId(14) sqf compiling /addons/main/functions/anomalies/fields/fn_createField_leech.sqf
+2026-01-29T16:16:41.591580Z TRACE ThreadId(04) sqf compiling /addons/main/functions/mutants/fn_spawnCatNest.sqf
+2026-01-29T16:16:41.603107Z TRACE ThreadId(04) sqf compiling /addons/main/functions/mutants/fn_spawnControllerNest.sqf
+2026-01-29T16:16:41.606660Z TRACE ThreadId(13) sqf compiling /addons/main/functions/core/fn_getSetting.sqf
+2026-01-29T16:16:41.609290Z TRACE ThreadId(08) sqf compiling /addons/main/functions/mutants/fn_manageHostiles.sqf
+2026-01-29T16:16:41.611407Z TRACE ThreadId(13) sqf compiling /addons/main/functions/wrecks/fn_manageWrecks.sqf
+2026-01-29T16:16:41.612935Z TRACE ThreadId(04) sqf compiling /addons/main/functions/mutants/fn_spawnFleshNest.sqf
+2026-01-29T16:16:41.621109Z TRACE ThreadId(12) sqf compiling /addons/main/functions/ambushes/fn_startAmbushManager.sqf
+2026-01-29T16:16:41.623750Z TRACE ThreadId(04) sqf compiling /addons/main/functions/mutants/fn_onEmissionEnd.sqf
+2026-01-29T16:16:41.627269Z TRACE ThreadId(04) sqf compiling /addons/main/functions/mutants/fn_spawnCachedHabitats.sqf
+2026-01-29T16:16:41.632800Z TRACE ThreadId(12) sqf compiling /addons/main/functions/ambushes/fn_manageAmbushes.sqf
+2026-01-29T16:16:41.634215Z TRACE ThreadId(14) sqf compiling /addons/main/functions/anomalies/fields/fn_createField_burner.sqf
+2026-01-29T16:16:41.652652Z TRACE ThreadId(08) sqf compiling /addons/main/functions/mutants/fn_manageNests.sqf
+2026-01-29T16:16:41.659162Z TRACE ThreadId(10) sqf compiling /addons/main/functions/core/fn_radioMessage.sqf
+2026-01-29T16:16:41.662371Z TRACE ThreadId(13) sqf compiling /addons/main/functions/wrecks/fn_markWrecks.sqf
+2026-01-29T16:16:41.666405Z TRACE ThreadId(09) sqf compiling /addons/main/functions/minefields/fn_spawnIEDSites.sqf
+2026-01-29T16:16:41.668483Z TRACE ThreadId(10) sqf compiling /addons/main/functions/core/fn_callServerHelper.sqf
+2026-01-29T16:16:41.677473Z TRACE ThreadId(10) sqf compiling /addons/main/functions/core/fn_findRoadPosition.sqf
+2026-01-29T16:16:41.682159Z TRACE ThreadId(13) sqf compiling /addons/main/functions/wrecks/fn_findWrecks.sqf
+2026-01-29T16:16:41.689780Z TRACE ThreadId(04) sqf compiling /addons/main/functions/mutants/fn_spawnHabitatHunters.sqf
+2026-01-29T16:16:41.691085Z TRACE ThreadId(10) sqf compiling /addons/main/functions/mutants/fn_managePredators.sqf
+2026-01-29T16:16:41.706152Z TRACE ThreadId(13) sqf compiling /addons/main/functions/wrecks/fn_spawnAbandonedVehicles.sqf
+2026-01-29T16:16:41.706244Z TRACE ThreadId(14) sqf compiling /addons/main/functions/anomalies/fields/fn_createField_meatgrinder.sqf
+2026-01-29T16:16:41.706175Z TRACE ThreadId(08) sqf compiling /addons/main/functions/mutants/fn_onMutantKilled.sqf
+2026-01-29T16:16:41.711211Z TRACE ThreadId(09) sqf compiling /addons/main/functions/minefields/fn_manageMinefields.sqf
+2026-01-29T16:16:41.727640Z TRACE ThreadId(10) sqf compiling /addons/main/functions/anomalies/fields/fn_createField_launchpad.sqf
+2026-01-29T16:16:41.728290Z TRACE ThreadId(05) sqf compiling /addons/main/functions/stalkers/fn_manageStalkerCamps.sqf
+2026-01-29T16:16:41.749040Z TRACE ThreadId(09) sqf compiling /addons/main/functions/minefields/fn_spawnAPERSField.sqf
+2026-01-29T16:16:41.757967Z TRACE ThreadId(13) sqf compiling /addons/main/functions/necroplague/fn_triggerNecroplague.sqf
+2026-01-29T16:16:41.763895Z TRACE ThreadId(08) sqf compiling /addons/main/functions/mutants/fn_spawnBloodsuckerNest.sqf
+2026-01-29T16:16:41.765528Z TRACE ThreadId(14) sqf compiling /addons/main/functions/mutants/fn_spawnMutantNest.sqf
+2026-01-29T16:16:41.775829Z TRACE ThreadId(11) sqf compiling /addons/main/functions/anomalies/fields/fn_createField_clicker.sqf
+2026-01-29T16:16:41.776087Z TRACE ThreadId(08) sqf compiling /addons/main/functions/mutants/fn_spawnPseudodogNest.sqf
+2026-01-29T16:16:41.778623Z TRACE ThreadId(12) sqf compiling /addons/main/functions/ai/fn_avoidAnomalies.sqf
+2026-01-29T16:16:41.780171Z TRACE ThreadId(09) sqf compiling /addons/main/functions/minefields/fn_deactivateSite.sqf
+2026-01-29T16:16:41.792883Z TRACE ThreadId(04) sqf compiling /addons/main/functions/necroplague/fn_scheduleNecroplague.sqf
+2026-01-29T16:16:41.807322Z TRACE ThreadId(09) sqf compiling /addons/main/functions/minefields/fn_spawnTripwirePerimeter.sqf
+2026-01-29T16:16:41.807859Z TRACE ThreadId(08) sqf compiling /addons/main/functions/minefields/fn_startIEDManager.sqf
+2026-01-29T16:16:41.807954Z TRACE ThreadId(14) sqf compiling /addons/main/functions/mutants/fn_spawnBehemothNest.sqf
+2026-01-29T16:16:41.809396Z TRACE ThreadId(10) sqf compiling /addons/main/functions/anomalies/fields/fn_createField_fruitpunch.sqf
+2026-01-29T16:16:41.811493Z TRACE ThreadId(13) sqf compiling /addons/main/functions/core/fn_remoteReturn.sqf
+2026-01-29T16:16:41.816291Z TRACE ThreadId(13) sqf compiling /addons/main/functions/core/fn_initManagers.sqf
+2026-01-29T16:16:41.816308Z TRACE ThreadId(14) sqf compiling /addons/main/functions/stalkers/fn_manageSnipers.sqf
+2026-01-29T16:16:41.817398Z TRACE ThreadId(04) sqf compiling /addons/main/functions/stalkers/fn_startSniperManager.sqf
+2026-01-29T16:16:41.820115Z TRACE ThreadId(08) sqf compiling /addons/main/functions/minefields/fn_registerMinefield.sqf
+2026-01-29T16:16:41.825805Z TRACE ThreadId(03) sqf compiling /addons/main/functions/core/fn_createLocalMarker.sqf
+2026-01-29T16:16:41.826429Z TRACE ThreadId(12) sqf compiling /addons/main/functions/ai/fn_toggleFieldAvoid.sqf
+2026-01-29T16:16:41.832968Z TRACE ThreadId(07) sqf compiling /addons/main/functions/anomalies/fields/fn_createField_gravi.sqf
+2026-01-29T16:16:41.834186Z TRACE ThreadId(04) sqf compiling /addons/main/functions/stalkers/fn_spawnSniper.sqf
+2026-01-29T16:16:41.839448Z TRACE ThreadId(12) sqf compiling /addons/main/functions/antistasi/fn_isAntistasiUltimate.sqf
+2026-01-29T16:16:41.841408Z TRACE ThreadId(06) sqf compiling /addons/main/functions/core/fn_weightedPick.sqf
+2026-01-29T16:16:41.841636Z TRACE ThreadId(08) sqf compiling /addons/main/functions/antistasi/fn_disableWeather.sqf
+2026-01-29T16:16:41.842977Z TRACE ThreadId(11) sqf compiling /addons/main/functions/minefields/fn_manageBoobyTraps.sqf
+2026-01-29T16:16:41.851083Z TRACE ThreadId(03) sqf compiling /addons/main/functions/core/fn_getLandSurfacePosition.sqf
+2026-01-29T16:16:41.851997Z TRACE ThreadId(12) sqf compiling /addons/main/functions/antistasi/fn_startArtefactHunt.sqf
+2026-01-29T16:16:41.853532Z TRACE ThreadId(08) sqf compiling /addons/main/functions/minefields/fn_manageIEDSites.sqf
+2026-01-29T16:16:41.855522Z TRACE ThreadId(09) sqf compiling /addons/main/functions/minefields/fn_spawnBoobyTraps.sqf
+2026-01-29T16:16:41.856094Z TRACE ThreadId(06) sqf compiling /addons/main/functions/core/fn_getRandomRoad.sqf
+2026-01-29T16:16:41.857393Z TRACE ThreadId(03) sqf compiling /addons/main/functions/core/fn_markLandZones.sqf
+2026-01-29T16:16:41.857581Z TRACE ThreadId(14) sqf compiling /addons/main/functions/anomalies/fn_manageAnomalyFields.sqf
+2026-01-29T16:16:41.863008Z TRACE ThreadId(06) sqf compiling /addons/main/functions/core/fn_registerEmissionHooks.sqf
+2026-01-29T16:16:41.864197Z TRACE ThreadId(13) sqf compiling /addons/main/functions/core/fn_findRockClusters.sqf
+2026-01-29T16:16:41.874133Z TRACE ThreadId(10) sqf compiling /addons/main/functions/core/fn_saveCache.sqf
+2026-01-29T16:16:41.876436Z TRACE ThreadId(04) sqf compiling /addons/main/functions/stalkers/fn_spawnStalkerCamps.sqf
+2026-01-29T16:16:41.877986Z TRACE ThreadId(12) sqf compiling /addons/main/functions/antistasi/fn_completeChemSample.sqf
+2026-01-29T16:16:41.885513Z TRACE ThreadId(07) sqf compiling /addons/main/functions/core/fn_regenMapPoints.sqf
+2026-01-29T16:16:41.891280Z TRACE ThreadId(12) sqf compiling /addons/main/functions/antistasi/fn_completeArtefactHunt.sqf
+2026-01-29T16:16:41.892444Z TRACE ThreadId(06) sqf compiling /addons/main/functions/core/fn_findBridges.sqf
+2026-01-29T16:16:41.893952Z TRACE ThreadId(10) sqf compiling /addons/main/functions/core/fn_findHiddenPosition.sqf
+2026-01-29T16:16:41.898459Z TRACE ThreadId(04) sqf compiling /addons/main/functions/stalkers/fn_spawnStalkerCamp.sqf
+2026-01-29T16:16:41.898478Z TRACE ThreadId(03) sqf compiling /addons/main/functions/core/fn_masterInit.sqf
+2026-01-29T16:16:41.898537Z TRACE ThreadId(11) sqf compiling /addons/main/functions/core/fn_createProximityAnchor.sqf
+2026-01-29T16:16:41.898580Z TRACE ThreadId(09) sqf compiling /addons/main/functions/core/fn_getSurfacePosition.sqf
+2026-01-29T16:16:41.902042Z TRACE ThreadId(12) sqf compiling /addons/main/functions/anomalies/fn_deactivateSite.sqf
+2026-01-29T16:16:41.905336Z TRACE ThreadId(11) sqf compiling /addons/main/functions/core/fn_getActiveCellsNearPlayers.sqf
+2026-01-29T16:16:41.913148Z TRACE ThreadId(13) sqf compiling /addons/main/functions/core/fn_findRandomRoadPosition.sqf
+2026-01-29T16:16:41.913568Z TRACE ThreadId(09) sqf compiling /addons/main/functions/core/fn_evalSiteProximity.sqf
+2026-01-29T16:16:41.916005Z TRACE ThreadId(07) sqf compiling /addons/main/functions/anomalies/fn_cleanupAnomalyMarkers.sqf
+2026-01-29T16:16:41.917099Z TRACE ThreadId(05) sqf compiling /addons/main/functions/stalkers/fn_findCampBuilding.sqf
+2026-01-29T16:16:41.922450Z TRACE ThreadId(14) sqf compiling /addons/main/functions/anomalies/fn_onEmissionStart.sqf
+2026-01-29T16:16:41.923551Z TRACE ThreadId(11) sqf compiling /addons/main/functions/core/fn_placeCachedMarkers.sqf
+2026-01-29T16:16:41.925007Z TRACE ThreadId(12) sqf compiling /addons/main/functions/anomalies/fn_activateSite.sqf
+2026-01-29T16:16:41.925735Z TRACE ThreadId(14) sqf compiling /addons/main/functions/anomalies/fn_startAnomalyManager.sqf
+2026-01-29T16:16:41.926300Z TRACE ThreadId(09) sqf compiling /addons/main/functions/core/fn_hasPlayersNearby.sqf
+2026-01-29T16:16:41.926401Z TRACE ThreadId(06) sqf compiling /addons/main/functions/core/fn_debugLog.sqf
+2026-01-29T16:16:41.928016Z TRACE ThreadId(10) sqf compiling /addons/main/functions/core/fn_markBuildingClusters.sqf
+2026-01-29T16:16:41.930392Z TRACE ThreadId(07) sqf compiling /addons/main/functions/anomalies/fn_generateFieldName.sqf
+2026-01-29T16:16:41.931171Z TRACE ThreadId(08) sqf compiling /addons/main/functions/minefields/fn_startMinefieldManager.sqf
+2026-01-29T16:16:41.933062Z TRACE ThreadId(11) sqf compiling /addons/main/functions/anomalies/fn_cycleAnomalyFields.sqf
+2026-01-29T16:16:41.933550Z TRACE ThreadId(13) sqf compiling /addons/main/functions/core/fn_markRockClusters.sqf
+2026-01-29T16:16:41.934509Z TRACE ThreadId(06) sqf compiling /addons/main/functions/anomalies/fn_onEmissionEnd.sqf
+2026-01-29T16:16:41.936328Z TRACE ThreadId(09) sqf compiling /addons/main/functions/anomalies/fn_spawnBridgeAnomalyFields.sqf
+2026-01-29T16:16:41.937707Z TRACE ThreadId(14) sqf compiling /addons/main/functions/anomalies/fn_setupAnomalyFields.sqf
+2026-01-29T16:16:41.938460Z TRACE ThreadId(06) sqf compiling /addons/main/functions/anomalies/fn_onEmissionBuildUp.sqf
+2026-01-29T16:16:41.947102Z TRACE ThreadId(05) sqf compiling /addons/main/functions/stalkers/fn_startCampManager.sqf
+2026-01-29T16:16:42.102998Z  INFO ThreadId(01) Compiled 214 sqf files
+2026-01-29T16:16:42.103154Z TRACE ThreadId(01) phase: pre_build (SQF) (failed)
+2026-01-29T16:16:42.228824Z TRACE ThreadId(01) writing ci annotations to .hemttout/ci_annotations.txt
+2026-01-29T16:16:42.244383Z TRACE ThreadId(01) wrote 141 ci annotations to .hemttout/ci_annotations.txt

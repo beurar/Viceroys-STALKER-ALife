@@ -4,11 +4,14 @@ class CfgPatches
     {
         units[] = {};
         weapons[] = {};
+        requiredVersion = 2.20;
         requiredAddons[] = {
             "A3_Functions_F",
             "CBA_Extended_EventHandlers",
             "cba_main"
         };
+        author = "Viceroy";
+        authorUrl = "https://github.com/beurar/Viceroys-STALKER-ALife";
     };
 };
 
