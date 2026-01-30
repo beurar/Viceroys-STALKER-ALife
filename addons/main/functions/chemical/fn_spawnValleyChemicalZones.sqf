@@ -36,7 +36,7 @@ if (_count < 0) then { _count = ["VSA_chemicalZoneCount", 2] call VIC_fnc_getSet
 private _nightOnly  = ["VSA_chemicalNightOnly", false] call VIC_fnc_getSetting;
 private _zoneRadius = ["VSA_chemicalZoneRadius", 50] call VIC_fnc_getSetting;
 
-if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {
+if (_nightOnly && {dayTime > 5 && dayTime < 20}) exitWith {
     ["spawnValleyChemicalZones: night only"] call VIC_fnc_debugLog;
 };
 

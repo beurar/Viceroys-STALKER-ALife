@@ -14,7 +14,7 @@
 ["spawnSpookZone"] call VIC_fnc_debugLog;
 
 if (isNil "drg_spook_zone_positions") then {
-    [] call compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\spooks\fn_setupSpookZones.sqf";
+    [] call compile preprocessFileLineNumbers "functions\spooks\fn_setupSpookZones.sqf";
 };
 
 if (["VSA_enableSpooks", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
@@ -28,7 +28,7 @@ private _spookConfigs = [
     ["DSA_Abomination","VSA_abominationSpawnWeight","VSA_abominationCount","VSA_abominationTime"]
 ];
 
-if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
+if (_nightOnly && {dayTime > 5 && dayTime < 20}) exitWith {};
 
 if (isNil "drg_activeSpookZones") then { drg_activeSpookZones = []; };
 if (isNil "STALKER_activeSpooks") then { STALKER_activeSpooks = []; };
@@ -39,7 +39,7 @@ for "_i" from 1 to _count do {
     if (isNil {_pos}) then { continue };
 
     private _pool = [];
-    private _isDay = (daytime > 5 && daytime < 20);
+    private _isDay = (dayTime > 5 && dayTime < 20);
     {
         _x params ["_class","_wSetting","_cSetting","_tSetting"];
         private _w = [_wSetting,0] call VIC_fnc_getSetting;
@@ -85,7 +85,7 @@ for "_i" from 1 to _count do {
         params ["_zone","_marker","_range"];
         while {alive _zone} do {
             private _near = [getPosATL _zone, _range] call VIC_fnc_hasPlayersNearby;
-            _marker setMarkerAlpha (if (_near) then {1} else {0.2});
+            _marker setMarkerAlpha ([0.2, 1] select (_near));
             sleep 5;
         };
     };

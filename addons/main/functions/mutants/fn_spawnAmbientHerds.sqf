@@ -21,7 +21,7 @@ private _herdCount = ["VSA_ambientHerdCount", 2] call VIC_fnc_getSetting;
 private _herdSize  = ["VSA_ambientHerdSize", 4]  call VIC_fnc_getSetting;
 private _nightOnly = ["VSA_ambientNightOnly", false] call VIC_fnc_getSetting;
 
-if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {};
+if (_nightOnly && {dayTime > 5 && dayTime < 20}) exitWith {};
 
 for "_i" from 1 to _herdCount do {
     private _pos = [random worldSize, random worldSize, 0];

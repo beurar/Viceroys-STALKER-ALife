@@ -42,7 +42,7 @@ private _bloodsuckerClasses = ["armst_krovosos","armst_krovosos2"];
 private _goliathClasses   = ["WBK_Goliaph_3"];
 private _crusherClasses   = ["WBK_SpecialZombie_Smasher_3"];
 
-private _isNight = !(daytime > 5 && daytime < 20);
+private _isNight = !(dayTime > 5 && dayTime < 20);
 
 private _dayTypes   = ["dog","boar","snork"];
 private _nightTypes = ["chimera","bloodsucker","cat","pseudodog"];

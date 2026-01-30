@@ -51,3 +51,9 @@ parameters = ["-world=empty", "-noPause", "-noPauseAudio", "-limitFPS=60"]
 [version]
 path = "addons/main/script_version.hpp"
 git_hash = 0
+
+[lints.sqf.command_case]
+options.ignore = [
+    "ASLtoAGL",
+    "AGLtoASL",
+]

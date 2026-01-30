@@ -5,7 +5,7 @@
 if (!isServer) exitWith {};
 
 // Ensure core functions are compiled when running script-only
-[] call compile preprocessFileLineNumbers "\Viceroys-STALKER-ALife\functions\core\fn_masterInit.sqf";
+[] call compile preprocessFileLineNumbers "functions/core/fn_masterInit.sqf";
 
 if !( ["VSA_autoInit", false] call VIC_fnc_getSetting ) exitWith {
     ["initServer: auto init disabled"] call VIC_fnc_debugLog;

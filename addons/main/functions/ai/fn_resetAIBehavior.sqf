@@ -15,7 +15,7 @@ params [ ["_units", allUnits select { alive _x && !isPlayer _x }] ];
 // Exit if panic or AI behaviour tweaks are disabled
 if !(missionNamespace getVariable ["VSA_AIPanicEnabled", true]) exitWith {};
 if (["VSA_enableAIBehaviour", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
-if (["VSA_aiNightOnly", false] call VIC_fnc_getSetting && {daytime > 5 && daytime < 20}) exitWith {};
+if (["VSA_aiNightOnly", false] call VIC_fnc_getSetting && {dayTime > 5 && dayTime < 20}) exitWith {};
 
 // Release any groups held during panic
 if (!isNil "STALKER_panicGroups") then {

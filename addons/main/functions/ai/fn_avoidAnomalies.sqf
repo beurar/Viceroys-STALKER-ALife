@@ -14,7 +14,7 @@ if (!isServer) exitWith {
 if (["VSA_enableAIBehaviour", true] call VIC_fnc_getSetting isEqualTo false) exitWith {
     ["fn_avoidAnomalies exit: behaviour disabled"] call VIC_fnc_debugLog;
 };
-if (["VSA_aiNightOnly", false] call VIC_fnc_getSetting && { daytime > 5 && daytime < 20 }) exitWith {
+if (["VSA_aiNightOnly", false] call VIC_fnc_getSetting && { dayTime > 5 && dayTime < 20 }) exitWith {
     ["fn_avoidAnomalies exit: day time"] call VIC_fnc_debugLog;
 };
 if (isNil "STALKER_anomalyFields") exitWith {

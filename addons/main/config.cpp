@@ -12,6 +12,8 @@ class CfgPatches
         };
         author = "Viceroy";
         authorUrl = "https://github.com/beurar/Viceroys-STALKER-ALife";
+        mainprefix = "z";
+        prefix = "viceroy_stalker_alife";
     };
 };
 
@@ -23,7 +25,7 @@ class CfgFunctions
 
         class Core
         {
-            file = "Viceroys-STALKER-ALife\functions\core";
+            file = "main\functions\core";
             class masterInit{};
             class registerEmissionHooks{};
             class getSetting{};
@@ -50,7 +52,7 @@ class CfgFunctions
 
         class AI
         {
-            file = "Viceroys-STALKER-ALife\functions\ai";
+            file = "main\functions\ai";
             class resetAIBehavior{};
             class triggerAIPanic{};
             class avoidAnomalies{};
@@ -60,7 +62,7 @@ class CfgFunctions
 
         class Panic
         {
-            file = "Viceroys-STALKER-ALife\functions\panic";
+            file = "main\functions\panic";
             class onEmissionBuildUp{};
             class onEmissionStart{};
             class onEmissionEnd{};
@@ -68,7 +70,7 @@ class CfgFunctions
 
         class Mutants
         {
-            file = "Viceroys-STALKER-ALife\functions\mutants";
+            file = "main\functions\mutants";
             class spawnAmbientHerds{};
             class spawnMutantGroup{};
             class spawnMutantNest{};
@@ -98,7 +100,7 @@ class CfgFunctions
         };
         class Stalkers
         {
-            file = "Viceroys-STALKER-ALife\functions\stalkers";
+            file = "main\functions\stalkers";
             class spawnAmbientStalkers{};
             class spawnStalkerCamp{};
             class spawnStalkerCamps{};
@@ -115,7 +117,7 @@ class CfgFunctions
 
         class Chemical
         {
-            file = "Viceroys-STALKER-ALife\functions\chemical";
+            file = "main\functions\chemical";
             class cleanupChemicalZones{};
             class spawnChemicalZone{};
             class spawnRandomChemicalZones{};
@@ -127,14 +129,14 @@ class CfgFunctions
 
         class Spooks
         {
-            file = "Viceroys-STALKER-ALife\functions\spooks";
+            file = "main\functions\spooks";
             class setupSpookZones{};
             class spawnSpookZone{};
             class manageSpookZones{};
         };
         class Minefields
         {
-            file = "Viceroys-STALKER-ALife\functions\minefields";
+            file = "main\functions\minefields";
             class spawnMinefields{};
             class spawnAPERSField{};
             class spawnIED{};
@@ -151,7 +153,7 @@ class CfgFunctions
         };
         class Wrecks
         {
-            file = "Viceroys-STALKER-ALife\functions\wrecks";
+            file = "main\functions\wrecks";
             class spawnAbandonedVehicles{};
             class findWrecks{};
             class manageWrecks{};
@@ -159,14 +161,14 @@ class CfgFunctions
 
         class Ambushes
         {
-            file = "Viceroys-STALKER-ALife\functions\ambushes";
+            file = "main\functions\ambushes";
             class spawnAmbushes{};
             class manageAmbushes{};
             class startAmbushManager{};
         };
         class Blowouts
         {
-            file = "Viceroys-STALKER-ALife\functions\blowouts";
+            file = "main\functions\blowouts";
             class scheduleBlowouts{};
             class triggerBlowout{};
             class placeTownSirens{};
@@ -174,28 +176,28 @@ class CfgFunctions
 
         class Storms
         {
-            file = "Viceroys-STALKER-ALife\functions\storms";
+            file = "main\functions\storms";
             class schedulePsyStorms{};
             class triggerPsyStorm{};
         };
 
         class Zombification
         {
-            file = "Viceroys-STALKER-ALife\functions\zombification";
+            file = "main\functions\zombification";
             class spawnZombiesFromQueue{};
             class trackDeadForZombify{};
             class onEmissionEnd{};
         };
         class Necroplague
         {
-            file = "Viceroys-STALKER-ALife\functions\necroplague";
+            file = "main\functions\necroplague";
             class triggerNecroplague{};
             class scheduleNecroplague{};
         };
 
         class Anomalies
         {
-            file = "Viceroys-STALKER-ALife\functions\anomalies";
+            file = "main\functions\anomalies";
             class spawnAllAnomalyFields{};
             class spawnBridgeAnomalyFields{};
             class cleanupAnomalyMarkers{};
@@ -210,7 +212,7 @@ class CfgFunctions
 
         class AnomalyFields
         {
-            file = "Viceroys-STALKER-ALife\functions\anomalies\fields";
+            file = "main\functions\anomalies\fields";
             class createField_burner{};
             class createField_clicker{};
             class createField_electra{};
@@ -229,7 +231,7 @@ class CfgFunctions
 
         class AnomalyFindSites
         {
-            file = "Viceroys-STALKER-ALife\functions\anomalies\find_sites";
+            file = "main\functions\anomalies\find_sites";
             class findSite_burner{};
             class findSite_clicker{};
             class findSite_electra{};
@@ -248,7 +250,7 @@ class CfgFunctions
 
         class Antistasi
         {
-            file = "Viceroys-STALKER-ALife\functions\antistasi";
+            file = "main\functions\antistasi";
             class isAntistasiUltimate{};
             class startMutantHunt{};
             class startArtefactHunt{};
@@ -322,7 +324,7 @@ class Extended_PreInit_EventHandlers
 {
     class VIC_StalkerALife_PreInit
     {
-        init = "call compile preprocessFileLineNumbers 'Viceroys-STALKER-ALife\functions\core\fn_masterInit.sqf'";
+        init = "call compile preprocessFileLineNumbers 'main\functions\core\fn_masterInit.sqf'";
     };
 };
 
@@ -330,6 +332,6 @@ class Extended_PostInit_EventHandlers
 {
     class VIC_StalkerALife_PostInit
     {
-        init = "call compile preprocessFileLineNumbers 'Viceroys-STALKER-ALife\initServer.sqf'";
+        init = "call compile preprocessFileLineNumbers 'initServer.sqf'";
     };
 };

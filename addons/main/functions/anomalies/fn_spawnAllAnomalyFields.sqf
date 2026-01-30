@@ -30,7 +30,7 @@ private _spawnWeight = ["VSA_anomalySpawnWeight", 50] call VIC_fnc_getSetting;
 private _stableChance  = ["VSA_stableFieldChance", 50] call VIC_fnc_getSetting;
 private _nightOnly   = ["VSA_anomalyNightOnly", false] call VIC_fnc_getSetting;
 
-if (_nightOnly && {daytime > 5 && daytime < 20}) exitWith {
+if (_nightOnly && {dayTime > 5 && dayTime < 20}) exitWith {
     ["spawnAllAnomalyFields: night only"] call VIC_fnc_debugLog;
 };
 

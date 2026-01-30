@@ -6,7 +6,7 @@ params ["_unit"];
 
 // respect CBA settings
 if (["VSA_enableZombification", true] call VIC_fnc_getSetting isEqualTo false) exitWith {};
-if (["VSA_zombiesNightOnly", false] call VIC_fnc_getSetting && {daytime > 5 && daytime < 20}) exitWith {};
+if (["VSA_zombiesNightOnly", false] call VIC_fnc_getSetting && {dayTime > 5 && dayTime < 20}) exitWith {};
 
 // only track during an active emission
 if !(missionNamespace getVariable ["emission_active", false]) exitWith {};
